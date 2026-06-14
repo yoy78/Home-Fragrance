@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parfum Atelier ✦ Home Fragrance</title>
+<style>
+  :root{--bg:#0e0e0f;--bg2:#161618;--bg3:#1e1e21;--border:#2a2a2e;--gold:#c9a84c;--gold2:#e8c97a;--text:#e8e6e0;--text2:#9a9690;--text3:#6a6660;--green:#4caf7d;--red:#e05555;--blue:#5b8dee;--sw:220px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,serif;display:flex;min-height:100vh}
+  #sidebar{width:var(--sw);background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:100}
+  .logo{padding:24px 20px 16px;border-bottom:1px solid var(--border);font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+  .logo span{display:block;font-size:9px;color:var(--text3);letter-spacing:2px;margin-top:3px}
+  .ns{padding:12px 0}
+  .nl{font-size:9px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;padding:4px 20px 8px}
+  .ni{display:flex;align-items:center;gap:10px;padding:9px 20px;font-size:13px;color:var(--text2);cursor:pointer;transition:all .15s;border-left:2px solid transparent}
+  .ni:hover{color:var(--text);background:var(--bg3)}
+  .ni.active{color:var(--gold);border-left-color:var(--gold);background:rgba(201,168,76,.06)}
+  .ni .ic{font-size:15px;width:18px;text-align:center}
+  .dr{margin-top:auto;padding:16px 20px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);cursor:pointer}
+  .dr:hover{color:var(--gold)}
+  .dd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--text3);margin-right:7px;vertical-align:middle;transition:background .3s}
+  .dd.on{background:var(--green)}
+  .dd.ing{animation:pd 1s infinite}
+  @keyframes pd{0%,100%{opacity:1}50%{opacity:.3}}
+  #main{margin-left:var(--sw);flex:1}
+  .pg{display:none;padding:32px 36px;max-width:960px}
+  .pg.active{display:block}
+  .pt{font-size:22px;color:var(--gold);margin-bottom:4px}
+  .ps{font-size:12px;color:var(--text3);letter-spacing:1px;margin-bottom:28px}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:16px}
+  .ct{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);border-radius:6px;font-size:12px;cursor:pointer;background:var(--bg3);color:var(--text2);transition:all .15s;font-family:inherit}
+  .btn:hover{border-color:var(--gold);color:var(--gold)}
+  .bg{background:var(--gold);color:#0e0e0f;border-color:var(--gold);font-weight:bold}
+  .bg:hover{background:var(--gold2);color:#0e0e0f}
+  .bs{padding:5px 10px;font-size:11px}
+  .bd{border-color:#3a1f1f;color:var(--red)}
+  .bd:hover{background:rgba(224,85,85,.1);border-color:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:8px 12px;font-size:10px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);font-weight:normal}
+  td{padding:9px 12px;border-bottom:1px solid rgba(42,42,46,.5)}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  input[type=text],input[type=number],select{background:var(--bg3);border:1px solid var(--border);border-radius:4px;color:var(--text);padding:5px 8px;font-size:13px;width:100%;font-family:inherit;transition:border-color .15s}
+  input:focus,select:focus{outline:none;border-color:var(--gold)}
+  .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px}
+  .bf{background:rgba(201,168,76,.15);color:var(--gold)}
+  .bc{background:rgba(91,141,238,.15);color:var(--blue)}
+  .bt{background:rgba(76,175,125,.15);color:var(--green)}
+  .bok{background:rgba(76,175,125,.1);color:var(--green)}
+  .bw{background:rgba(224,85,85,.1);color:var(--red)}
+  .fsum{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+  .sb{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;text-align:center}
+  .sb .v{font-size:22px;color:var(--gold);font-family:'Courier New',monospace}
+  .sb .l{font-size:10px;color:var(--text3);letter-spacing:1px;margin-top:3px}
+  .cg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+  .cb{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:14px 16px}
+  .cb label{font-size:10px;color:var(--text3);letter-spacing:1px;display:block;margin-bottom:6px}
+  .cb .cv{font-size:24px;color:var(--gold2);font-family:'Courier New',monospace}
+  .rt{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+  .rtb{padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:12px;cursor:pointer;color:var(--text2);background:var(--bg2);transition:all .15s}
+  .rtb.active,.rtb:hover{border-color:var(--gold);color:var(--gold)}
+  .sl{list-style:none;counter-reset:s}
+  .sl li{counter-increment:s;display:flex;gap:12px;margin-bottom:12px;font-size:13px}
+  .sl li::before{content:counter(s);background:var(--gold);color:#0e0e0f;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;flex-shrink:0;margin-top:1px}
+  .mr{display:flex;margin:12px 0}
+  .mc{flex:1;text-align:center;padding:8px 4px;font-size:11px;border:1px solid var(--border)}
+  .mc.ad{background:rgba(201,168,76,.15);border-color:var(--gold)}
+  .mc .md{color:var(--gold);font-weight:bold;font-size:12px}
+  .mc .mn{color:var(--text3);font-size:10px;margin-top:3px}
+  .fb{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+  .fbt{padding:5px 12px;border:1px solid var(--border);border-radius:20px;font-size:11px;cursor:pointer;color:var(--text3);background:var(--bg2);transition:all .15s}
+  .fbt.active{border-color:var(--gold);color:var(--gold)}
+  .sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+  .sc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px;transition:border-color .15s}
+  .sc:hover{border-color:var(--gold)}
+  .sn{font-size:15px;color:var(--gold2);margin-bottom:4px}
+  .slt{font-size:10px;color:var(--text3);font-style:italic;margin-bottom:8px}
+  .sd{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:10px}
+  .sf{font-size:11px;color:var(--text3);margin-bottom:8px}
+  .sf span{color:var(--text2)}
+  .sm{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
+  .spg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .spc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:18px}
+  .spn{font-size:15px;color:var(--gold2);margin-bottom:4px}
+  .spd{font-size:12px;color:var(--text2);margin:8px 0;line-height:1.5}
+  .spa{font-size:12px;color:var(--blue);text-decoration:none}
+  .spa:hover{color:var(--gold)}
+  .spt{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .tag{font-size:10px;padding:2px 8px;border-radius:20px;border:1px solid var(--border);color:var(--text3)}
+  .bg2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+  .bca{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:18px}
+  .bna{font-size:14px;color:var(--gold2);margin-bottom:2px}
+  .bh{font-size:10px;color:var(--text3);letter-spacing:1px;margin-bottom:8px}
+  .bda{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:8px}
+  .scb{height:3px;background:var(--bg3);border-radius:2px;margin-top:8px}
+  .scf{height:100%;background:var(--gold);border-radius:2px}
+  #ds{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;display:none;align-items:center;justify-content:center}
+  #ds.open{display:flex}
+  .dbox{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:36px;width:480px;max-width:95vw}
+  .dtit{font-size:18px;color:var(--gold);margin-bottom:8px}
+  .dsub{font-size:12px;color:var(--text3);margin-bottom:24px;line-height:1.6}
+  .dlbl{font-size:11px;color:var(--text3);letter-spacing:1px;margin-bottom:6px;display:block}
+  .dact{display:flex;gap:10px;margin-top:20px}
+  #chb{position:fixed;bottom:24px;right:24px;width:48px;height:48px;background:var(--gold);border-radius:50%;cursor:pointer;z-index:150;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 20px rgba(201,168,76,.4);transition:transform .2s}
+  #chb:hover{transform:scale(1.1)}
+  #chp{position:fixed;bottom:84px;right:24px;width:340px;max-height:460px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:none;flex-direction:column;z-index:150;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+  #chp.open{display:flex}
+  .chh{padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--gold);display:flex;justify-content:space-between;align-items:center}
+  .chc{cursor:pointer;color:var(--text3);font-size:16px}
+  .chc:hover{color:var(--text)}
+  #chm{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+  .msg{padding:8px 12px;border-radius:8px;font-size:12px;line-height:1.5;max-width:90%}
+  .msg.u{background:rgba(201,168,76,.12);color:var(--text);align-self:flex-end}
+  .msg.b{background:var(--bg3);color:var(--text2);align-self:flex-start}
+  #chs{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px}
+  .css{font-size:10px;padding:4px 10px;border:1px solid var(--border);border-radius:20px;cursor:pointer;color:var(--text3);transition:all .15s}
+  .css:hover{border-color:var(--gold);color:var(--gold)}
+  .chi{padding:10px 12px;border-top:1px solid var(--border);display:flex;gap:8px}
+  #cin{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;color:var(--text);font-size:12px;font-family:inherit}
+  #cin:focus{outline:none;border-color:var(--gold)}
+  .csb{background:var(--gold);border:none;border-radius:6px;padding:6px 10px;cursor:pointer;color:#0e0e0f;font-size:14px}
+  #wl{position:fixed;inset:0;background:var(--bg);z-index:300;display:flex;align-items:center;justify-content:center}
+  .wb{text-align:center;max-width:420px}
+  .wl{font-size:36px;color:var(--gold);letter-spacing:4px;margin-bottom:8px}
+  .ws{font-size:12px;color:var(--text3);letter-spacing:2px;margin-bottom:36px}
+  .wa{display:flex;flex-direction:column;gap:12px}
+  .wm{padding:14px 28px;background:var(--gold);color:#0e0e0f;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:Georgia,serif;letter-spacing:1px}
+  .wm:hover{background:var(--gold2)}
+  .wss{padding:10px 20px;background:transparent;color:var(--text3);border:1px solid var(--border);border-radius:8px;font-size:13px;cursor:pointer;font-family:Georgia,serif}
+  .wss:hover{border-color:var(--gold);color:var(--gold)}
+  .sep{height:1px;background:var(--border);margin:20px 0}
+  .tm{color:var(--text3);font-size:12px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{color:var(--gold)}
+  ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+</style>
+</head>
+<body>
+
+<div id="wl">
+  <div class="wb">
+    <div class="wl">✦ PARFUM<br>ATELIER</div>
+    <div class="ws">HOME FRAGRANCE · FORMULATIONS BOISÉES</div>
+    <div class="wa">
+      <button class="wm" onclick="startLocal()">✦ Démarrer maintenant</button>
+      <button class="wss" onclick="showDS()">☁ Connecter Google Drive</button>
+    </div>
+  </div>
+</div>
+
+<div id="ds">
+  <div class="dbox">
+    <div class="dtit">☁ Google Drive</div>
+    <div class="dsub">Synchronisez vos formules sur Google Drive. Entrez votre Client ID OAuth 2.0.<br><br><strong style="color:var(--text2)">Sans Client ID ?</strong> Cliquez "Mode local".</div>
+    <label class="dlbl">GOOGLE OAUTH CLIENT ID</label>
+    <input type="text" id="dcid" placeholder="123456789-xxx.apps.googleusercontent.com">
+    <div class="dact">
+      <button class="btn bg" onclick="connectDrive()">Connecter</button>
+      <button class="btn" onclick="skipDrive()">Mode local</button>
+    </div>
+  </div>
+</div>
+
+<nav id="sidebar">
+  <div class="logo">✦ Parfum<br><span>atelier</span></div>
+  <div class="ns">
+    <div class="nl">Création</div>
+    <div class="ni active" onclick="showPage('atelier')"><span class="ic">⚗</span> Atelier</div>
+    <div class="ni" onclick="showPage('conv')"><span class="ic">⚖</span> Convertisseur</div>
+    <div class="ni" onclick="showPage('rec')"><span class="ic">📜</span> Recettes Guidées</div>
+  </div>
+  <div class="ns">
+    <div class="nl">Référence</div>
+    <div class="ni" onclick="showPage('bib')"><span class="ic">📚</span> Bibliothèque</div>
+    <div class="ni" onclick="showPage('four')"><span class="ic">🛒</span> Fournisseurs</div>
+    <div class="ni" onclick="showPage('mkt')"><span class="ic">🔍</span> Veille Marché</div>
+  </div>
+  <div class="dr" onclick="handleDriveAction()">
+    <span class="dd" id="ddot"></span>
+    <span id="dlbl">Non connecté · Google Drive</span>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="pg active" id="page-atelier">
+  <div class="pt">⚗ Atelier</div>
+  <div class="ps">FORMULATEUR · VOLUME CIBLE 5 ML</div>
+  <div class="fsum">
+    <div class="sb"><div class="v" id="st">5.000</div><div class="l">GRAMMES TOTAL</div></div>
+    <div class="sb"><div class="v" id="sp">0.0</div><div class="l">% HE</div></div>
+    <div class="sb"><div class="v" id="sd">0</div><div class="l">GOUTTES HE</div></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div class="ct">Formule en cours</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn bs" onclick="addIng()">+ Ingrédient</button>
+        <button class="btn bs bg" onclick="saveF()">💾 Sauvegarder</button>
+        <button class="btn bs" onclick="clearF()">🗑 Effacer</button>
+      </div>
+    </div>
+    <table><thead><tr><th>Ingrédient</th><th>%</th><th>Grammes</th><th>Gouttes ≈</th><th>Note</th><th></th></tr></thead>
+    <tbody id="fb"></tbody></table>
+  </div>
+  <div class="card">
+    <div class="ct">Formules sauvegardées</div>
+    <div id="sl"><div class="tm">Aucune formule sauvegardée.</div></div>
+  </div>
+</section>
+
+<section class="pg" id="page-conv">
+  <div class="pt">⚖ Convertisseur</div>
+  <div class="ps">GOUTTES · ML · GRAMMES PAR INGRÉDIENT</div>
+  <div class="card">
+    <div class="ct">Conversion</div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px">
+      <div style="flex:1;min-width:150px">
+        <label class="dlbl">Ingrédient</label>
+        <select id="ci" onchange="updC()">
+          <option value="0.930">Patchouli (0.930)</option>
+          <option value="0.990">Vétiver (0.990)</option>
+          <option value="0.940">Cèdre Atlas (0.940)</option>
+          <option value="0.940">Cèdre Virginie (0.940)</option>
+          <option value="0.880">Encens (0.880)</option>
+          <option value="0.870">Myrrhe (0.870)</option>
+          <option value="0.940">Santal (0.940)</option>
+          <option value="0.870">Galbanum (0.870)</option>
+          <option value="0.860">Cardamome (0.860)</option>
+          <option value="0.870">Gingembre (0.870)</option>
+          <option value="0.850">Poivre Noir (0.850)</option>
+          <option value="0.870">Genévrier (0.870)</option>
+          <option value="0.860">Petitgrain (0.860)</option>
+          <option value="0.900">Romarin (0.900)</option>
+          <option value="0.789" selected>Alcool (0.789)</option>
+          <option value="1.000">Eau (1.000)</option>
+        </select>
+      </div>
+      <div style="flex:1;min-width:120px"><label class="dlbl">Valeur</label><input type="number" id="cv2" value="1" step="0.001" oninput="updC()"></div>
+      <div style="flex:1;min-width:120px"><label class="dlbl">Unité</label><select id="cu" onchange="updC()"><option value="ml">ml</option><option value="g">grammes</option><option value="d">gouttes</option></select></div>
+    </div>
+    <div class="cg">
+      <div class="cb"><label>MILLILITRES</label><div class="cv" id="cml">—</div></div>
+      <div class="cb"><label>GRAMMES</label><div class="cv" id="cg">—</div></div>
+      <div class="cb"><label>GOUTTES ≈</label><div class="cv" id="cd">—</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct">Référence 5 ml</div>
+    <table><thead><tr><th>% HE</th><th>ml HE</th><th>g HE</th><th>Gouttes</th><th>Alcool (g)</th><th>Eau (g)</th></tr></thead>
+    <tbody id="rt"></tbody></table>
+  </div>
+  <div class="card">
+    <div class="ct">Densités</div>
+    <table><thead><tr><th>Matière</th><th>g/ml</th><th>Gouttes/ml</th><th>1 g =</th></tr></thead>
+    <tbody>
+      <tr><td>Patchouli</td><td>0.930</td><td>~20</td><td>1.075 ml · 21 gttes</td></tr>
+      <tr><td>Vétiver</td><td>0.990</td><td>~18</td><td>1.010 ml · 18 gttes</td></tr>
+      <tr><td>Santal</td><td>0.940</td><td>~20</td><td>1.064 ml · 21 gttes</td></tr>
+      <tr><td>Encens</td><td>0.880</td><td>~22</td><td>1.136 ml · 25 gttes</td></tr>
+      <tr><td>Alcool</td><td>0.789</td><td>—</td><td>1.267 ml</td></tr>
+      <tr><td>Eau</td><td>1.000</td><td>—</td><td>1.000 ml</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section class="pg" id="page-rec">
+  <div class="pt">📜 Recettes Guidées</div>
+  <div class="ps">5 FORMULATIONS PATCHOULI · POIDS CIBLE 5.000 G</div>
+  <div class="rt" id="rtabs">
+    <div class="rtb active" onclick="showR(0,this)">Terre Noire</div>
+    <div class="rtb" onclick="showR(1,this)">Brume Sacrée</div>
+    <div class="rtb" onclick="showR(2,this)">Épices de Nuit</div>
+    <div class="rtb" onclick="showR(3,this)">Pierre Mouillée</div>
+    <div class="rtb" onclick="showR(4,this)">Boisé Fumé</div>
+  </div>
+  <div id="rc"></div>
+</section>
+
+<section class="pg" id="page-bib">
+  <div class="pt">📚 Bibliothèque des Senteurs</div>
+  <div class="ps">16 MATIÈRES PREMIÈRES · PROFILS OLFACTIFS COMPLETS</div>
+  <div class="fb">
+    <button class="fbt active" onclick="filtS('all',this)">Toutes</button>
+    <button class="fbt" onclick="filtS('fond',this)">♟ Fond</button>
+    <button class="fbt" onclick="filtS('coeur',this)">♣ Cœur</button>
+    <button class="fbt" onclick="filtS('tete',this)">♠ Tête</button>
+    <button class="fbt" onclick="filtS('as',this)">✓ Anti-sucré</button>
+  </div>
+  <div class="sg" id="sgrid"></div>
+</section>
+
+<section class="pg" id="page-four">
+  <div class="pt">🛒 Fournisseurs HE</div>
+  <div class="ps">SOURCES RÉFÉRENCÉES · HUILES ESSENTIELLES DE QUALITÉ</div>
+  <div class="spg" id="spgrid"></div>
+</section>
+
+<section class="pg" id="page-mkt">
+  <div class="pt">🔍 Veille Marché</div>
+  <div class="ps">RÉFÉRENCES PREMIUM · PARFUMS D'AMBIANCE BOISÉS</div>
+  <div class="card" style="margin-bottom:24px"><div class="ct">Diptyque Paris</div><div class="bg2" id="bd"></div></div>
+  <div class="card"><div class="ct">Dr. Vranjes Firenze</div><div class="bg2" id="bv"></div></div>
+</section>
+
+</main>
+
+<div id="chb" onclick="togChat()">🌿</div>
+<div id="chp">
+  <div class="chh">✦ Coach Parfum<span class="chc" onclick="togChat()">✕</span></div>
+  <div id="chm"></div>
+  <div id="chs"></div>
+  <div class="chi">
+    <input type="text" id="cin" placeholder="Une question sur vos formules…" onkeydown="if(event.key==='Enter')sendC()">
+    <button class="csb" onclick="sendC()">➤</button>
+  </div>
+</div>
+
+<script>
+const DEN={Patchouli:0.930,Vetiver:0.990,Santal:0.940,'Cedre Atlas':0.940,'Cedre Virginie':0.940,Encens:0.880,Myrrhe:0.870,Galbanum:0.870,Cardamome:0.860,Gingembre:0.870,'Poivre Noir':0.850,Genevrier:0.870,Petitgrain:0.860,Romarin:0.900,Alcool:0.789,Eau:1.000};
+function dg(g,n){const d=DEN[n]||0.9;return Math.round((g/d)*20);}
+
+const RCP=[
+  {n:'Terre Noire',e:'🌑',d:'Accord terreux profond, fumé et minéral.',
+   i:[{n:'Patchouli',g:0.250,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-patchouli'},{n:'Vétiver',g:0.180,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-vetiver'},{n:'Cèdre Atlas',g:0.120,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-cedre-atlas'},{n:'Poivre Noir',g:0.050,t:'Coeur',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-poivre-noir'},{n:'Alcool',g:2.870,t:'Base'},{n:'Eau',g:1.530,t:'Base'}],
+   s:['Pesez chaque HE sur balance de précision (0.001g).','Versez alcool 96° dans flacon propre et sec.','Ajoutez Patchouli, rotation douce. Ne secouez pas.','Ajoutez Vétiver — accord terreux immédiat.','Ajoutez Cèdre Atlas, puis Poivre Noir en dernier.','Ajoutez eau distillée goutte à goutte.','Fermez, étiquetez avec la date. 48h avant premier test.','J+7: touche. J+14: peau. J+30: mature.'],
+   m:[{d:'J+0',n:'Création'},{d:'J+2',n:'1er olfactif'},{d:'J+7',n:'Touche'},{d:'J+14',n:'Peau'},{d:'J+21',n:'Ajustement'},{d:'J+30',n:'Mature ✓'}]},
+  {n:'Brume Sacrée',e:'🕌',d:'Triade de résines millénaires. Patchouli, encens, myrrhe. Accord méditation.',
+   i:[{n:'Patchouli',g:0.200,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-patchouli'},{n:'Encens',g:0.090,t:'Coeur',u:'https://www.oshadhi.eu/'},{n:'Myrrhe',g:0.027,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-myrrhe'},{n:'Petitgrain',g:0.050,t:'Tete',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-petitgrain'},{n:'Alcool',g:2.905,t:'Base'},{n:'Eau',g:1.728,t:'Base'}],
+   s:['Peser Myrrhe en premier — dense, un surplus domine.','Alcool dans flacon, puis Patchouli.','Ajouter Encens — noter la note citronnée.','Ajouter Myrrhe avec précision (0.027g est délibéré).','Finir par Petitgrain pour la légèreté de tête.','Eau doucement. Léger trouble normal.','Laisser reposer 24h avant fermeture définitive.','Gagne enormément avec le temps — testez à J+30.'],
+   m:[{d:'J+0',n:'Création'},{d:'J+1',n:'Repos'},{d:'J+7',n:'Touche'},{d:'J+14',n:'Peau'},{d:'J+21',n:'Contrôle'},{d:'J+30',n:'Mature ✓'}]},
+  {n:'Épices de Nuit',e:'🌶',d:'Patchouli + épices chaudes. Cardamome, gingembre, poivre, cèdre.',
+   i:[{n:'Patchouli',g:0.200,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-patchouli'},{n:'Cardamome',g:0.060,t:'Coeur',u:'https://www.oshadhi.eu/'},{n:'Gingembre',g:0.040,t:'Tete',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-gingembre'},{n:'Poivre Noir',g:0.035,t:'Coeur',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-poivre-noir'},{n:'Cèdre Atlas',g:0.090,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-cedre-atlas'},{n:'Alcool',g:2.857,t:'Base'},{n:'Eau',g:1.718,t:'Base'}],
+   s:['Peser Cardamome, Gingembre, Poivre Noir séparément.','HE épicées volatiles — travailler vite.','Alcool + Patchouli en base.','Ajouter Cèdre Atlas (charpente boisée).','Ajouter Poivre Noir, puis Cardamome.','Finir par Gingembre (note de tête, ajouté en dernier).','Eau en dernier. Fermer et étiqueter.','Les épices sadoucissent à J+14 — ne pas juger à J+0.'],
+   m:[{d:'J+0',n:'Création'},{d:'J+3',n:'1er test'},{d:'J+7',n:'Évolution'},{d:'J+14',n:'Douceur'},{d:'J+21',n:'Équilibre'},{d:'J+30',n:'Mature ✓'}]},
+  {n:'Pierre Mouillée',e:'🪨',d:'Accord pétrichor. Galbanum vert-minéral, genévrier, cèdres.',
+   i:[{n:'Patchouli',g:0.180,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-patchouli'},{n:'Galbanum',g:0.070,t:'Tete',u:'https://www.mysticmoments.co.uk/essential-oils'},{n:'Cèdre Virginie',g:0.100,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-cedre-virginie'},{n:'Genévrier',g:0.050,t:'Coeur',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-genevrier'},{n:'Alcool',g:2.870,t:'Base'},{n:'Eau',g:1.730,t:'Base'}],
+   s:['Galbanum = clé. Dose critique.','Alcool + Patchouli + Cèdre Virginie.','Ajouter Genévrier (accord boisé-forestier).','Galbanum avec précision — note verte et minérale.','Agiter doucement. Doit évoquer forêt après pluie.','Eau très lentement (émulsion possible).','Convient particulièrement aux diffuseurs.','Maturation optimale J+21 à J+30.'],
+   m:[{d:'J+0',n:'Création'},{d:'J+3',n:'Frais'},{d:'J+7',n:'Pluie'},{d:'J+14',n:'Minéral'},{d:'J+21',n:'Équilibre'},{d:'J+30',n:'Mature ✓'}]},
+  {n:'Boisé Fumé',e:'🪵',d:'Santal lacté, encens fumé, patchouli. Romarin en tête.',
+   i:[{n:'Patchouli',g:0.200,t:'Fond',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-patchouli'},{n:'Santal',g:0.150,t:'Fond',u:'https://www.oshadhi.eu/'},{n:'Encens',g:0.070,t:'Coeur',u:'https://www.oshadhi.eu/'},{n:'Romarin',g:0.030,t:'Tete',u:'https://www.aroma-zone.com/info/fiche-technique/huile-essentielle-romarin'},{n:'Alcool',g:2.862,t:'Base'},{n:'Eau',g:1.688,t:'Base'}],
+   s:['Santal précieux — peser avec soin.','Alcool + Patchouli. Base terreuse posée.','Santal — onctuosité laiteuse.','Encens. Les trois fondants forment le coeur.','Romarin en dernier — quelques gouttes seulement.','Eau distillée, mélange doux.','Formule la plus accessible, plaît au plus grand nombre.','Pour diffuseur : diluer à 3% dans eau.'],
+   m:[{d:'J+0',n:'Création'},{d:'J+2',n:'Repos'},{d:'J+7',n:'Boisé'},{d:'J+14',n:'Fondu'},{d:'J+21',n:'Doux'},{d:'J+30',n:'Mature ✓'}]}
+];
+
+const SCT=[
+  {n:'Patchouli',l:'Pogostemon cablin',nt:'fond',as:true,d:'La matière reine. Terreux, boisé chaud, camphré-doux. Mûrit avec le temps — une bouteille ouverte depuis 6 mois est plus douce.',f:'Tête: camphré | Coeur: terreux, boisé | Fond: musqué',dos:'3–8% (0.150–0.400g)',acc:'Vétiver · Santal · Cèdre · Encens · Myrrhe',an:'Utilisé depuis des siècles pour protéger les tissus. L\'odeur "vieux hippie" = oxydation naturelle.',rec:['Terre Noire','Brume Sacrée','Épices de Nuit','Pierre Mouillée','Boisé Fumé']},
+  {n:'Vétiver',l:'Chrysopogon zizanioides',nt:'fond',as:true,d:'Terreux, fumé, racinaire. L\'odeur de la terre humide, des sous-bois en automne. Froid là où le patchouli est chaud.',f:'Tête: terreux sec | Coeur: fumé, animal | Fond: racines, minéral',dos:'2–5% (0.100–0.250g)',acc:'Patchouli · Santal · Ambre · Cèdre',an:'Haïti = plus fumé (Bourbon). Java = plus doux.',rec:['Terre Noire']},
+  {n:'Santal',l:'Santalum album / spicatum',nt:'fond',as:true,d:'Crémeux, lacté, légèrement sucré naturel. Excellent fixateur.',f:'Tête: léger, lacté | Coeur: crémeux, boisé doux | Fond: musqué',dos:'2–5% (0.100–0.250g)',acc:'Patchouli · Rose · Encens · Vétiver',an:'Le Santal blanc de Mysore est l\'un des parfums les plus anciens du monde.',rec:['Boisé Fumé']},
+  {n:'Benjoin',l:'Styrax benzoin',nt:'fond',as:false,d:'Vanillé, balsamique, chaud. Peut virer sucré si dosé trop haut.',f:'Tête: caramel | Coeur: vanillé, balsamique | Fond: chaud',dos:'1–3% (0.050–0.150g) — attention sucré',acc:'Patchouli · Santal · Muscs · Tonka',an:'Résine extraite par incision du Styrax benzoin. Fixateur naturel.',rec:[]},
+  {n:'Oud',l:'Aquilaria spp.',nt:'fond',as:true,d:'Boisé sombre, animal, cuiré. Une des matières les plus précieuses. Une goutte transforme une formule.',f:'Tête: cuiré | Coeur: boisé, animal | Fond: fumé, résineux',dos:'0.5–1.5% (0.025–0.075g)',acc:'Rose · Santal · Ambre · Patchouli',an:'Résine d\'un arbre infecté par un champignon. L\'arbre répond en produisant cette résine inestimable.',rec:[]},
+  {n:'Encens',l:'Boswellia sacra / carterii',nt:'coeur',as:true,d:'Résineuse, sacrée, légèrement citronnée à l\'ouverture. Plus clair et aérien que l\'encens brûlé.',f:'Tête: citronné | Coeur: résineuse, balsamique | Fond: boisé-fumé',dos:'1–3% (0.050–0.150g)',acc:'Patchouli · Myrrhe · Santal · Cèdre',an:'Boswellia sacra d\'Oman = la plus noble. Larmes de résine récoltées par incision.',rec:['Brume Sacrée','Boisé Fumé']},
+  {n:'Myrrhe',l:'Commiphora myrrha',nt:'fond',as:true,d:'Résineuse amère, dense, chaude, légèrement animale. Grande soeur sombre de l\'encens. À doser très bas.',f:'Tête: camphrée | Coeur: doux-amer | Fond: animal, persistant',dos:'0.3–0.8% (0.015–0.040g) — dose critique',acc:'Encens · Patchouli · Santal · Cèdre',an:'Avec or et encens, l\'un des trois cadeaux bibliques. Utilisée pour l\'embaumement en Égypte ancienne.',rec:['Brume Sacrée']},
+  {n:'Cèdre Atlas',l:'Cedrus atlantica',nt:'fond',as:true,d:'Boisé sec, crayeux, légèrement résineuse. Excellent fixateur et structurant de fond.',f:'Tête: boisé sec | Coeur: crayeux | Fond: boisé chaud',dos:'2–5% (0.100–0.250g)',acc:'Vétiver · Patchouli · Bergamote · Santal',an:'Atlas marocain = le plus recherché. HE extraite du bois par distillation vapeur.',rec:['Terre Noire','Épices de Nuit']},
+  {n:'Cèdre Virginie',l:'Juniperus virginiana',nt:'fond',as:true,d:'Plus sec que l\'Atlas. Notes de pin, forêt nordique, crayon de bois.',f:'Tête: crayon de bois | Coeur: pin sec | Fond: boisé persistant',dos:'2–4% (0.100–0.200g)',acc:'Patchouli · Galbanum · Genévrier · Vétiver',an:'Techniquement un genévrier. Bois utilisé pour les boîtes à cigares.',rec:['Pierre Mouillée']},
+  {n:'Galbanum',l:'Ferula galbaniflua',nt:'tete',as:true,d:'Vert intense, presque peinture fraîche, avec une facette pierreuse-minérale unique. L\'accord pétrichor.',f:'Tête: vert intense, peinture | Coeur: minéral | Fond: résineuse légère',dos:'0.8–2% (0.040–0.100g) — puissant',acc:'Cèdre Virginie · Patchouli · Genévrier',an:'L\'une des résines les plus anciennes — mentionnée dans l\'Exode.',rec:['Pierre Mouillée']},
+  {n:'Poivre Noir',l:'Piper nigrum',nt:'coeur',as:true,d:'Épicé, piquant, légèrement boisé. Dynamise les accords terreux.',f:'Tête: piquant, épicé | Coeur: boisé, métallique | Fond: chaud',dos:'0.5–1.5% (0.025–0.075g)',acc:'Patchouli · Vétiver · Cèdre · Cardamome',an:'La note piquante vient des pipérines — différentes du linalol floral.',rec:['Terre Noire','Épices de Nuit']},
+  {n:'Cardamome',l:'Elettaria cardamomum',nt:'coeur',as:true,d:'Épicée chaude, légèrement camphrée-eucalyptus. Chaleur sans sucre.',f:'Tête: camphré, eucalyptol | Coeur: épicé chaud | Fond: boisé doux',dos:'0.8–2% (0.040–0.100g)',acc:'Patchouli · Gingembre · Cèdre · Encens',an:'La "reine des épices". Son arôme vient du 1,8-cinéole (eucalyptol).',rec:['Épices de Nuit']},
+  {n:'Gingembre',l:'Zingiber officinale',nt:'tete',as:true,d:'Piquant, frais-citronné, épicé chaud. Note de tête volatile, vivacité à l\'ouverture.',f:'Tête: piquant, citronné | Coeur: épicé | Fond: (peu)',dos:'0.5–1.5% (0.025–0.075g)',acc:'Patchouli · Cardamome · Poivre · Bergamote',an:'En parfumerie, utilisé pour les notes piquantes-fraîches. Molécules clés : citral et zingibérène.',rec:['Épices de Nuit']},
+  {n:'Genévrier',l:'Juniperus communis',nt:'coeur',as:true,d:'Forestier, pin, légèrement conifère. Forêts de montagne, bois hivernaux.',f:'Tête: pin frais | Coeur: forestier, boisé | Fond: légèrement résineux',dos:'1–3% (0.050–0.150g)',acc:'Patchouli · Galbanum · Cèdre Virginie · Vétiver',an:'Baie de genévrier = arôme du Gin. L\'accord "forêt froide" vient de l\'alpha-pinène.',rec:['Pierre Mouillée']},
+  {n:'Petitgrain',l:'Citrus aurantium (feuilles)',nt:'tete',as:true,d:'Boisé-vert, légèrement agrume, aromatique. Fraîcheur sans fruit sucré.',f:'Tête: vert, aromatique | Coeur: boisé, agrume-feuilles | Fond: peu',dos:'1–3% (0.050–0.150g)',acc:'Patchouli · Encens · Cèdre · Vétiver',an:'Feuilles et brindilles du bigaradier. C\'est l\'arbre entier qu\'on distille.',rec:['Brume Sacrée']},
+  {n:'Romarin',l:'Rosmarinus officinalis',nt:'tete',as:true,d:'Aromatique intense, camphré, herbal. Nettoie les accords lourds, apporte clarté.',f:'Tête: camphré, herbal | Coeur: aromatique | Fond: peu',dos:'0.3–1% (0.015–0.050g) — puissant',acc:'Patchouli · Santal · Encens · Cèdre',an:'L\'une des premières HE distillées en Europe (XIIe s.). Alpha-pinène = camphré.',rec:['Boisé Fumé']}
+];
+
+const SUP=[
+  {n:'Aroma-Zone',p:'France 🇫🇷',d:'La référence française. Large catalogue, fiches MSDS, petits volumes, prix abordables.',u:'https://www.aroma-zone.com',t:['Bio','MSDS','Petits volumes','Prix abordable']},
+  {n:'Oshadhi',p:'Allemagne 🇩🇪',d:'Spécialiste HE rares et haute qualité. Excellent pour Santal, Oud, Encens Boswellia sacra.',u:'https://www.oshadhi.eu',t:['HE rares','Origine contrôlée','Premium']},
+  {n:'Pranarom',p:'Belgique 🇧🇪',d:'HE certifiées HECT (Chémotypées). Très bon pour patchouli, vétiver, cèdre.',u:'https://www.pranarom.com',t:['HECT','Contrôle qualité']},
+  {n:'Florame',p:'France 🇫🇷',d:'Gamme 100% bio. Forte en lavande, romarin, patchouli. Bonne traçabilité.',u:'https://www.florame.com',t:['100% Bio','Traçabilité','Provence']},
+  {n:'Herbes & Traditions',p:'France 🇫🇷',d:'Spécialiste depuis 1982. Bon rapport qualité/prix pour encens, myrrhe, benjoin.',u:'https://www.herbes-et-traditions.com',t:['1982','Résines','Bon Q/P']},
+  {n:'Mystic Moments',p:'Royaume-Uni 🇬🇧',d:'Source pour HE rares introuvables en France : Galbanum, Amyris, Costus. Livraison internationale.',u:'https://www.mysticmoments.co.uk',t:['HE rares','Galbanum','Livraison UE']}
+];
+
+const BDR=[{n:'34 Boulevard Saint Germain',h:'Diptyque',d:'Boisé emblématique. Thé, rose, musc et bois. Anti-sucré par excellence.',s:85},{n:'Feu de Bois',h:'Diptyque',d:'Fumée de cheminée, bois brûlé, cendre froide. Feu de camp épuré.',s:90},{n:'Tam Dao',h:'Diptyque',d:'Santal crémeux-lacté sur cèdre et buis. Référence boisé doux.',s:80},{n:'Tempo',h:'Diptyque',d:'Patchouli vert-terreux, cèdre, iris. Accord patchouli noble et moderne.',s:95},{n:'Volutes',h:'Diptyque',d:'Tabac blond, santal, encens. Boisé tabac sec et intemporel.',s:75}];
+const BVR=[{n:'Rosso Nobile',h:'Dr. Vranjes Firenze',d:'Vineux-boisé. Bois nobles sur fond de raisin séché et cuir. Sec.',s:88},{n:'Ambra',h:'Dr. Vranjes Firenze',d:'Ambre chaud et résineux. Oriental sec, profond, persistant.',s:82},{n:'Oud Nobile',h:'Dr. Vranjes Firenze',d:'Oud boisé profond, encens, ambre. L\'accord oriental ultime.',s:92},{n:'Tabacco 1815',h:'Dr. Vranjes Firenze',d:'Tabac boisé, cuir, fève tonka discrète. Très peu sucré.',s:78},{n:'Firenze',h:'Dr. Vranjes Firenze',d:'Cuir florentin, iris, bois de cèdre. Quintessence de l\'artisanat toscan.',s:85}];
+
+// FORMULA
+let fml=[{n:'Alcool',p:58.1,t:'Base'},{n:'Eau',p:39.2,t:'Base'}];
+const TG=5.000;
+function pG(p){return(p/100)*TG;}
+
+function rendF(){
+  const tb=document.getElementById('fb');
+  let heG=0,td=0;
+  tb.innerHTML=fml.map((ing,i)=>{
+    const g=pG(ing.p),drops=ing.t==='Base'?'—':dg(g,ing.n);
+    if(ing.t!=='Base'){heG+=g;if(drops!=='—')td+=drops;}
+    return`<tr><td><input type="text" value="${ing.n}" onchange="fml[${i}].n=this.value;rendF()" style="width:130px"></td><td><input type="number" value="${ing.p.toFixed(2)}" step="0.01" min="0" max="100" style="width:70px" onchange="fml[${i}].p=parseFloat(this.value)||0;rendF()"></td><td style="font-family:'Courier New',monospace;color:var(--gold2)">${g.toFixed(3)}g</td><td style="font-family:'Courier New',monospace">${drops}</td><td><select onchange="fml[${i}].t=this.value;rendF()" style="width:80px">${['Fond','Coeur','Tete','Base'].map(x=>`<option${x===ing.t?' selected':''}>${x}</option>`).join('')}</select></td><td><button class="btn bs bd" onclick="fml.splice(${i},1);rendF()">✕</button></td></tr>`;
+  }).join('');
+  document.getElementById('st').textContent=TG.toFixed(3);
+  document.getElementById('sp').textContent=((heG/TG)*100).toFixed(1);
+  document.getElementById('sd').textContent=td;
+}
+function addIng(){fml.push({n:'Nouvelle HE',p:1.0,t:'Fond'});rendF();}
+function clearF(){if(confirm('Effacer ?')){fml=[{n:'Alcool',p:58.1,t:'Base'},{n:'Eau',p:39.2,t:'Base'}];rendF();}}
+function saveF(){
+  const nm=prompt('Nom :');if(!nm)return;
+  const s=JSON.parse(localStorage.getItem('paf')||'[]');
+  s.push({n:nm,d:new Date().toLocaleDateString('fr-FR'),f:JSON.parse(JSON.stringify(fml))});
+  localStorage.setItem('paf',JSON.stringify(s));rendSl();
+  if(drvTok)saveDrive();
+}
+function rendSl(){
+  const s=JSON.parse(localStorage.getItem('paf')||'[]'),el=document.getElementById('sl');
+  if(!s.length){el.innerHTML='<div class="tm">Aucune formule.</div>';return;}
+  el.innerHTML=s.map((f,i)=>`<div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="flex:1"><div>${f.n}</div><div class="tm">${f.d}</div></div><button class="btn bs" onclick="loadF(${i})">Charger</button><button class="btn bs bd" onclick="delF(${i})">✕</button></div>`).join('');
+}
+function loadF(i){fml=JSON.parse(localStorage.getItem('paf')||'[]')[i].f;rendF();}
+function delF(i){const s=JSON.parse(localStorage.getItem('paf')||'[]');s.splice(i,1);localStorage.setItem('paf',JSON.stringify(s));rendSl();}
+
+// CONVERTER
+function updC(){
+  const d=parseFloat(document.getElementById('ci').value)||0.9;
+  const v=parseFloat(document.getElementById('cv2').value)||0;
+  const u=document.getElementById('cu').value;
+  let ml,g,dr;
+  if(u==='ml'){ml=v;g=v*d;dr=Math.round(v*20);}
+  else if(u==='g'){g=v;ml=v/d;dr=Math.round(ml*20);}
+  else{dr=v;ml=v/20;g=ml*d;}
+  document.getElementById('cml').textContent=ml.toFixed(3)+' ml';
+  document.getElementById('cg').textContent=g.toFixed(3)+' g';
+  document.getElementById('cd').textContent=Math.round(dr)+' gttes';
+}
+function buildRT(){
+  document.getElementById('rt').innerHTML=[1,2,3,4,5,6,7,8,9,10].map(p=>{
+    const hg=p/100*5,hm=hg/0.9,hd=Math.round(hm*20),b=5-hg;
+    return`<tr><td><strong>${p}%</strong></td><td>${hm.toFixed(3)}</td><td>${hg.toFixed(3)}</td><td>${hd}</td><td>${(b*0.597).toFixed(3)}</td><td>${(b*0.403).toFixed(3)}</td></tr>`;
+  }).join('');
+}
+
+// RECIPES
+function showR(i,el){
+  document.querySelectorAll('.rtb').forEach(t=>t.classList.remove('active'));
+  if(el)el.classList.add('active');
+  const r=RCP[i];
+  document.getElementById('rc').innerHTML=`
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:16px">
+        <div><div style="font-size:20px;color:var(--gold2)">${r.e} ${r.n}</div><div class="tm" style="margin-top:4px">${r.d}</div></div>
+        <button class="btn bs bg" onclick="impR(${i})">↩ Importer dans l'Atelier</button>
+      </div>
+      <table style="margin-bottom:20px">
+        <thead><tr><th>Ingrédient</th><th>Grammes</th><th>%</th><th>Gouttes</th><th>Note</th><th>Source</th></tr></thead>
+        <tbody>${r.i.map(x=>{const pct=(x.g/5*100).toFixed(2),dr=x.t==='Base'?'—':dg(x.g,x.n),lk=x.u?`<a href="${x.u}" target="_blank" class="btn bs">→</a>`:'—';return`<tr><td>${x.n}</td><td style="font-family:'Courier New',monospace;color:var(--gold2)">${x.g.toFixed(3)}</td><td>${pct}%</td><td>${dr}</td><td>${x.t}</td><td>${lk}</td></tr>`;}).join('')}
+        <tr style="border-top:1px solid var(--border)"><td><strong>TOTAL</strong></td><td style="color:var(--gold);font-family:'Courier New',monospace"><strong>5.000</strong></td><td><strong>100%</strong></td><td colspan="3"></td></tr></tbody>
+      </table>
+      <div class="sep"></div>
+      <div class="ct" style="margin-bottom:12px">Guide pas-à-pas</div>
+      <ol class="sl">${r.s.map(x=>`<li><div>${x}</div></li>`).join('')}</ol>
+      <div class="sep"></div>
+      <div class="ct" style="margin-bottom:12px">Calendrier de maturation</div>
+      <div class="mr">${r.m.map((x,j)=>`<div class="mc${j===0?' ad':''}"><div class="md">${x.d}</div><div class="mn">${x.n}</div></div>`).join('')}</div>
+    </div>`;
+}
+function impR(i){
+  fml=RCP[i].i.map(x=>({n:x.n,p:parseFloat((x.g/5*100).toFixed(4)),t:x.t}));
+  showPage('atelier');rendF();
+}
+
+// LIBRARY
+function buildLib(f='all'){
+  const lst=SCT.filter(s=>f==='all'?true:f==='as'?s.as:s.nt===f);
+  document.getElementById('sgrid').innerHTML=lst.map(s=>`
+    <div class="sc">
+      <div class="sn">${s.n}</div><div class="slt">${s.l}</div>
+      <div class="sd">${s.d}</div>
+      <div class="sf"><strong style="color:var(--text3)">Facettes:</strong> <span>${s.f}</span></div>
+      <div class="sf"><strong style="color:var(--text3)">Dosage 5ml:</strong> <span>${s.dos}</span></div>
+      <div class="sf"><strong style="color:var(--text3)">Accords:</strong> <span>${s.acc}</span></div>
+      <div class="sf" style="font-style:italic;color:var(--text3);font-size:11px">${s.an}</div>
+      <div class="sm">
+        <span class="badge ${s.nt==='fond'?'bf':s.nt==='coeur'?'bc':'bt'}">${s.nt==='fond'?'Fond':s.nt==='coeur'?'Coeur':'Tête'}</span>
+        ${s.as?'<span class="badge bok">✓ Anti-sucré</span>':'<span class="badge bw">⚠ Sucré</span>'}
+        ${s.rec.map(x=>`<span class="badge" style="border:1px solid var(--border);color:var(--text3);font-size:9px">${x}</span>`).join('')}
+      </div>
+    </div>`).join('');
+}
+function filtS(f,b){document.querySelectorAll('.fbt').forEach(x=>x.classList.remove('active'));b.classList.add('active');buildLib(f);}
+
+// SUPPLIERS
+function buildSup(){
+  document.getElementById('spgrid').innerHTML=SUP.map(s=>`
+    <div class="spc">
+      <div class="spn">${s.n}</div><div style="font-size:11px;color:var(--text3)">${s.p}</div>
+      <div class="spd">${s.d}</div>
+      <a href="${s.u}" target="_blank" class="spa">→ ${s.u.replace('https://','')}</a>
+      <div class="spt">${s.t.map(x=>`<span class="tag">${x}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+// MARKET
+function buildMkt(){
+  const bld=(list,id)=>{document.getElementById(id).innerHTML=list.map(b=>`
+    <div class="bca">
+      <div class="bna">${b.n}</div><div class="bh">${b.h}</div>
+      <div class="bda">${b.d}</div>
+      <div style="font-size:10px;color:var(--text3);margin-bottom:4px">Pertinence profil anti-sucré</div>
+      <div class="scb"><div class="scf" style="width:${b.s}%"></div></div>
+      <div style="font-size:10px;color:var(--gold);text-align:right;margin-top:3px">${b.s}/100</div>
+    </div>`).join('');};
+  bld(BDR,'bd');bld(BVR,'bv');
+}
+
+// NAV
+function showPage(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  const nav=[...document.querySelectorAll('.ni')].find(n=>n.getAttribute('onclick')===`showPage('${id}')`);
+  if(nav)nav.classList.add('active');
+}
+
+// DRIVE
+let drvTok=null,drvCid=localStorage.getItem('pcid')||'',drvFid=localStorage.getItem('pfid')||null;
+function showDS(){document.getElementById('dcid').value=drvCid;document.getElementById('ds').classList.add('open');}
+function closeDS(){document.getElementById('ds').classList.remove('open');}
+function handleDriveAction(){if(!drvTok)showDS();}
+function skipDrive(){closeDS();document.getElementById('wl').style.display='none';localStorage.setItem('pv','1');}
+function startLocal(){document.getElementById('wl').style.display='none';localStorage.setItem('pv','1');}
+function connectDrive(){
+  const c=document.getElementById('dcid').value.trim();if(!c){alert('Entrez votre Client ID.');return;}
+  drvCid=c;localStorage.setItem('pcid',c);closeDS();document.getElementById('wl').style.display='none';localStorage.setItem('pv','1');
+  initDrive();
+}
+function setDot(s){
+  const dot=document.getElementById('ddot'),lbl=document.getElementById('dlbl');
+  dot.className='dd';
+  if(s==='on'){dot.classList.add('on');lbl.textContent='Connecté · Google Drive';}
+  else if(s==='ing'){dot.classList.add('ing');lbl.textContent='Connexion Drive…';}
+  else lbl.textContent='Non connecté · Google Drive';
+}
+function initDrive(){
+  if(!drvCid)return;setDot('ing');
+  if(typeof gapi==='undefined'){
+    const sc=document.createElement('script');sc.src='https://apis.google.com/js/api.js';
+    sc.onload=()=>gapi.load('auth2',startAuth);document.head.appendChild(sc);
+  }else gapi.load('auth2',startAuth);
+}
+function startAuth(){
+  gapi.auth2.init({client_id:drvCid,scope:'https://www.googleapis.com/auth/drive.file'})
+  .then(a=>{
+    if(a.isSignedIn.get()){drvTok=a.currentUser.get().getAuthResponse().access_token;setDot('on');}
+    else a.signIn().then(u=>{drvTok=u.getAuthResponse().access_token;setDot('on');}).catch(()=>setDot(''));
+  }).catch(()=>setDot(''));
+}
+async function saveDrive(){
+  if(!drvTok)return;
+  const data=JSON.stringify({formulas:JSON.parse(localStorage.getItem('paf')||'[]'),updated:new Date().toISOString()});
+  const blob=new Blob([data],{type:'application/json'});
+  const meta={name:'parfum_atelier_formulas.json',mimeType:'application/json'};
+  const form=new FormData();
+  form.append('metadata',new Blob([JSON.stringify(meta)],{type:'application/json'}));
+  form.append('file',blob);
+  const method=drvFid?'PATCH':'POST';
+  const url=drvFid?`https://www.googleapis.com/upload/drive/v3/files/${drvFid}?uploadType=multipart`:'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
+  const res=await fetch(url,{method,headers:{Authorization:'Bearer '+drvTok},body:form});
+  const json=await res.json();
+  if(json.id){drvFid=json.id;localStorage.setItem('pfid',json.id);}
+}
+
+// CHAT
+const CK={
+  p:'Le patchouli est votre matière centrale. Terreux, boisé chaud, camphré-doux. Il mûrit avec le temps. Dosage : 3–6% pour 5ml (0.150–0.300g).',
+  v:'Le vétiver est terreux, fumé, racinaire — froid là où le patchouli est chaud. Haïti = plus fumé, Java = plus doux.',
+  e:'Encens (Boswellia) : résineuse, sacrée, légèrement citronnée à l\'ouverture. Plus clair que l\'encens brûlé. Parfait avec patchouli.',
+  m:'Myrrhe : résineuse-amère, dense, chaude. À doser très bas (0.015–0.040g pour 5ml). Excès = médicinal.',
+  d:'Pour 5ml : HE 4–8%. Patchouli 3–6%. Vétiver 2–4%. Notes de tête 0.3–1%. Base : 58% alcool + 39% eau.',
+  a:'Alcool éthylique 96° minimum (non dénaturé). C\'est le vecteur des molécules aromatiques.',
+  mat:'Maturation : J+7 = touche. J+14 = peau. J+30 = formule mature. Résines : encore mieux à J+60.',
+  as:'Anti-sucrés : patchouli, vétiver, cèdre, encens, galbanum, genévrier, poivre, romarin. À éviter si fuyez sucré : benjoin, vanille, ylang.',
+  acc:'Meilleurs accords patchouli : +Vétiver (Terre Noire), +Encens+Myrrhe (Brume Sacrée), +Cardamome+Poivre (Épices de Nuit), +Galbanum (Pierre Mouillée).',
+  def:'Coach home fragrance spécialisé notes boisées. Posez une question sur matières, dosages, accords ou technique.'
+};
+let cOpen=false;
+function togChat(){cOpen=!cOpen;document.getElementById('chp').classList.toggle('open',cOpen);if(cOpen&&!document.getElementById('chm').children.length)initChat();}
+function initChat(){
+  addM('b','Bonjour ! Coach parfumerie, spécialisé notes boisées anti-sucrées. Comment vous aider ?');
+  document.getElementById('chs').innerHTML=['Dosage patchouli','Vétiver ?','Accord anti-sucré','Maturation','Encens vs myrrhe'].map(s=>`<span class="css" onclick="sndM('${s}')">${s}</span>`).join('');
+}
+function addM(t,txt){const m=document.getElementById('chm');const d=document.createElement('div');d.className='msg '+t;d.textContent=txt;m.appendChild(d);m.scrollTop=m.scrollHeight;}
+function sendC(){const i=document.getElementById('cin');const m=i.value.trim();if(!m)return;sndM(m);i.value='';}
+function sndM(msg){
+  addM('u',msg);
+  const l=msg.toLowerCase();
+  let r=CK.def;
+  if(l.includes('patchouli'))r=CK.p;
+  else if(l.includes('vetiver')||l.includes('vétiver'))r=CK.v;
+  else if(l.includes('encens'))r=CK.e;
+  else if(l.includes('myrrhe'))r=CK.m;
+  else if(l.includes('dosage')||l.includes('%'))r=CK.d;
+  else if(l.includes('alcool'))r=CK.a;
+  else if(l.includes('matur')||l.includes('repos'))r=CK.mat;
+  else if(l.includes('sucr')||l.includes('anti'))r=CK.as;
+  else if(l.includes('accord'))r=CK.acc;
+  setTimeout(()=>addM('b',r),300);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  rendF();rendSl();buildRT();updC();
+  showR(0,document.querySelector('.rtb'));
+  buildLib();buildSup();buildMkt();
+  if(localStorage.getItem('pv')){
+    document.getElementById('wl').style.display='none';
+    if(drvCid)initDrive();
+  }
+});
+</script>
+</body>
+</html>
