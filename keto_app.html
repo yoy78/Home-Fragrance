@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keto Atelier ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg0: #0e0e0f;
+  --bg1: #161618;
+  --bg2: #1e1e21;
+  --bg3: #26262a;
+  --gold: #c9a84c;
+  --gold2: #e8c97a;
+  --text: #e8e6e0;
+  --text2: #9a9690;
+  --text3: #6a6660;
+  --green: #4caf7d;
+  --red: #e05555;
+  --blue: #5b8dee;
+  --orange: #e07a30;
+  --sidebar: 220px;
+  --radius: 10px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg0); color:var(--text); min-height:100vh; display:flex; flex-direction:column; }
+h1,h2,h3 { font-family:'Playfair Display',serif; }
+
+/* SIDEBAR */
+#sidebar {
+  position:fixed; left:0; top:0; bottom:0; width:var(--sidebar);
+  background:var(--bg1); border-right:1px solid #2a2a2e;
+  display:flex; flex-direction:column; z-index:100; padding-top:0;
+}
+#sidebar-header {
+  padding:24px 20px 20px;
+  border-bottom:1px solid #2a2a2e;
+}
+#sidebar-header h1 { font-size:1.1rem; color:var(--gold); letter-spacing:.05em; }
+#sidebar-header p { font-size:.7rem; color:var(--text3); margin-top:2px; }
+#nav { flex:1; padding:12px 0; overflow-y:auto; }
+.nav-item {
+  display:flex; align-items:center; gap:12px;
+  padding:11px 20px; cursor:pointer; transition:.2s;
+  color:var(--text2); font-size:.85rem; border-left:3px solid transparent;
+}
+.nav-item:hover { color:var(--text); background:var(--bg2); }
+.nav-item.active { color:var(--gold); border-left-color:var(--gold); background:var(--bg2); }
+.nav-item .ni { font-size:1.1rem; width:22px; text-align:center; }
+#sidebar-footer { padding:16px 20px; border-top:1px solid #2a2a2e; }
+#sidebar-footer p { font-size:.7rem; color:var(--text3); }
+
+/* MAIN */
+#main { margin-left:var(--sidebar); flex:1; display:flex; flex-direction:column; }
+#topbar {
+  background:var(--bg1); border-bottom:1px solid #2a2a2e;
+  padding:14px 32px; display:flex; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:50;
+}
+#topbar h2 { font-size:1.1rem; color:var(--text); }
+#topbar-date { font-size:.8rem; color:var(--text3); }
+#content { padding:32px; max-width:1100px; }
+.section { display:none; }
+.section.active { display:block; }
+
+/* CARDS */
+.card {
+  background:var(--bg1); border:1px solid #2a2a2e; border-radius:var(--radius);
+  padding:24px; margin-bottom:20px;
+}
+.card-title { font-size:1rem; color:var(--gold); margin-bottom:16px; font-family:'Playfair Display',serif; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+
+/* FORMS */
+.form-group { margin-bottom:14px; }
+.form-group label { display:block; font-size:.78rem; color:var(--text2); margin-bottom:5px; }
+.form-group input, .form-group select, .form-group textarea {
+  width:100%; background:var(--bg2); border:1px solid #2a2a2e; border-radius:6px;
+  padding:9px 12px; color:var(--text); font-size:.85rem; font-family:inherit;
+  outline:none; transition:.2s;
+}
+.form-group input:focus, .form-group select:focus { border-color:var(--gold); }
+.form-group select option { background:var(--bg2); }
+.btn {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:9px 18px; border-radius:6px; border:none; cursor:pointer;
+  font-size:.83rem; font-family:inherit; font-weight:500; transition:.2s;
+}
+.btn-gold { background:var(--gold); color:#0e0e0f; }
+.btn-gold:hover { background:var(--gold2); }
+.btn-outline { background:transparent; color:var(--text2); border:1px solid #2a2a2e; }
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+.btn-red { background:#2a1515; color:var(--red); border:1px solid #3a2020; }
+.btn-red:hover { background:#3a1a1a; }
+.btn-green { background:#152a1e; color:var(--green); border:1px solid #1e3a28; }
+.btn-green:hover { background:#1a3a22; }
+.btn-sm { padding:5px 12px; font-size:.75rem; }
+
+/* STAT CARDS */
+.stat-card {
+  background:var(--bg2); border:1px solid #2a2a2e; border-radius:var(--radius);
+  padding:18px; text-align:center;
+}
+.stat-val { font-size:1.8rem; font-weight:600; color:var(--gold); font-family:'Playfair Display',serif; }
+.stat-unit { font-size:.8rem; color:var(--text3); }
+.stat-label { font-size:.75rem; color:var(--text2); margin-top:4px; }
+
+/* PROGRESS */
+.progress-item { margin-bottom:14px; }
+.progress-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.progress-label { font-size:.8rem; color:var(--text2); }
+.progress-val { font-size:.8rem; color:var(--text); }
+.progress-bar { height:8px; background:var(--bg3); border-radius:4px; overflow:hidden; }
+.progress-fill {
+  height:100%; border-radius:4px; transition:width .4s;
+  background:linear-gradient(90deg, var(--green), #6ecf9a);
+}
+.progress-fill.over { background:linear-gradient(90deg, var(--red), #e07070); }
+
+/* BADGES */
+.badge {
+  display:inline-block; padding:2px 8px; border-radius:4px;
+  font-size:.7rem; font-weight:500;
+}
+.badge-gold { background:#2a2010; color:var(--gold); }
+.badge-green { background:#152a1e; color:var(--green); }
+.badge-red { background:#2a1515; color:var(--red); }
+.badge-blue { background:#151d2a; color:var(--blue); }
+.badge-orange { background:#2a1a10; color:var(--orange); }
+
+/* FOOD CARDS */
+.food-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
+.food-card {
+  background:var(--bg2); border:1px solid #2a2a2e; border-radius:var(--radius);
+  padding:14px; transition:.2s; cursor:default;
+}
+.food-card:hover { border-color:var(--gold); }
+.food-name { font-size:.88rem; font-weight:500; color:var(--text); margin-bottom:6px; }
+.food-macros { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:8px; }
+.food-macro { font-size:.72rem; color:var(--text3); }
+.food-macro span { color:var(--text2); }
+
+/* RECIPE CARDS */
+.recipe-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+.recipe-card {
+  background:var(--bg2); border:1px solid #2a2a2e; border-radius:var(--radius);
+  padding:18px; display:flex; flex-direction:column; gap:10px;
+}
+.recipe-card:hover { border-color:#3a3a3e; }
+.recipe-header { display:flex; align-items:center; gap:10px; }
+.recipe-emoji { font-size:1.8rem; }
+.recipe-title { font-size:.95rem; font-weight:600; color:var(--text); }
+.recipe-meta { display:flex; gap:8px; flex-wrap:wrap; }
+.recipe-macros { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+.recipe-macro { background:var(--bg3); border-radius:6px; padding:6px; text-align:center; }
+.recipe-macro-val { font-size:.9rem; font-weight:600; color:var(--gold); }
+.recipe-macro-label { font-size:.65rem; color:var(--text3); }
+.recipe-body { display:none; }
+.recipe-body.open { display:block; }
+.recipe-toggle { cursor:pointer; color:var(--blue); font-size:.78rem; }
+.recipe-toggle:hover { color:var(--text); }
+
+/* JOURNAL */
+.journal-entry {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 14px; background:var(--bg2); border-radius:6px;
+  border:1px solid #2a2a2e; margin-bottom:8px;
+}
+.je-name { font-size:.85rem; color:var(--text); }
+.je-macros { font-size:.75rem; color:var(--text3); }
+.je-right { display:flex; align-items:center; gap:12px; }
+
+/* SEARCH */
+.search-wrap { position:relative; }
+.search-results {
+  position:absolute; top:100%; left:0; right:0; z-index:200;
+  background:var(--bg2); border:1px solid var(--gold); border-radius:0 0 var(--radius) var(--radius);
+  max-height:240px; overflow-y:auto; display:none;
+}
+.search-results.open { display:block; }
+.search-result-item {
+  padding:10px 14px; cursor:pointer; border-bottom:1px solid #2a2a2e;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.search-result-item:hover { background:var(--bg3); }
+.search-result-item:last-child { border-bottom:none; }
+
+/* SHOPPING */
+.shop-category { margin-bottom:20px; }
+.shop-cat-title { font-size:.8rem; color:var(--text3); text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px; }
+.shop-item {
+  display:flex; align-items:center; gap:10px;
+  padding:8px 12px; background:var(--bg2); border-radius:6px;
+  border:1px solid #2a2a2e; margin-bottom:6px;
+}
+.shop-item.checked { opacity:.5; }
+.shop-item.checked .shop-name { text-decoration:line-through; }
+.shop-name { font-size:.85rem; flex:1; }
+.shop-check { cursor:pointer; accent-color:var(--gold); width:16px; height:16px; }
+
+/* ACCORDION */
+.accordion-item { border:1px solid #2a2a2e; border-radius:var(--radius); margin-bottom:8px; overflow:hidden; }
+.accordion-header {
+  padding:14px 18px; cursor:pointer; display:flex; justify-content:space-between;
+  align-items:center; background:var(--bg2); font-size:.88rem; color:var(--text);
+}
+.accordion-header:hover { background:var(--bg3); }
+.accordion-body { padding:14px 18px; font-size:.83rem; color:var(--text2); line-height:1.7; display:none; }
+.accordion-body.open { display:block; }
+.accordion-arrow { color:var(--text3); transition:.2s; }
+.accordion-item.open .accordion-arrow { transform:rotate(180deg); }
+
+/* COACH */
+#coach-btn {
+  position:fixed; bottom:24px; right:24px; z-index:500;
+  width:52px; height:52px; border-radius:50%; background:var(--gold);
+  border:none; cursor:pointer; font-size:1.4rem; display:flex;
+  align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(201,168,76,.4);
+  transition:.2s;
+}
+#coach-btn:hover { background:var(--gold2); transform:scale(1.05); }
+#coach-panel {
+  position:fixed; bottom:88px; right:24px; z-index:500;
+  width:340px; background:var(--bg1); border:1px solid #2a2a2e;
+  border-radius:var(--radius); box-shadow:0 8px 32px rgba(0,0,0,.6);
+  display:none; flex-direction:column; max-height:480px;
+}
+#coach-panel.open { display:flex; }
+#coach-header {
+  padding:14px 18px; border-bottom:1px solid #2a2a2e;
+  display:flex; justify-content:space-between; align-items:center;
+}
+#coach-header h3 { font-size:.9rem; color:var(--gold); }
+#coach-close { background:none; border:none; color:var(--text3); cursor:pointer; font-size:1.2rem; }
+#coach-messages { flex:1; overflow-y:auto; padding:14px 18px; display:flex; flex-direction:column; gap:10px; }
+.coach-msg { padding:10px 13px; border-radius:8px; font-size:.8rem; line-height:1.5; max-width:90%; }
+.coach-msg.bot { background:var(--bg2); color:var(--text); align-self:flex-start; }
+.coach-msg.user { background:#2a2010; color:var(--gold2); align-self:flex-end; border:1px solid #3a3010; }
+#coach-chips { padding:8px 18px; display:flex; flex-wrap:wrap; gap:6px; border-top:1px solid #2a2a2e; }
+.coach-chip {
+  background:var(--bg2); border:1px solid #3a3a3e; border-radius:14px;
+  padding:4px 12px; font-size:.72rem; color:var(--text2); cursor:pointer; transition:.2s;
+}
+.coach-chip:hover { border-color:var(--gold); color:var(--gold); }
+#coach-input-row { padding:12px 18px; border-top:1px solid #2a2a2e; display:flex; gap:8px; }
+#coach-input {
+  flex:1; background:var(--bg2); border:1px solid #2a2a2e; border-radius:6px;
+  padding:8px 12px; color:var(--text); font-size:.8rem; font-family:inherit; outline:none;
+}
+#coach-input:focus { border-color:var(--gold); }
+#coach-send { background:var(--gold); border:none; border-radius:6px; padding:8px 13px; cursor:pointer; font-size:.85rem; }
+
+/* FILTERS */
+.filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+.filter-btn {
+  padding:6px 14px; border-radius:20px; border:1px solid #2a2a2e;
+  background:var(--bg2); color:var(--text2); font-size:.78rem; cursor:pointer; transition:.2s;
+}
+.filter-btn:hover, .filter-btn.active { border-color:var(--gold); color:var(--gold); background:#1e1c10; }
+
+/* CHART */
+canvas { border-radius:var(--radius); }
+
+/* MODAL */
+#modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:1000;
+  display:flex; align-items:center; justify-content:center; display:none;
+}
+#modal-overlay.open { display:flex; }
+#modal {
+  background:var(--bg1); border:1px solid #2a2a2e; border-radius:14px;
+  padding:32px; max-width:480px; width:90%; position:relative;
+}
+#modal h2 { color:var(--gold); margin-bottom:12px; }
+#modal p { color:var(--text2); font-size:.88rem; line-height:1.7; margin-bottom:10px; }
+#modal-close { margin-top:20px; }
+
+/* UTILS */
+.mt8 { margin-top:8px; }
+.mt16 { margin-top:16px; }
+.mt24 { margin-top:24px; }
+.mb8 { margin-bottom:8px; }
+.flex { display:flex; }
+.gap8 { gap:8px; }
+.gap12 { gap:12px; }
+.items-center { align-items:center; }
+.justify-between { justify-content:space-between; }
+.text-gold { color:var(--gold); }
+.text-green { color:var(--green); }
+.text-red { color:var(--red); }
+.text-sm { font-size:.8rem; }
+.text-xs { font-size:.72rem; color:var(--text3); }
+hr { border:none; border-top:1px solid #2a2a2e; margin:16px 0; }
+ul { list-style:none; }
+ul li { padding:3px 0; font-size:.83rem; color:var(--text2); }
+ul li::before { content:'•'; color:var(--gold); margin-right:8px; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:var(--bg0); }
+::-webkit-scrollbar-thumb { background:#3a3a3e; border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:var(--gold); }
+
+@media(max-width:768px) {
+  #sidebar { width:60px; }
+  .nav-item span { display:none; }
+  #sidebar-header h1, #sidebar-header p { display:none; }
+  #main { margin-left:60px; }
+  #content { padding:16px; }
+  .grid2, .grid3, .grid4 { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <h1>Keto Atelier ✦</h1>
+    <p>Votre guide cétogène</p>
+  </div>
+  <div id="nav">
+    <div class="nav-item active" data-section="calc"><span class="ni">🧮</span><span>Calculateur</span></div>
+    <div class="nav-item" data-section="journal"><span class="ni">🍽</span><span>Journal</span></div>
+    <div class="nav-item" data-section="aliments"><span class="ni">🥑</span><span>Aliments</span></div>
+    <div class="nav-item" data-section="recettes"><span class="ni">📋</span><span>Recettes</span></div>
+    <div class="nav-item" data-section="suivi"><span class="ni">📊</span><span>Suivi</span></div>
+    <div class="nav-item" data-section="courses"><span class="ni">🛒</span><span>Courses</span></div>
+    <div class="nav-item" data-section="guide"><span class="ni">💡</span><span>Guide Keto</span></div>
+  </div>
+  <div id="sidebar-footer">
+    <p>© 2024 Keto Atelier</p>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div id="main">
+  <div id="topbar">
+    <h2 id="section-title">Calculateur de Macros</h2>
+    <span id="topbar-date"></span>
+  </div>
+  <div id="content">
+
+    <!-- CALCULATEUR -->
+    <div class="section active" id="sec-calc">
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title">Votre profil</div>
+          <div class="form-group"><label>Prénom</label><input id="c-prenom" type="text" placeholder="Votre prénom"></div>
+          <div class="grid2">
+            <div class="form-group"><label>Âge</label><input id="c-age" type="number" placeholder="30" min="15" max="100"></div>
+            <div class="form-group"><label>Sexe</label>
+              <select id="c-sexe"><option value="h">Homme</option><option value="f">Femme</option></select>
+            </div>
+          </div>
+          <div class="grid2">
+            <div class="form-group"><label>Poids (kg)</label><input id="c-poids" type="number" placeholder="75" step="0.1"></div>
+            <div class="form-group"><label>Taille (cm)</label><input id="c-taille" type="number" placeholder="175"></div>
+          </div>
+          <div class="form-group"><label>Niveau d'activité</label>
+            <select id="c-activite">
+              <option value="1.2">Sédentaire (bureau, peu de sport)</option>
+              <option value="1.375">Légèrement actif (1-3j/sem)</option>
+              <option value="1.55" selected>Modérément actif (3-5j/sem)</option>
+              <option value="1.725">Très actif (6-7j/sem)</option>
+              <option value="1.9">Extrêmement actif (2x/jour)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Objectif</label>
+            <select id="c-objectif">
+              <option value="-500">Perte de poids (déficit -500 kcal)</option>
+              <option value="-250">Perte douce (déficit -250 kcal)</option>
+              <option value="0" selected>Maintien</option>
+              <option value="250">Prise de masse (+250 kcal)</option>
+            </select>
+          </div>
+          <button class="btn btn-gold" onclick="calcMacros()">✦ Calculer mes macros</button>
+        </div>
+        <div>
+          <div class="card" id="calc-results" style="display:none">
+            <div class="card-title">Vos objectifs quotidiens</div>
+            <div class="grid2" style="margin-bottom:16px">
+              <div class="stat-card"><div class="stat-val" id="r-kcal">—</div><div class="stat-unit">kcal</div><div class="stat-label">Calories</div></div>
+              <div class="stat-card"><div class="stat-val" id="r-lip">—</div><div class="stat-unit">g</div><div class="stat-label">Lipides (70%)</div></div>
+              <div class="stat-card"><div class="stat-val" id="r-prot">—</div><div class="stat-unit">g</div><div class="stat-label">Protéines (25%)</div></div>
+              <div class="stat-card"><div class="stat-val" id="r-gluc">—</div><div class="stat-unit">g</div><div class="stat-label">Glucides nets (5%)</div></div>
+            </div>
+            <div class="text-xs" style="margin-bottom:8px">IMC : <span id="r-imc" class="text-gold"></span></div>
+            <div class="text-xs">BMR : <span id="r-bmr" class="text-gold"></span> kcal · TDEE : <span id="r-tdee" class="text-gold"></span> kcal</div>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">Comment ça marche ?</div>
+            <ul>
+              <li>Le calcul utilise la formule Mifflin-St Jeor</li>
+              <li>Keto standard : 70% graisses / 25% protéines / 5% glucides</li>
+              <li>Visez &lt; 20-25g de glucides nets par jour</li>
+              <li>La cétose s'installe en 2 à 4 jours</li>
+              <li>Buvez au moins 2,5L d'eau par jour</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOURNAL -->
+    <div class="section" id="sec-journal">
+      <div class="grid2" style="align-items:start">
+        <div>
+          <div class="card">
+            <div class="flex justify-between items-center mb8">
+              <div class="card-title" style="margin-bottom:0">Journal du</div>
+              <input type="date" id="j-date" style="background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:5px 10px;color:var(--text);font-size:.8rem;outline:none">
+            </div>
+            <hr>
+            <div class="search-wrap mt8">
+              <div class="form-group" style="margin-bottom:0">
+                <input type="text" id="j-search" placeholder="🔍 Rechercher un aliment…" oninput="searchFood()" autocomplete="off">
+              </div>
+              <div class="search-results" id="j-results"></div>
+            </div>
+            <div class="mt16">
+              <div class="text-xs mb8">Ou ajouter manuellement :</div>
+              <div class="grid2">
+                <div class="form-group"><label>Aliment</label><input id="j-nom" type="text" placeholder="Nom"></div>
+                <div class="form-group"><label>Quantité (g)</label><input id="j-qte" type="number" placeholder="100"></div>
+              </div>
+              <div class="grid4">
+                <div class="form-group"><label>Kcal</label><input id="j-kcal" type="number" placeholder="0"></div>
+                <div class="form-group"><label>Lip(g)</label><input id="j-lip" type="number" placeholder="0"></div>
+                <div class="form-group"><label>Prot(g)</label><input id="j-prot" type="number" placeholder="0"></div>
+                <div class="form-group"><label>Gluc(g)</label><input id="j-gluc" type="number" placeholder="0"></div>
+              </div>
+              <button class="btn btn-gold" onclick="addJournalEntry()">+ Ajouter</button>
+            </div>
+          </div>
+          <div class="card mt16" id="j-entries-card">
+            <div class="card-title">Repas du jour</div>
+            <div id="j-entries"><p class="text-xs">Aucun aliment enregistré.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Progression du jour</div>
+            <div id="j-progress">
+              <p class="text-xs">Calculez vos macros d'abord pour voir la progression.</p>
+            </div>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">Résumé</div>
+            <div class="grid2">
+              <div class="stat-card"><div class="stat-val" id="j-tot-kcal">0</div><div class="stat-unit">kcal</div><div class="stat-label">Calories</div></div>
+              <div class="stat-card"><div class="stat-val" id="j-tot-lip">0</div><div class="stat-unit">g</div><div class="stat-label">Lipides</div></div>
+              <div class="stat-card"><div class="stat-val" id="j-tot-prot">0</div><div class="stat-unit">g</div><div class="stat-label">Protéines</div></div>
+              <div class="stat-card"><div class="stat-val" id="j-tot-gluc">0</div><div class="stat-unit">g</div><div class="stat-label">Glucides nets</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALIMENTS -->
+    <div class="section" id="sec-aliments">
+      <div class="card" style="padding:16px">
+        <div class="flex gap8 items-center" style="flex-wrap:wrap">
+          <input type="text" id="a-search" placeholder="🔍 Rechercher…" oninput="filterAliments()" style="background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:8px 12px;color:var(--text);font-size:.83rem;outline:none;width:200px">
+          <div class="filters" style="margin-bottom:0">
+            <button class="filter-btn active" onclick="filterAliments('tous',this)">Tous</button>
+            <button class="filter-btn" onclick="filterAliments('viande',this)">🥩 Viandes</button>
+            <button class="filter-btn" onclick="filterAliments('poisson',this)">🐟 Poissons</button>
+            <button class="filter-btn" onclick="filterAliments('laitier',this)">🥚 Œufs & Laitiers</button>
+            <button class="filter-btn" onclick="filterAliments('legume',this)">🥦 Légumes</button>
+            <button class="filter-btn" onclick="filterAliments('graisse',this)">🫒 Graisses</button>
+            <button class="filter-btn" onclick="filterAliments('noix',this)">🌰 Noix</button>
+            <button class="filter-btn" onclick="filterAliments('fromage',this)">🧀 Fromages</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-grid mt16" id="a-grid"></div>
+    </div>
+
+    <!-- RECETTES -->
+    <div class="section" id="sec-recettes">
+      <div class="filters">
+        <button class="filter-btn active" onclick="filterRecettes('tous',this)">Tous</button>
+        <button class="filter-btn" onclick="filterRecettes('petit-dej',this)">🌅 Petit-déj</button>
+        <button class="filter-btn" onclick="filterRecettes('dejeuner',this)">☀️ Déjeuner</button>
+        <button class="filter-btn" onclick="filterRecettes('diner',this)">🌙 Dîner</button>
+        <button class="filter-btn" onclick="filterRecettes('collation',this)">🍫 Collation</button>
+      </div>
+      <div class="recipe-grid" id="r-grid"></div>
+    </div>
+
+    <!-- SUIVI -->
+    <div class="section" id="sec-suivi">
+      <div class="grid2" style="align-items:start">
+        <div>
+          <div class="card">
+            <div class="card-title">📈 Poids</div>
+            <div class="flex gap8 items-center mt8">
+              <input type="date" id="s-w-date" style="flex:1;background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:7px 10px;color:var(--text);font-size:.8rem;outline:none">
+              <input type="number" id="s-w-val" placeholder="kg" step="0.1" style="width:80px;background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:7px 10px;color:var(--text);font-size:.8rem;outline:none">
+              <button class="btn btn-gold btn-sm" onclick="addWeight()">+</button>
+            </div>
+            <canvas id="weight-chart" width="400" height="180" style="margin-top:16px;width:100%"></canvas>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">🔬 Cétones (mmol/L)</div>
+            <div class="flex gap8 items-center mt8">
+              <input type="date" id="s-k-date" style="flex:1;background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:7px 10px;color:var(--text);font-size:.8rem;outline:none">
+              <input type="number" id="s-k-val" placeholder="mmol/L" step="0.1" style="width:100px;background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:7px 10px;color:var(--text);font-size:.8rem;outline:none">
+              <button class="btn btn-gold btn-sm" onclick="addKetone()">+</button>
+            </div>
+            <canvas id="ketone-chart" width="400" height="140" style="margin-top:16px;width:100%"></canvas>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">Statistiques</div>
+            <div class="grid2">
+              <div class="stat-card"><div class="stat-val" id="st-cur">—</div><div class="stat-unit">kg</div><div class="stat-label">Poids actuel</div></div>
+              <div class="stat-card"><div class="stat-val" id="st-start">—</div><div class="stat-unit">kg</div><div class="stat-label">Poids départ</div></div>
+              <div class="stat-card"><div class="stat-val" id="st-loss">—</div><div class="stat-unit">kg</div><div class="stat-label">Perdu</div></div>
+              <div class="stat-card"><div class="stat-val" id="st-streak">0</div><div class="stat-unit">jours</div><div class="stat-label">Série en cours</div></div>
+            </div>
+            <div class="mt16">
+              <div class="text-xs mb8">Niveau de cétose :</div>
+              <div id="st-ketone-level" class="badge badge-gold">Pas de données</div>
+            </div>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">Historique poids</div>
+            <div id="weight-history" style="max-height:220px;overflow-y:auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COURSES -->
+    <div class="section" id="sec-courses">
+      <div class="grid2" style="align-items:start">
+        <div>
+          <div class="card">
+            <div class="card-title">Ajouter un article</div>
+            <div class="flex gap8">
+              <input type="text" id="sh-nom" placeholder="Nom de l'article" style="flex:1;background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:8px 12px;color:var(--text);font-size:.83rem;outline:none">
+              <select id="sh-cat" style="background:var(--bg2);border:1px solid #2a2a2e;border-radius:6px;padding:8px 12px;color:var(--text);font-size:.83rem;outline:none">
+                <option value="Viandes">🥩 Viandes</option>
+                <option value="Poissons">🐟 Poissons</option>
+                <option value="Légumes">🥦 Légumes</option>
+                <option value="Laitiers">🥚 Laitiers</option>
+                <option value="Fromages">🧀 Fromages</option>
+                <option value="Graisses">🫒 Graisses</option>
+                <option value="Noix">🌰 Noix</option>
+                <option value="Épices">🌿 Épices</option>
+                <option value="Autre">📦 Autre</option>
+              </select>
+              <button class="btn btn-gold" onclick="addShopItem()">+</button>
+            </div>
+          </div>
+          <div class="card mt16">
+            <div class="flex justify-between items-center mb8">
+              <div class="card-title" style="margin-bottom:0">Ma liste</div>
+              <button class="btn btn-red btn-sm" onclick="clearChecked()">Supprimer cochés</button>
+            </div>
+            <div id="shop-list"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Ajouter depuis recettes</div>
+          <div id="shop-recipes"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GUIDE -->
+    <div class="section" id="sec-guide">
+      <div class="grid2" style="align-items:start">
+        <div>
+          <div class="card">
+            <div class="card-title">🥑 Qu'est-ce que le régime keto ?</div>
+            <p class="text-sm" style="color:var(--text2);line-height:1.8">Le régime cétogène (keto) est un régime très pauvre en glucides et riche en graisses. En réduisant drastiquement les glucides, votre corps entre dans un état métabolique appelé <strong style="color:var(--gold)">cétose</strong>, où il brûle les graisses comme carburant principal au lieu du glucose.</p>
+            <p class="text-sm mt8" style="color:var(--text2);line-height:1.8">Le foie transforme les graisses en <strong style="color:var(--gold)">cétones</strong>, qui alimentent le cerveau et les muscles. C'est particulièrement efficace pour la perte de poids, la clarté mentale et la gestion de la glycémie.</p>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">📅 Les 3 phases</div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="background:var(--bg2);border-radius:8px;padding:14px;border-left:3px solid var(--gold)">
+                <div style="font-size:.85rem;font-weight:600;color:var(--gold);margin-bottom:4px">Phase 1 — Induction (J0-J7)</div>
+                <p class="text-sm" style="color:var(--text2)">Réduire les glucides à &lt;20g/jour. Vider les réserves de glycogène. Keto flu possible. Boire beaucoup, supplémenter en électrolytes.</p>
+              </div>
+              <div style="background:var(--bg2);border-radius:8px;padding:14px;border-left:3px solid var(--blue)">
+                <div style="font-size:.85rem;font-weight:600;color:var(--blue);margin-bottom:4px">Phase 2 — Adaptation (J7-J30)</div>
+                <p class="text-sm" style="color:var(--text2)">Le corps apprend à utiliser les cétones. L'énergie revient. La faim diminue naturellement. Augmenter progressivement jusqu'à 25g.</p>
+              </div>
+              <div style="background:var(--bg2);border-radius:8px;padding:14px;border-left:3px solid var(--green)">
+                <div style="font-size:.85rem;font-weight:600;color:var(--green);margin-bottom:4px">Phase 3 — Maintenance (J30+)</div>
+                <p class="text-sm" style="color:var(--text2)">Maintien de la cétose, ajustement des macros selon objectifs. Certains tolèrent jusqu'à 50g de glucides nets.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">⚡ Le Keto Flu</div>
+            <p class="text-sm mb8" style="color:var(--text2)">Symptômes courants les premiers jours :</p>
+            <ul>
+              <li>Fatigue et manque d'énergie</li>
+              <li>Maux de tête</li>
+              <li>Nausées légères</li>
+              <li>Irritabilité</li>
+              <li>Difficultés de concentration</li>
+            </ul>
+            <p class="text-sm mt8" style="color:var(--gold)">Remèdes :</p>
+            <ul>
+              <li>3L d'eau minimum par jour</li>
+              <li>Sel : 1-2g de plus par jour</li>
+              <li>Magnésium : 300-400mg/jour</li>
+              <li>Potassium : avocat, épinards</li>
+              <li>Bouillon d'os maison</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">❌ Erreurs courantes</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="background:var(--bg2);padding:10px 14px;border-radius:6px;border-left:2px solid var(--red)">
+                <div style="font-size:.8rem;font-weight:600;color:var(--red)">Ne pas boire assez</div>
+                <div class="text-xs mt8">La cétose augmente l'excrétion d'eau. Minimum 2,5-3L/jour.</div>
+              </div>
+              <div style="background:var(--bg2);padding:10px 14px;border-radius:6px;border-left:2px solid var(--red)">
+                <div style="font-size:.8rem;font-weight:600;color:var(--red)">Trop de protéines</div>
+                <div class="text-xs mt8">L'excès de protéines se convertit en glucose (néoglucogenèse). Max 25% des calories.</div>
+              </div>
+              <div style="background:var(--bg2);padding:10px 14px;border-radius:6px;border-left:2px solid var(--red)">
+                <div style="font-size:.8rem;font-weight:600;color:var(--red)">Oublier les glucides cachés</div>
+                <div class="text-xs mt8">Sauces, condiments, charcuteries transformées... Lire les étiquettes.</div>
+              </div>
+              <div style="background:var(--bg2);padding:10px 14px;border-radius:6px;border-left:2px solid var(--red)">
+                <div style="font-size:.8rem;font-weight:600;color:var(--red)">Abandonner trop tôt</div>
+                <div class="text-xs mt8">L'adaptation complète prend 4-6 semaines. Persistez au-delà du keto flu.</div>
+              </div>
+              <div style="background:var(--bg2);padding:10px 14px;border-radius:6px;border-left:2px solid var(--red)">
+                <div style="font-size:.8rem;font-weight:600;color:var(--red)">Négliger les légumes</div>
+                <div class="text-xs mt8">Même en keto, les légumes verts apportent fibres, vitamines et minéraux essentiels.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">🍽 Manger au restaurant</div>
+            <ul>
+              <li>Viande grillée ou poisson → toujours keto</li>
+              <li>Remplacer frites/riz par salade ou légumes</li>
+              <li>Éviter les sauces sucrées (ketchup, BBQ)</li>
+              <li>Salade César sans croûtons</li>
+              <li>Burger sans pain (lettuce wrap)</li>
+              <li>Sushi : poisson seul, sans riz</li>
+              <li>Pizzeria : base salade ou sans la pâte</li>
+              <li>Eau pétillante, vin rouge sec &lt; 2 verres</li>
+            </ul>
+          </div>
+          <div class="card mt16">
+            <div class="card-title">❓ FAQ</div>
+            <div id="faq-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+</div><!-- end main -->
+
+<!-- COACH -->
+<button id="coach-btn" onclick="toggleCoach()" title="Coach Keto">🤖</button>
+<div id="coach-panel">
+  <div id="coach-header">
+    <h3>🤖 Coach Keto</h3>
+    <button id="coach-close" onclick="toggleCoach()">✕</button>
+  </div>
+  <div id="coach-messages"></div>
+  <div id="coach-chips"></div>
+  <div id="coach-input-row">
+    <input type="text" id="coach-input" placeholder="Posez votre question…" onkeydown="if(event.key==='Enter')sendCoach()">
+    <button id="coach-send" onclick="sendCoach()">➤</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay">
+  <div id="modal">
+    <h2>Bienvenue sur Keto Atelier ✦</h2>
+    <p>Votre assistant complet pour le régime cétogène. Trackez vos macros, découvrez des recettes, suivez vos progrès et obtenez des conseils personnalisés.</p>
+    <p>👉 Commencez par le <strong style="color:var(--gold)">Calculateur</strong> pour définir vos objectifs de macros selon votre profil.</p>
+    <p>Vos données sont sauvegardées localement dans votre navigateur.</p>
+    <button class="btn btn-gold" id="modal-close" onclick="closeModal()">Commencer mon aventure keto ✦</button>
+  </div>
+</div>
+
+<script>
+// ==================== DATA ====================
+const FOOD_DB = [
+  {n:'Bœuf haché 20%', cat:'viande', kcal:254, lip:20, prot:17, gluc:0},
+  {n:'Bœuf haché 5%', cat:'viande', kcal:137, lip:5, prot:22, gluc:0},
+  {n:'Steak entrecôte', cat:'viande', kcal:271, lip:19, prot:24, gluc:0},
+  {n:'Poulet cuisse', cat:'viande', kcal:215, lip:15, prot:18, gluc:0},
+  {n:'Poulet blanc', cat:'viande', kcal:165, lip:4, prot:31, gluc:0},
+  {n:'Porc côtelette', cat:'viande', kcal:242, lip:14, prot:28, gluc:0},
+  {n:'Agneau côtelette', cat:'viande', kcal:294, lip:21, prot:25, gluc:0},
+  {n:'Bacon', cat:'viande', kcal:541, lip:45, prot:37, gluc:0},
+  {n:'Saucisse porc', cat:'viande', kcal:301, lip:26, prot:12, gluc:2},
+  {n:'Dinde blanc', cat:'viande', kcal:135, lip:1, prot:30, gluc:0},
+  {n:'Veau escalope', cat:'viande', kcal:175, lip:6, prot:28, gluc:0},
+  {n:'Canard magret', cat:'viande', kcal:201, lip:11, prot:24, gluc:0},
+  {n:'Saumon atlantique', cat:'poisson', kcal:208, lip:13, prot:20, gluc:0},
+  {n:'Thon boîte eau', cat:'poisson', kcal:116, lip:1, prot:26, gluc:0},
+  {n:'Sardines boîte', cat:'poisson', kcal:208, lip:11, prot:25, gluc:0},
+  {n:'Maquereau', cat:'poisson', kcal:205, lip:14, prot:19, gluc:0},
+  {n:'Saumon fumé', cat:'poisson', kcal:172, lip:8, prot:23, gluc:0},
+  {n:'Crevettes', cat:'poisson', kcal:99, lip:1, prot:24, gluc:0},
+  {n:'Cabillaud', cat:'poisson', kcal:82, lip:1, prot:18, gluc:0},
+  {n:'Thon frais', cat:'poisson', kcal:144, lip:5, prot:23, gluc:0},
+  {n:'Dorade', cat:'poisson', kcal:100, lip:2, prot:19, gluc:0},
+  {n:'Bar (loup)', cat:'poisson', kcal:97, lip:2, prot:19, gluc:0},
+  {n:'Œuf entier', cat:'laitier', kcal:155, lip:11, prot:13, gluc:1},
+  {n:'Blanc d\'œuf', cat:'laitier', kcal:52, lip:0, prot:11, gluc:1},
+  {n:'Crème fraîche 30%', cat:'laitier', kcal:292, lip:30, prot:2, gluc:3},
+  {n:'Beurre', cat:'laitier', kcal:717, lip:81, prot:1, gluc:1},
+  {n:'Yaourt grec nature', cat:'laitier', kcal:97, lip:5, prot:9, gluc:4},
+  {n:'Lait entier', cat:'laitier', kcal:61, lip:3, prot:3, gluc:5},
+  {n:'Crème coco', cat:'laitier', kcal:330, lip:34, prot:3, gluc:6},
+  {n:'Épinards', cat:'legume', kcal:23, lip:0, prot:3, gluc:1},
+  {n:'Brocoli', cat:'legume', kcal:34, lip:0, prot:3, gluc:4},
+  {n:'Chou-fleur', cat:'legume', kcal:25, lip:0, prot:2, gluc:3},
+  {n:'Courgette', cat:'legume', kcal:17, lip:0, prot:1, gluc:2},
+  {n:'Avocat', cat:'legume', kcal:160, lip:15, prot:2, gluc:2},
+  {n:'Concombre', cat:'legume', kcal:16, lip:0, prot:1, gluc:2},
+  {n:'Poivron vert', cat:'legume', kcal:20, lip:0, prot:1, gluc:3},
+  {n:'Champignons', cat:'legume', kcal:22, lip:0, prot:3, gluc:2},
+  {n:'Céleri', cat:'legume', kcal:14, lip:0, prot:1, gluc:1},
+  {n:'Laitue romaine', cat:'legume', kcal:17, lip:0, prot:1, gluc:1},
+  {n:'Chou kale', cat:'legume', kcal:49, lip:1, prot:4, gluc:5},
+  {n:'Asperges', cat:'legume', kcal:20, lip:0, prot:2, gluc:2},
+  {n:'Radis', cat:'legume', kcal:16, lip:0, prot:1, gluc:2},
+  {n:'Fenouil', cat:'legume', kcal:31, lip:0, prot:1, gluc:4},
+  {n:'Roquette', cat:'legume', kcal:25, lip:1, prot:3, gluc:2},
+  {n:'Huile d\'olive', cat:'graisse', kcal:884, lip:100, prot:0, gluc:0},
+  {n:'Huile de coco', cat:'graisse', kcal:862, lip:100, prot:0, gluc:0},
+  {n:'Huile d\'avocat', cat:'graisse', kcal:884, lip:100, prot:0, gluc:0},
+  {n:'Ghee', cat:'graisse', kcal:900, lip:100, prot:0, gluc:0},
+  {n:'Mayonnaise', cat:'graisse', kcal:680, lip:75, prot:1, gluc:1},
+  {n:'Huile MCT', cat:'graisse', kcal:830, lip:93, prot:0, gluc:0},
+  {n:'Amandes', cat:'noix', kcal:579, lip:50, prot:21, gluc:4},
+  {n:'Noix', cat:'noix', kcal:654, lip:65, prot:15, gluc:3},
+  {n:'Noix de macadamia', cat:'noix', kcal:718, lip:76, prot:8, gluc:2},
+  {n:'Noisettes', cat:'noix', kcal:628, lip:61, prot:15, gluc:5},
+  {n:'Noix de pécan', cat:'noix', kcal:691, lip:72, prot:9, gluc:2},
+  {n:'Graines de chia', cat:'noix', kcal:486, lip:31, prot:17, gluc:2},
+  {n:'Graines de lin', cat:'noix', kcal:534, lip:42, prot:18, gluc:0},
+  {n:'Graines tournesol', cat:'noix', kcal:584, lip:51, prot:21, gluc:5},
+  {n:'Graines citrouille', cat:'noix', kcal:559, lip:49, prot:30, gluc:4},
+  {n:'Cheddar', cat:'fromage', kcal:403, lip:33, prot:25, gluc:1},
+  {n:'Mozzarella', cat:'fromage', kcal:280, lip:22, prot:28, gluc:2},
+  {n:'Parmesan', cat:'fromage', kcal:431, lip:29, prot:38, gluc:4},
+  {n:'Gruyère', cat:'fromage', kcal:413, lip:32, prot:30, gluc:0},
+  {n:'Feta', cat:'fromage', kcal:264, lip:21, prot:14, gluc:4},
+  {n:'Brie', cat:'fromage', kcal:334, lip:28, prot:21, gluc:0},
+  {n:'Camembert', cat:'fromage', kcal:299, lip:24, prot:20, gluc:1},
+  {n:'Roquefort', cat:'fromage', kcal:369, lip:31, prot:22, gluc:2},
+  {n:'Burrata', cat:'fromage', kcal:270, lip:22, prot:18, gluc:2},
+  {n:'Ricotta', cat:'fromage', kcal:174, lip:13, prot:11, gluc:3},
+  {n:'Cream cheese', cat:'fromage', kcal:342, lip:34, prot:6, gluc:4},
+  {n:'Gouda', cat:'fromage', kcal:356, lip:27, prot:25, gluc:2},
+];
+
+const RECIPES = [
+  {id:1, name:'Steak au beurre d\'herbes', emoji:'🥩', type:'diner', time:'15 min', diff:'Facile',
+   kcal:520, lip:38, prot:44, gluc:1,
+   ing:['Steak (200g)','Beurre (20g)','Ail (2 gousses)','Romarin frais','Sel, poivre'],
+   steps:['Sortir le steak 20min avant.','Saisir 3-4min chaque côté à feu vif.','Ajouter beurre, ail écrasé et romarin.','Arroser le steak avec le beurre fondu 1min.','Laisser reposer 3min avant de servir.']},
+  {id:2, name:'Omelette avocat-feta', emoji:'🥚', type:'petit-dej', time:'10 min', diff:'Facile',
+   kcal:440, lip:36, prot:24, gluc:4,
+   ing:['3 œufs','½ avocat','Feta (50g)','Beurre (10g)','Ciboulette','Sel, poivre'],
+   steps:['Battre les œufs, saler et poivrer.','Faire fondre le beurre dans une poêle.','Verser les œufs, cuire à feu moyen.','Ajouter avocat en dés et feta émietté.','Plier en deux et servir avec ciboulette.']},
+  {id:3, name:'Salade César keto', emoji:'🥗', type:'dejeuner', time:'15 min', diff:'Facile',
+   kcal:480, lip:34, prot:38, gluc:3,
+   ing:['Laitue romaine (150g)','Poulet grillé (150g)','Parmesan râpé (30g)','Mayonnaise (40g)','Anchois (20g)','Citron','Ail'],
+   steps:['Griller le poulet et couper en lamelles.','Mélanger mayo, anchois, ail, citron pour la sauce.','Couper la laitue en morceaux.','Mélanger laitue, poulet, sauce.','Parsemer de parmesan.']},
+  {id:4, name:'Soupe brocoli-cheddar', emoji:'🥦', type:'diner', time:'25 min', diff:'Facile',
+   kcal:380, lip:28, prot:18, gluc:8,
+   ing:['Brocoli (300g)','Cheddar râpé (80g)','Crème fraîche (100ml)','Bouillon volaille (300ml)','Beurre (15g)','Oignon','Ail','Sel, poivre'],
+   steps:['Faire revenir oignon et ail dans le beurre.','Ajouter brocoli coupé et le bouillon.','Cuire 15min à feu moyen.','Mixer grossièrement.','Ajouter crème et cheddar, mélanger jusqu\'à fonte.']},
+  {id:5, name:'Saumon en croûte parmesan', emoji:'🐟', type:'diner', time:'20 min', diff:'Moyen',
+   kcal:510, lip:34, prot:44, gluc:2,
+   ing:['Saumon (200g)','Parmesan râpé (40g)','Crème fraîche (30ml)','Citron','Herbes de Provence','Huile d\'olive'],
+   steps:['Préchauffer le four à 200°C.','Mélanger parmesan, crème et herbes.','Déposer le saumon sur plaque.','Étaler la croûte parmesan dessus.','Cuire 12-15min jusqu\'à dorure.']},
+  {id:6, name:'Bowl thon-avocat', emoji:'🥑', type:'dejeuner', time:'5 min', diff:'Facile',
+   kcal:360, lip:24, prot:30, gluc:3,
+   ing:['Thon en boîte (150g)','1 avocat','Épinards (50g)','Huile d\'olive (15ml)','Citron','Sel, poivre'],
+   steps:['Égoutter le thon.','Couper l\'avocat en dés.','Disposer épinards dans un bol.','Ajouter thon et avocat.','Arroser d\'huile olive et jus de citron.']},
+  {id:7, name:'Poulet rôti croustillant', emoji:'🍗', type:'diner', time:'45 min', diff:'Facile',
+   kcal:430, lip:28, prot:42, gluc:1,
+   ing:['Cuisse de poulet (250g)','Huile de coco (15ml)','Paprika fumé','Ail en poudre','Thym','Sel, poivre'],
+   steps:['Préchauffer le four à 220°C.','Badigeonner le poulet d\'huile de coco.','Frotter avec paprika, ail, thym, sel.','Cuire 35-40min peau vers le haut.','Laisser reposer 5min.']},
+  {id:8, name:'Chou-fleur gratiné', emoji:'🧀', type:'diner', time:'35 min', diff:'Facile',
+   kcal:310, lip:22, prot:14, gluc:6,
+   ing:['Chou-fleur (400g)','Gruyère râpé (100g)','Crème fraîche (100ml)','Beurre (15g)','Muscade','Sel, poivre'],
+   steps:['Cuire le chou-fleur vapeur 10min.','Préparer la béchamel keto : crème + beurre.','Disposer le chou-fleur dans un plat.','Napper de béchamel et gruyère.','Gratiner au four 180°C pendant 15min.']},
+  {id:9, name:'Bœuf aux champignons', emoji:'🍄', type:'diner', time:'20 min', diff:'Facile',
+   kcal:390, lip:26, prot:34, gluc:4,
+   ing:['Bœuf haché (200g)','Champignons (150g)','Crème fraîche (60ml)','Thym','Beurre (10g)','Ail','Sel, poivre'],
+   steps:['Faire revenir le bœuf dans beurre.','Ajouter champignons et ail émincés.','Cuire 5min à feu moyen.','Ajouter crème et thym.','Laisser réduire 5min.']},
+  {id:10, name:'Œufs brouillés saumon fumé', emoji:'🥚', type:'petit-dej', time:'10 min', diff:'Facile',
+   kcal:350, lip:26, prot:28, gluc:2,
+   ing:['3 œufs','Saumon fumé (80g)','Crème fraîche (30ml)','Beurre (10g)','Ciboulette','Sel, poivre'],
+   steps:['Battre les œufs avec la crème.','Faire fondre le beurre à feu très doux.','Ajouter les œufs et mélanger constamment.','Retirer du feu avant complète cuisson.','Ajouter le saumon fumé et ciboulette.']},
+  {id:11, name:'Côtelettes d\'agneau romarin', emoji:'🥩', type:'diner', time:'25 min', diff:'Moyen',
+   kcal:560, lip:40, prot:46, gluc:0,
+   ing:['Côtelettes agneau (250g)','Romarin frais','Ail (3 gousses)','Huile d\'olive (20ml)','Sel, poivre'],
+   steps:['Mariner l\'agneau avec ail, romarin, huile 30min.','Saisir à feu vif 3min par côté.','Baisser le feu et cuire encore 5min.','Laisser reposer 5min sous alu.','Servir avec légumes verts vapeur.']},
+  {id:12, name:'Courgettes farcies', emoji:'🥒', type:'diner', time:'40 min', diff:'Moyen',
+   kcal:400, lip:24, prot:32, gluc:6,
+   ing:['2 courgettes','Bœuf haché (200g)','Mozzarella (80g)','Tomates concassées (100g)','Oignon','Ail','Herbes de Provence'],
+   steps:['Préchauffer four 180°C.','Creuser les courgettes en deux.','Faire revenir bœuf, oignon, ail.','Ajouter tomates et herbes, cuire 5min.','Farcir les courgettes, couvrir de mozzarella.','Cuire 25min au four.']},
+  {id:13, name:'Velouté de courgettes', emoji:'🥣', type:'dejeuner', time:'20 min', diff:'Facile',
+   kcal:220, lip:16, prot:6, gluc:5,
+   ing:['Courgette (400g)','Crème fraîche (100ml)','Bouillon légumes (300ml)','Beurre (15g)','Gruyère râpé (30g)','Sel, poivre'],
+   steps:['Couper les courgettes en rondelles.','Faire revenir dans le beurre 3min.','Ajouter le bouillon et cuire 12min.','Mixer avec la crème.','Servir avec gruyère râpé.']},
+  {id:14, name:'Bowl méditerranéen', emoji:'🫒', type:'dejeuner', time:'10 min', diff:'Facile',
+   kcal:380, lip:30, prot:16, gluc:5,
+   ing:['Feta (80g)','Olives noires (40g)','Concombre ½','Poivron rouge ½','Huile d\'olive (20ml)','Origan','Citron'],
+   steps:['Couper feta, concombre et poivron en dés.','Ajouter les olives.','Arroser d\'huile d\'olive et citron.','Parsemer d\'origan.','Mélanger délicatement.']},
+  {id:15, name:'Pancakes keto', emoji:'🥞', type:'petit-dej', time:'15 min', diff:'Facile',
+   kcal:320, lip:26, prot:16, gluc:3,
+   ing:['Cream cheese (100g)','2 œufs','Cannelle ½ c.à.c','Beurre (10g)','Optionnel: érythritol 1 c.à.c'],
+   steps:['Mixer cream cheese et œufs jusqu\'à lisse.','Ajouter cannelle et édulcorant si souhaité.','Faire fondre le beurre dans une poêle.','Verser des petites crêpes, 2min par côté.','Servir avec baies fraîches (framboises/fraises).']},
+];
+
+const FAQ = [
+  {q:'Combien de temps avant d\'être en cétose ?', a:'En général 2 à 4 jours avec moins de 20g de glucides nets. Cela peut être accéléré par le jeûne intermittent et l\'exercice.'},
+  {q:'Puis-je manger des produits laitiers ?', a:'Oui ! Crème, beurre, fromages sont excellents. Évitez le lait (lactose) et les yaourts sucrés. Le yaourt grec nature en petite quantité est OK.'},
+  {q:'Le keto fonctionne-t-il pour tout le monde ?', a:'Il est très efficace pour la plupart des gens, mais les résultats varient. Certains atteignent la cétose plus facilement. Consultez un médecin si vous avez des conditions médicales.'},
+  {q:'Peut-on faire du sport en keto ?', a:'Oui ! Après 3-4 semaines d\'adaptation, les performances reviennent. Le keto est excellent pour les sports d\'endurance. La musculation nécessite des protéines suffisantes.'},
+  {q:'Que manger si j\'ai faim entre les repas ?', a:'Noix (amandes, macadamia), fromage, œufs durs, avocat, tranches de bacon, légumes avec du guacamole. L\'appétit diminue naturellement en cétose.'},
+  {q:'Peut-on manger des fruits ?', a:'La plupart des fruits sont trop sucrés. Les exceptions keto : avocat, citron/lime, framboises (petite quantité), fraises (petite quantité). Évitez bananes, mangues, raisins.'},
+  {q:'Comment savoir si je suis en cétose ?', a:'Bandelettes urinaires (précision limitée), lecteur de cétones sanguin (plus précis, >0.5 mmol/L = cétose). Signes physiques : haleine fruitée, moins de faim, énergie stable.'},
+  {q:'Peut-on faire du keto en étant végétarien ?', a:'Oui mais c\'est plus complexe. Privilégiez : fromages, œufs, tofu ferme, avocat, noix, graines, huiles de qualité. Évitez les légumineuses (trop de glucides).'},
+];
+
+const COACH_KB = [
+  {k:['glucides','carbs','sucre','pain','pâtes','riz'], r:'En keto, visez moins de 20-25g de glucides nets/jour. Les glucides nets = glucides totaux - fibres. Évitez : pain, pâtes, riz, pommes de terre, fruits sucrés, sodas.'},
+  {k:['cétose','ketose','cétones','ketones'], r:'La cétose s\'installe après 2-4 jours sous 20g de glucides nets. Votre foie produit des cétones à partir des graisses. Signes : haleine fruitée, moins de faim, urine plus fréquente.'},
+  {k:['macros','lipides','graisses','ratio'], r:'Macros keto standard : 70% lipides, 25% protéines, 5% glucides. Ex pour 1800 kcal : ~140g graisses, ~112g protéines, ~22g glucides nets.'},
+  {k:['keto flu','fatigue','maux de tête','mal à la tête','migraine'], r:'Le keto flu survient les 3-5 premiers jours. Remèdes : 3L d\'eau/jour, sel supplémentaire, magnésium (300mg/j), potassium (avocat, épinards), bouillon d\'os.'},
+  {k:['jeûne','intermittent','16h','18h','fenêtre'], r:'Le jeûne intermittent 16:8 (jeûner 16h, manger en 8h) booste la cétose. Commencez par sauter le petit-déj. Café noir/thé autorisés pendant le jeûne.'},
+  {k:['constipation','digestion','intestin'], r:'La constipation est fréquente au début. Solutions : plus de légumes verts, 3L d\'eau, graines de chia, graines de lin, huile de coco, magnésium.'},
+  {k:['sport','exercice','musculation','endurance','gym'], r:'Les premières 2-4 semaines peuvent être difficiles sportivement. Après adaptation : excellentes performances en endurance. Pour la musculation : assurez-vous d\'avoir assez de protéines (1.6-2g/kg).'},
+  {k:['alcool','vin','bière','spiritueux'], r:'Bière : éviter (glucides élevés). Spiritueux secs (whisky, vodka, gin) : OK en petites quantités. Vin rouge sec : 1-2 verres max. L\'alcool ralentit la cétose temporairement.'},
+  {k:['fruits','banane','pomme','raisin'], r:'Fruits keto : avocat (excellent!), framboises, fraises (petites quantités), citron/lime. À éviter : banane, raisin, mangue, ananas, pomme, orange (trop de sucres).'},
+  {k:['plateau','stagnation','poids'], r:'Plateaux normaux ! Solutions : réduire encore les glucides, jeûne intermittent 18:6, augmenter l\'intensité sportive, fat fast 1-2 jours (80-90% graisses), vérifier les glucides cachés.'},
+  {k:['calories','manger combien'], r:'Les calories comptent même en keto ! L\'appétit diminue naturellement mais un excès ralentit la perte. Utilisez le Calculateur de l\'app pour vos besoins précis.'},
+  {k:['légumes','salade','épinards','brocoli'], r:'Légumes keto : épinards, brocoli, chou-fleur, courgette, avocat, concombre, champignons, poivrons verts, asperges, céleri. Évitez : carottes, maïs, pois, betteraves, pommes de terre.'},
+  {k:['fromage','laitier','crème'], r:'Fromages excellents en keto : cheddar, gruyère, parmesan, mozzarella, feta, brie. La crème fraîche et le beurre sont parfaits. Évitez le lait de vache (lactose = glucides).'},
+  {k:['recette','que manger','idée repas'], r:'Idées repas keto : steak-beurre, omelette-avocat, saumon-légumes, salade César sans croûtons, soupe brocoli-cheddar, courgettes farcies. Consultez la section Recettes de l\'app !'},
+];
+
+const CHIPS = ['Glucides max ?','Keto flu ?','Sport keto','Quels légumes ?','Alcool OK ?','Fruits autorisés ?','Plateau poids'];
+
+// ==================== STATE ====================
+let profile = JSON.parse(localStorage.getItem('keto_profile') || 'null');
+let journal = JSON.parse(localStorage.getItem('keto_journal') || '{}');
+let weights = JSON.parse(localStorage.getItem('keto_weights') || '[]');
+let ketones = JSON.parse(localStorage.getItem('keto_ketones') || '[]');
+let shopping = JSON.parse(localStorage.getItem('keto_shopping') || '[]');
+let currentAlimFilter = 'tous';
+let currentRecFilter = 'tous';
+
+// ==================== UTILS ====================
+const $= id => document.getElementById(id);
+const today = () => new Date().toISOString().slice(0,10);
+const save = (k,v) => localStorage.setItem(k, JSON.stringify(v));
+
+function fmtDate(d) {
+  return new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+}
+
+// ==================== NAV ====================
+document.querySelectorAll('.nav-item').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    el.classList.add('active');
+    const sec = el.dataset.section;
+    $('sec-'+sec).classList.add('active');
+    const titles = {calc:'Calculateur de Macros',journal:'Journal Alimentaire',aliments:'Base Alimentaire',recettes:'Recettes Keto',suivi:'Suivi & Progrès',courses:'Liste de Courses',guide:'Guide Keto'};
+    $('section-title').textContent = titles[sec]||sec;
+    if(sec==='journal') initJournal();
+    if(sec==='aliments') renderAliments();
+    if(sec==='recettes') renderRecettes();
+    if(sec==='suivi') initSuivi();
+    if(sec==='courses') renderShopping();
+    if(sec==='guide') renderFaq();
+  });
+});
+
+// topbar date
+$('topbar-date').textContent = new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// ==================== CALCULATEUR ====================
+function calcMacros() {
+  const age = +$('c-age').value;
+  const poids = +$('c-poids').value;
+  const taille = +$('c-taille').value;
+  const sexe = $('c-sexe').value;
+  const act = +$('c-activite').value;
+  const obj = +$('c-objectif').value;
+
+  if(!age||!poids||!taille) { alert('Veuillez remplir tous les champs.'); return; }
+
+  let bmr = sexe==='h'
+    ? 10*poids + 6.25*taille - 5*age + 5
+    : 10*poids + 6.25*taille - 5*age - 161;
+
+  const tdee = Math.round(bmr * act);
+  const target = tdee + obj;
+  const lip = Math.round(target * 0.70 / 9);
+  const prot = Math.round(target * 0.25 / 4);
+  const gluc = Math.round(target * 0.05 / 4);
+  const imc = (poids / ((taille/100)**2)).toFixed(1);
+
+  $('r-kcal').textContent = target;
+  $('r-lip').textContent = lip;
+  $('r-prot').textContent = prot;
+  $('r-gluc').textContent = gluc;
+  $('r-bmr').textContent = Math.round(bmr);
+  $('r-tdee').textContent = tdee;
+  $('r-imc').textContent = imc;
+  $('calc-results').style.display = 'block';
+
+  profile = {prenom:$('c-prenom').value, age, poids, taille, sexe, act, obj, target, lip, prot, gluc, imc};
+  save('keto_profile', profile);
+}
+
+// ==================== JOURNAL ====================
+function initJournal() {
+  $('j-date').value = today();
+  $('j-date').addEventListener('change', renderJournal);
+  renderJournal();
+}
+
+function getJournalDay() {
+  return $('j-date').value || today();
+}
+
+function renderJournal() {
+  const day = getJournalDay();
+  const entries = journal[day] || [];
+  const el = $('j-entries');
+  if(!entries.length) { el.innerHTML='<p class="text-xs">Aucun aliment enregistré pour cette journée.</p>'; }
+  else {
+    el.innerHTML = entries.map((e,i) => `
+      <div class="journal-entry">
+        <div>
+          <div class="je-name">${e.nom}</div>
+          <div class="je-macros">${e.qte}g · ${e.kcal} kcal · L:${e.lip}g · P:${e.prot}g · G:${e.gluc}g</div>
+        </div>
+        <div class="je-right">
+          <button class="btn btn-red btn-sm" onclick="removeEntry(${i})">✕</button>
+        </div>
+      </div>`).join('');
+  }
+  updateTotals(entries);
+}
+
+function updateTotals(entries) {
+  const tot = entries.reduce((a,e)=>({kcal:a.kcal+e.kcal,lip:a.lip+e.lip,prot:a.prot+e.prot,gluc:a.gluc+e.gluc}),{kcal:0,lip:0,prot:0,gluc:0});
+  $('j-tot-kcal').textContent = Math.round(tot.kcal);
+  $('j-tot-lip').textContent = Math.round(tot.lip);
+  $('j-tot-prot').textContent = Math.round(tot.prot);
+  $('j-tot-gluc').textContent = Math.round(tot.gluc);
+
+  if(profile) {
+    const p = $('j-progress');
+    const bars = [
+      {label:'Calories', val:tot.kcal, max:profile.target, unit:'kcal'},
+      {label:'Lipides', val:tot.lip, max:profile.lip, unit:'g'},
+      {label:'Protéines', val:tot.prot, max:profile.prot, unit:'g'},
+      {label:'Glucides nets', val:tot.gluc, max:profile.gluc, unit:'g'},
+    ];
+    p.innerHTML = bars.map(b=>{
+      const pct = Math.min(100, Math.round(b.val/b.max*100));
+      const over = b.val > b.max;
+      return `<div class="progress-item">
+        <div class="progress-header">
+          <span class="progress-label">${b.label}</span>
+          <span class="progress-val">${Math.round(b.val)} / ${b.max} ${b.unit}</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill${over?' over':''}" style="width:${pct}%"></div></div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function searchFood() {
+  const q = $('j-search').value.toLowerCase().trim();
+  const res = $('j-results');
+  if(!q) { res.classList.remove('open'); return; }
+  const found = FOOD_DB.filter(f=>f.n.toLowerCase().includes(q)).slice(0,8);
+  if(!found.length) { res.classList.remove('open'); return; }
+  res.innerHTML = found.map(f=>`
+    <div class="search-result-item" onclick="selectFood(${FOOD_DB.indexOf(f)})">
+      <span>${f.n}</span>
+      <span class="text-xs">${f.kcal} kcal · L:${f.lip}g P:${f.prot}g G:${f.gluc}g <em style="color:var(--text3)">/100g</em></span>
+    </div>`).join('');
+  res.classList.add('open');
+}
+
+function selectFood(idx) {
+  const f = FOOD_DB[idx];
+  $('j-nom').value = f.n;
+  $('j-qte').value = 100;
+  $('j-kcal').value = f.kcal;
+  $('j-lip').value = f.lip;
+  $('j-prot').value = f.prot;
+  $('j-gluc').value = f.gluc;
+  $('j-search').value = '';
+  $('j-results').classList.remove('open');
+}
+
+$('j-qte') && $('j-qte').addEventListener('input', function() {
+  const nom = $('j-nom').value;
+  const f = FOOD_DB.find(x=>x.n===nom);
+  if(!f) return;
+  const q = +this.value/100;
+  $('j-kcal').value = Math.round(f.kcal*q);
+  $('j-lip').value = Math.round(f.lip*q*10)/10;
+  $('j-prot').value = Math.round(f.prot*q*10)/10;
+  $('j-gluc').value = Math.round(f.gluc*q*10)/10;
+});
+
+function addJournalEntry() {
+  const nom = $('j-nom').value.trim();
+  if(!nom) { alert('Entrez un nom d\'aliment.'); return; }
+  const day = getJournalDay();
+  if(!journal[day]) journal[day] = [];
+  journal[day].push({
+    nom, qte:+$('j-qte').value||100,
+    kcal:+$('j-kcal').value||0, lip:+$('j-lip').value||0,
+    prot:+$('j-prot').value||0, gluc:+$('j-gluc').value||0
+  });
+  save('keto_journal', journal);
+  ['j-nom','j-qte','j-kcal','j-lip','j-prot','j-gluc'].forEach(id=>$(id).value='');
+  renderJournal();
+}
+
+function removeEntry(i) {
+  const day = getJournalDay();
+  journal[day].splice(i,1);
+  save('keto_journal', journal);
+  renderJournal();
+}
+
+document.addEventListener('click', e=>{
+  if(!e.target.closest('#j-search') && !e.target.closest('#j-results')) {
+    const r = $('j-results');
+    if(r) r.classList.remove('open');
+  }
+});
+
+// ==================== ALIMENTS ====================
+function getKetoScore(f) {
+  if(f.gluc<=2 && f.lip>=10) return {label:'Excellent',cls:'badge-green'};
+  if(f.gluc<=5) return {label:'Bon',cls:'badge-gold'};
+  return {label:'Modéré',cls:'badge-orange'};
+}
+
+const CAT_LABELS = {viande:'🥩 Viandes',poisson:'🐟 Poissons',laitier:'🥚 Œufs & Laitiers',legume:'🥦 Légumes',graisse:'🫒 Graisses',noix:'🌰 Noix & Graines',fromage:'🧀 Fromages'};
+
+function filterAliments(cat, btn) {
+  if(cat && btn) {
+    document.querySelectorAll('#sec-aliments .filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    currentAlimFilter = cat;
+  }
+  renderAliments();
+}
+
+function renderAliments() {
+  const search = ($('a-search')||{value:''}).value.toLowerCase();
+  const grid = $('a-grid');
+  const foods = FOOD_DB.filter(f=>{
+    const matchCat = currentAlimFilter==='tous' || f.cat===currentAlimFilter;
+    const matchSearch = !search || f.n.toLowerCase().includes(search);
+    return matchCat && matchSearch;
+  });
+  grid.innerHTML = foods.map(f=>{
+    const score = getKetoScore(f);
+    return `<div class="food-card">
+      <div class="flex justify-between items-center">
+        <div class="food-name">${f.n}</div>
+        <span class="badge ${score.cls}">${score.label}</span>
+      </div>
+      <div class="text-xs">${CAT_LABELS[f.cat]||f.cat}</div>
+      <div class="food-macros">
+        <div class="food-macro">🔥 <span>${f.kcal}</span> kcal</div>
+        <div class="food-macro">💧 <span>${f.lip}g</span> lip</div>
+        <div class="food-macro">💪 <span>${f.prot}g</span> prot</div>
+        <div class="food-macro">🌾 <span>${f.gluc}g</span> gluc</div>
+      </div>
+      <div class="text-xs mt8" style="color:var(--text3)">pour 100g</div>
+    </div>`;
+  }).join('');
+}
+
+// ==================== RECETTES ====================
+function filterRecettes(type, btn) {
+  document.querySelectorAll('#sec-recettes .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentRecFilter = type;
+  renderRecettes();
+}
+
+function renderRecettes() {
+  const grid = $('r-grid');
+  const recs = RECIPES.filter(r => currentRecFilter==='tous' || r.type===currentRecFilter);
+  grid.innerHTML = recs.map(r=>`
+    <div class="recipe-card" id="rc-${r.id}">
+      <div class="recipe-header">
+        <div class="recipe-emoji">${r.emoji}</div>
+        <div>
+          <div class="recipe-title">${r.name}</div>
+          <div class="recipe-meta">
+            <span class="badge badge-blue">⏱ ${r.time}</span>
+            <span class="badge badge-gold">${r.diff}</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-macros">
+        <div class="recipe-macro"><div class="recipe-macro-val">${r.kcal}</div><div class="recipe-macro-label">kcal</div></div>
+        <div class="recipe-macro"><div class="recipe-macro-val">${r.lip}g</div><div class="recipe-macro-label">lip</div></div>
+        <div class="recipe-macro"><div class="recipe-macro-val">${r.prot}g</div><div class="recipe-macro-label">prot</div></div>
+        <div class="recipe-macro"><div class="recipe-macro-val">${r.gluc}g</div><div class="recipe-macro-label">gluc</div></div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <span class="recipe-toggle" onclick="toggleRecipe(${r.id})">▼ Voir la recette</span>
+        <button class="btn btn-green btn-sm" onclick="addToShop(${r.id})">🛒 Courses</button>
+      </div>
+      <div class="recipe-body" id="rb-${r.id}">
+        <div style="font-size:.78rem;color:var(--text3);margin-bottom:6px">INGRÉDIENTS</div>
+        <ul>${r.ing.map(i=>`<li>${i}</li>`).join('')}</ul>
+        <div style="font-size:.78rem;color:var(--text3);margin:10px 0 6px">PRÉPARATION</div>
+        <ol style="list-style:decimal;padding-left:18px">${r.steps.map(s=>`<li style="padding:3px 0;font-size:.82rem;color:var(--text2)">${s}</li>`).join('')}</ol>
+      </div>
+    </div>`).join('');
+}
+
+function toggleRecipe(id) {
+  const body = $('rb-'+id);
+  body.classList.toggle('open');
+}
+
+function addToShop(id) {
+  const rec = RECIPES.find(r=>r.id===id);
+  if(!rec) return;
+  rec.ing.forEach(ing=>{
+    if(!shopping.find(s=>s.name===ing)) {
+      shopping.push({name:ing, cat:'Autre', checked:false});
+    }
+  });
+  save('keto_shopping', shopping);
+  alert(`Ingrédients de "${rec.name}" ajoutés à la liste de courses !`);
+}
+
+// ==================== SUIVI ====================
+function initSuivi() {
+  $('s-w-date').value = today();
+  $('s-k-date').value = today();
+  updateStats();
+  drawWeightChart();
+  drawKetoneChart();
+  renderWeightHistory();
+}
+
+function addWeight() {
+  const d = $('s-w-date').value;
+  const v = +$('s-w-val').value;
+  if(!d||!v) return;
+  weights = weights.filter(w=>w.d!==d);
+  weights.push({d,v});
+  weights.sort((a,b)=>a.d.localeCompare(b.d));
+  save('keto_weights', weights);
+  $('s-w-val').value='';
+  updateStats();
+  drawWeightChart();
+  renderWeightHistory();
+}
+
+function addKetone() {
+  const d = $('s-k-date').value;
+  const v = +$('s-k-val').value;
+  if(!d||!v) return;
+  ketones = ketones.filter(k=>k.d!==d);
+  ketones.push({d,v});
+  ketones.sort((a,b)=>a.d.localeCompare(b.d));
+  save('keto_ketones', ketones);
+  $('s-k-val').value='';
+  updateStats();
+  drawKetoneChart();
+}
+
+function updateStats() {
+  if(weights.length) {
+    const cur = weights[weights.length-1].v;
+    const start = weights[0].v;
+    $('st-cur').textContent = cur;
+    $('st-start').textContent = start;
+    $('st-loss').textContent = (start-cur).toFixed(1);
+  }
+  if(ketones.length) {
+    const last = ketones[ketones.length-1].v;
+    let level, cls;
+    if(last < 0.5) { level='Non en cétose (<0.5)'; cls='badge-red'; }
+    else if(last < 1.5) { level='Cétose légère (0.5-1.5)'; cls='badge-orange'; }
+    else if(last < 3.0) { level='Cétose optimale (1.5-3.0)'; cls='badge-green'; }
+    else { level='Cétose élevée (>3.0)'; cls='badge-blue'; }
+    $('st-ketone-level').textContent = level+' mmol/L';
+    $('st-ketone-level').className = 'badge '+cls;
+  }
+  // streak
+  const keys = Object.keys(journal).sort();
+  let streak = 0;
+  const d = new Date();
+  for(let i=0; i<60; i++) {
+    const s = new Date(d); s.setDate(s.getDate()-i);
+    const key = s.toISOString().slice(0,10);
+    if(journal[key] && journal[key].length) streak++;
+    else if(i>0) break;
+  }
+  $('st-streak').textContent = streak;
+}
+
+function drawLineChart(canvasId, data, color, yLabel) {
+  const canvas = $(canvasId);
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+
+  if(data.length < 2) {
+    ctx.fillStyle = '#6a6660';
+    ctx.font = '13px Inter';
+    ctx.textAlign = 'center';
+    ctx.fillText('Ajoutez au moins 2 entrées pour voir le graphique', W/2, H/2);
+    return;
+  }
+
+  const pad = {t:10,r:20,b:30,l:45};
+  const vals = data.map(d=>d.v);
+  const minV = Math.min(...vals), maxV = Math.max(...vals);
+  const rangeV = maxV-minV || 1;
+
+  const toX = i => pad.l + i*(W-pad.l-pad.r)/(data.length-1);
+  const toY = v => pad.t + (1-(v-minV)/rangeV)*(H-pad.t-pad.b);
+
+  // grid
+  ctx.strokeStyle = '#2a2a2e';
+  ctx.lineWidth = 1;
+  for(let i=0;i<4;i++) {
+    const y = pad.t + i*(H-pad.t-pad.b)/3;
+    ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(W-pad.r,y); ctx.stroke();
+    const val = (maxV - i*rangeV/3).toFixed(1);
+    ctx.fillStyle = '#6a6660'; ctx.font = '10px Inter'; ctx.textAlign = 'right';
+    ctx.fillText(val, pad.l-4, y+3);
+  }
+
+  // line
+  ctx.beginPath();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.lineJoin = 'round';
+  data.forEach((d,i)=>{
+    const x=toX(i), y=toY(d.v);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  // fill
+  ctx.beginPath();
+  data.forEach((d,i)=>{ const x=toX(i),y=toY(d.v); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
+  ctx.lineTo(toX(data.length-1), H-pad.b);
+  ctx.lineTo(toX(0), H-pad.b);
+  ctx.closePath();
+  ctx.fillStyle = color+'22';
+  ctx.fill();
+
+  // points
+  data.forEach((d,i)=>{
+    const x=toX(i), y=toY(d.v);
+    ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2);
+    ctx.fillStyle=color; ctx.fill();
+  });
+
+  // x labels
+  ctx.fillStyle='#6a6660'; ctx.font='10px Inter'; ctx.textAlign='center';
+  const step = Math.max(1, Math.floor(data.length/5));
+  data.forEach((d,i)=>{
+    if(i%step===0 || i===data.length-1) {
+      ctx.fillText(d.d.slice(5), toX(i), H-5);
+    }
+  });
+}
+
+function drawWeightChart() { drawLineChart('weight-chart', weights, '#c9a84c'); }
+function drawKetoneChart() { drawLineChart('ketone-chart', ketones, '#4caf7d'); }
+
+function renderWeightHistory() {
+  const el = $('weight-history');
+  if(!el) return;
+  if(!weights.length) { el.innerHTML='<p class="text-xs">Aucun poids enregistré.</p>'; return; }
+  el.innerHTML = [...weights].reverse().map(w=>`
+    <div class="flex justify-between items-center" style="padding:6px 0;border-bottom:1px solid #2a2a2e">
+      <span class="text-xs">${fmtDate(w.d)}</span>
+      <span style="font-size:.9rem;color:var(--gold);font-weight:600">${w.v} kg</span>
+    </div>`).join('');
+}
+
+// ==================== COURSES ====================
+function addShopItem() {
+  const nom = $('sh-nom').value.trim();
+  const cat = $('sh-cat').value;
+  if(!nom) return;
+  shopping.push({name:nom, cat, checked:false});
+  save('keto_shopping', shopping);
+  $('sh-nom').value='';
+  renderShopping();
+}
+
+function renderShopping() {
+  const el = $('shop-list');
+  if(!el) return;
+  const cats = [...new Set(shopping.map(s=>s.cat))];
+  if(!shopping.length) { el.innerHTML='<p class="text-xs">Liste vide.</p>'; return; }
+  el.innerHTML = cats.map(cat=>{
+    const items = shopping.filter(s=>s.cat===cat);
+    return `<div class="shop-category">
+      <div class="shop-cat-title">${cat}</div>
+      ${items.map((it,gi)=>{
+        const gi2 = shopping.indexOf(it);
+        return `<div class="shop-item${it.checked?' checked':''}">
+          <input type="checkbox" class="shop-check" ${it.checked?'checked':''} onchange="toggleShop(${gi2})">
+          <span class="shop-name">${it.name}</span>
+          <button class="btn btn-red btn-sm" onclick="removeShop(${gi2})">✕</button>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }).join('');
+
+  // recipes for shop
+  const sr = $('shop-recipes');
+  if(sr) {
+    sr.innerHTML = RECIPES.map(r=>`
+      <div class="flex justify-between items-center" style="padding:8px 0;border-bottom:1px solid #2a2a2e">
+        <span style="font-size:.85rem">${r.emoji} ${r.name}</span>
+        <button class="btn btn-green btn-sm" onclick="addToShop(${r.id});renderShopping()">+ Ajouter</button>
+      </div>`).join('');
+  }
+}
+
+function toggleShop(i) {
+  shopping[i].checked = !shopping[i].checked;
+  save('keto_shopping', shopping);
+  renderShopping();
+}
+
+function removeShop(i) {
+  shopping.splice(i,1);
+  save('keto_shopping', shopping);
+  renderShopping();
+}
+
+function clearChecked() {
+  shopping = shopping.filter(s=>!s.checked);
+  save('keto_shopping', shopping);
+  renderShopping();
+}
+
+// ==================== GUIDE ====================
+function renderFaq() {
+  const el = $('faq-list');
+  if(!el||el.children.length) return;
+  el.innerHTML = FAQ.map((f,i)=>`
+    <div class="accordion-item" id="acc-${i}">
+      <div class="accordion-header" onclick="toggleAcc(${i})">
+        <span>${f.q}</span>
+        <span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body" id="abb-${i}">${f.a}</div>
+    </div>`).join('');
+}
+
+function toggleAcc(i) {
+  const item = $('acc-'+i);
+  const body = $('abb-'+i);
+  item.classList.toggle('open');
+  body.classList.toggle('open');
+}
+
+// ==================== COACH ====================
+function toggleCoach() {
+  const panel = $('coach-panel');
+  panel.classList.toggle('open');
+  if(panel.classList.contains('open') && !$('coach-messages').children.length) {
+    addBotMsg('Bonjour ! Je suis votre Coach Keto 🥑 Posez-moi n\'importe quelle question sur le régime cétogène !');
+    renderChips();
+  }
+}
+
+function addBotMsg(txt) {
+  const msgs = $('coach-messages');
+  const div = document.createElement('div');
+  div.className = 'coach-msg bot';
+  div.textContent = txt;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addUserMsg(txt) {
+  const msgs = $('coach-messages');
+  const div = document.createElement('div');
+  div.className = 'coach-msg user';
+  div.textContent = txt;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function renderChips() {
+  $('coach-chips').innerHTML = CHIPS.map(c=>`<span class="coach-chip" onclick="sendCoachMsg('${c}')">${c}</span>`).join('');
+}
+
+function sendCoach() {
+  const inp = $('coach-input');
+  const txt = inp.value.trim();
+  if(!txt) return;
+  inp.value='';
+  sendCoachMsg(txt);
+}
+
+function sendCoachMsg(txt) {
+  addUserMsg(txt);
+  const q = txt.toLowerCase();
+  let resp = 'Je ne suis pas sûr de comprendre votre question. Essayez de me demander sur les glucides, la cétose, les macros, le keto flu, le sport, ou les aliments autorisés !';
+  for(const kb of COACH_KB) {
+    if(kb.k.some(k=>q.includes(k))) { resp = kb.r; break; }
+  }
+  setTimeout(()=>addBotMsg(resp), 300);
+}
+
+// ==================== MODAL ====================
+function closeModal() {
+  $('modal-overlay').classList.remove('open');
+  localStorage.setItem('keto_visited','1');
+}
+
+// ==================== INIT ====================
+if(!localStorage.getItem('keto_visited')) {
+  $('modal-overlay').classList.add('open');
+}
+
+// Init calc if profile exists
+if(profile) {
+  $('c-prenom').value = profile.prenom||'';
+  $('c-age').value = profile.age||'';
+  $('c-poids').value = profile.poids||'';
+  $('c-taille').value = profile.taille||'';
+  $('c-sexe').value = profile.sexe||'h';
+  $('c-activite').value = profile.act||1.55;
+  $('c-objectif').value = profile.obj||0;
+  if(profile.target) {
+    $('r-kcal').textContent = profile.target;
+    $('r-lip').textContent = profile.lip;
+    $('r-prot').textContent = profile.prot;
+    $('r-gluc').textContent = profile.gluc;
+    $('r-bmr').textContent = '—';
+    $('r-tdee').textContent = '—';
+    $('r-imc').textContent = profile.imc||'—';
+    $('calc-results').style.display = 'block';
+  }
+}
+
+renderAliments();
+renderRecettes();
+</script>
+</body>
+</html>
