@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA & Éducation · Fiches CM1-CM2</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3250;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --blue: #4a90d9;
+    --blue-light: #6aadff;
+    --green: #4caf7d;
+    --green-light: #6dd49a;
+    --purple: #8b6dd4;
+    --purple-light: #b09af0;
+    --orange: #e0874a;
+    --orange-light: #f5a96a;
+    --red: #e05a4a;
+    --text: #e8eaf0;
+    --text-dim: #8892aa;
+    --text-faint: #4a5068;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 16px;
+  }
+  .site-title { font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.03em; }
+  .site-subtitle { font-size: 0.78rem; color: var(--text-dim); margin-top: 2px; }
+  .progress-badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    color: var(--gold);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  /* ── ACCUEIL ── */
+  #view-home { display: block; }
+  #view-fiche { display: none; }
+
+  .home-hero {
+    text-align: center;
+    padding: 56px 24px 40px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .home-hero h1 {
+    font-size: 2rem;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .home-hero p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-dim); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── GRID FICHES ── */
+  .fiches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 980px;
+    margin: 0 auto 64px;
+    padding: 0 24px;
+  }
+
+  .fiche-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .fiche-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .fiche-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .fiche-card.done { opacity: 0.6; }
+  .fiche-card.done::after {
+    content: '✓';
+    position: absolute;
+    top: 12px; right: 14px;
+    font-size: 1rem;
+    color: var(--green);
+  }
+
+  .card-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .card-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+  .card-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Couleurs par thème */
+  .theme-intro    { --tc: var(--blue);   --tc-l: var(--blue-light);   }
+  .theme-learn    { --tc: var(--purple); --tc-l: var(--purple-light); }
+  .theme-daily    { --tc: var(--orange); --tc-l: var(--orange-light); }
+  .theme-lang     { --tc: var(--green);  --tc-l: var(--green-light);  }
+  .theme-image    { --tc: var(--gold);   --tc-l: var(--gold-light);   }
+  .theme-critical { --tc: var(--red);    --tc-l: #f58a7a;             }
+  .theme-ethics   { --tc: var(--purple); --tc-l: var(--purple-light); }
+  .theme-create   { --tc: var(--green);  --tc-l: var(--green-light);  }
+  .theme-data     { --tc: var(--blue);   --tc-l: var(--blue-light);   }
+  .theme-future   { --tc: var(--gold);   --tc-l: var(--gold-light);   }
+
+  .fiche-card { border-color: color-mix(in srgb, var(--tc) 25%, var(--border)); }
+  .fiche-card:hover { border-color: var(--tc); }
+  .fiche-card::before { background: var(--tc); }
+  .card-num { color: var(--tc-l); }
+  .tag { background: color-mix(in srgb, var(--tc) 18%, transparent); color: var(--tc-l); }
+
+  /* ── VUE FICHE ── */
+  .fiche-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px 24px 0;
+  }
+  .btn-back {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: var(--radius-sm);
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .btn-back:hover { color: var(--text); border-color: var(--gold); }
+
+  .fiche-nav-arrows { display: flex; gap: 8px; margin-left: auto; }
+  .btn-arrow {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: color 0.15s;
+  }
+  .btn-arrow:hover { color: var(--text); }
+  .btn-arrow:disabled { opacity: 0.3; cursor: default; }
+
+  .fiche-body {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 24px 24px 80px;
+  }
+
+  .fiche-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .fiche-header .fnum {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .fiche-header h2 {
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .fiche-header .intro {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    max-width: 600px;
+  }
+  .fiche-header .meta {
+    margin-top: 14px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+  .meta-icon { font-size: 1rem; }
+
+  /* Blocs de contenu */
+  .block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .block-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .block-title .icon { font-size: 1.1rem; }
+
+  .block-theory  { border-left: 3px solid var(--blue); }
+  .block-theory .block-title  { color: var(--blue-light); }
+
+  .block-practice { border-left: 3px solid var(--green); }
+  .block-practice .block-title { color: var(--green-light); }
+
+  .block-check   { border-left: 3px solid var(--gold); }
+  .block-check .block-title   { color: var(--gold-light); }
+
+  .block-tip     { border-left: 3px solid var(--purple); background: color-mix(in srgb, var(--purple) 6%, var(--surface)); }
+  .block-tip .block-title     { color: var(--purple-light); }
+
+  .block-example { border-left: 3px solid var(--orange); }
+  .block-example .block-title { color: var(--orange-light); }
+
+  .block p { margin-bottom: 12px; }
+  .block p:last-child { margin-bottom: 0; }
+
+  .block ul, .block ol {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+  .block ul:last-child, .block ol:last-child { margin-bottom: 0; }
+  .block li { margin-bottom: 6px; }
+  .block li::marker { color: var(--text-dim); }
+
+  .block h4 {
+    font-size: 0.95rem;
+    color: var(--text);
+    margin: 16px 0 8px;
+    font-weight: 700;
+  }
+  .block h4:first-child { margin-top: 0; }
+
+  .block strong { color: var(--text); }
+
+  .highlight-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+  }
+
+  .activity-step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+    background: color-mix(in srgb, var(--green) 20%, transparent);
+    color: var(--green-light);
+    border: 1px solid var(--green);
+  }
+  .step-content { flex: 1; }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    transition: background 0.1s;
+  }
+  .checklist li:hover { background: var(--surface2); }
+  .checklist li .chk {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--gold);
+    transition: background 0.1s;
+  }
+  .checklist li.checked .chk { background: var(--gold); color: var(--bg); }
+  .checklist li.checked span { color: var(--text-dim); text-decoration: line-through; }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .tool-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+  }
+  .tool-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+  .tool-desc { font-size: 0.8rem; color: var(--text-dim); }
+
+  .alert {
+    background: color-mix(in srgb, var(--red) 10%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--red) 40%, transparent);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 0.88rem;
+    color: #f58a7a;
+  }
+
+  .done-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity 0.15s;
+    letter-spacing: 0.03em;
+  }
+  .done-btn:hover { opacity: 0.85; }
+  .done-btn.mark   { background: var(--green); color: #fff; }
+  .done-btn.unmark { background: var(--surface2); color: var(--text-dim); border: 1px solid var(--border); }
+
+  /* ── PRINT ── */
+  @media print {
+    .site-header, .fiche-nav, .done-btn, .btn-arrow, .btn-back { display: none !important; }
+    body { background: #fff; color: #111; }
+    .block { border: 1px solid #ccc; break-inside: avoid; }
+    .fiche-body { padding: 0; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .home-hero h1 { font-size: 1.5rem; }
+    .fiches-grid { grid-template-columns: 1fr; }
+    .fiche-header h2 { font-size: 1.35rem; }
+    .block { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div>
+    <div class="site-title">🤖 IA &amp; Éducation</div>
+    <div class="site-subtitle">Fiches parentales · CM1 / CM2 (9-11 ans)</div>
+  </div>
+  <div class="progress-badge" onclick="resetProgress()" title="Cliquer pour réinitialiser">
+    <span id="prog-text">0 / 10 fiches</span>
+  </div>
+</header>
+
+<!-- ══ VUE ACCUEIL ══ -->
+<div id="view-home">
+  <div class="home-hero">
+    <h1>L'Intelligence Artificielle<br>expliquée à vos enfants</h1>
+    <p>10 fiches progressives pour découvrir l'IA en famille, avec des activités concrètes adaptées aux élèves de CM1 et CM2. Consultez-les dans l'ordre ou choisissez librement selon votre envie du moment.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Comprendre</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>Apprendre</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Créer &amp; Pratiquer</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>Quotidien</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div>Futur &amp; Éthique</div>
+  </div>
+
+  <div class="fiches-grid" id="fiches-grid"></div>
+</div>
+
+<!-- ══ VUE FICHE ══ -->
+<div id="view-fiche">
+  <div class="fiche-nav">
+    <button class="btn-back" onclick="showHome()">← Toutes les fiches</button>
+    <div class="fiche-nav-arrows">
+      <button class="btn-arrow" id="btn-prev" onclick="navigate(-1)">‹ Préc.</button>
+      <button class="btn-arrow" id="btn-next" onclick="navigate(1)">Suiv. ›</button>
+    </div>
+  </div>
+  <div class="fiche-body" id="fiche-content"></div>
+</div>
+
+<script>
+// ══ DONNÉES DES FICHES ══
+const FICHES = [
+
+// ─── FICHE 1 ───────────────────────────────────────────────────────
+{
+  id: 1,
+  theme: 'intro',
+  emoji: '🤖',
+  title: "C'est quoi l'Intelligence Artificielle ?",
+  desc: "Démystifier l'IA en partant de ce que l'enfant connaît déjà.",
+  tags: ['Concept fondamental', '45 min', 'Sans écran possible'],
+  duree: '45 min',
+  niveau: 'Débutant',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · Ce qu'il faut comprendre</div>
+      <h4>Définition simple</h4>
+      <p>L'Intelligence Artificielle (IA) est un <strong>programme informatique</strong> capable d'apprendre à partir d'exemples pour accomplir des tâches qui ressemblent à ce que fait un être humain : reconnaître une photo, comprendre une phrase, jouer aux échecs…</p>
+      <div class="highlight-box">
+        💡 <strong>Analogie clé :</strong> Imagine que tu apprends à reconnaître un chat. Tu as vu des dizaines de chats (gros, petit, roux, tigré) et maintenant tu reconnais un chat même si tu n'en as jamais vu exactement comme celui-là. L'IA fait pareil, mais avec des millions d'exemples et très vite !
+      </div>
+      <h4>Ce que l'IA FAIT et ce qu'elle NE FAIT PAS</h4>
+      <ul>
+        <li>✅ Elle <strong>reconnaît des formes</strong> (images, voix, texte)</li>
+        <li>✅ Elle <strong>prédit</strong> ce qui est probable (suite d'une phrase, météo…)</li>
+        <li>✅ Elle <strong>optimise</strong> selon un objectif (le plus court chemin, etc.)</li>
+        <li>❌ Elle ne <strong>ressent rien</strong> (pas de vraies émotions)</li>
+        <li>❌ Elle ne <strong>comprend pas</strong> vraiment comme un humain</li>
+        <li>❌ Elle ne <strong>pense pas</strong> par elle-même sans instruction</li>
+      </ul>
+      <h4>3 grandes familles d'IA</h4>
+      <ul>
+        <li><strong>IA étroite :</strong> très forte dans UN domaine (jouer aux échecs, reconnaître des visages). C'est l'IA d'aujourd'hui.</li>
+        <li><strong>IA générale :</strong> aussi capable qu'un humain dans tous les domaines. N'existe pas encore.</li>
+        <li><strong>Super-IA :</strong> dépasse l'humain dans tout. Reste de la science-fiction pour l'instant.</li>
+      </ul>
+    </div>
+
+    <div class="block block-example">
+      <div class="block-title"><span class="icon">🌍</span> Exemples concrets autour de vous</div>
+      <ul>
+        <li>🎵 <strong>Spotify / YouTube Music</strong> : recommande des chansons selon vos goûts</li>
+        <li>📱 <strong>Autocorrection</strong> sur le téléphone : prédit la prochaine lettre ou mot</li>
+        <li>🗺️ <strong>GPS (Waze, Google Maps)</strong> : recalcule le meilleur itinéraire en temps réel</li>
+        <li>📷 <strong>Déverrouillage par visage</strong> : reconnaît votre visage parmi des milliers</li>
+        <li>📧 <strong>Filtre anti-spam</strong> : détecte automatiquement les e-mails indésirables</li>
+        <li>🛒 <strong>Amazon / Cdiscount</strong> : "Les clients ont aussi acheté…" — recommandations IA</li>
+        <li>🎮 <strong>Jeux vidéo</strong> : ennemis qui s'adaptent à votre style de jeu</li>
+      </ul>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">🎯</span> Activité pratique · La chasse aux IA</div>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content">Imprimez ou dessinez un tableau à 3 colonnes : <em>Objet/Service</em> | <em>Ce qu'il fait</em> | <em>IA ou pas ?</em></div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content">Parcourez ensemble la maison (téléphone, télé, tablette, box internet) et listez 10 appareils ou applications.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content">Pour chaque item, discutez : est-ce que l'appareil <em>apprend</em> quelque chose sur vous ou sur le monde ? Si oui, c'est probablement de l'IA.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">4</div>
+        <div class="step-content">Comptez vos IA ! Surprise garantie : la plupart des familles en trouvent plus de 15 sans chercher loin.</div>
+      </div>
+      <div class="highlight-box">⏱️ Durée : 20 minutes. Matériel : papier + stylo, ou tableau blanc.</div>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint · Questions pour valider</div>
+      <ul class="checklist" id="cl-1">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant peut expliquer ce qu'est l'IA avec ses propres mots</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle cite 3 exemples d'IA dans notre quotidien</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle comprend la différence entre "programme classique" et "programme qui apprend"</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons fait l'activité chasse aux IA ensemble</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 2 ───────────────────────────────────────────────────────
+{
+  id: 2,
+  theme: 'learn',
+  emoji: '🧠',
+  title: "Comment l'IA apprend-elle ?",
+  desc: "Comprendre l'apprentissage automatique avec des exemples ludiques.",
+  tags: ['Machine Learning', '40 min', 'Activité manuelle'],
+  duree: '40 min',
+  niveau: 'Débutant',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · L'apprentissage automatique</div>
+      <h4>Le principe en 3 étapes</h4>
+      <p>Une IA apprend à partir de <strong>données</strong> (exemples), pas de règles écrites à la main. Voici comment :</p>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Données d'entraînement :</strong> on montre à l'IA des milliers d'exemples déjà annotés (ex : des photos de chats étiquetées "chat", des photos de chiens étiquetées "chien").</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Entraînement :</strong> l'IA fait des essais, se trompe, corrige ses erreurs, refait… des millions de fois. Chaque erreur lui permet d'ajuster ses "réglages internes".</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>Prédiction :</strong> une fois entraînée, l'IA peut reconnaître un nouvel exemple qu'elle n'avait jamais vu.</div>
+      </div>
+      <div class="highlight-box">
+        💡 <strong>Analogie :</strong> C'est comme apprendre à faire du vélo. Au début tu tombes (erreur), tu ajustes ton équilibre (correction), tu retombes moins (amélioration)… jusqu'à savoir faire du vélo sans y penser !
+      </div>
+      <h4>Les données : le carburant de l'IA</h4>
+      <ul>
+        <li>Plus il y a de <strong>données variées</strong>, meilleure est l'IA</li>
+        <li>Si les données sont <strong>biaisées</strong> (ex : que des photos de chiens bruns), l'IA sera mauvaise pour les chiens blancs</li>
+        <li>Les données doivent être <strong>bien étiquetées</strong> : des humains passent des heures à annoter des images, textes, sons…</li>
+      </ul>
+    </div>
+
+    <div class="block block-example">
+      <div class="block-title"><span class="icon">🎲</span> Jeu · Tu es la machine !</div>
+      <p>Ce jeu permet à l'enfant de <em>vivre</em> ce qu'est l'apprentissage automatique.</p>
+      <h4>Règles du jeu "Classifieur humain"</h4>
+      <ul>
+        <li>Découpez 20 petits papiers avec des formes géométriques dessinées (cercles et carrés, variés en taille et couleur)</li>
+        <li>Le <strong>parent joue le rôle du "données d'entraînement"</strong> : il montre une forme à la fois et dit "cercle" ou "carré"</li>
+        <li>Après 10 formes montrées, l'enfant doit <strong>prédire</strong> les 10 suivantes AVANT que le parent ne donne la réponse</li>
+        <li>Comptez le score. Recommencez avec des règles plus complexes (ex : rouge = A, bleu = B)</li>
+      </ul>
+      <div class="highlight-box">🔑 Conclusion à tirer : plus l'enfant voit d'exemples, plus ses prédictions s'améliorent. C'est exactement ce que fait une IA !</div>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">💻</span> Activité numérique · Entraîner une vraie IA</div>
+      <p>Le site <strong>Teachable Machine de Google</strong> permet d'entraîner une IA depuis le navigateur, sans code.</p>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content">Ouvrez <strong>teachablemachine.withgoogle.com</strong> dans un navigateur (Chrome recommandé).</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content">Choisissez "Image Project" → "Standard image model". Créez 2 classes : ex. "Pouce en l'air" et "Pouce en bas".</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content">Prenez ~50 photos de chaque geste devant la webcam. Cliquez "Entraîner le modèle".</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">4</div>
+        <div class="step-content">Testez ! Faites les gestes et regardez l'IA prédire. Puis <em>trompez-la</em> : que se passe-t-il si vous inclinez la main ?</div>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-item"><div class="tool-name">Teachable Machine</div><div class="tool-desc">Google · Gratuit · Sans compte · Marche sur mobile</div></div>
+        <div class="tool-item"><div class="tool-name">Scratch + ML</div><div class="tool-desc">Machine Learning for Kids · Adapté CM2</div></div>
+      </div>
+    </div>
+
+    <div class="block block-tip">
+      <div class="block-title"><span class="icon">👁️</span> Point parent · Ce qu'il faut savoir en plus</div>
+      <p>Il existe plusieurs types d'apprentissage automatique : <strong>supervisé</strong> (avec exemples annotés, comme ci-dessus), <strong>non supervisé</strong> (l'IA trouve seule des groupes dans les données) et <strong>par renforcement</strong> (l'IA apprend par essai-erreur avec récompense, comme dans les jeux vidéo).</p>
+      <p>À cet âge, restez sur l'apprentissage supervisé — c'est le plus intuitif et le plus courant.</p>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant explique ce que sont les "données d'entraînement"</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle comprend pourquoi une IA peut se tromper si ses données sont mauvaises</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons joué au jeu "Classifieur humain"</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons essayé Teachable Machine (ou équivalent)</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 3 ───────────────────────────────────────────────────────
+{
+  id: 3,
+  theme: 'daily',
+  emoji: '📱',
+  title: "L'IA dans ma vie de tous les jours",
+  desc: "Identifier concrètement les IA invisibles qui accompagnent chaque journée.",
+  tags: ['Applications concrètes', '30 min', 'Journal de bord'],
+  duree: '30 min + 1 journée d\'observation',
+  niveau: 'Débutant',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · L'IA partout, tout le temps</div>
+      <p>Une journée type d'un enfant de CM1/CM2 est parsemée d'IA sans qu'on s'en rende compte. Explorons-les ensemble.</p>
+      <h4>🌅 Le matin</h4>
+      <ul>
+        <li><strong>Réveil / alarme intelligente</strong> : certaines analysent votre sommeil</li>
+        <li><strong>Météo de l'appli</strong> : modèles de prédiction météo à base d'IA</li>
+        <li><strong>Musique suggérée</strong> : Spotify sait que tu aimes du calme le matin</li>
+      </ul>
+      <h4>🚌 Trajet école</h4>
+      <ul>
+        <li><strong>GPS :</strong> recalcule en temps réel selon le trafic</li>
+        <li><strong>Caméras de sécurité</strong> : certaines détectent des comportements suspects</li>
+        <li><strong>Feux tricolores intelligents</strong> (dans certaines villes) : s'adaptent au flux</li>
+      </ul>
+      <h4>🏫 À l'école</h4>
+      <ul>
+        <li><strong>Correcteurs orthographiques</strong> sur les outils numériques</li>
+        <li><strong>Outils de traduction</strong> en cours de langues</li>
+        <li><strong>Recherche internet</strong> : le moteur classe les résultats par pertinence grâce à l'IA</li>
+      </ul>
+      <h4>🏠 À la maison (soir)</h4>
+      <ul>
+        <li><strong>Netflix / YouTube</strong> : recommandations personnalisées</li>
+        <li><strong>Jeux vidéo</strong> : adversaires adaptés à ton niveau</li>
+        <li><strong>Enceinte connectée</strong> (Alexa, Google Home) : comprend et répond en langage naturel</li>
+        <li><strong>Filtre parental</strong> : certains utilisent l'IA pour détecter le contenu inapproprié</li>
+      </ul>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">📓</span> Activité · Le journal des IA</div>
+      <p>Sur une journée, l'enfant tient un <strong>carnet de bord</strong> des IA rencontrées.</p>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content">Préparez un petit carnet ou une feuille divisée en 4 moments : Matin / Trajet / École / Soir.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content">Chaque fois que l'enfant pense utiliser une IA, il note : <em>Quoi ?</em> + <em>Qu'est-ce qu'elle fait ?</em> + <em>Est-ce utile ?</em></div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content">Le soir, comptez et discutez : quelle IA vous a le plus surpris ? Y en a-t-il une dont vous pourriez vous passer ?</div>
+      </div>
+      <div class="highlight-box">📊 Objectif : réaliser qu'on interagit avec des dizaines d'IA chaque jour, et développer une conscience numérique active plutôt que passive.</div>
+    </div>
+
+    <div class="block block-example">
+      <div class="block-title"><span class="icon">🔍</span> Mini-enquête · Tester les recommandations</div>
+      <p>Expérience concrète pour comprendre comment l'IA "nous connaît" :</p>
+      <ul>
+        <li>Ouvrez YouTube sur deux appareils différents (ou deux profils)</li>
+        <li>Comparez les vidéos recommandées sur la page d'accueil</li>
+        <li>Pourquoi sont-elles différentes ?</li>
+      </ul>
+      <p><em>Réponse :</em> L'algorithme de recommandation a appris vos goûts à partir de votre historique de visionnage. Chaque profil est unique car il a un historique différent.</p>
+      <div class="alert">⚠️ <strong>Attention à expliquer :</strong> ces algorithmes sont conçus pour nous garder le plus longtemps possible devant l'écran. Ce n'est pas toujours bon pour nous !</div>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant a tenu son journal des IA pendant une journée</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle a identifié au moins 8 IA différentes</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons discuté des effets positifs ET des risques potentiels</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle comprend pourquoi les recommandations sont personnalisées</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 4 ───────────────────────────────────────────────────────
+{
+  id: 4,
+  theme: 'lang',
+  emoji: '💬',
+  title: "L'IA et les mots : chatbots et traduction",
+  desc: "Comprendre comment l'IA traite le langage humain et s'en servir intelligemment.",
+  tags: ['NLP', '50 min', 'Expérimentation'],
+  duree: '50 min',
+  niveau: 'Intermédiaire',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · Quand l'IA comprend notre langue</div>
+      <h4>Le Traitement du Langage Naturel (NLP)</h4>
+      <p>Le NLP (en anglais : Natural Language Processing) est la branche de l'IA qui permet aux machines de lire, comprendre et générer du texte humain.</p>
+      <div class="highlight-box">
+        💡 <strong>Analogie :</strong> Imaginez que vous deviez apprendre le chinois uniquement en lisant des milliards de pages de texte chinois sans professeur. C'est ce que fait une IA de langage — elle lit des quantités astronomiques de texte pour comprendre les patterns du langage.
+      </div>
+      <h4>Comment ça marche ?</h4>
+      <ul>
+        <li><strong>Tokenisation :</strong> la phrase est découpée en morceaux (mots, parties de mots)</li>
+        <li><strong>Analyse du contexte :</strong> "Je mange une pomme" vs "Apple lance un nouveau produit" — le mot "apple/pomme" n'a pas le même sens !</li>
+        <li><strong>Prédiction :</strong> l'IA prédit quel mot vient après, encore et encore = une phrase complète</li>
+      </ul>
+      <h4>Applications concrètes</h4>
+      <ul>
+        <li>💬 <strong>Chatbots</strong> (service client, assistants virtuels)</li>
+        <li>🌍 <strong>Traduction automatique</strong> (Google Translate, DeepL)</li>
+        <li>✏️ <strong>Correction orthographique intelligente</strong></li>
+        <li>🔍 <strong>Moteurs de recherche</strong> (comprendre votre intention)</li>
+        <li>📝 <strong>Résumé automatique</strong> de textes longs</li>
+        <li>🎙️ <strong>Reconnaissance vocale</strong> (Siri, Google Assistant)</li>
+      </ul>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">🕵️</span> Activité · Déjouer l'IA avec des pièges linguistiques</div>
+      <p>Cette activité révèle les <em>limites</em> du langage machine de façon amusante.</p>
+      <h4>Défi 1 : La blague que l'IA ne comprend pas</h4>
+      <p>Testez avec un chatbot ou la traduction automatique :</p>
+      <ul>
+        <li>"Il pleut des cordes" → traduisez en anglais puis retraduisez en français. Résultat ?</li>
+        <li>Demandez à un chatbot d'expliquer une blague. Est-il vraiment drôle dans sa réponse ?</li>
+        <li>Posez une question ambiguë : "Je vois l'homme avec le télescope" (qui a le télescope ?)</li>
+      </ul>
+      <h4>Défi 2 : Le test de la cohérence</h4>
+      <p>Inventez une histoire absurde avec des détails contradictoires et demandez à ChatGPT ou à un chatbot de la résumer. Repère-t-il les contradictions ou les ignore-t-il ?</p>
+      <h4>Défi 3 : La traduction en chaîne</h4>
+      <p>Prenez une phrase en français → traduisez en japonais → en swahili → en russe → puis revenez en français. Comparez avec l'original !</p>
+      <div class="highlight-box">🎯 Objectif : comprendre que l'IA "joue avec les probabilités", elle ne comprend pas vraiment le sens comme nous.</div>
+    </div>
+
+    <div class="block block-tip">
+      <div class="block-title"><span class="icon">👁️</span> Bonne pratique · Utiliser un chatbot de manière éclairée</div>
+      <ul>
+        <li>✅ <strong>Vérifier les infos importantes :</strong> les chatbots "hallucinent" (inventent des faits qui semblent vrais)</li>
+        <li>✅ <strong>Poser des questions précises :</strong> "Explique la photosynthèse à un enfant de 10 ans" est mieux que "photosynthèse"</li>
+        <li>✅ <strong>Relire et reformuler :</strong> l'IA peut être pompeux ou trop complexe — retravaillez le texte</li>
+        <li>❌ <strong>Ne pas copier-coller</strong> directement les réponses pour les devoirs</li>
+        <li>❌ <strong>Ne pas partager</strong> des informations personnelles (nom, école, adresse)</li>
+      </ul>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant comprend ce qu'est le traitement du langage naturel</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle a vu concrètement qu'un chatbot peut se tromper ou ne pas "vraiment" comprendre</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons établi ensemble des règles d'utilisation des chatbots</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle sait différencier "l'IA dit quelque chose" de "c'est vrai"</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 5 ───────────────────────────────────────────────────────
+{
+  id: 5,
+  theme: 'image',
+  emoji: '👁️',
+  title: "L'IA et les images : quand la machine voit",
+  desc: "Explorer la vision par ordinateur et comprendre comment l'IA analyse les photos.",
+  tags: ['Vision par ordinateur', '45 min', 'Webcam'],
+  duree: '45 min',
+  niveau: 'Intermédiaire',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · Comment l'IA "voit"</div>
+      <h4>Une image = des chiffres</h4>
+      <p>Pour une IA, une image n'est pas une photo belle ou émouvante. C'est une <strong>grille de chiffres</strong>. Chaque pixel (point de l'image) a une valeur numérique pour sa couleur rouge, verte et bleue (RGB).</p>
+      <div class="highlight-box">💡 Une photo de 300×300 pixels = 90 000 pixels × 3 couleurs = <strong>270 000 chiffres</strong> que l'IA analyse simultanément !</div>
+      <h4>Les réseaux de neurones convolutifs</h4>
+      <p>L'IA reconnaît les images grâce à des <strong>couches de filtres</strong> imbriquées :</p>
+      <ul>
+        <li>Couche 1 : détecte les <strong>bords et lignes</strong></li>
+        <li>Couche 2 : détecte les <strong>formes simples</strong> (cercle, coin)</li>
+        <li>Couche 3 : détecte les <strong>parties</strong> (oreille, œil, roue)</li>
+        <li>Couche finale : reconnaît l'<strong>objet entier</strong> (chat, voiture, maison)</li>
+      </ul>
+      <h4>Applications concrètes</h4>
+      <ul>
+        <li>📸 <strong>Reconnaissance faciale</strong> (déverrouillage iPhone, photos Google)</li>
+        <li>🏥 <strong>Médecine</strong> : détection de cancers sur des radios (parfois plus précis que les médecins!)</li>
+        <li>🚗 <strong>Voiture autonome</strong> : reconnaît piétons, feux, panneaux</li>
+        <li>🔍 <strong>Google Lens / Google Images</strong> : recherche par photo</li>
+        <li>🌿 <strong>Identification de plantes</strong> (app PlantNet)</li>
+        <li>🎨 <strong>Génération d'images</strong> : Midjourney, DALL-E créent des images à partir de descriptions</li>
+      </ul>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">🔬</span> Activité · Explorer la vision par IA</div>
+      <h4>Expérience 1 : Google Lens</h4>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content">Ouvrez Google Lens (dans l'app Google ou l'appareil photo sur Android). Sur iOS : Google app → appareil photo.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content">Testez : un objet du quotidien, une plante, un animal, un texte en langue étrangère, une équation mathématique.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content">Essayez de la <em>tromper</em> : objet en contre-jour, photo floue, dessin d'enfant. Quand échoue-t-elle ?</div>
+      </div>
+      <h4>Expérience 2 : Identifier une plante ou insecte</h4>
+      <p>Sortez dans le jardin ou au parc. Photographiez 5 plantes/insectes différents et identifiez-les avec PlantNet (plantes) ou iNaturalist (tout être vivant). Comparez avec une encyclopédie papier !</p>
+      <div class="highlight-box">🌟 <strong>Discussion après :</strong> dans quels cas l'IA vision est-elle utile ? Dangereuse ? (ex : reconnaissance faciale dans les espaces publics)</div>
+    </div>
+
+    <div class="block block-example">
+      <div class="block-title"><span class="icon">⚠️</span> Les deepfakes : quand l'IA manipule les images</div>
+      <p>L'IA peut aussi <strong>créer de fausses images</strong> très réalistes, qu'on appelle "deepfakes".</p>
+      <ul>
+        <li>Des vidéos de personnes qui n'ont jamais dit ce qu'on leur fait dire</li>
+        <li>Des photos de personnes qui n'existent pas (thispersondoesnotexist.com)</li>
+        <li>Des œuvres d'art "dans le style de" grands peintres</li>
+      </ul>
+      <div class="alert">⚠️ <strong>À retenir :</strong> "Voir, c'est croire" ne fonctionne plus. Une image peut être 100% fausse et paraître vraie. Toujours vérifier la source d'une photo choquante ou surprenante !</div>
+      <p>Visitez <strong>thispersondoesnotexist.com</strong> — chaque rechargement génère un visage humain totalement inventé par une IA.</p>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant comprend qu'une image est une grille de chiffres pour l'IA</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons testé Google Lens et identifié ses forces et limites</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant sait ce qu'est un deepfake et pourquoi c'est un risque</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle adopte une attitude de vérification face aux images étonnantes</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 6 ───────────────────────────────────────────────────────
+{
+  id: 6,
+  theme: 'critical',
+  emoji: '🔍',
+  title: "Sois un détective : l'esprit critique face à l'IA",
+  desc: "Développer le réflexe de vérification et identifier les erreurs et biais de l'IA.",
+  tags: ['Esprit critique', '60 min', 'Débat en famille'],
+  duree: '60 min',
+  niveau: 'Intermédiaire',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · Pourquoi l'IA peut se tromper</div>
+      <h4>L'hallucination : quand l'IA invente</h4>
+      <p>Les IA de langage (comme les chatbots) peuvent <strong>inventer des faits</strong> avec une confiance absolue. On appelle ça une "hallucination" : l'IA génère du texte probable statistiquement, pas nécessairement vrai.</p>
+      <div class="highlight-box">💡 Exemple réel : des avocats ont cité devant un tribunal américain des jugements inventés par ChatGPT. Ces jugements n'existaient pas — l'IA les avait fabriqués de toutes pièces !</div>
+      <h4>Le biais : quand l'IA discrimine</h4>
+      <p>Si les données d'entraînement reflètent des préjugés humains, l'IA les reproduit et les amplifie :</p>
+      <ul>
+        <li>Un algorithme de recrutement entraîné sur des CV historiques discriminait les femmes (parce qu'elles étaient sous-représentées dans les anciens recrutements)</li>
+        <li>Un logiciel de reconnaissance faciale moins précis sur les visages noirs (entraîné sur trop peu de diversité)</li>
+        <li>Un chatbot médical moins performant pour les patients atypiques</li>
+      </ul>
+      <h4>Les 4 questions du détective IA</h4>
+      <ul>
+        <li>🔎 <strong>QUI</strong> a créé cette IA ? Quel est son intérêt ?</li>
+        <li>📊 <strong>QUELLES données</strong> ont servi à l'entraîner ? Sont-elles diverses et représentatives ?</li>
+        <li>🎯 <strong>QUEL OBJECTIF</strong> l'IA cherche-t-elle à optimiser ? (clics ? précision ? profit ?)</li>
+        <li>✅ <strong>COMMENT VÉRIFIER</strong> ce qu'elle affirme ?</li>
+      </ul>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">🕵️</span> Activité · Piéger l'IA</div>
+      <p>Session pratique de 30 minutes avec un chatbot accessible (Le Chat de Mistral, disponible sans compte).</p>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Test d'hallucination :</strong> demandez à l'IA "Cite-moi 3 livres écrits par [nom d'un auteur peu connu]" ou inventez un auteur fictif. Vérifiez les réponses.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Test de date :</strong> demandez des infos sur un événement récent (hier ou la semaine dernière). L'IA a une "date de coupure" de connaissances.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>Test de calcul :</strong> demandez 17 × 23 + 456 ÷ 3. Vérifiez à la calculatrice. Les IA de langage font parfois des erreurs de maths !</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>Test de cohérence :</strong> dites-lui "La capitale de la France est Lyon" puis posez des questions sur la France. S'adapte-t-elle à votre fausse affirmation ?</div>
+      </div>
+    </div>
+
+    <div class="block block-example">
+      <div class="block-title"><span class="icon">🗞️</span> Fausses informations et IA</div>
+      <p>L'IA peut aussi être utilisée pour <strong>créer ou amplifier</strong> des fausses informations :</p>
+      <ul>
+        <li>Articles de presse générés automatiquement (parfois sans relecture humaine)</li>
+        <li>Faux témoignages ou faux avis clients générés en masse</li>
+        <li>Deepfakes audio (voix de personnalités disant ce qu'elles n'ont pas dit)</li>
+      </ul>
+      <h4>Réflexes anti-fake pour votre enfant</h4>
+      <ul>
+        <li>📍 Regarder qui publie l'information (source officielle ?)</li>
+        <li>📅 Vérifier la date de publication</li>
+        <li>🔄 Chercher la même info sur 2 autres sources indépendantes</li>
+        <li>🔍 Faire une recherche inversée de l'image (Google Images)</li>
+      </ul>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant sait ce qu'est une "hallucination" de l'IA</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle comprend pourquoi les biais dans les données causent des biais dans l'IA</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons réussi à "piéger" un chatbot lors de l'activité</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant adopte un réflexe de vérification pour les infos importantes</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 7 ───────────────────────────────────────────────────────
+{
+  id: 7,
+  theme: 'ethics',
+  emoji: '⚖️',
+  title: "L'IA, c'est juste ? L'éthique en pratique",
+  desc: "Aborder les questions de justice, vie privée et responsabilité avec des exemples concrets.",
+  tags: ['Éthique', '60 min', 'Débat', 'Sans écran'],
+  duree: '60 min',
+  niveau: 'Avancé',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · Les grandes questions éthiques de l'IA</div>
+      <h4>1. La vie privée</h4>
+      <p>L'IA a besoin de <strong>données</strong> pour fonctionner. Ces données viennent souvent de nous : nos clics, nos achats, nos messages, nos déplacements. Question : <em>jusqu'où acceptons-nous d'être observés ?</em></p>
+      <h4>2. La responsabilité</h4>
+      <p>Si une voiture autonome fait un accident, qui est responsable ? Le passager ? Le fabricant ? L'IA elle-même ? (Elle ne peut pas être jugée !)</p>
+      <h4>3. L'emploi</h4>
+      <p>L'IA automatise des tâches répétitives. Des emplois disparaissent, d'autres apparaissent. Question : <em>comment prépare-t-on les enfants d'aujourd'hui aux métiers de demain ?</em></p>
+      <h4>4. L'équité</h4>
+      <p>Les pays riches développent et contrôlent la plupart des IA. Cela crée des inégalités mondiales. Et localement : tous les élèves n'ont pas accès aux mêmes outils numériques.</p>
+      <h4>5. L'environnement</h4>
+      <p>Entraîner un grand modèle d'IA consomme autant d'énergie que des dizaines de voitures pendant un an. L'IA a un coût carbone réel.</p>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">🎭</span> Activité · Le tribunal de l'IA</div>
+      <p>Jeu de rôle pour comprendre différentes perspectives sur l'IA.</p>
+      <h4>Scénario : La caméra de reconnaissance faciale à l'école</h4>
+      <p>Un directeur propose d'installer des caméras IA qui reconnaissent les visages pour sécuriser l'entrée de l'école. Chacun joue un rôle :</p>
+      <ul>
+        <li>🏫 <strong>Le directeur :</strong> arguments pour la sécurité</li>
+        <li>👩‍👧 <strong>Le parent :</strong> inquiet pour la vie privée</li>
+        <li>🧒 <strong>L'élève :</strong> ressenti d'être surveillé</li>
+        <li>👨‍💻 <strong>L'entreprise IA :</strong> vend la solution</li>
+        <li>⚖️ <strong>Le juge :</strong> doit trancher selon la loi</li>
+      </ul>
+      <p>Chacun présente ses arguments pendant 2 minutes, puis on vote.</p>
+      <div class="highlight-box">💡 Il n'y a pas de "bonne réponse" — l'objectif est de voir qu'une technologie peut être utile et problématique en même temps.</div>
+    </div>
+
+    <div class="block block-tip">
+      <div class="block-title"><span class="icon">🌍</span> Ce que dit la loi en France</div>
+      <ul>
+        <li>🔐 <strong>RGPD</strong> : toute entreprise doit vous demander votre accord avant de collecter vos données. Vous avez le droit de demander la suppression.</li>
+        <li>👶 <strong>Mineurs :</strong> les enfants de moins de 15 ans ne peuvent pas s'inscrire seuls sur les réseaux sociaux en France.</li>
+        <li>🤖 <strong>IA Act européen (2024)</strong> : premier grand texte de loi mondial encadrant l'IA, classant les usages par niveau de risque.</li>
+        <li>📸 <strong>Droit à l'image :</strong> partager la photo d'un enfant sans accord parental est illégal.</li>
+      </ul>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant peut citer 3 questions éthiques liées à l'IA</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons fait le jeu de rôle "tribunal de l'IA"</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle comprend que l'IA a un impact environnemental</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle sait ce qu'est le RGPD et pourquoi il existe</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 8 ───────────────────────────────────────────────────────
+{
+  id: 8,
+  theme: 'create',
+  emoji: '🎨',
+  title: "Créer avec l'IA : outil ou collaborateur ?",
+  desc: "Explorer l'IA générative de manière créative tout en maintenant une posture d'auteur.",
+  tags: ['IA générative', '60 min', 'Projet créatif'],
+  duree: '60 min',
+  niveau: 'Intermédiaire',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · L'IA générative</div>
+      <p>L'<strong>IA générative</strong> est capable de <em>créer</em> du contenu nouveau : textes, images, musiques, codes… à partir de descriptions en langage naturel.</p>
+      <h4>Comment elle fonctionne</h4>
+      <p>Elle a "digéré" des milliards d'œuvres humaines et peut en produire de nouvelles dans le même style. Elle ne "crée" pas vraiment — elle prédit ce qui est statistiquement cohérent avec votre demande.</p>
+      <h4>IA générative : les outils phares</h4>
+      <div class="tools-grid">
+        <div class="tool-item"><div class="tool-name">ChatGPT / Le Chat</div><div class="tool-desc">Textes, histoires, explications</div></div>
+        <div class="tool-item"><div class="tool-name">DALL-E / Canva AI</div><div class="tool-desc">Génération d'images</div></div>
+        <div class="tool-item"><div class="tool-name">Suno / Udio</div><div class="tool-desc">Génération de musique</div></div>
+        <div class="tool-item"><div class="tool-name">Scratch + IA</div><div class="tool-desc">Code pour enfants assisté IA</div></div>
+      </div>
+      <h4>La question de l'auteur</h4>
+      <p>Si une IA écrit votre histoire, <em>qui en est l'auteur ?</em> Débat philosophique et juridique pas encore tranché ! La tendance actuelle : l'humain qui dirige, corrige et publie reste l'auteur responsable.</p>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">✏️</span> Projet · Créer une histoire illustrée avec l'IA</div>
+      <p>Projet créatif en 4 étapes — l'enfant reste le <strong>directeur artistique</strong>, l'IA est l'outil.</p>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>L'enfant invente :</strong> crée un héros (nom, pouvoirs, défauts), un lieu, un problème à résoudre. Tout vient de lui/elle — on note sur papier.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>L'IA aide à écrire :</strong> dictez à un chatbot "Écris le début d'une histoire avec [héros] dans [lieu] qui doit [problème], style conte pour enfants". Lisez le résultat ensemble.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>L'enfant corrige et améliore :</strong> qu'est-ce que l'IA a "raté" ? Quels passages ne ressemblent pas à ce qu'il/elle imaginait ? Corrigez ensemble.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>Illustrer :</strong> utilisez Canva (mode IA gratuit) ou faites illustrer à la main. Affichez le résultat !</div>
+      </div>
+      <div class="highlight-box">🌟 Insight important : souvent, l'histoire que l'enfant imaginait seul est plus originale que ce que l'IA produit. L'IA fait du "moyen statistique", pas de l'originalité vraie.</div>
+    </div>
+
+    <div class="block block-tip">
+      <div class="block-title"><span class="icon">🎯</span> Bonnes pratiques pour créer avec l'IA</div>
+      <ul>
+        <li>✅ <strong>L'idée vient de toi :</strong> l'IA n'est qu'un outil d'exécution</li>
+        <li>✅ <strong>Toujours relire et corriger :</strong> l'IA produit du "correct", pas forcément du "bien"</li>
+        <li>✅ <strong>Itérer :</strong> si le résultat ne convient pas, reformulez votre demande</li>
+        <li>✅ <strong>Mentionner l'IA :</strong> dans un travail scolaire, indiquer l'utilisation de l'IA est une question d'honnêteté</li>
+        <li>❌ <strong>Pas de données personnelles</strong> dans vos prompts (adresse, nom complet, école)</li>
+      </ul>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons créé un projet (histoire, poème, dessin…) avec l'IA</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant comprend la différence entre "utiliser" et "copier" l'IA</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Il/Elle a identifié ce que l'IA faisait moins bien que lui/elle</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons discuté de l'honnêteté intellectuelle dans l'usage de l'IA</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 9 ───────────────────────────────────────────────────────
+{
+  id: 9,
+  theme: 'data',
+  emoji: '🔐',
+  title: "Mes données, c'est précieux : vie privée et IA",
+  desc: "Comprendre ce que sont les données personnelles et comment les protéger.",
+  tags: ['Données personnelles', '45 min', 'Audit famille'],
+  duree: '45 min',
+  niveau: 'Intermédiaire',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · Les données : l'or du numérique</div>
+      <h4>Qu'est-ce qu'une donnée personnelle ?</h4>
+      <p>Toute information qui permet d'identifier une personne directement ou indirectement :</p>
+      <ul>
+        <li>🆔 <strong>Directes :</strong> nom, prénom, photo, adresse e-mail, numéro de téléphone</li>
+        <li>🔍 <strong>Indirectes :</strong> adresse IP, localisation GPS, habitudes de navigation, achats</li>
+        <li>🧬 <strong>Sensibles :</strong> santé, religion, opinions politiques, biométrie (empreinte, visage)</li>
+      </ul>
+      <h4>Pourquoi les services gratuits veulent vos données</h4>
+      <div class="highlight-box">💡 <strong>Règle d'or du numérique :</strong> "Si c'est gratuit, c'est toi le produit." Les réseaux sociaux, moteurs de recherche et jeux gratuits se financent en revendant des profils comportementaux à des annonceurs.</div>
+      <h4>Comment l'IA utilise vos données</h4>
+      <ul>
+        <li>📊 <strong>Ciblage publicitaire :</strong> l'IA prédit vos désirs pour vous montrer des pubs pertinentes</li>
+        <li>💰 <strong>Tarification dynamique :</strong> un vol peut coûter plus cher si l'IA détecte que vous êtes pressé</li>
+        <li>🎯 <strong>Manipulation :</strong> l'IA peut personnaliser des messages politiques selon vos croyances détectées</li>
+        <li>✅ <strong>Services utiles :</strong> aussi utilisées pour améliorer la santé, la sécurité routière…</li>
+      </ul>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">🔍</span> Activité · L'audit numérique de la famille</div>
+      <p>Un audit en 3 étapes pour visualiser et réduire votre empreinte numérique.</p>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Inventaire des comptes :</strong> listez tous les comptes en ligne de la famille (réseaux, jeux, applications). Surprenant ?</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Vérifier les permissions :</strong> sur le téléphone, allez dans Réglages → Applications. Lesquelles ont accès à votre micro, caméra, position ? Sont-ce des accès nécessaires ?</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>Action :</strong> révoquez au moins 3 permissions inutiles. Supprimez un compte que vous n'utilisez plus.</div>
+      </div>
+      <h4>Les bons réflexes pour votre enfant</h4>
+      <ul>
+        <li>🔒 Mot de passe unique et fort par service (utilisez un gestionnaire)</li>
+        <li>🤔 Lire (au moins en diagonale) les CGU avant d'accepter</li>
+        <li>🚫 Ne jamais partager adresse, école, numéro de téléphone en ligne</li>
+        <li>👨‍👩‍👧 Montrer à un adulte avant de s'inscrire à un nouveau service</li>
+      </ul>
+    </div>
+
+    <div class="block block-tip">
+      <div class="block-title"><span class="icon">🛡️</span> Les droits de votre enfant sur ses données</div>
+      <ul>
+        <li>✅ <strong>Droit d'accès :</strong> demander quelles données une entreprise possède sur vous</li>
+        <li>✅ <strong>Droit à l'effacement :</strong> demander la suppression de vos données</li>
+        <li>✅ <strong>Droit à la portabilité :</strong> récupérer vos données dans un format standard</li>
+        <li>✅ <strong>Droit d'opposition :</strong> refuser certaines utilisations de vos données</li>
+        <li>📞 <strong>Contact CNIL :</strong> cnil.fr — plateforme de signalement si vos droits sont violés</li>
+      </ul>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">✅</span> Checkpoint</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant sait définir une donnée personnelle</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons fait l'audit numérique de la famille</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons révisé les permissions des applications</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant connaît les règles de base pour protéger ses infos en ligne</span></li>
+      </ul>
+    </div>
+  `
+},
+
+// ─── FICHE 10 ───────────────────────────────────────────────────────
+{
+  id: 10,
+  theme: 'future',
+  emoji: '🚀',
+  title: "L'IA de demain : préparer l'avenir",
+  desc: "Explorer les métiers futurs, les possibilités et préparer les enfants au monde de demain.",
+  tags: ['Futur', 'Métiers', 'Projet famille', '60 min'],
+  duree: '60 min',
+  niveau: 'Tous niveaux',
+  content: () => `
+    <div class="block block-theory">
+      <div class="block-title"><span class="icon">📚</span> Théorie · L'IA et le monde dans 10-20 ans</div>
+      <h4>Ce qui va probablement changer</h4>
+      <ul>
+        <li>🏥 <strong>Médecine :</strong> diagnostics ultra-précis, médicaments personnalisés, chirurgie robotique assistée</li>
+        <li>🌍 <strong>Climat :</strong> IA pour optimiser l'énergie, prévoir les catastrophes, gérer les ressources</li>
+        <li>🚗 <strong>Transport :</strong> véhicules autonomes généralisés, logistique sans conducteur</li>
+        <li>🎓 <strong>Éducation :</strong> apprentissage ultra-personnalisé, tuteurs IA adaptés à chaque élève</li>
+        <li>🏗️ <strong>Travail :</strong> automatisation des tâches répétitives, nouveaux métiers d'interaction humain-IA</li>
+      </ul>
+      <h4>Les métiers qui vont émerger</h4>
+      <div class="tools-grid">
+        <div class="tool-item"><div class="tool-name">Prompt Engineer</div><div class="tool-desc">Expert en communication avec les IA</div></div>
+        <div class="tool-item"><div class="tool-name">Auditeur IA</div><div class="tool-desc">Vérifie l'équité et la sécurité des IA</div></div>
+        <div class="tool-item"><div class="tool-name">Éthicien IA</div><div class="tool-desc">Questions morales et légales de l'IA</div></div>
+        <div class="tool-item"><div class="tool-name">Coach IA</div><div class="tool-desc">Aide les humains à travailler avec l'IA</div></div>
+        <div class="tool-item"><div class="tool-name">Curator de données</div><div class="tool-desc">Collecte et qualifie les données d'entraînement</div></div>
+        <div class="tool-item"><div class="tool-name">Designer d'interaction</div><div class="tool-desc">Conçoit les interfaces humain-IA</div></div>
+      </div>
+      <h4>Les compétences qui resteront toujours humaines</h4>
+      <ul>
+        <li>❤️ <strong>Empathie et relations humaines</strong></li>
+        <li>🎨 <strong>Créativité et originalité vraie</strong></li>
+        <li>🤔 <strong>Jugement éthique et moral</strong></li>
+        <li>🤝 <strong>Leadership et inspiration</strong></li>
+        <li>🌟 <strong>Intuition et expérience vécue</strong></li>
+      </ul>
+    </div>
+
+    <div class="block block-practice">
+      <div class="block-title"><span class="icon">🌟</span> Projet final · Mon futur avec l'IA</div>
+      <p>Un projet créatif pour conclure le parcours et projeter l'enfant dans l'avenir.</p>
+      <div class="activity-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Rêver :</strong> demandez à votre enfant quel problème du monde il/elle aimerait résoudre (pollution, maladie, solitude des personnes âgées…).</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Inventer une IA :</strong> comment une IA pourrait-elle aider à résoudre ce problème ? Inventez un nom, une fonction, un mode de fonctionnement simple.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>Créer une affiche :</strong> dessinez ou créez (avec Canva) une "fiche produit" de l'IA inventée : nom, logo, à quoi elle sert, comment elle fonctionne, qui l'utilise.</div>
+      </div>
+      <div class="activity-step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>Présenter :</strong> l'enfant présente son IA imaginaire à la famille, comme un entrepreneur présente son projet. Questions et feedback bienveillant.</div>
+      </div>
+      <div class="highlight-box">🎯 Ce projet développe : pensée systémique, créativité, communication, conscience des problèmes sociaux — toutes compétences précieuses à l'ère de l'IA.</div>
+    </div>
+
+    <div class="block block-example">
+      <div class="block-title"><span class="icon">📚</span> Ressources pour aller plus loin</div>
+      <h4>Pour les enfants (CM1/CM2)</h4>
+      <ul>
+        <li>🎮 <strong>Code.org</strong> : apprendre à coder avec des jeux (Minecraft, Star Wars…)</li>
+        <li>🤖 <strong>Scratch</strong> (scratch.mit.edu) : créer des jeux et animations</li>
+        <li>📱 <strong>Blockly Games</strong> : puzzles de programmation en blocs</li>
+        <li>🎯 <strong>AI4K12.org</strong> : ressources pédagogiques IA pour enfants (en anglais)</li>
+      </ul>
+      <h4>Pour les parents</h4>
+      <ul>
+        <li>📖 <strong>"L'IA pour les nuls"</strong> — introduction accessible</li>
+        <li>🎙️ <strong>Podcast "L'intelligence artificielle expliquée"</strong> — France Culture</li>
+        <li>🌐 <strong>cnil.fr</strong> — guides "L'IA et les données" pour familles</li>
+        <li>📺 <strong>"Le monde de demain"</strong> ARTE — documentaires IA grand public</li>
+      </ul>
+    </div>
+
+    <div class="block block-check">
+      <div class="block-title"><span class="icon">🏆</span> Checkpoint final · Parcours complet</div>
+      <ul class="checklist">
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant a une vision positive ET critique de l'IA</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons créé le projet "Mon IA du futur"</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Mon enfant sait que ses compétences humaines (créativité, empathie) resteront précieuses</span></li>
+        <li onclick="toggleCheck(this)"><div class="chk"></div><span>Nous avons identifié au moins une ressource à explorer ensemble pour la suite</span></li>
+      </ul>
+      <div style="margin-top:16px; padding:16px; background:var(--surface2); border-radius:var(--radius-sm); border:1px solid var(--gold); text-align:center;">
+        <div style="font-size:1.5rem; margin-bottom:8px;">🎉</div>
+        <div style="color:var(--gold-light); font-weight:700; margin-bottom:4px;">Parcours terminé !</div>
+        <div style="color:var(--text-dim); font-size:0.88rem;">Votre enfant a maintenant une culture IA solide pour naviguer dans le monde numérique de façon éclairée et responsable.</div>
+      </div>
+    </div>
+  `
+},
+
+]; // fin FICHES
+
+// ══ ÉTAT ══
+let currentFiche = null;
+const STORAGE_KEY = 'ia-edu-done';
+
+function getDone() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch { return []; }
+}
+function saveDone(arr) { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }
+function markDone(id) { const d = getDone(); if (!d.includes(id)) { d.push(id); saveDone(d); } }
+function markUndone(id) { saveDone(getDone().filter(x => x !== id)); }
+function isDone(id) { return getDone().includes(id); }
+
+// ══ RENDU ACCUEIL ══
+function renderHome() {
+  const done = getDone();
+  document.getElementById('prog-text').textContent = `${done.length} / ${FICHES.length} fiches`;
+  const grid = document.getElementById('fiches-grid');
+  grid.innerHTML = FICHES.map(f => `
+    <div class="fiche-card theme-${f.theme} ${isDone(f.id) ? 'done' : ''}" onclick="openFiche(${f.id})">
+      <div class="card-num">Fiche ${f.id} · ${f.emoji}</div>
+      <div class="card-title">${f.title}</div>
+      <div class="card-desc">${f.desc}</div>
+      <div class="card-tags">${f.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+// ══ NAVIGATION ══
+function showHome() {
+  document.getElementById('view-home').style.display = 'block';
+  document.getElementById('view-fiche').style.display = 'none';
+  currentFiche = null;
+  renderHome();
+  window.scrollTo(0, 0);
+}
+
+function openFiche(id) {
+  currentFiche = id;
+  document.getElementById('view-home').style.display = 'none';
+  document.getElementById('view-fiche').style.display = 'block';
+  renderFiche(id);
+  window.scrollTo(0, 0);
+}
+
+function navigate(dir) {
+  const idx = FICHES.findIndex(f => f.id === currentFiche);
+  const next = FICHES[idx + dir];
+  if (next) openFiche(next.id);
+}
+
+function renderFiche(id) {
+  const f = FICHES.find(x => x.id === id);
+  if (!f) return;
+
+  const idx = FICHES.indexOf(f);
+  document.getElementById('btn-prev').disabled = idx === 0;
+  document.getElementById('btn-next').disabled = idx === FICHES.length - 1;
+
+  const done = isDone(id);
+  document.getElementById('fiche-content').innerHTML = `
+    <div class="fiche-header" style="--tc:var(--${themeColor(f.theme)})">
+      <div class="fnum" style="color:var(--tc-l,var(--gold-light))">Fiche ${f.id} · ${f.emoji} ${f.theme.toUpperCase()}</div>
+      <h2>${f.title}</h2>
+      <p class="intro">${f.desc}</p>
+      <div class="meta">
+        <div class="meta-item"><span class="meta-icon">⏱️</span> ${f.duree}</div>
+        <div class="meta-item"><span class="meta-icon">📊</span> ${f.niveau}</div>
+        <div class="meta-item"><span class="meta-icon">🏷️</span> ${f.tags.join(' · ')}</div>
+      </div>
+    </div>
+    ${f.content()}
+    <button class="done-btn ${done ? 'unmark' : 'mark'}" onclick="toggleDone(${id})">
+      ${done ? '↩ Marquer comme non faite' : '✓ Marquer cette fiche comme faite'}
+    </button>
+  `;
+}
+
+function themeColor(theme) {
+  const map = {intro:'blue',learn:'purple',daily:'orange',lang:'green',image:'gold',
+                critical:'red',ethics:'purple',create:'green',data:'blue',future:'gold'};
+  return map[theme] || 'gold';
+}
+
+function toggleDone(id) {
+  if (isDone(id)) markUndone(id); else markDone(id);
+  renderFiche(id);
+  document.getElementById('prog-text').textContent = `${getDone().length} / ${FICHES.length} fiches`;
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+}
+
+function resetProgress() {
+  if (confirm('Réinitialiser la progression ? (les coches de fiches seront effacées)')) {
+    localStorage.removeItem(STORAGE_KEY);
+    renderHome();
+  }
+}
+
+// ══ INIT ══
+renderHome();
+</script>
+</body>
+</html>
