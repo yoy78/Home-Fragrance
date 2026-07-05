@@ -1,0 +1,8 @@
+# Photos brutes des cours CM1 (matière première, sauvegardée sur Google Drive)
+# On ne versionne pas ces gros binaires dans git : uniquement les analyses/contenus
+# produits (carte-pedagogique.md, contenu de l'app, etc.)
+cours-cm1/_raw/
+cours-cm1/**/*.jpg
+cours-cm1/**/*.jpeg
+cours-cm1/**/*.png
+cours-cm1/**/*.heic
