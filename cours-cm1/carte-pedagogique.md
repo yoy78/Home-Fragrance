@@ -1,6 +1,6 @@
 # Carte pédagogique CM1 — Phase 1
 
-Synthèse construite à partir de l'analyse des **163 photos** téléchargées depuis le dossier Google Drive « Cours CM1 » (167 photos au total, 4 non récupérées — voir *Lacunes* en fin de document). Les photos couvrent uniquement **mathématiques, français, histoire et géographie**. **Aucune photo d'anglais n'a été trouvée** (voir alerte ci-dessous).
+Synthèse construite à partir de l'analyse des **163 photos** de français/maths/histoire/géographie (dossier Drive « Cours CM1 », 167 photos au total, 4 non récupérées — voir *Lacunes*), complétée par **38 photos d'anglais** (dossier Drive « Cour CM1 anglais ») et par un module **sciences** (CM1 et CM2) construit à la fois à partir de photos et du programme officiel.
 
 ---
 
@@ -12,7 +12,7 @@ Synthèse construite à partir de l'analyse des **163 photos** téléchargées d
      - ⚠️ **ne pas réutiliser les noms « Léa »/« Sasha »** ni les copies telles quelles dans l'app,
      - le contenu de français/histoire/géographie est donc connu surtout via des **évaluations finales**, pas via des leçons — il faudra reconstruire la leçon derrière chaque évaluation (c'est exactement l'objectif du principe pédagogique demandé : reformuler, ne pas recopier).
 
-2. **Aucune photo d'anglais.** Le dossier `anglais/` mentionné n'a pas de contenu identifiable dans les 167 photos (toutes dans un seul dossier Drive à plat, sans sous-dossier par matière). À vérifier avec toi : photos non prises, non uploadées, ou classées ailleurs ?
+2. **Anglais** : photos reçues séparément (dossier Drive dédié), voir section 5 ci-dessous — analyse en cours/complétée.
 
 3. Plusieurs photos sont des **doublons** (même page reprise deux fois) ou des **photos accidentelles** (bureau, objets flous) — listées en fin de document, à ne pas compter comme du contenu.
 
@@ -145,9 +145,24 @@ Aucune des 167 photos ne correspond à de l'anglais. À clarifier avec toi avant
 
 ---
 
-## 6. Sciences (« Questionner le monde ») — hors périmètre demandé, trouvé en bonus
+## 6. Sciences (« Questionner le monde » / Sciences et technologie) — module ajouté, programme CM1 **et** CM2
 
-Plusieurs évaluations de sciences sont présentes dans le dossier (système solaire, volcans et séismes, digestion, alimentation). Comme ce n'est pas un des 5 dossiers demandés (`francais/maths/anglais/histoire/geographie`), je ne les ai pas intégrées au programme par défaut — dis-moi si tu veux qu'on ajoute un module sciences bonus, vu que la matière première existe déjà.
+À la demande du parent, les sciences sont intégrées comme matière à part entière (6e matière du parcours), sur le programme CM1 **et** CM2 (pour donner de l'avance). Quatre évaluations CM1 ont été trouvées dans les photos ; elles ne couvrent qu'une partie du programme officiel — le reste (notamment tout le niveau CM2) devra être construit en Phase 3 à partir du programme officiel de cycle 3, sans support photographié.
+
+### Thèmes trouvés dans les photos (niveau CM1)
+- **Le système solaire** (Éval. 4) : les 8 planètes classées par proximité au Soleil, planètes telluriques/gazeuses, vocabulaire rotation/révolution, anneaux planétaires, conditions d'habitabilité (pourquoi la Terre et pas Mercure/Neptune).
+- **Volcans et séismes, risques pour les sociétés humaines** (Éval. 1) : légende d'un volcan (cratère, cheminée, chambre magmatique...), éruption explosive vs effusive, plaques tectoniques, épicentre/foyer d'un séisme, consignes de sécurité.
+- **La digestion** (Éval. 2) : schéma de l'appareil digestif (bouche → œsophage → estomac → intestin grêle → gros intestin), les 3 transformations (mastication, déglutition, transformation chimique), circuit complet des aliments.
+- **L'alimentation** (photo partiellement illisible, Éval. 3 probable) : groupes alimentaires (protéines, féculents), notion d'« aliments plaisir ».
+
+### Prérequis CE2 identifiés
+Notion de phénomène naturel, notion générale que les aliments sont transformés dans le corps (sans détail des organes).
+
+### Prolongements à construire en Phase 3 (programme officiel CM1/CM2, non couvert par les photos)
+- **CM1** : les états de la matière et leurs changements d'état, le peuplement d'un milieu, la reproduction chez les êtres vivants, les leviers et l'équilibre, les circuits électriques simples.
+- **CM2** : la respiration, la reproduction humaine, l'évolution des espèces (notions de base), les sources d'énergie, la lumière et les ombres, le développement durable, la matière et ses propriétés (mélanges, solutions).
+
+Ce module suivra le même principe pédagogique que les autres (reformulation adaptée, exercices progressifs, prolongements) mais s'appuiera davantage sur le programme officiel que sur les photos, faute de matière première suffisante.
 
 ---
 
@@ -182,7 +197,7 @@ Plusieurs évaluations de sciences sont présentes dans le dossier (système sol
 
 ## Lacunes dans la séquence
 
-1. **4 photos non récupérées** (fichiers trop volumineux, >10 Mo, limite technique de l'outil de téléchargement) : `IMG_20260705_072931.jpg`, `072935.jpg`, `072943.jpg`, `072947.jpg`. Elles se situent entre deux exercices de fractions déjà bien couverts par les photos voisines — impact probablement faible, mais à confirmer si tu veux qu'on retente une récupération (ex. en les compressant avant un nouvel upload).
+1. **4 photos non récupérées** (fichiers trop volumineux, >10 Mo, limite technique de l'outil de téléchargement) : `IMG_20260705_072931.jpg`, `072935.jpg`, `072943.jpg`, `072947.jpg`. Elles se situent entre deux exercices de fractions déjà bien couverts par les photos voisines. **Décision : on avance sans, pas de nouvelle tentative.**
 2. **Environ 4 photos jamais présentes dans le dossier Drive** entre `IMG_20260705_074332.jpg` (maths, nombres décimaux) et `IMG_20260705_074419.jpg` (géographie) — contenu totalement inconnu, ces pages n'ont peut-être simplement pas été photographiées.
 3. **Tout début du cahier de maths non photographié** : les activités 1 à 21 ne sont pas présentes (la première photo est l'Activité 22) — probablement des bases déjà largement acquises en CE2, mais à garder en tête.
 
