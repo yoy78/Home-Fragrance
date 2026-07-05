@@ -139,9 +139,76 @@ Progression identifiée à travers plusieurs évaluations numérotées (1 à 8, 
 
 ---
 
-## 5. Anglais — ⚠️ AUCUN CONTENU TROUVÉ
+## 5. Anglais
 
-Aucune des 167 photos ne correspond à de l'anglais. À clarifier avec toi avant la Phase 2 : les photos existent-elles mais n'ont pas été uploadées, ou faut-il construire le module anglais uniquement à partir du programme officiel CM1 sans matière première photographiée ?
+Source : cahier de l'élève (CM1, année 2025-2026) + encarts « Picture Dictionary » (Unit 1 à 8) + fiches complémentaires « Reading Time » (éditions Hachette) et fiches de civilisation (laclassedemallory.com), 38 photos analysées. Rituel récurrent noté dans tout le cahier : le **« mot de passe »** (password), un mot de vocabulaire à retrouver/mémoriser à chaque nouvelle leçon — bon ressort de gamification à réutiliser dans l'app.
+
+### Thème 1 — Révisions CE2
+- Salutations (hello, good morning, good bye, good night), se présenter (« What's your name? My name is... », « How old are you? I'm nine years old »), nombres 1 à 10, couleurs de base, fournitures scolaires (a pen, a ruler, a book...).
+- Explicitement indiqué comme acquis CE2 sur le cahier lui-même.
+
+### Thème 2 — Vocabulaire de base (Units 1 à 4, « Picture Dictionary »)
+- Maison et mobilier (a table, a chair, the floor, pièces : living room/bathroom/bedroom/kitchen/dining room), nombres 11-12, couleurs étendues (brown, black, grey).
+- **Prolongement déjà amorcé** : décrire sa propre maison (« In my house there is... »).
+
+### Thème 3 — Dates, jours, mois
+- Ordinaux 1st à 31st, jours de la semaine, mois de l'année (« What's your favourite colour? My favourite colour is... »).
+- **Point de vigilance** : « October » semble absent d'une liste écrite par l'enfant — à vérifier (oubli ponctuel ou vraie lacune).
+
+### Thème 4 — Unit 5 : les animaux
+- Vocabulaire animalier étendu (lion, horse, elephant, rabbit, cow, bee, frog...), classé par lieu de vie (circus/farm/zoo/house).
+- **Grammaire clé** : structure « I've got a.../I haven't got a... » (possession), article indéfini a/an devant voyelle (déjà en usage implicite : an egg, an elephant — à formaliser en leçon explicite).
+- Jeu d'association numéro/mot pour mémoriser le vocabulaire à l'oral.
+
+### Thème 5 — Unit 6 : la nourriture
+- Vocabulaire (banana, pizza, cheese, hamburger, tomato...), nombres 11 à 100 par dizaines.
+- **Grammaire clé** : « likes/doesn't like » — le « -s » à la 3e personne du singulier (notion importante, réinvestie dans un exercice « ✓ like / ✗ don't like »).
+- **Production finale de l'unité** : fiche « ME » (« I like.../I don't like.../My favourite food is... ») — bon modèle de tâche finale à reprendre dans l'app.
+
+### Thème 6 — Unit 7 : le corps humain
+- Vocabulaire du visage et du corps (eye, nose, mouth, ear, hair, head, body...), chanson « Head, Shoulders, Knees and Toes » (mémorisation par le mouvement, méthode TPR).
+- **Grammaire clé** : « has got + nombre + couleur + partie du corps » (ex. « This monster's got blue hair and three eyes »), comparatifs big/small, impératifs de classe (« Touch your... », « Sit on your chair »).
+- Univers ludique récurrent : monstres à décrire/deviner.
+
+### Thème 7 — Unit 8 : le corps (suite) et l'alphabet
+- Vocabulaire élargi (arms, hands, fingers, legs, feet, knees, toes), alphabet complet via une activité « I-SPY » (décodage de mots cachés lettre par lettre).
+- **Grammaire clé** : question « How many... has it got? ».
+- **Point de vigilance repéré** : deux réponses raturées dans l'exercice I-SPY suggèrent une petite difficulté d'épellation/orthographe — bon point à retravailler dans l'app.
+
+### Thème 8 — Lecture suivie : *White Fang* (Jack London)
+- Séquence longue (plusieurs mois) autour du roman : vocabulaire (wolf, lynx, cave, to hunt...), structure « Where do you live? I live in... », personnages (White Fang, Kiche, Gray Beaver).
+- **Phonologie** : discrimination du son [uɪ] (food/wolf/soon), accentuation syllabique.
+- **Production écrite** : résumé de chapitre rédigé en anglais par l'enfant — tâche ambitieuse et bon indicateur du niveau atteignable en fin de CM1 avec un objectif de lecture longue.
+
+### Thème 9 — Civilisation anglophone
+- Fiches USA (drapeau, symboles, chiffres clés) et Royaume-Uni (Union Jack, monarchie, nations constitutives) avec activités de coloriage.
+- Noël britannique : vocabulaire (stocking, Christmas crackers, turkey, Boxing Day), dates en anglais, mots croisés.
+- **Prolongement** : comparer avec d'autres pays anglophones (Australie, Canada — déjà évoqué via *White Fang*).
+
+### Prérequis CE2 (explicites dans les documents)
+Salutations, nombres 1-10, couleurs de base, fournitures scolaires.
+
+### Prolongements transverses pour l'app
+- Formaliser la règle a/an (déjà utilisée sans être expliquée).
+- Étendre « likes/doesn't like » au paradigme complet du présent simple.
+- Réinvestir le rituel du « mot de passe » comme mécanique de jeu.
+- Exercices d'épellation/orthographe ciblés (point de vigilance repéré sur l'activité I-SPY).
+- Production écrite guidée (carte postale, description de personnage) sur le modèle des fiches *White Fang*.
+
+### Photos illisibles ou partiellement lisibles (anglais)
+| Photo | Problème |
+|---|---|
+| IMG_20260705_085450.jpg | Illisible — totalement floue |
+| IMG_20260705_085514.jpg | Illisible — totalement floue |
+| IMG_20260705_085625.jpg | Quasi illisible — quelques mots isolés incertains |
+| IMG_20260705_085732.jpg | Illisible — totalement floue |
+| IMG_20260705_085810.jpg | Illisible — photo accidentelle (bureau) |
+| IMG_20260705_085503.jpg | Partiellement lisible — flou sauf le bas |
+| IMG_20260705_085550.jpg | Partiellement lisible — bas flou et coupé |
+| IMG_20260705_085655.jpg | Partiellement lisible — feuille blanche cachant une partie de la page |
+| IMG_20260705_085702.jpg | Partiellement lisible — page de droite coupée par le cadrage |
+| IMG_20260705_085721.jpg | Partiellement lisible — texte coupé par un pli de papier |
+| IMG_20260705_085744.jpg | Partiellement lisible — écriture dense, noms propres incertains |
 
 ---
 
@@ -205,8 +272,4 @@ Ce module suivra le même principe pédagogique que les autres (reformulation ad
 
 ## Prochaine étape
 
-Cette carte doit être relue et corrigée avant la Phase 2 (interview de spécification). En particulier, merci de confirmer/clarifier :
-- le point anglais (aucune photo trouvée),
-- si les 4 grosses photos manquantes sont importantes à récupérer,
-- si tu veux inclure un module sciences bonus,
-- si la structure par thème ci-dessus te semble fidèle à ce que tu as réellement dans les cahiers.
+Cette carte pédagogique couvre maintenant les 6 matières (français, maths, anglais, histoire, géographie, sciences), à partir de 201 photos analysées (163 + 38 anglais) et du programme officiel pour compléter les sciences niveau CM2. Elle est prête pour ta relecture finale avant de passer à la **Phase 2** (interview de spécification). Si tu repères une erreur ou un thème mal placé, dis-le-moi ; sinon on peut enchaîner directement.
