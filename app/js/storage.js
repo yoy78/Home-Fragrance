@@ -7,6 +7,8 @@ function defaultEnfantState() {
     palier: 0,
     badges: [],
     derniereConnexion: null,
+    leconsCompletees: [],
+    derniereLeconId: null,
   };
 }
 
