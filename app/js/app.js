@@ -387,10 +387,20 @@ function rendreTableauBordParent() {
 
   html += `<div class="contenu-onglet" style="margin-bottom:20px;">
     <h3>Sauvegarde et transfert entre appareils</h3>
-    <p style="font-size: 0.9rem; color: #7a7599;">Pour retrouver la même progression sur un autre appareil (PC, tablette, smartphone) : exporte un fichier ici, dépose-le dans ton Google Drive (ou envoie-le toi-même par email), puis importe-le sur l'autre appareil.</p>
+    <p style="font-size: 0.9rem; color: #7a7599;">Pour retrouver la même progression sur un autre appareil (PC, tablette, smartphone) : exporte ici, dépose le résultat dans ton Google Drive (ou envoie-le toi-même par email), puis importe-le sur l'autre appareil.</p>
     <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
       <button class="bouton" id="bouton-exporter-sauvegarde">📥 Exporter ma progression</button>
-      <button class="bouton discret" id="bouton-importer-sauvegarde">📤 Importer une sauvegarde</button>
+      <button class="bouton discret" id="bouton-importer-sauvegarde">📤 Importer un fichier</button>
+    </div>
+    <div id="zone-export-texte" style="display:none; margin-top:16px; text-align:left;">
+      <p style="font-size:0.85rem; color:#7a7599;">Si le téléchargement n'a pas démarré : copie ce texte et colle-le dans un fichier texte (nomme-le par exemple "progression.json").</p>
+      <textarea id="texte-export" readonly style="width:100%; height:120px; font-family:monospace; font-size:0.75rem; padding:8px; border-radius:8px; border:2px solid #ddd;"></textarea>
+      <button class="bouton discret" id="bouton-copier-export" style="margin-top:8px;">Copier le texte</button>
+    </div>
+    <p style="margin-top:16px;"><button class="bouton discret" id="bouton-toggle-import-texte" style="font-size:0.85rem;">Je n'ai pas de fichier, coller le texte à la place</button></p>
+    <div id="zone-import-texte" style="display:none; text-align:left;">
+      <textarea id="texte-import" placeholder="Colle ici le contenu de ta sauvegarde..." style="width:100%; height:120px; font-family:monospace; font-size:0.75rem; padding:8px; border-radius:8px; border:2px solid #ddd;"></textarea>
+      <button class="bouton" id="bouton-importer-texte" style="margin-top:8px;">Importer ce texte</button>
     </div>
   </div>`;
 
@@ -444,41 +454,91 @@ function rendreTableauBordParent() {
     btnImporter.addEventListener("click", () => champImport.click());
     champImport.addEventListener("change", importerSauvegarde);
   }
+
+  const btnCopier = document.getElementById("bouton-copier-export");
+  if (btnCopier) btnCopier.addEventListener("click", copierExport);
+
+  const btnToggleImportTexte = document.getElementById("bouton-toggle-import-texte");
+  if (btnToggleImportTexte) btnToggleImportTexte.addEventListener("click", basculerZoneImportTexte);
+
+  const btnImporterTexte = document.getElementById("bouton-importer-texte");
+  if (btnImporterTexte) btnImporterTexte.addEventListener("click", importerDepuisTexte);
 }
 
 function exporterSauvegarde() {
   const date = new Date().toISOString().slice(0, 10);
   const contenu = JSON.stringify(etat, null, 2);
-  const blob = new Blob([contenu], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const lien = document.createElement("a");
-  lien.href = url;
-  lien.download = `cm1-progression-${date}.json`;
-  document.body.appendChild(lien);
-  lien.click();
-  document.body.removeChild(lien);
-  URL.revokeObjectURL(url);
+
+  try {
+    const blob = new Blob([contenu], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const lien = document.createElement("a");
+    lien.href = url;
+    lien.download = `cm1-progression-${date}.json`;
+    document.body.appendChild(lien);
+    lien.click();
+    document.body.removeChild(lien);
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    // Le téléchargement direct peut être bloqué selon le navigateur : la zone texte ci-dessous prend le relais.
+  }
+
+  const zone = document.getElementById("zone-export-texte");
+  const texte = document.getElementById("texte-export");
+  if (zone && texte) {
+    texte.value = contenu;
+    zone.style.display = "block";
+  }
+}
+
+function copierExport() {
+  const texte = document.getElementById("texte-export");
+  texte.select();
+  texte.setSelectionRange(0, 999999);
+  let copie = false;
+  try {
+    document.execCommand("copy");
+    copie = true;
+  } catch (e) {}
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(texte.value).catch(() => {});
+    copie = true;
+  }
+  alert(copie ? "Texte copié ! Colle-le (Ctrl+V ou Cmd+V) dans un fichier texte." : "Sélectionne le texte à la main (Ctrl+C / Cmd+C), puis colle-le dans un fichier.");
+}
+
+function basculerZoneImportTexte() {
+  const zone = document.getElementById("zone-import-texte");
+  zone.style.display = zone.style.display === "none" ? "block" : "none";
+}
+
+function importerDepuisTexte() {
+  const texte = document.getElementById("texte-import").value.trim();
+  if (!texte) return;
+  appliquerImport(texte);
 }
 
 function importerSauvegarde(evenement) {
   const fichier = evenement.target.files[0];
   if (!fichier) return;
   const lecteur = new FileReader();
-  lecteur.onload = () => {
-    try {
-      const nouvelEtat = JSON.parse(lecteur.result);
-      if (!nouvelEtat.adele || !nouvelEtat.matys) throw new Error("Format invalide");
-      if (!confirm("Cela va remplacer la progression actuelle de cet appareil par celle du fichier importé. Continuer ?")) return;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(nouvelEtat));
-      etat = loadState();
-      rendreTableauBordParent();
-      alert("Progression importée avec succès !");
-    } catch (e) {
-      alert("Ce fichier ne semble pas être une sauvegarde valide de l'application.");
-    }
-    evenement.target.value = "";
-  };
+  lecteur.onload = () => appliquerImport(lecteur.result);
   lecteur.readAsText(fichier);
+  evenement.target.value = "";
+}
+
+function appliquerImport(texteJSON) {
+  try {
+    const nouvelEtat = JSON.parse(texteJSON);
+    if (!nouvelEtat.adele || !nouvelEtat.matys) throw new Error("Format invalide");
+    if (!confirm("Cela va remplacer la progression actuelle de cet appareil par celle importée. Continuer ?")) return;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(nouvelEtat));
+    etat = loadState();
+    rendreTableauBordParent();
+    alert("Progression importée avec succès !");
+  } catch (e) {
+    alert("Ce texte/fichier ne semble pas être une sauvegarde valide de l'application.");
+  }
 }
 
 function quitterEspaceParent() {
