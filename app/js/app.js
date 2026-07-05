@@ -262,4 +262,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("bouton-voir-reponse").addEventListener("click", voirReponseEchauffement);
   document.getElementById("bouton-suivant-echauffement").addEventListener("click", questionSuivanteEchauffement);
   document.getElementById("bouton-terminer-lecon").addEventListener("click", terminerLecon);
+  document.getElementById("bouton-vers-exercices").addEventListener("click", () => {
+    demarrerExercices(leconEnCoursId);
+    afficherEcran("screen-exercices");
+  });
 });

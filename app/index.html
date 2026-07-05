@@ -78,7 +78,23 @@
       <p id="lecon-prerequis" style="font-size: 0.9rem; color: #7a7599;"></p>
       <p id="lecon-prolongement" style="font-size: 0.9rem; color: #7a7599;"></p>
     </div>
-    <button class="bouton" id="bouton-terminer-lecon" style="margin-top: 20px;">Terminer la leçon</button>
+    <button class="bouton" id="bouton-vers-exercices" style="margin-top: 20px;">Passer aux exercices</button>
+  </section>
+
+  <section id="screen-exercices" class="screen">
+    <h1>Exercices ✏️</h1>
+    <p id="exercice-compteur" class="sous-titre"></p>
+    <div class="contenu-onglet">
+      <p id="exercice-enonce" style="font-size: 1.15rem; font-weight: bold;"></p>
+      <div id="exercice-zone-interactive"></div>
+      <div id="exercice-feedback" style="margin-top: 14px;"></div>
+    </div>
+  </section>
+
+  <section id="screen-recap-exercices" class="screen">
+    <h1>Bien joué !</h1>
+    <p id="recap-score" class="sous-titre"></p>
+    <button class="bouton" id="bouton-terminer-lecon">Terminer la leçon</button>
   </section>
 
   <section id="screen-parent-pin" class="screen">
@@ -103,6 +119,7 @@
   <script src="js/data/lecons.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/parcours.js"></script>
+  <script src="js/exercices.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
