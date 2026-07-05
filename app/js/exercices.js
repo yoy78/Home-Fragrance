@@ -25,9 +25,17 @@ function reponseCorrecte(exercice, saisie) {
   return exercice.reponsesAcceptees.some((r) => normaliser(r) === valeur);
 }
 
+const NIVEAUX_PAR_DIFFICULTE = {
+  reduite: ["decouverte"],
+  normale: ["decouverte", "application"],
+  avancee: ["decouverte", "application", "defi"],
+};
+
 function demarrerExercices(leconId) {
   const lecon = getLecon(leconId);
-  exercicesEnCours = lecon.exercices || [];
+  const enfantState = etat[profilActifId];
+  const niveauxAutorises = NIVEAUX_PAR_DIFFICULTE[enfantState.difficulte] || NIVEAUX_PAR_DIFFICULTE.avancee;
+  exercicesEnCours = (lecon.exercices || []).filter((ex) => niveauxAutorises.includes(ex.niveau));
   indexExercice = 0;
   resultatsExercices = [];
   premierCoupExercice = [];

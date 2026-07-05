@@ -11,6 +11,8 @@ function defaultEnfantState() {
     derniereLeconId: null,
     leconsSansFauteIds: [],
     scoresLecons: {},
+    journal: [],
+    difficulte: "normale",
   };
 }
 

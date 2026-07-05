@@ -5,6 +5,8 @@ let profilActifId = null;
 let leconEnCoursId = null;
 let indexQuestionEchauffement = 0;
 let palierAuDebutLecon = 0;
+let debutLeconTimestamp = 0;
+let profilDashboard = null;
 
 function afficherEcran(id) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
@@ -161,6 +163,7 @@ function demarrerLecon(leconId) {
   leconEnCoursId = leconId;
   const enfantState = etat[profilActifId];
   palierAuDebutLecon = calculerPalier(enfantState.points);
+  debutLeconTimestamp = Date.now();
   const leconRevision = leconEchauffement(enfantState);
   if (leconRevision) {
     indexQuestionEchauffement = 0;
@@ -221,6 +224,17 @@ function afficherLecon(leconId) {
 
 function terminerLecon() {
   const enfantState = etat[profilActifId];
+  const lecon = getLecon(leconEnCoursId);
+  const dureeSecondes = Math.max(1, Math.round((Date.now() - debutLeconTimestamp) / 1000));
+  const score = enfantState.scoresLecons[leconEnCoursId] || { bonnes: 0, total: 0 };
+  enfantState.journal.push({
+    date: new Date().toISOString().slice(0, 10),
+    leconId: leconEnCoursId,
+    matiere: lecon.matiere,
+    dureeSecondes,
+    bonnes: score.bonnes,
+    total: score.total,
+  });
   marquerLeconCompletee(enfantState, leconEnCoursId);
   const nouveauxBadges = evaluerNouveauxBadges(enfantState);
   const palierApres = calculerPalier(enfantState.points);
@@ -281,10 +295,136 @@ function ouvrirEspaceParent() {
 function validerPin() {
   const valeur = document.getElementById("pin-input").value;
   if (valeur === PARENT_PIN) {
-    afficherEcran("screen-parent-dashboard");
+    afficherTableauBordParent();
   } else {
     document.getElementById("pin-erreur").textContent = "Code incorrect, réessaie.";
   }
+}
+
+function afficherTableauBordParent() {
+  profilDashboard = profilDashboard || profilActifId || ENFANTS[0].id;
+  rendreTableauBordParent();
+  afficherEcran("screen-parent-dashboard");
+}
+
+function rendreTableauBordParent() {
+  const enfant = getEnfant(profilDashboard);
+  const enfantState = etat[profilDashboard];
+  const conteneur = document.getElementById("parent-dashboard-contenu");
+
+  let html = `<div style="display:flex; gap:10px; justify-content:center; margin-bottom:20px;">`;
+  ENFANTS.forEach((e) => {
+    html += `<button class="onglet ${e.id === profilDashboard ? "actif" : ""}" data-dash-enfant="${e.id}">${e.emoji} ${e.prenom}</button>`;
+  });
+  html += `</div>`;
+
+  const palierActuel = calculerPalier(enfantState.points);
+  html += `<div class="contenu-onglet" style="margin-bottom:20px;">
+    <h2>${enfant.emoji} ${enfant.prenom}</h2>
+    <p>${enfantState.points} points — mascotte : ${enfant.emojiPaliers[palierActuel]} (palier ${palierActuel + 1}/${enfant.emojiPaliers.length})</p>
+    <p>${enfantState.leconsCompletees.length} / ${LECONS.length} leçons terminées — ${enfantState.badges.length} / ${BADGES.length} badges débloqués</p>
+  </div>`;
+
+  html += `<div class="contenu-onglet" style="margin-bottom:20px; text-align:left;"><h3 style="text-align:center;">Progression par matière</h3>`;
+  Object.keys(MATIERES).forEach((idMatiere) => {
+    const total = LECONS.filter((l) => l.matiere === idMatiere).length;
+    const faites = LECONS.filter((l) => l.matiere === idMatiere && enfantState.leconsCompletees.includes(l.id)).length;
+    const m = MATIERES[idMatiere];
+    html += `<div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;"><span>${m.emoji} ${m.nom}</span><span>${faites} / ${total}</span></div>`;
+  });
+  html += `</div>`;
+
+  const parJour = {};
+  enfantState.journal.forEach((j) => {
+    parJour[j.date] = (parJour[j.date] || 0) + j.dureeSecondes;
+  });
+  const joursTries = Object.keys(parJour).sort().reverse();
+  const tempsTotalMin = Math.round(enfantState.journal.reduce((s, j) => s + j.dureeSecondes, 0) / 60);
+  html += `<div class="contenu-onglet" style="margin-bottom:20px; text-align:left;"><h3 style="text-align:center;">Temps passé (total : ${tempsTotalMin} min)</h3>`;
+  if (joursTries.length === 0) {
+    html += `<p>Aucune séance enregistrée pour l'instant.</p>`;
+  } else {
+    joursTries.forEach((jour) => {
+      html += `<div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;"><span>${jour}</span><span>${Math.round(parJour[jour] / 60)} min</span></div>`;
+    });
+  }
+  html += `</div>`;
+
+  const leconsDifficiles = Object.entries(enfantState.scoresLecons).filter(([, s]) => s.total > 0 && s.bonnes < s.total);
+  html += `<div class="contenu-onglet" style="margin-bottom:20px; text-align:left;"><h3 style="text-align:center;">Notions à retravailler</h3>`;
+  if (leconsDifficiles.length === 0) {
+    html += `<p>Aucune erreur récurrente détectée pour l'instant, bravo !</p>`;
+  } else {
+    leconsDifficiles.forEach(([id, s]) => {
+      const l = getLecon(id);
+      html += `<div style="padding:6px 0; border-bottom:1px solid #eee;">${MATIERES[l.matiere].emoji} ${l.titre} — ${s.bonnes}/${s.total} bonnes réponses</div>`;
+    });
+  }
+  html += `</div>`;
+
+  html += `<div class="contenu-onglet" style="margin-bottom:20px; text-align:left;"><h3 style="text-align:center;">Badges débloqués</h3>`;
+  if (enfantState.badges.length === 0) {
+    html += `<p>Aucun badge débloqué pour l'instant.</p>`;
+  } else {
+    enfantState.badges.forEach((id) => {
+      const b = getBadge(id);
+      html += `<div style="padding:6px 0; border-bottom:1px solid #eee;">${b.emoji} <strong>${b.nom}</strong></div>`;
+    });
+  }
+  html += `</div>`;
+
+  html += `<div class="contenu-onglet" style="margin-bottom:20px;">
+    <h3>Réglage de la difficulté</h3>
+    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      ${["reduite", "normale", "avancee"]
+        .map(
+          (d) =>
+            `<button class="onglet ${enfantState.difficulte === d ? "actif" : ""}" data-difficulte="${d}">${{ reduite: "Réduite", normale: "Normale", avancee: "Avancée" }[d]}</button>`
+        )
+        .join("")}
+    </div>
+  </div>`;
+
+  html += `<div class="contenu-onglet" style="text-align:left;"><h3 style="text-align:center;">Contrôle du parcours</h3>`;
+  LECONS.forEach((l) => {
+    const fait = enfantState.leconsCompletees.includes(l.id);
+    html += `<div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 0; border-bottom:1px solid #eee;">
+      <span>${MATIERES[l.matiere].emoji} ${l.titre} ${fait ? "✅" : ""}</span>
+      <button class="bouton discret" data-parcours-action="${fait ? "refaire" : "acquise"}" data-parcours-lecon="${l.id}">${fait ? "Faire refaire" : "Marquer comme acquise"}</button>
+    </div>`;
+  });
+  html += `</div>`;
+
+  conteneur.innerHTML = html;
+
+  conteneur.querySelectorAll("[data-dash-enfant]").forEach((b) =>
+    b.addEventListener("click", () => {
+      profilDashboard = b.dataset.dashEnfant;
+      rendreTableauBordParent();
+    })
+  );
+  conteneur.querySelectorAll("[data-difficulte]").forEach((b) =>
+    b.addEventListener("click", () => {
+      etat[profilDashboard].difficulte = b.dataset.difficulte;
+      saveState(etat);
+      rendreTableauBordParent();
+    })
+  );
+  conteneur.querySelectorAll("[data-parcours-action]").forEach((b) =>
+    b.addEventListener("click", () => {
+      const leconId = b.dataset.parcoursLecon;
+      const es = etat[profilDashboard];
+      if (b.dataset.parcoursAction === "refaire") {
+        es.leconsCompletees = es.leconsCompletees.filter((id) => id !== leconId);
+        delete es.scoresLecons[leconId];
+        es.leconsSansFauteIds = es.leconsSansFauteIds.filter((id) => id !== leconId);
+      } else if (!es.leconsCompletees.includes(leconId)) {
+        es.leconsCompletees.push(leconId);
+      }
+      saveState(etat);
+      rendreTableauBordParent();
+    })
+  );
 }
 
 function quitterEspaceParent() {
