@@ -2,6 +2,7 @@
 # On ne versionne pas ces gros binaires dans git : uniquement les analyses/contenus
 # produits (carte-pedagogique.md, contenu de l'app, etc.)
 cours-cm1/_raw/
+cours-cm1/_raw_anglais/
 cours-cm1/**/*.jpg
 cours-cm1/**/*.jpeg
 cours-cm1/**/*.png
