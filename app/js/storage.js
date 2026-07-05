@@ -9,6 +9,8 @@ function defaultEnfantState() {
     derniereConnexion: null,
     leconsCompletees: [],
     derniereLeconId: null,
+    leconsSansFauteIds: [],
+    scoresLecons: {},
   };
 }
 

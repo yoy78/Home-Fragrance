@@ -4,6 +4,7 @@ let exercicesEnCours = [];
 let indexExercice = 0;
 let tentativesExercice = 0;
 let resultatsExercices = [];
+let premierCoupExercice = [];
 let selectionGauche = null;
 let pairesResolues = [];
 let permutationDroite = [];
@@ -29,6 +30,7 @@ function demarrerExercices(leconId) {
   exercicesEnCours = lecon.exercices || [];
   indexExercice = 0;
   resultatsExercices = [];
+  premierCoupExercice = [];
   if (exercicesEnCours.length === 0) {
     afficherRecapExercices();
   } else {
@@ -104,8 +106,14 @@ function melanger(tableau) {
 function afficherIndiceOuReponse(exercice, correct) {
   const feedback = document.getElementById("exercice-feedback");
   if (correct) {
-    feedback.innerHTML = `<p style="color:#2f9e44; font-weight:bold;">Bravo, c'est la bonne réponse !</p><p>${exercice.explication}</p>`;
+    const points = POINTS_PAR_NIVEAU[exercice.niveau] || 10;
+    const enfantState = etat[profilActifId];
+    enfantState.points += points;
+    saveState(etat);
+
     resultatsExercices.push(true);
+    premierCoupExercice.push(tentativesExercice === 1);
+    feedback.innerHTML = `<p style="color:#2f9e44; font-weight:bold;">Bravo, c'est la bonne réponse ! (+${points} points)</p><p>${exercice.explication}</p>`;
     afficherBoutonSuivantExercice();
     return;
   }
@@ -114,8 +122,9 @@ function afficherIndiceOuReponse(exercice, correct) {
     const indice = exercice.indices[Math.min(tentativesExercice - 1, exercice.indices.length - 1)];
     feedback.innerHTML = `<p style="color:#e0574c;">Pas tout à fait ! Indice : ${indice}</p>`;
   } else {
-    feedback.innerHTML = `<p style="color:#e0574c; font-weight:bold;">La bonne réponse était : ${resumeReponse(exercice)}</p><p>${exercice.explication}</p>`;
     resultatsExercices.push(false);
+    premierCoupExercice.push(false);
+    feedback.innerHTML = `<p style="color:#e0574c; font-weight:bold;">La bonne réponse était : ${resumeReponse(exercice)}</p><p>${exercice.explication}</p>`;
     afficherBoutonSuivantExercice();
   }
 }
@@ -220,9 +229,15 @@ function afficherRecapExercices() {
   const enfantState = etat[profilActifId];
   enfantState.scoresLecons = enfantState.scoresLecons || {};
   enfantState.scoresLecons[leconEnCoursId] = { bonnes, total };
+
+  const sansFaute = total > 0 && resultatsExercices.every(Boolean) && premierCoupExercice.every(Boolean);
+  enfantState.leconsSansFauteIds = enfantState.leconsSansFauteIds || [];
+  if (sansFaute && !enfantState.leconsSansFauteIds.includes(leconEnCoursId)) {
+    enfantState.leconsSansFauteIds.push(leconEnCoursId);
+  }
   saveState(etat);
 
   document.getElementById("recap-score").textContent =
-    total > 0 ? `Tu as ${bonnes} bonne${bonnes > 1 ? "s" : ""} réponse${bonnes > 1 ? "s" : ""} sur ${total} !` : "Pas d'exercice pour cette leçon.";
+    total > 0 ? `Tu as ${bonnes} bonne${bonnes > 1 ? "s" : ""} réponse${bonnes > 1 ? "s" : ""} sur ${total} !${sansFaute ? " Sans faute, bravo !" : ""}` : "Pas d'exercice pour cette leçon.";
   afficherEcran("screen-recap-exercices");
 }

@@ -4,6 +4,7 @@ let etat = loadState();
 let profilActifId = null;
 let leconEnCoursId = null;
 let indexQuestionEchauffement = 0;
+let palierAuDebutLecon = 0;
 
 function afficherEcran(id) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
@@ -47,8 +48,8 @@ function afficherAccueil() {
   document.getElementById("profil-emoji-petit").textContent = enfant.emoji;
   document.getElementById("profil-prenom").textContent = enfant.prenom;
 
-  document.getElementById("mascotte-grande").textContent =
-    enfant.emojiPaliers[enfantState.palier];
+  const palierActuel = calculerPalier(enfantState.points);
+  document.getElementById("mascotte-grande").textContent = enfant.emojiPaliers[palierActuel];
   document.getElementById("mascotte-points").textContent = `${enfantState.points} points`;
 
   const restant = pointsAvantProchainPalier(enfantState.points);
@@ -58,8 +59,8 @@ function afficherAccueil() {
     document.getElementById("mascotte-prochain-palier").textContent =
       "Palier maximum atteint pour l'instant !";
   } else {
-    const palierActuelSeuil = PALIERS_POINTS[enfantState.palier];
-    const palierSuivantSeuil = PALIERS_POINTS[enfantState.palier + 1];
+    const palierActuelSeuil = PALIERS_POINTS[palierActuel];
+    const palierSuivantSeuil = PALIERS_POINTS[palierActuel + 1];
     const progression =
       ((enfantState.points - palierActuelSeuil) / (palierSuivantSeuil - palierActuelSeuil)) * 100;
     barre.style.width = `${Math.max(0, Math.min(100, progression))}%`;
@@ -69,8 +70,28 @@ function afficherAccueil() {
 
   rendreOngletAccueil();
   rendreOngletParcours();
+  rendreOngletBadges();
   changerOnglet("accueil");
   afficherEcran("screen-accueil");
+}
+
+function rendreOngletBadges() {
+  const enfantState = etat[profilActifId];
+  const conteneur = document.getElementById("contenu-badges");
+  const lignes = BADGES.map((b) => {
+    const debloque = enfantState.badges.includes(b.id);
+    return `
+      <div style="display:flex; align-items:center; gap:12px; padding:10px; border-bottom: 1px solid #eee; text-align:left; opacity:${debloque ? "1" : "0.4"};">
+        <span style="font-size:1.8rem;">${debloque ? b.emoji : "🔒"}</span>
+        <div>
+          <div style="font-weight:bold;">${b.nom}</div>
+          <div style="font-size:0.85rem; color:#7a7599;">${b.description}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+  const nbDebloques = enfantState.badges.length;
+  conteneur.innerHTML = `<h2>Mes badges (${nbDebloques}/${BADGES.length})</h2><div>${lignes}</div>`;
 }
 
 function rendreOngletAccueil() {
@@ -139,6 +160,7 @@ function rendreOngletParcours() {
 function demarrerLecon(leconId) {
   leconEnCoursId = leconId;
   const enfantState = etat[profilActifId];
+  palierAuDebutLecon = calculerPalier(enfantState.points);
   const leconRevision = leconEchauffement(enfantState);
   if (leconRevision) {
     indexQuestionEchauffement = 0;
@@ -200,9 +222,41 @@ function afficherLecon(leconId) {
 function terminerLecon() {
   const enfantState = etat[profilActifId];
   marquerLeconCompletee(enfantState, leconEnCoursId);
+  const nouveauxBadges = evaluerNouveauxBadges(enfantState);
+  const palierApres = calculerPalier(enfantState.points);
+  const evolutionMascotte = palierApres > palierAuDebutLecon;
   saveState(etat);
   leconEnCoursId = null;
-  afficherAccueil();
+
+  if (nouveauxBadges.length > 0 || evolutionMascotte) {
+    afficherCelebration(nouveauxBadges, evolutionMascotte);
+  } else {
+    afficherAccueil();
+  }
+}
+
+function afficherCelebration(nouveauxBadges, evolutionMascotte) {
+  const enfant = getEnfant(profilActifId);
+  const enfantState = etat[profilActifId];
+  const palierActuel = calculerPalier(enfantState.points);
+  let html = "";
+
+  if (evolutionMascotte) {
+    html += `
+      <div style="font-size: 4rem;">${enfant.emojiPaliers[palierActuel]}</div>
+      <p style="font-weight: bold; font-size: 1.2rem;">Ta mascotte a évolué !</p>
+    `;
+  }
+
+  if (nouveauxBadges.length > 0) {
+    html += `<p style="font-weight: bold;">Nouveau${nouveauxBadges.length > 1 ? "x" : ""} badge${nouveauxBadges.length > 1 ? "s" : ""} débloqué${nouveauxBadges.length > 1 ? "s" : ""} :</p>`;
+    html += nouveauxBadges
+      .map((b) => `<div style="margin: 8px 0;"><span style="font-size: 1.6rem;">${b.emoji}</span> <strong>${b.nom}</strong> — ${b.description}</div>`)
+      .join("");
+  }
+
+  document.getElementById("celebration-contenu").innerHTML = html;
+  afficherEcran("screen-celebration");
 }
 
 function changerOnglet(nom) {
@@ -266,4 +320,5 @@ document.addEventListener("DOMContentLoaded", () => {
     demarrerExercices(leconEnCoursId);
     afficherEcran("screen-exercices");
   });
+  document.getElementById("bouton-continuer-celebration").addEventListener("click", afficherAccueil);
 });
