@@ -385,6 +385,17 @@ function rendreTableauBordParent() {
     </div>
   </div>`;
 
+  html += `<div class="contenu-onglet" style="margin-bottom:20px;">
+    <h3>Synchronisation Google Drive</h3>
+    <p id="drive-statut-texte">Vérification du statut...</p>
+    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      <button class="bouton" id="bouton-connecter-drive" style="display:none;">Connecter Google Drive</button>
+      <button class="bouton discret" id="bouton-forcer-sync-drive" style="display:none;">Forcer une synchronisation</button>
+      <button class="bouton discret" id="bouton-restaurer-drive" style="display:none;">Restaurer depuis Drive</button>
+      <button class="bouton discret" id="bouton-deconnecter-drive" style="display:none;">Déconnecter</button>
+    </div>
+  </div>`;
+
   html += `<div class="contenu-onglet" style="text-align:left;"><h3 style="text-align:center;">Contrôle du parcours</h3>`;
   LECONS.forEach((l) => {
     const fait = enfantState.leconsCompletees.includes(l.id);
@@ -425,6 +436,64 @@ function rendreTableauBordParent() {
       rendreTableauBordParent();
     })
   );
+
+  const btnConnecter = document.getElementById("bouton-connecter-drive");
+  if (btnConnecter) btnConnecter.addEventListener("click", connecterDrive);
+
+  const btnForcer = document.getElementById("bouton-forcer-sync-drive");
+  if (btnForcer)
+    btnForcer.addEventListener("click", async () => {
+      const ok = await forcerSynchronisation(etat);
+      alert(ok ? "Synchronisation effectuée !" : "Échec de la synchronisation (vérifie ta connexion).");
+    });
+
+  const btnRestaurer = document.getElementById("bouton-restaurer-drive");
+  if (btnRestaurer)
+    btnRestaurer.addEventListener("click", async () => {
+      if (!confirm("Cela va remplacer la progression locale de cet appareil par celle sauvegardée sur Drive. Continuer ?")) return;
+      const nouvelEtat = await restaurerDepuisDrive();
+      if (nouvelEtat) {
+        etat = loadState();
+        rendreTableauBordParent();
+        alert("Progression restaurée depuis Drive.");
+      } else {
+        alert("Aucune sauvegarde trouvée sur Drive.");
+      }
+    });
+
+  const btnDeconnecter = document.getElementById("bouton-deconnecter-drive");
+  if (btnDeconnecter)
+    btnDeconnecter.addEventListener("click", async () => {
+      await deconnecterDrive();
+      rendreTableauBordParent();
+    });
+
+  mettreAJourPanneauDrive();
+}
+
+async function mettreAJourPanneauDrive() {
+  await rafraichirStatutDrive();
+  const texte = document.getElementById("drive-statut-texte");
+  if (!texte) return;
+
+  if (statutDrive.indisponible) {
+    texte.textContent = "Fonctionnalité indisponible : lance l'app via \"node server/server.js\" pour activer la synchronisation (voir server/README.md).";
+    return;
+  }
+  if (!statutDrive.configure) {
+    texte.textContent = "Identifiants Google non configurés pour l'instant (voir server/README.md).";
+    document.getElementById("bouton-connecter-drive").style.display = "inline-block";
+    return;
+  }
+  if (!statutDrive.connecte) {
+    texte.textContent = "Non connecté.";
+    document.getElementById("bouton-connecter-drive").style.display = "inline-block";
+  } else {
+    texte.textContent = "Connecté ✅";
+    document.getElementById("bouton-forcer-sync-drive").style.display = "inline-block";
+    document.getElementById("bouton-restaurer-drive").style.display = "inline-block";
+    document.getElementById("bouton-deconnecter-drive").style.display = "inline-block";
+  }
 }
 
 function quitterEspaceParent() {
@@ -439,6 +508,7 @@ function quitterEspaceParent() {
 document.addEventListener("DOMContentLoaded", () => {
   initEcranLogin();
   afficherEcran("screen-login");
+  verifierConflitDriveEtProposer();
 
   document.getElementById("bouton-changer-profil").addEventListener("click", changerDeProfil);
   document.getElementById("lien-espace-parent").addEventListener("click", ouvrirEspaceParent);

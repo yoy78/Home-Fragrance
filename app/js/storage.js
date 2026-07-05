@@ -27,6 +27,7 @@ function loadState() {
       adele: { ...defaultEnfantState(), ...(parsed.adele || {}) },
       matys: { ...defaultEnfantState(), ...(parsed.matys || {}) },
       dernierProfil: parsed.dernierProfil || null,
+      dernierEnregistrementISO: parsed.dernierEnregistrementISO || null,
     };
   } catch (e) {
     return { adele: defaultEnfantState(), matys: defaultEnfantState(), dernierProfil: null };
@@ -34,7 +35,9 @@ function loadState() {
 }
 
 function saveState(state) {
+  state.dernierEnregistrementISO = new Date().toISOString();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  if (typeof declencherSyncDrive === "function") declencherSyncDrive(state);
 }
 
 function calculerPalier(points) {
