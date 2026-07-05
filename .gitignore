@@ -7,7 +7,3 @@ cours-cm1/**/*.jpg
 cours-cm1/**/*.jpeg
 cours-cm1/**/*.png
 cours-cm1/**/*.heic
-
-# Identifiants Google et jetons OAuth personnels (propres à chaque installation)
-server/config.json
-server/tokens.json

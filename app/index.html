@@ -11,13 +11,6 @@
   <section id="screen-login" class="screen">
     <h1>Mon parcours CM1</h1>
     <p class="sous-titre">Choisis ton profil pour commencer l'aventure !</p>
-    <div id="banniere-conflit-drive" style="display:none; flex-direction:column; align-items:center; gap:10px; background:#fff3cd; border:2px solid #ffd166; border-radius:16px; padding:16px; margin-bottom:20px; max-width:420px;">
-      <p style="margin:0;">Une sauvegarde plus récente existe sur Google Drive (faite depuis un autre appareil). Veux-tu la récupérer ?</p>
-      <div style="display:flex; gap:10px;">
-        <button class="bouton" id="bouton-restaurer-conflit">Restaurer</button>
-        <button class="bouton discret" id="bouton-ignorer-conflit">Ignorer</button>
-      </div>
-    </div>
     <div id="cartes-profils" class="cartes-profils"></div>
     <div class="lien-parent">
       <button class="bouton discret" id="lien-espace-parent">Espace parent</button>
@@ -125,6 +118,7 @@
     <h1>Tableau de bord parent</h1>
     <button class="bouton" id="bouton-quitter-parent" style="margin-bottom: 20px;">Retour</button>
     <div id="parent-dashboard-contenu" style="width: 100%; max-width: 640px;"></div>
+    <input type="file" id="input-import-fichier" accept="application/json" style="display: none;" />
   </section>
 
   <script src="js/data/enfants.js"></script>
@@ -135,7 +129,6 @@
   <script src="js/parcours.js"></script>
   <script src="js/gamification.js"></script>
   <script src="js/exercices.js"></script>
-  <script src="js/drive-sync.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

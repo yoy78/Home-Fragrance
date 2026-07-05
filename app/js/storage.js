@@ -37,7 +37,6 @@ function loadState() {
 function saveState(state) {
   state.dernierEnregistrementISO = new Date().toISOString();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  if (typeof declencherSyncDrive === "function") declencherSyncDrive(state);
 }
 
 function calculerPalier(points) {
