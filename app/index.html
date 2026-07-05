@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon parcours CM1</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <section id="screen-login" class="screen">
+    <h1>Mon parcours CM1</h1>
+    <p class="sous-titre">Choisis ton profil pour commencer l'aventure !</p>
+    <div id="cartes-profils" class="cartes-profils"></div>
+    <div class="lien-parent">
+      <button class="bouton discret" id="lien-espace-parent">Espace parent</button>
+    </div>
+  </section>
+
+  <section id="screen-accueil" class="screen">
+    <div class="barre-haut">
+      <div class="profil-actif">
+        <span id="profil-emoji-petit" class="mascotte-emoji-petit"></span>
+        <span id="profil-prenom" style="font-weight: bold; font-size: 1.3rem;"></span>
+      </div>
+      <button class="bouton discret" id="bouton-changer-profil">Changer de profil</button>
+    </div>
+
+    <div class="carte-mascotte">
+      <span id="mascotte-grande" class="mascotte-grande"></span>
+      <p id="mascotte-points" style="font-weight: bold;"></p>
+      <div class="barre-progression">
+        <div id="barre-progression-remplie" class="barre-progression-remplie"></div>
+      </div>
+      <p id="mascotte-prochain-palier" style="font-size: 0.9rem; color: #7a7599;"></p>
+    </div>
+
+    <div class="onglets">
+      <button class="onglet" id="onglet-accueil">Accueil</button>
+      <button class="onglet" id="onglet-parcours">Mon parcours</button>
+      <button class="onglet" id="onglet-badges">Mes badges</button>
+    </div>
+
+    <div id="contenu-accueil" class="contenu-onglet">
+      <h2>La leçon du jour arrive bientôt !</h2>
+      <p>Le moteur de leçons n'est pas encore construit — prochaine étape de la Phase 3.</p>
+    </div>
+    <div id="contenu-parcours" class="contenu-onglet" style="display: none;">
+      <h2>Mon parcours</h2>
+      <p>La carte du parcours sera affichée ici.</p>
+    </div>
+    <div id="contenu-badges" class="contenu-onglet" style="display: none;">
+      <h2>Mes badges</h2>
+      <p>Aucun badge débloqué pour l'instant. À toi de jouer !</p>
+    </div>
+  </section>
+
+  <section id="screen-parent-pin" class="screen">
+    <h1>Espace parent</h1>
+    <p class="sous-titre">Entre le code parent pour continuer</p>
+    <input type="password" id="pin-input" class="pin-champ" inputmode="numeric" maxlength="4" />
+    <p id="pin-erreur" class="erreur"></p>
+    <div style="display: flex; gap: 12px;">
+      <button class="bouton" id="bouton-valider-pin">Valider</button>
+      <button class="bouton discret" id="bouton-annuler-pin">Annuler</button>
+    </div>
+  </section>
+
+  <section id="screen-parent-dashboard" class="screen">
+    <h1>Tableau de bord parent</h1>
+    <p class="sous-titre">Le tableau de bord complet arrive dans une prochaine étape.</p>
+    <button class="bouton" id="bouton-quitter-parent">Retour</button>
+  </section>
+
+  <script src="js/data/enfants.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
