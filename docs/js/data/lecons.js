@@ -4,10 +4,35 @@ const LECONS = [
     matiere: "maths",
     theme: "La division euclidienne",
     titre: "Le sens de la division : dividende, diviseur, quotient, reste",
-    intro: [
-      "Tu sais déjà partager des objets en parts égales, par exemple 12 bonbons entre 3 copains. En CM1, on va donner un nom précis à chaque nombre de cette opération !",
-      "Quand tu divises 829 billes entre 5 enfants : 829 c'est le dividende (ce qu'on partage), 5 c'est le diviseur (le nombre de parts), le résultat c'est le quotient, et ce qui reste sans pouvoir être partagé, c'est le reste.",
-      "Il existe une formule magique pour vérifier ta division : dividende = (diviseur × quotient) + reste. Si tu retombes bien sur ton dividende de départ, ta division est juste !",
+    pages: [
+      {
+        titre: "Partager en parts égales",
+        contenu: [
+          "Tu sais déjà partager des objets en parts égales. Par exemple, si tu as 12 bonbons à partager entre 3 copains, chacun doit recevoir le même nombre de bonbons.",
+          "Pour trouver combien chaque copain reçoit, tu poses l'opération 12 ÷ 3. Regarde le partage ci-dessous : chaque enfant reçoit exactement 4 bonbons, et il n'en reste aucun.",
+          "Mais que se passe-t-il si le partage ne « tombe pas juste » ? C'est là que le reste entre en jeu — on va le découvrir à la page suivante avec un exemple plus grand.",
+        ],
+        diagramme:
+          '<svg viewBox="0 0 330 150" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="15" width="90" height="90" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><circle cx="35" cy="40" r="10" fill="#ff8fab"/><circle cx="75" cy="40" r="10" fill="#ff8fab"/><circle cx="35" cy="80" r="10" fill="#ff8fab"/><circle cx="75" cy="80" r="10" fill="#ff8fab"/><text x="55" y="122" text-anchor="middle" font-size="13" font-weight="bold">Enfant 1</text><rect x="120" y="15" width="90" height="90" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><circle cx="145" cy="40" r="10" fill="#6fcf97"/><circle cx="185" cy="40" r="10" fill="#6fcf97"/><circle cx="145" cy="80" r="10" fill="#6fcf97"/><circle cx="185" cy="80" r="10" fill="#6fcf97"/><text x="165" y="122" text-anchor="middle" font-size="13" font-weight="bold">Enfant 2</text><rect x="230" y="15" width="90" height="90" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><circle cx="255" cy="40" r="10" fill="#6fa8dc"/><circle cx="295" cy="40" r="10" fill="#6fa8dc"/><circle cx="255" cy="80" r="10" fill="#6fa8dc"/><circle cx="295" cy="80" r="10" fill="#6fa8dc"/><text x="275" y="122" text-anchor="middle" font-size="13" font-weight="bold">Enfant 3</text></svg>',
+      },
+      {
+        titre: "Le vocabulaire de la division",
+        contenu: [
+          "En CM1, chaque nombre de la division a un nom précis. Prenons un exemple plus grand : 829 billes à partager entre 5 enfants.",
+          "829, c'est le dividende : le nombre total qu'on partage. 5, c'est le diviseur : le nombre de parts qu'on forme. Le résultat du partage s'appelle le quotient. Et ce qui ne peut pas être partagé également, c'est le reste.",
+          "Sur le schéma ci-dessous, 829 billes partagées en 5 parts égales donnent 165 billes par part (le quotient), et il en reste 4 (le reste) qu'on ne peut pas partager également.",
+        ],
+        diagramme:
+          '<svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg"><text x="210" y="14" text-anchor="middle" font-size="13" font-weight="bold">829 billes (le dividende)</text><rect x="10" y="24" width="76" height="46" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="48" y="52" text-anchor="middle" font-size="13">165</text><rect x="88" y="24" width="76" height="46" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="126" y="52" text-anchor="middle" font-size="13">165</text><rect x="166" y="24" width="76" height="46" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="204" y="52" text-anchor="middle" font-size="13">165</text><rect x="244" y="24" width="76" height="46" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="282" y="52" text-anchor="middle" font-size="13">165</text><rect x="322" y="24" width="76" height="46" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="360" y="52" text-anchor="middle" font-size="13">165</text><rect x="398" y="24" width="14" height="46" fill="#ff8fab" stroke="#e0574c" stroke-width="2"/><text x="205" y="90" text-anchor="middle" font-size="12">5 parts égales : le diviseur (5) × le quotient (165)</text><text x="405" y="105" text-anchor="middle" font-size="11">reste 4</text></svg>',
+      },
+      {
+        titre: "Vérifier une division",
+        contenu: [
+          "Il existe une formule magique pour vérifier que ta division est juste : dividende = (diviseur × quotient) + reste.",
+          "Reprenons notre exemple : diviseur 5 × quotient 165 = 825. Puis 825 + reste 4 = 829. On retombe bien sur le dividende de départ : la division est donc juste !",
+          "Cette vérification est très utile : après chaque division posée, prends l'habitude de la refaire pour être sûr(e) de ton résultat.",
+        ],
+      },
     ],
     notionsCles: [
       "Vocabulaire : dividende, diviseur, quotient, reste",
@@ -30,6 +55,19 @@ const LECONS = [
         explication: "6 est le diviseur : c'est le nombre de parts qu'on a formées.",
       },
       {
+        niveau: "decouverte",
+        type: "association",
+        enonce: "Relie chaque mot de vocabulaire à sa définition.",
+        paires: [
+          { gauche: "dividende", droite: "le nombre qu'on partage en tout" },
+          { gauche: "diviseur", droite: "le nombre de parts qu'on forme" },
+          { gauche: "quotient", droite: "le résultat du partage" },
+          { gauche: "reste", droite: "ce qui ne peut pas être partagé également" },
+        ],
+        indices: ["Le dividende est toujours le plus grand nombre au départ.", "Le reste est toujours plus petit que le diviseur."],
+        explication: "dividende = ce qu'on partage, diviseur = nombre de parts, quotient = résultat, reste = ce qui reste.",
+      },
+      {
         niveau: "application",
         type: "saisie",
         enonce: "Si le diviseur est 5, le quotient est 12 et le reste est 3, quel est le dividende ? (dividende = diviseur×quotient+reste)",
@@ -38,12 +76,41 @@ const LECONS = [
         explication: "5 × 12 = 60, puis 60 + 3 = 63. Le dividende est 63.",
       },
       {
+        niveau: "application",
+        type: "saisie",
+        enonce: "Vrai ou faux : 45 = (9 × 5) + 0 est une division bien vérifiée.",
+        reponsesAcceptees: ["vrai"],
+        indices: ["Calcule 9 × 5, puis ajoute 0.", "9 × 5 = 45, et 45 + 0 = 45 : ça retombe bien sur le dividende."],
+        explication: "9 × 5 = 45, puis 45 + 0 = 45. On retrouve bien le dividende de départ : c'est vrai.",
+      },
+      {
+        niveau: "application",
+        type: "ordre",
+        enonce: "Remets dans l'ordre les 3 étapes pour vérifier une division.",
+        elements: [
+          "Multiplie le diviseur par le quotient",
+          "Ajoute le reste au résultat obtenu",
+          "Compare ce total avec le dividende de départ",
+        ],
+        indices: ["On commence toujours par la multiplication.", "Le reste s'ajoute juste après, avant la comparaison finale."],
+        explication: "On multiplie diviseur×quotient, on ajoute le reste, puis on compare au dividende.",
+      },
+      {
         niveau: "defi",
         type: "saisie",
-        enonce: "Défi : diviseur = 7, quotient = 15, reste = 4. Quel est le dividende ?",
-        reponsesAcceptees: ["109"],
-        indices: ["7 × 15 = ?", "7 × 15 = 105, il manque juste à ajouter le reste."],
-        explication: "7 × 15 = 105, puis 105 + 4 = 109.",
+        enonce: "Défi : sachant que le dividende est 47, le diviseur 9 et le quotient 5, quel est le reste ?",
+        reponsesAcceptees: ["2"],
+        indices: ["Calcule d'abord 9 × 5.", "9 × 5 = 45. Il manque combien pour arriver à 47 ?"],
+        explication: "9 × 5 = 45, et 47 − 45 = 2. Le reste est donc 2.",
+      },
+      {
+        niveau: "defi",
+        type: "zone",
+        enonce: "Défi : le diviseur d'une division est 6. Clique sur le nombre qui NE PEUT PAS être le reste.",
+        zones: ["2", "5", "6", "3"],
+        zoneCorrecte: "6",
+        indices: ["Le reste doit toujours être plus petit que le diviseur.", "Ici le diviseur est 6 : le reste ne peut donc jamais être 6 ou plus."],
+        explication: "Le reste doit toujours être strictement plus petit que le diviseur (6) : 6 est donc impossible.",
       },
     ],
   },

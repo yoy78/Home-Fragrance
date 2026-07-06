@@ -8,6 +8,8 @@ let premierCoupExercice = [];
 let selectionGauche = null;
 let pairesResolues = [];
 let permutationDroite = [];
+let sequenceOrdre = [];
+let poolOrdre = [];
 
 function normaliser(texte) {
   return String(texte)
@@ -99,6 +101,48 @@ function afficherExerciceCourant() {
     zone.querySelectorAll("[data-zone]").forEach((bouton) => {
       bouton.addEventListener("click", () => validerExerciceZone(bouton.dataset.zone));
     });
+  } else if (exercice.type === "ordre") {
+    sequenceOrdre = [];
+    poolOrdre = melanger(exercice.elements.map((e, i) => i));
+    zone.innerHTML = `
+      <div id="ordre-sequence" style="min-height:44px; border:2px dashed #ddd; border-radius:10px; padding:10px; margin-bottom:14px;"></div>
+      <div id="ordre-pool" style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;"></div>
+    `;
+    rendreOrdre(exercice);
+  }
+}
+
+function rendreOrdre(exercice) {
+  const zoneSeq = document.getElementById("ordre-sequence");
+  zoneSeq.innerHTML =
+    sequenceOrdre.length > 0
+      ? sequenceOrdre.map((i, pos) => `<span class="ordre-sequence-item">${pos + 1}. ${exercice.elements[i]}</span>`).join("")
+      : `<span style="color:#aaa;">Clique les étapes ci-dessous dans le bon ordre...</span>`;
+  const zonePool = document.getElementById("ordre-pool");
+  zonePool.innerHTML = poolOrdre.map((i) => `<button class="ordre-etiquette" data-ordre-i="${i}">${exercice.elements[i]}</button>`).join("");
+  zonePool.querySelectorAll("[data-ordre-i]").forEach((bouton) => {
+    bouton.addEventListener("click", () => cliquerOrdre(exercice, parseInt(bouton.dataset.ordreI, 10)));
+  });
+}
+
+function cliquerOrdre(exercice, i) {
+  sequenceOrdre.push(i);
+  poolOrdre = poolOrdre.filter((x) => x !== i);
+
+  if (poolOrdre.length > 0) {
+    rendreOrdre(exercice);
+    return;
+  }
+
+  tentativesExercice++;
+  const correct = sequenceOrdre.every((valeur, position) => valeur === position);
+  afficherIndiceOuReponse(exercice, correct);
+  if (!correct && tentativesExercice < MAX_TENTATIVES) {
+    sequenceOrdre = [];
+    poolOrdre = melanger(exercice.elements.map((e, idx) => idx));
+    rendreOrdre(exercice);
+  } else {
+    document.querySelectorAll("#ordre-pool [data-ordre-i]").forEach((b) => (b.disabled = true));
   }
 }
 
@@ -141,6 +185,7 @@ function resumeReponse(exercice) {
   if (exercice.type === "saisie") return exercice.reponsesAcceptees[0];
   if (exercice.type === "zone") return exercice.zoneCorrecte;
   if (exercice.type === "association") return exercice.paires.map((p) => `${p.gauche} → ${p.droite}`).join(", ");
+  if (exercice.type === "ordre") return exercice.elements.join(" → ");
   return "";
 }
 

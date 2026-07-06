@@ -72,13 +72,12 @@
   <section id="screen-lecon" class="screen">
     <p id="lecon-matiere" style="font-weight: bold; font-size: 1.1rem;"></p>
     <h1 id="lecon-titre" style="font-size: 1.6rem;"></h1>
-    <div class="contenu-onglet" style="text-align: left;">
-      <div id="lecon-intro"></div>
-      <div id="lecon-notions"></div>
-      <p id="lecon-prerequis" style="font-size: 0.9rem; color: #7a7599;"></p>
-      <p id="lecon-prolongement" style="font-size: 0.9rem; color: #7a7599;"></p>
+    <p id="lecon-page-compteur" class="sous-titre"></p>
+    <div id="lecon-page-contenu" class="contenu-onglet contenu-lecon" style="text-align: left;"></div>
+    <div style="display: flex; gap: 12px; margin-top: 20px;">
+      <button class="bouton discret" id="bouton-page-precedente">◀ Précédent</button>
+      <button class="bouton" id="bouton-page-suivante">Suivant ▶</button>
     </div>
-    <button class="bouton" id="bouton-vers-exercices" style="margin-top: 20px;">Passer aux exercices</button>
   </section>
 
   <section id="screen-exercices" class="screen">

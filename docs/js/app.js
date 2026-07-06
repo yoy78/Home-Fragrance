@@ -7,6 +7,8 @@ let indexQuestionEchauffement = 0;
 let palierAuDebutLecon = 0;
 let debutLeconTimestamp = 0;
 let profilDashboard = null;
+let leconAffichee = null;
+let pageLeconCourante = 0;
 
 function afficherEcran(id) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
@@ -207,19 +209,62 @@ function questionSuivanteEchauffement() {
 }
 
 function afficherLecon(leconId) {
-  const lecon = getLecon(leconId);
-  const matiere = MATIERES[lecon.matiere];
+  leconAffichee = getLecon(leconId);
+  pageLeconCourante = 0;
+  const matiere = MATIERES[leconAffichee.matiere];
   document.getElementById("lecon-matiere").textContent = `${matiere.emoji} ${matiere.nom}`;
   document.getElementById("lecon-matiere").style.color = matiere.couleur;
-  document.getElementById("lecon-titre").textContent = lecon.titre;
-  document.getElementById("lecon-intro").innerHTML = lecon.intro.map((p) => `<p>${p}</p>`).join("");
-  document.getElementById("lecon-notions").innerHTML =
-    "<strong>Ce qu'il faut retenir :</strong><ul>" +
-    lecon.notionsCles.map((n) => `<li>${n}</li>`).join("") +
-    "</ul>";
-  document.getElementById("lecon-prerequis").textContent = "Déjà vu avant : " + lecon.prerequisCE2;
-  document.getElementById("lecon-prolongement").textContent = "Pour aller plus loin : " + lecon.prolongement;
+  document.getElementById("lecon-titre").textContent = leconAffichee.titre;
+  rendrePageLecon();
   afficherEcran("screen-lecon");
+}
+
+function totalPagesLecon() {
+  return leconAffichee.pages.length + 1;
+}
+
+function rendrePageLecon() {
+  const total = totalPagesLecon();
+  document.getElementById("lecon-page-compteur").textContent = `Page ${pageLeconCourante + 1} / ${total}`;
+
+  const zone = document.getElementById("lecon-page-contenu");
+  if (pageLeconCourante < leconAffichee.pages.length) {
+    const page = leconAffichee.pages[pageLeconCourante];
+    let html = "";
+    if (page.titre) html += `<h3>${page.titre}</h3>`;
+    html += page.contenu.map((p) => `<p>${p}</p>`).join("");
+    if (page.diagramme) html += `<div class="diagramme">${page.diagramme}</div>`;
+    zone.innerHTML = html;
+  } else {
+    zone.innerHTML = `
+      <h3>Ce qu'il faut retenir</h3>
+      <ul>${leconAffichee.notionsCles.map((n) => `<li>${n}</li>`).join("")}</ul>
+      <p class="note-discrete">Déjà vu avant : ${leconAffichee.prerequisCE2}</p>
+      <p class="note-discrete">Pour aller plus loin : ${leconAffichee.prolongement}</p>
+    `;
+  }
+
+  document.getElementById("bouton-page-precedente").style.visibility = pageLeconCourante === 0 ? "hidden" : "visible";
+  document.getElementById("bouton-page-suivante").textContent =
+    pageLeconCourante === total - 1 ? "Passer aux exercices" : "Suivant ▶";
+}
+
+function pagePrecedenteLecon() {
+  if (pageLeconCourante > 0) {
+    pageLeconCourante--;
+    rendrePageLecon();
+  }
+}
+
+function pageSuivanteLecon() {
+  const total = totalPagesLecon();
+  if (pageLeconCourante < total - 1) {
+    pageLeconCourante++;
+    rendrePageLecon();
+  } else {
+    demarrerExercices(leconEnCoursId);
+    afficherEcran("screen-exercices");
+  }
 }
 
 function terminerLecon() {
@@ -570,9 +615,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("bouton-voir-reponse").addEventListener("click", voirReponseEchauffement);
   document.getElementById("bouton-suivant-echauffement").addEventListener("click", questionSuivanteEchauffement);
   document.getElementById("bouton-terminer-lecon").addEventListener("click", terminerLecon);
-  document.getElementById("bouton-vers-exercices").addEventListener("click", () => {
-    demarrerExercices(leconEnCoursId);
-    afficherEcran("screen-exercices");
-  });
+  document.getElementById("bouton-page-precedente").addEventListener("click", pagePrecedenteLecon);
+  document.getElementById("bouton-page-suivante").addEventListener("click", pageSuivanteLecon);
   document.getElementById("bouton-continuer-celebration").addEventListener("click", afficherAccueil);
 });
