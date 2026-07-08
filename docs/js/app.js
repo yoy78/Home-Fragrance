@@ -54,6 +54,7 @@ function afficherAccueil() {
 
   const palierActuel = calculerPalier(enfantState.points);
   document.getElementById("mascotte-grande").textContent = enfant.emojiPaliers[palierActuel];
+  document.getElementById("mascotte-nom-palier").textContent = enfant.nomPaliers[palierActuel];
   document.getElementById("mascotte-points").textContent = `${enfantState.points} points`;
 
   const restant = pointsAvantProchainPalier(enfantState.points);
@@ -303,7 +304,7 @@ function afficherCelebration(nouveauxBadges, evolutionMascotte) {
   if (evolutionMascotte) {
     html += `
       <div style="font-size: 4rem;">${enfant.emojiPaliers[palierActuel]}</div>
-      <p style="font-weight: bold; font-size: 1.2rem;">Ta mascotte a évolué !</p>
+      <p style="font-weight: bold; font-size: 1.2rem;">Ta mascotte a évolué en ${enfant.nomPaliers[palierActuel]} !</p>
     `;
   }
 
@@ -366,7 +367,7 @@ function rendreTableauBordParent() {
   const palierActuel = calculerPalier(enfantState.points);
   html += `<div class="contenu-onglet" style="margin-bottom:20px;">
     <h2>${enfant.emoji} ${enfant.prenom}</h2>
-    <p>${enfantState.points} points — mascotte : ${enfant.emojiPaliers[palierActuel]} (palier ${palierActuel + 1}/${enfant.emojiPaliers.length})</p>
+    <p>${enfantState.points} points — mascotte : ${enfant.emojiPaliers[palierActuel]} ${enfant.nomPaliers[palierActuel]} (palier ${palierActuel + 1}/${enfant.emojiPaliers.length})</p>
     <p>${enfantState.leconsCompletees.length} / ${LECONS.length} leçons terminées — ${enfantState.badges.length} / ${BADGES.length} badges débloqués</p>
   </div>`;
 

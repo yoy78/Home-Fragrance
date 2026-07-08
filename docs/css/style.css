@@ -146,6 +146,13 @@ h1 {
   display: block;
 }
 
+.mascotte-nom-palier {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--couleur-profil, #ff6b6b);
+  margin: 2px 0 10px;
+}
+
 .barre-progression {
   width: 100%;
   height: 16px;
