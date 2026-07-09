@@ -2658,6 +2658,2301 @@ const LECONS = [
     },
   ],
 },
+  {
+    id: "maths-04", matiere: "maths", theme: "Les nombres décimaux",
+    titre: "Les nombres décimaux : lire, écrire et comprendre",
+    pages: [
+      {
+        titre: "Une nouvelle façon d'écrire les nombres",
+        contenu: [
+          "Jusqu'à présent, tu as surtout utilisé des nombres entiers, comme 12 ou 145. Mais parfois, un nombre entier ne suffit pas pour être précis : par exemple, la taille d'un enfant peut être 1,42 mètre, ou le prix d'un pain au chocolat peut être 1,20 €. Ces nombres avec une virgule s'appellent des nombres décimaux.",
+          "Un nombre décimal a toujours deux parties séparées par une virgule : la partie entière, à gauche, et la partie décimale, à droite. Dans 3,45, la partie entière est 3 et la partie décimale est 45.",
+          "Tu as déjà rencontré les fractions décimales comme 4/10 ou 5/100. En réalité, l'écriture à virgule est juste une autre façon d'écrire ces fractions : 3,45 = 3 + 4/10 + 5/100. La virgule permet d'écrire tout ça sans avoir à dessiner des fractions !"
+        ]
+      },
+      {
+        titre: "Le tableau de numération",
+        contenu: [
+          "Pour bien lire un nombre décimal, on utilise un tableau de numération. Après la virgule, les colonnes s'appellent dixièmes, centièmes et millièmes, toujours dans cet ordre.",
+          "Regarde le nombre 12,705 placé dans le tableau ci-dessous : 1 dizaine, 2 unités, puis après la virgule 7 dixièmes, 0 centième et 5 millièmes.",
+          "Chaque chiffre après la virgule vaut dix fois moins que celui qui le précède : un dixième vaut dix fois moins qu'une unité, un centième vaut dix fois moins qu'un dixième, et ainsi de suite."
+        ],
+        diagramme: '<svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="15" width="68" height="30" fill="#ffd166" stroke="#2d2a4a" stroke-width="2"/><rect x="84" y="15" width="68" height="30" fill="#ffd166" stroke="#2d2a4a" stroke-width="2"/><rect x="158" y="15" width="68" height="30" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="2"/><rect x="232" y="15" width="68" height="30" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="2"/><rect x="306" y="15" width="68" height="30" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="2"/><text x="44" y="35" text-anchor="middle" font-size="12" font-weight="bold">Dizaines</text><text x="118" y="35" text-anchor="middle" font-size="12" font-weight="bold">Unités</text><text x="192" y="35" text-anchor="middle" font-size="11" font-weight="bold">Dixièmes</text><text x="266" y="35" text-anchor="middle" font-size="10" font-weight="bold">Centièmes</text><text x="340" y="35" text-anchor="middle" font-size="10" font-weight="bold">Millièmes</text><rect x="10" y="55" width="68" height="50" fill="#fff8e7" stroke="#e0a93a" stroke-width="2"/><rect x="84" y="55" width="68" height="50" fill="#fff8e7" stroke="#e0a93a" stroke-width="2"/><rect x="158" y="55" width="68" height="50" fill="#fff8e7" stroke="#6fa8dc" stroke-width="2"/><rect x="232" y="55" width="68" height="50" fill="#fff8e7" stroke="#6fa8dc" stroke-width="2"/><rect x="306" y="55" width="68" height="50" fill="#fff8e7" stroke="#6fa8dc" stroke-width="2"/><text x="44" y="88" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">1</text><text x="118" y="88" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">2</text><text x="192" y="88" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">7</text><text x="266" y="88" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">0</text><text x="340" y="88" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">5</text><line x1="152" y1="10" x2="152" y2="110" stroke="#e0574c" stroke-width="3"/><circle cx="152" cy="118" r="4" fill="#e0574c"/><text x="152" y="140" text-anchor="middle" font-size="12" fill="#e0574c" font-weight="bold">virgule</text></svg>'
+      },
+      {
+        titre: "Comparer et décomposer les nombres décimaux",
+        contenu: [
+          "Attention au piège classique ! Ajouter un zéro à la fin de la partie décimale ne change pas la valeur du nombre : 3,4 = 3,40 (parce que 4 dixièmes, c'est la même chose que 40 centièmes). Mais 3,4 et 3,04 sont très différents : 3,4 = 3,40 est bien plus grand que 3,04 !",
+          "Pour comparer deux nombres décimaux, on compare d'abord les parties entières. Si elles sont égales, on compare les dixièmes, puis les centièmes, colonne par colonne, comme au tableau de numération.",
+          "On peut aussi décomposer un nombre décimal en unités simples : 12,7 = 12 + 0,7 = 1 dizaine + 2 unités + 7 dixièmes. Décomposer un nombre aide à bien comprendre ce qu'il représente."
+        ]
+      }
+    ],
+    notionsCles: ["Partie entière et partie décimale", "Dixièmes, centièmes, millièmes", "Comparaison des nombres décimaux", "Décomposition d'un nombre décimal"],
+    prerequisCE2: "Connaître les fractions décimales simples (dixièmes, centièmes) et savoir lire les nombres entiers dans un tableau de numération (unités, dizaines, centaines).",
+    prolongement: "En CM2, tu apprendras à multiplier et diviser des nombres décimaux par 10, 100 ou 1000, en déplaçant simplement la virgule.",
+    echauffement: [
+      { question: "Dans le nombre 8,3, quelle est la partie entière ?", reponse: "8", explication: "La partie entière est le nombre écrit avant la virgule." },
+      { question: "Combien y a-t-il de dixièmes dans le nombre 0,6 ?", reponse: "6", explication: "Le premier chiffre après la virgule indique le nombre de dixièmes." },
+      { question: "3,40 et 3,4, est-ce le même nombre ?", reponse: "Oui", explication: "Ajouter un zéro à la fin de la partie décimale ne change pas la valeur du nombre." }
+    ],
+    exercices: [
+      { niveau: "decouverte", type: "saisie", enonce: "Dans le nombre 7,25, quel chiffre se trouve à la place des dixièmes ?", reponsesAcceptees: ["2"], indices: ["Regarde le premier chiffre juste après la virgule.", "Dans 7,25, après la virgule on a 2 puis 5."], explication: "Le chiffre juste après la virgule est celui des dixièmes : ici c'est 2." },
+      { niveau: "decouverte", type: "association", enonce: "Associe chaque nombre décimal à sa décomposition.", paires: [{ gauche: "5,2", droite: "5 + 0,2" }, { gauche: "3,45", droite: "3 + 0,4 + 0,05" }, { gauche: "12,7", droite: "12 + 0,7" }, { gauche: "0,08", droite: "0 + 0,08" }], indices: ["Repère la partie entière et la partie décimale de chaque nombre.", "Le chiffre après la virgule donne les dixièmes, puis les centièmes."], explication: "Chaque nombre décimal peut se décomposer en partie entière + dixièmes + centièmes." },
+      { niveau: "application", type: "saisie", enonce: "Quel est le plus grand nombre : 3,4 ou 3,04 ?", reponsesAcceptees: ["3,4", "3.4"], indices: ["Compare d'abord les dixièmes : 4 dixièmes ou 0 dixième ?", "3,4 = 3,40, donc il a 4 dixièmes contre 0 pour 3,04."], explication: "3,4 = 3,40 a 4 dixièmes, alors que 3,04 n'en a aucun (le 0 est juste après la virgule). Donc 3,4 est plus grand." },
+      { niveau: "application", type: "saisie", enonce: "Complète la décomposition : 12,7 = 12 + 0,___", reponsesAcceptees: ["7"], indices: ["La partie décimale de 12,7 est 7 dixièmes.", "0,7 correspond au chiffre après la virgule."], explication: "12,7 = 12 + 0,7 : la partie entière est 12, la partie décimale est 0,7 (7 dixièmes)." },
+      { niveau: "application", type: "ordre", enonce: "Range ces nombres décimaux du plus petit au plus grand : 2,05 ; 2,15 ; 2,5 ; 2,55.", elements: ["2,05", "2,15", "2,5", "2,55"], indices: ["Compare d'abord les parties entières, puis les dixièmes.", "2,5 est la même chose que 2,50."], explication: "En comparant les dixièmes et centièmes colonne par colonne : 2,05 < 2,15 < 2,5 (=2,50) < 2,55." },
+      { niveau: "defi", type: "saisie", enonce: "Défi : écris sous forme décimale le nombre « 9 unités, 0 dixième et 3 centièmes ».", reponsesAcceptees: ["9,03"], indices: ["N'oublie pas la place des dixièmes, même si elle est à 0.", "Le chiffre des dixièmes se place juste après la virgule, celui des centièmes juste après."], explication: "9 unités, 0 dixième, 3 centièmes s'écrit 9,03 : il ne faut pas oublier le 0 des dixièmes, sinon on obtiendrait 9,3 qui est un nombre différent." },
+      { niveau: "defi", type: "zone", enonce: "Défi : parmi ces nombres, lequel est strictement compris entre 6,2 et 6,3 ?", zones: ["6,02", "6,25", "6,32", "6,1"], zoneCorrecte: "6,25", indices: ["6,2 = 6,20 et 6,3 = 6,30.", "Cherche un nombre dont la partie entière est 6 et le dixième est 2."], explication: "6,25 a pour partie entière 6 et pour dixième 2, comme 6,2 et 6,3 ; comme 6,25 est entre 6,20 et 6,30, il est bien compris entre les deux." }
+    ],
+  },
+  {
+    id: "maths-05", matiere: "maths", theme: "Les nombres décimaux",
+    titre: "Additionner, soustraire et multiplier des nombres décimaux",
+    pages: [
+      {
+        titre: "Poser une addition ou une soustraction de décimaux",
+        contenu: [
+          "Pour poser une addition ou une soustraction de nombres décimaux, la règle d'or est simple : il faut toujours aligner les virgules les unes sous les autres, comme on alignait les unités sous les unités avec les nombres entiers.",
+          "Astuce très utile : si un nombre a moins de chiffres après la virgule qu'un autre, on peut ajouter des zéros à la fin sans changer sa valeur. Par exemple, pour poser 5 + 2,75, on écrit 5 comme 5,00 : cela permet d'aligner correctement toutes les colonnes.",
+          "Une fois les virgules alignées, on additionne ou on soustrait colonne par colonne, exactement comme avec des nombres entiers, en n'oubliant pas de redescendre la virgule au bon endroit dans le résultat."
+        ]
+      },
+      {
+        titre: "Le piège du nombre entier moins un décimal",
+        contenu: [
+          "Un piège classique : soustraire un nombre décimal à un nombre entier, par exemple 54 − 32,43. Beaucoup d'enfants oublient qu'un nombre entier a aussi une partie décimale... qui vaut 0 !",
+          "Pour poser cette soustraction, il faut voir 54 comme 54,00 (on ajoute deux zéros après une virgule invisible). On pose alors 54,00 − 32,43 en alignant bien les virgules, et on soustrait normalement, en empruntant si besoin.",
+          "54,00 − 32,43 = 21,57. Vérifie toujours ton résultat : 21,57 + 32,43 doit redonner 54."
+        ],
+        diagramme: '<svg viewBox="0 0 260 170" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="240" height="150" fill="#fff8e7" stroke="#e0a93a" stroke-width="2" rx="8"/><text x="50" y="45" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">5</text><text x="90" y="45" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">4</text><text x="130" y="45" text-anchor="middle" font-size="22" font-weight="bold" fill="#e0574c">,</text><text x="170" y="45" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">0</text><text x="210" y="45" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">0</text><text x="50" y="80" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">3</text><text x="90" y="80" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">2</text><text x="130" y="80" text-anchor="middle" font-size="22" font-weight="bold" fill="#e0574c">,</text><text x="170" y="80" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">4</text><text x="210" y="80" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d2a4a">3</text><line x1="25" y1="95" x2="235" y2="95" stroke="#2d2a4a" stroke-width="3"/><text x="50" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#6fcf97">2</text><text x="90" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#6fcf97">1</text><text x="130" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#e0574c">,</text><text x="170" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#6fcf97">5</text><text x="210" y="130" text-anchor="middle" font-size="22" font-weight="bold" fill="#6fcf97">7</text><line x1="130" y1="20" x2="130" y2="150" stroke="#6fa8dc" stroke-width="2" stroke-dasharray="4"/><text x="130" y="163" text-anchor="middle" font-size="11" fill="#6fa8dc">virgules alignées</text></svg>'
+      },
+      {
+        titre: "Multiplier un nombre décimal par un nombre entier",
+        contenu: [
+          "Pour multiplier un nombre décimal par un nombre entier, on peut d'abord faire comme si la virgule n'existait pas, et multiplier les deux nombres entiers obtenus. Par exemple, pour 3,2 × 4, on calcule d'abord 32 × 4 = 128.",
+          "Ensuite, il faut replacer la virgule dans le résultat : on compte le nombre de chiffres après la virgule dans le nombre de départ (ici 3,2 a 1 chiffre après la virgule), et on place la virgule à la même distance de la droite dans le résultat : 128 devient 12,8.",
+          "Vérifie que ton résultat est cohérent : 3,2 × 4, c'est un peu plus que 3 × 4 = 12, donc 12,8 est logique !"
+        ]
+      }
+    ],
+    notionsCles: ["Alignement des virgules pour additionner/soustraire", "Compléter avec des zéros (5 = 5,00)", "Soustraire un décimal à un nombre entier", "Multiplier un décimal par un entier en replaçant la virgule"],
+    prerequisCE2: "Savoir poser et effectuer des additions et soustractions de nombres entiers en colonnes, et connaître la lecture des nombres décimaux.",
+    prolongement: "En CM2 et en 6e, tu apprendras à multiplier deux nombres décimaux entre eux, et à diviser un nombre décimal par un nombre entier.",
+    echauffement: [
+      { question: "Pour poser 5 + 2,75, comment peut-on écrire 5 pour aligner les virgules ?", reponse: "5,00", explication: "Ajouter des zéros après la virgule ne change pas la valeur : 5 = 5,00." },
+      { question: "Dans une addition de décimaux, que doit-on toujours aligner ?", reponse: "Les virgules", explication: "Les virgules doivent être alignées les unes sous les autres pour que les colonnes correspondent bien (unités sous unités, dixièmes sous dixièmes...)." },
+      { question: "Combien de chiffres après la virgule y a-t-il dans 3,2 ?", reponse: "1", explication: "Il y a un seul chiffre après la virgule : le 2, qui est à la place des dixièmes." }
+    ],
+    exercices: [
+      { niveau: "decouverte", type: "saisie", enonce: "Pour poser l'addition 8 + 1,45, comment écrit-on 8 afin d'aligner les virgules ?", reponsesAcceptees: ["8,00", "8,0"], indices: ["8 est un nombre entier, sa partie décimale vaut 0.", "Ajoute deux zéros après une virgule."], explication: "8 s'écrit 8,00 pour avoir autant de chiffres après la virgule que 1,45, ce qui permet d'aligner les colonnes." },
+      { niveau: "decouverte", type: "saisie", enonce: "Calcule : 4,2 + 3,5", reponsesAcceptees: ["7,7"], indices: ["Additionne d'abord les dixièmes : 2 + 5.", "N'oublie pas d'additionner aussi les parties entières : 4 + 3."], explication: "4,2 + 3,5 : on additionne les dixièmes (2+5=7) puis les unités (4+3=7), ce qui donne 7,7." },
+      { niveau: "application", type: "saisie", enonce: "Calcule : 54 − 32,43", reponsesAcceptees: ["21,57"], indices: ["Écris 54 comme 54,00 pour poser la soustraction.", "N'oublie pas d'emprunter si besoin, colonne par colonne."], explication: "54,00 − 32,43 = 21,57. On peut vérifier : 32,43 + 21,57 = 54." },
+      { niveau: "application", type: "association", enonce: "Associe chaque calcul à son résultat.", paires: [{ gauche: "2,5 + 1,3", droite: "3,8" }, { gauche: "6 − 2,4", droite: "3,6" }, { gauche: "3,2 × 4", droite: "12,8" }, { gauche: "7,15 + 0,85", droite: "8" }], indices: ["Pose chaque opération en alignant les virgules.", "Pour la multiplication, compte les chiffres après la virgule dans le nombre décimal de départ."], explication: "En posant chaque calcul avec les virgules bien alignées (ou en replaçant la virgule pour la multiplication), on retrouve : 2,5+1,3=3,8 ; 6−2,4=3,6 ; 3,2×4=12,8 ; 7,15+0,85=8." },
+      { niveau: "application", type: "ordre", enonce: "Remets dans l'ordre les étapes pour poser et calculer 54 − 32,43.", elements: ["Écrire 54 sous la forme 54,00 pour avoir deux chiffres après la virgule", "Aligner les virgules de 54,00 et 32,43 l'une sous l'autre", "Soustraire colonne par colonne en empruntant si besoin, en commençant par la droite", "Replacer la virgule dans le résultat pour obtenir 21,57"], indices: ["La première étape consiste à transformer le nombre entier.", "On soustrait toujours en commençant par la colonne la plus à droite."], explication: "On transforme d'abord 54 en 54,00, on aligne les virgules, on soustrait de droite à gauche en empruntant si besoin, puis on place la virgule dans le résultat : on obtient 21,57." },
+      { niveau: "defi", type: "saisie", enonce: "Défi : calcule 6,4 × 3", reponsesAcceptees: ["19,2"], indices: ["Multiplie d'abord 64 × 3.", "64 × 3 = 192, il y a un chiffre après la virgule dans 6,4."], explication: "64 × 3 = 192. Comme 6,4 a un chiffre après la virgule, on place la virgule à une position du bord droit dans le résultat : 19,2." },
+      { niveau: "defi", type: "zone", enonce: "Défi : parmi ces résultats, lequel correspond à 7,08 + 2,92 ?", zones: ["9,9", "10", "10,9", "9,00"], zoneCorrecte: "10", indices: ["Additionne d'abord les centièmes : 8 + 92, attention aux retenues.", "7,08 + 2,92 : les centièmes 8+2=10, donc il y a une retenue."], explication: "7,08 + 2,92 = 10 : en additionnant colonne par colonne avec les retenues nécessaires, les parties décimales s'annulent exactement et on obtient un nombre entier, 10." }
+    ],
+  },
+  {
+    id: "maths-06", matiere: "maths", theme: "Géométrie : droites",
+    titre: "Droites parallèles et droites perpendiculaires",
+    pages: [
+      {
+        titre: "Des droites qui ne se rencontrent jamais : les parallèles",
+        contenu: [
+          "Une droite, contrairement à un segment, n'a pas de bout : on peut l'imaginer se prolonger à l'infini dans les deux sens. Deux droites sont parallèles si elles gardent toujours le même écart entre elles et ne se croisent jamais, même si on les prolonge indéfiniment.",
+          "On note que deux droites (d1) et (d2) sont parallèles en écrivant (d1) // (d2). Les rails d'un chemin de fer ou les lignes d'un cahier sont de bons exemples de droites parallèles dans la vie de tous les jours.",
+          "Pour tracer deux droites parallèles avec précision, on utilise une règle et une équerre : on place l'équerre contre la règle, on trace une première droite le long d'un côté de l'équerre, puis on fait glisser l'équerre le long de la règle (qui ne bouge pas) avant de tracer la deuxième droite."
+        ],
+        diagramme: '<svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="320" height="140" fill="#fff8e7"/><line x1="20" y1="100" x2="270" y2="40" stroke="#6fa8dc" stroke-width="4"/><line x1="20" y1="130" x2="270" y2="70" stroke="#6fa8dc" stroke-width="4"/><text x="278" y="45" font-size="14" font-weight="bold" fill="#2d2a4a">(d1)</text><text x="278" y="75" font-size="14" font-weight="bold" fill="#2d2a4a">(d2)</text><text x="150" y="130" text-anchor="middle" font-size="13" fill="#2d2a4a">Les droites ne se croisent jamais</text></svg>'
+      },
+      {
+        titre: "Des droites qui se croisent à angle droit : les perpendiculaires",
+        contenu: [
+          "Deux droites sont perpendiculaires quand elles se croisent en formant un angle droit, c'est-à-dire un angle de 90°, comme le coin d'une feuille de papier bien carrée.",
+          "On note que (d1) et (d2) sont perpendiculaires en écrivant (d1) ⊥ (d2). Les côtés d'une fenêtre carrée ou les lignes d'un quadrillage forment des droites perpendiculaires.",
+          "Pour vérifier si deux droites sont perpendiculaires, on utilise une équerre : on place l'angle droit de l'équerre bien contre l'une des droites ; si l'autre droite suit exactement le deuxième côté de l'équerre, alors les deux droites sont perpendiculaires."
+        ],
+        diagramme: '<svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="220" height="220" fill="#fff8e7"/><line x1="30" y1="110" x2="190" y2="110" stroke="#6fcf97" stroke-width="4"/><line x1="110" y1="20" x2="110" y2="200" stroke="#e0574c" stroke-width="4"/><rect x="110" y="90" width="20" height="20" fill="none" stroke="#2d2a4a" stroke-width="2"/><text x="195" y="115" font-size="14" font-weight="bold" fill="#2d2a4a">(d1)</text><text x="115" y="18" font-size="14" font-weight="bold" fill="#2d2a4a">(d2)</text><text x="110" y="215" text-anchor="middle" font-size="13" fill="#2d2a4a">Angle droit = 90°</text></svg>'
+      },
+      {
+        titre: "Repérer parallèles et perpendiculaires dans une figure",
+        contenu: [
+          "Dans une figure qui contient plusieurs droites, il faut regarder chaque paire de droites une par une : est-ce qu'elles se croisent ou non ? Si oui, forment-elles un angle droit ?",
+          "Sur le schéma ci-dessous, (d1) et (d2) sont parallèles (elles ne se croisent jamais), tandis que (d3) est perpendiculaire à la fois à (d1) et à (d2) (elle forme un angle droit avec chacune d'elles, marqué par les petits carrés).",
+          "Astuce importante : si une droite est perpendiculaire à deux droites parallèles, alors elle est perpendiculaire aux deux en même temps. C'est une propriété très utile en géométrie !"
+        ],
+        diagramme: '<svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="320" height="200" fill="#fff8e7"/><line x1="20" y1="60" x2="280" y2="60" stroke="#6fa8dc" stroke-width="4"/><line x1="20" y1="150" x2="280" y2="150" stroke="#6fa8dc" stroke-width="4"/><line x1="150" y1="20" x2="150" y2="190" stroke="#e0574c" stroke-width="4"/><rect x="150" y="60" width="18" height="18" fill="none" stroke="#2d2a4a" stroke-width="2"/><rect x="150" y="132" width="18" height="18" fill="none" stroke="#2d2a4a" stroke-width="2"/><text x="288" y="65" font-size="13" font-weight="bold" fill="#2d2a4a">(d1)</text><text x="288" y="155" font-size="13" font-weight="bold" fill="#2d2a4a">(d2)</text><text x="155" y="18" font-size="13" font-weight="bold" fill="#2d2a4a">(d3)</text></svg>'
+      }
+    ],
+    notionsCles: ["Droites parallèles (d1)//(d2)", "Droites perpendiculaires (d1)⊥(d2)", "Angle droit (90°)", "Tracer avec règle et équerre"],
+    prerequisCE2: "Savoir reconnaître un angle droit et utiliser une équerre, et connaître le vocabulaire de base des droites et segments.",
+    prolongement: "En CM2 et au collège, tu utiliseras ces notions pour construire des figures géométriques précises comme des rectangles, des carrés ou des losanges.",
+    echauffement: [
+      { question: "Comment appelle-t-on deux droites qui ne se croisent jamais ?", reponse: "Des droites parallèles", explication: "Deux droites parallèles gardent toujours le même écart et ne se rencontrent jamais, même prolongées." },
+      { question: "Quel angle forment deux droites perpendiculaires ?", reponse: "Un angle droit (90°)", explication: "Par définition, deux droites perpendiculaires se croisent en formant un angle droit." },
+      { question: "Quel outil utilise-t-on pour vérifier qu'un angle est droit ?", reponse: "Une équerre", explication: "L'équerre possède un angle droit qui permet de le comparer à d'autres angles." }
+    ],
+    exercices: [
+      { niveau: "decouverte", type: "saisie", enonce: "Quelle notation utilise-t-on pour dire que (d1) et (d2) sont parallèles ?", reponsesAcceptees: ["(d1)//(d2)", "(d1) // (d2)", "d1//d2"], indices: ["Cherche le symbole fait de deux barres obliques.", "On utilise le symbole // entre les noms des deux droites."], explication: "La notation (d1) // (d2) signifie que les droites (d1) et (d2) sont parallèles." },
+      { niveau: "decouverte", type: "saisie", enonce: "Quelle notation utilise-t-on pour dire que (d1) et (d2) sont perpendiculaires ?", reponsesAcceptees: ["(d1)⊥(d2)", "(d1) ⊥ (d2)", "d1⊥d2"], indices: ["Cherche le symbole qui ressemble à un angle droit renversé.", "On utilise le symbole ⊥ entre les noms des deux droites."], explication: "La notation (d1) ⊥ (d2) signifie que les droites (d1) et (d2) sont perpendiculaires, formant un angle droit." },
+      { niveau: "application", type: "association", enonce: "Associe chaque situation de la vie quotidienne à la notion géométrique correspondante.", paires: [{ gauche: "Les deux rails d'un chemin de fer", droite: "Droites parallèles" }, { gauche: "Les deux côtés qui forment le coin d'une feuille carrée", droite: "Droites perpendiculaires" }, { gauche: "L'outil qui vérifie un angle droit", droite: "L'équerre" }, { gauche: "Le symbole ⊥", droite: "Perpendicularité" }], indices: ["Repense aux exemples donnés dans la leçon.", "Le mot « perpendiculaire » est lié à l'angle droit."], explication: "Les rails de chemin de fer illustrent des droites parallèles, le coin d'une feuille illustre des droites perpendiculaires, l'équerre sert à vérifier les angles droits, et le symbole ⊥ signifie « perpendiculaire à »." },
+      { niveau: "application", type: "zone", enonce: "Sur la figure de la leçon, (d3) est perpendiculaire à (d1) et à (d2). Que peut-on en déduire sur (d1) et (d2) ?", zones: ["(d1) et (d2) sont perpendiculaires entre elles", "(d1) et (d2) sont parallèles entre elles", "(d1) et (d2) se croisent forcément", "On ne peut rien déduire"], zoneCorrecte: "(d1) et (d2) sont parallèles entre elles", indices: ["Si une même droite est perpendiculaire à deux autres droites...", "Souviens-toi de l'astuce donnée à la fin de la leçon."], explication: "Quand une droite est perpendiculaire à deux droites différentes, ces deux droites sont nécessairement parallèles entre elles." },
+      { niveau: "application", type: "ordre", enonce: "Remets dans l'ordre les étapes pour tracer deux droites parallèles avec une règle et une équerre.", elements: ["Tracer une première droite le long d'un côté de l'équerre, la règle servant d'appui", "Maintenir la règle bien immobile pendant toute l'opération", "Faire glisser l'équerre le long de la règle jusqu'à la position voulue", "Tracer la deuxième droite le long du même côté de l'équerre"], indices: ["La règle ne doit jamais bouger pendant qu'on fait glisser l'équerre.", "On trace toujours la droite le long du même côté de l'équerre pour garder le même écart."], explication: "On trace d'abord une droite le long de l'équerre appuyée contre la règle fixe, puis on fait glisser l'équerre le long de la règle (qui ne bouge pas) avant de tracer la seconde droite : cela garantit que les deux droites restent parallèles." },
+      { niveau: "defi", type: "saisie", enonce: "Défi : si (d1) // (d2) et (d2) // (d3), que peut-on dire de (d1) et (d3) ?", reponsesAcceptees: ["Elles sont parallèles", "(d1) et (d3) sont parallèles", "paralleles", "parallèles"], indices: ["Si deux droites sont chacune parallèles à une même troisième droite...", "Le parallélisme se transmet d'une droite à l'autre."], explication: "Si (d1) // (d2) et (d2) // (d3), alors (d1) et (d3) sont aussi parallèles entre elles." },
+      { niveau: "defi", type: "zone", enonce: "Défi : parmi ces affirmations, laquelle est vraie ?", zones: ["Deux droites perpendiculaires peuvent aussi être parallèles", "Deux droites parallèles peuvent se croiser une seule fois", "Une droite perpendiculaire à deux droites parallèles forme un angle droit avec chacune d'elles", "Deux droites qui se croisent sont toujours perpendiculaires"], zoneCorrecte: "Une droite perpendiculaire à deux droites parallèles forme un angle droit avec chacune d'elles", indices: ["Élimine les affirmations qui contredisent les définitions vues dans la leçon.", "Deux droites parallèles ne se croisent jamais, et deux droites qui se croisent ne forment pas forcément un angle droit."], explication: "Une droite perpendiculaire à deux droites parallèles forme bien un angle droit avec chacune des deux, comme on l'a vu avec (d3) perpendiculaire à (d1) et (d2). Les autres affirmations sont fausses." }
+    ],
+  },
+  {
+  id: "maths-07",
+  matiere: "maths",
+  theme: "Périmètres et aires",
+  titre: "Calculer le périmètre et l'aire d'une figure",
+  pages: [
+    {
+      titre: "Le périmètre : la longueur du contour",
+      contenu: [
+        "Adèle et Matys veulent installer une clôture tout autour du potager du jardin, qui a la forme d'un rectangle de 8 m de long et 5 m de large. Pour savoir combien de mètres de clôture acheter, ils doivent calculer le périmètre : la longueur totale du contour de la figure.",
+        "Pour calculer un périmètre, il suffit d'additionner la longueur de tous les côtés. Ce rectangle a 2 côtés de 8 m et 2 côtés de 5 m, donc le périmètre est 8 + 8 + 5 + 5 = 26 m. On peut aussi calculer plus vite avec 2 × (8 + 5) = 26 m.",
+        "Regarde le schéma ci-dessous : la longueur et la largeur du potager sont indiquées sur chaque côté du rectangle. Le périmètre, c'est la somme de tous ces côtés.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="30" width="140" height="80" fill="#fff8e7" stroke="#ffd166" stroke-width="4"/><text x="110" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">longueur : 8 m</text><text x="110" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">longueur : 8 m</text><text x="20" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">largeur</text><text x="20" y="80" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">5 m</text><text x="200" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">largeur</text><text x="200" y="80" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">5 m</text></svg>',
+    },
+    {
+      titre: "L'aire : la surface couverte",
+      contenu: [
+        "Le périmètre mesure le contour, mais l'aire mesure la surface couverte par une figure, c'est-à-dire la place qu'elle occupe. On peut imaginer qu'on recouvre la figure de petits carreaux d'1 cm de côté et qu'on les compte tous.",
+        "Heureusement, il existe des formules pour aller plus vite. L'aire d'un carré, c'est côté × côté. L'aire d'un rectangle, c'est longueur × largeur. Pour le potager d'Adèle et Matys (8 m × 5 m), l'aire est donc 8 × 5 = 40 m². On note les aires en cm² ou en m², jamais en cm ou en m tout seuls.",
+        "Regarde le schéma ci-dessous : un rectangle de 4 carreaux de large et 3 carreaux de haut est entièrement quadrillé. Il contient bien 4 × 3 = 12 petits carreaux, donc son aire est 12 cm².",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="10" width="120" height="90" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><line x1="50" y1="10" x2="50" y2="100" stroke="#e0a93a" stroke-width="1"/><line x1="80" y1="10" x2="80" y2="100" stroke="#e0a93a" stroke-width="1"/><line x1="110" y1="10" x2="110" y2="100" stroke="#e0a93a" stroke-width="1"/><line x1="20" y1="40" x2="140" y2="40" stroke="#e0a93a" stroke-width="1"/><line x1="20" y1="70" x2="140" y2="70" stroke="#e0a93a" stroke-width="1"/><text x="80" y="118" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">4 × 3 = 12 carreaux → 12 cm²</text></svg>',
+    },
+    {
+      titre: "L'aire du triangle rectangle et les problèmes à rebours",
+      contenu: [
+        "Un triangle rectangle, c'est exactement la moitié d'un rectangle coupé par sa diagonale. C'est pour cela que l'aire d'un triangle rectangle se calcule ainsi : (base × hauteur) ÷ 2. Par exemple, avec une base de 10 cm et une hauteur de 6 cm, l'aire est (10 × 6) ÷ 2 = 30 cm².",
+        "Point important à retenir : deux figures qui n'ont pas du tout la même forme peuvent avoir la même aire ! Un rectangle de 2 cm × 6 cm et un carré de 3,46 cm de côté n'ont pas la même allure, mais peuvent couvrir une surface très proche. L'aire ne dépend pas de la forme, seulement de la surface couverte.",
+        "Parfois, on te donne le périmètre ou l'aire et il faut retrouver une longueur manquante : c'est un problème « à rebours ». Par exemple, si un rectangle a un périmètre de 30 cm et une largeur de 5 cm, tu peux écrire 30 = 2 × (longueur + 5), donc longueur + 5 = 15, donc la longueur est 10 cm.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="20" width="120" height="80" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><line x1="30" y1="100" x2="150" y2="20" stroke="#e0574c" stroke-width="3"/><text x="90" y="118" text-anchor="middle" font-size="12" fill="#2d2a4a">base = 10 cm</text><text x="15" y="60" text-anchor="middle" font-size="12" fill="#2d2a4a" transform="rotate(-90 15 60)">hauteur = 6 cm</text><text x="195" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">aire triangle</text><text x="195" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">= moitié de</text><text x="195" y="89" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">aire du rectangle</text></svg>',
+    },
+  ],
+  notionsCles: [
+    "Périmètre = somme de tous les côtés d'une figure",
+    "Aire du carré = côté×côté, aire du rectangle = longueur×largeur, aire du triangle rectangle = (base×hauteur)÷2",
+    "Deux figures différentes peuvent avoir la même aire",
+  ],
+  prerequisCE2: "Tu sais déjà reconnaître un carré, un rectangle et un triangle, et tu maîtrises tes tables de multiplication.",
+  prolongement: "Essaie de calculer le périmètre ET l'aire d'une même pièce de ta maison en la mesurant avec un mètre !",
+  echauffement: [
+    { question: "Le périmètre d'un carré de 4 cm de côté, c'est combien ?", reponse: "16 cm", explication: "Un carré a 4 côtés égaux : 4 + 4 + 4 + 4 = 16 cm." },
+    { question: "Quelle formule donne l'aire d'un rectangle ?", reponse: "longueur × largeur", explication: "On multiplie les deux dimensions du rectangle pour trouver sa surface." },
+    { question: "Vrai ou faux : deux figures de formes différentes peuvent avoir la même aire.", reponse: "Vrai", explication: "L'aire mesure la surface couverte, pas la forme de la figure." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Quel est le périmètre d'un rectangle de 6 cm de long et 4 cm de large ?",
+      reponsesAcceptees: ["20", "20 cm"],
+      indices: ["Additionne les 4 côtés : 6 + 4 + 6 + 4.", "Tu peux aussi calculer 2 × (6 + 4)."],
+      explication: "6 + 4 + 6 + 4 = 20, ou 2 × (6 + 4) = 20. Le périmètre est 20 cm.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Relie chaque grandeur à sa formule de calcul.",
+      paires: [
+        { gauche: "aire du carré", droite: "côté × côté" },
+        { gauche: "aire du rectangle", droite: "longueur × largeur" },
+        { gauche: "aire du triangle rectangle", droite: "(base × hauteur) ÷ 2" },
+        { gauche: "périmètre d'une figure", droite: "addition de tous les côtés" },
+      ],
+      indices: ["Le périmètre concerne le contour, l'aire concerne la surface.", "Le triangle rectangle est toujours la moitié d'un rectangle."],
+      explication: "Aire du carré = côté×côté, aire du rectangle = longueur×largeur, aire du triangle rectangle = (base×hauteur)÷2, périmètre = somme des côtés.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quelle est l'aire d'un rectangle de 8 m de long et 5 m de large ?",
+      reponsesAcceptees: ["40", "40 m2", "40 m²"],
+      indices: ["Utilise la formule longueur × largeur.", "Calcule 8 × 5."],
+      explication: "8 × 5 = 40. L'aire du rectangle est 40 m².",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quelle est l'aire d'un carré de 7 cm de côté ?",
+      reponsesAcceptees: ["49", "49 cm2", "49 cm²"],
+      indices: ["Utilise la formule côté × côté.", "Calcule 7 × 7."],
+      explication: "7 × 7 = 49. L'aire du carré est 49 cm².",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets dans l'ordre les 3 étapes pour calculer l'aire d'un rectangle.",
+      elements: [
+        "Mesure la longueur du rectangle",
+        "Mesure la largeur du rectangle",
+        "Multiplie longueur × largeur pour obtenir l'aire",
+      ],
+      indices: ["On mesure toujours les deux dimensions avant de calculer.", "La multiplication vient à la toute fin."],
+      explication: "On mesure d'abord la longueur, puis la largeur, puis on multiplie les deux pour obtenir l'aire.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : quelle est l'aire d'un triangle rectangle de base 10 cm et de hauteur 6 cm ?",
+      reponsesAcceptees: ["30", "30 cm2", "30 cm²"],
+      indices: ["Utilise la formule (base × hauteur) ÷ 2.", "Calcule d'abord 10 × 6, puis divise par 2."],
+      explication: "(10 × 6) ÷ 2 = 60 ÷ 2 = 30. L'aire du triangle est 30 cm².",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : un rectangle a un périmètre de 30 cm et une largeur de 5 cm. Clique sur sa longueur.",
+      zones: ["5", "10", "15", "20"],
+      zoneCorrecte: "10",
+      indices: ["Périmètre = 2 × (longueur + largeur).", "30 = 2 × (longueur + 5), donc longueur + 5 = 15."],
+      explication: "30 = 2 × (longueur + 5), donc longueur + 5 = 15, donc la longueur est 10 cm.",
+    },
+  ],
+},
+  {
+  id: "maths-08",
+  matiere: "maths",
+  theme: "Tableaux et graphiques",
+  titre: "Lire et construire des tableaux et des graphiques",
+  pages: [
+    {
+      titre: "Quatre façons de présenter des données",
+      contenu: [
+        "Quand on récolte beaucoup d'informations (des mesures, des résultats de sondage, des scores...), on a besoin de les présenter clairement. Il existe 4 outils principaux : le tableau (des données rangées en lignes et en colonnes), l'histogramme (des barres pour comparer des quantités), le diagramme circulaire (un « camembert » pour montrer des proportions ou des pourcentages) et la courbe (pour montrer une évolution dans le temps).",
+        "Par exemple, si Adèle et Matys demandent à leurs camarades quel est leur fruit préféré, un histogramme est parfait pour comparer combien de camarades ont choisi chaque fruit : une barre haute pour le fruit très populaire, une barre basse pour le fruit peu choisi.",
+        "Regarde l'histogramme ci-dessous : chaque barre représente le nombre de votes pour un fruit. Plus la barre est haute, plus le fruit a été choisi souvent.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg"><line x1="15" y1="120" x2="210" y2="120" stroke="#2d2a4a" stroke-width="2"/><rect x="30" y="60" width="30" height="60" fill="#ff8fab"/><text x="45" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">6</text><text x="45" y="135" text-anchor="middle" font-size="11" fill="#2d2a4a">Pomme</text><rect x="80" y="30" width="30" height="90" fill="#6fcf97"/><text x="95" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">9</text><text x="95" y="135" text-anchor="middle" font-size="11" fill="#2d2a4a">Banane</text><rect x="130" y="90" width="30" height="30" fill="#6fa8dc"/><text x="145" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">3</text><text x="145" y="135" text-anchor="middle" font-size="11" fill="#2d2a4a">Fraise</text><rect x="180" y="70" width="20" height="50" fill="#ffd166"/><text x="190" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">5</text><text x="190" y="135" text-anchor="middle" font-size="10" fill="#2d2a4a">Raisin</text></svg>',
+    },
+    {
+      titre: "Lire un tableau à double entrée et une échelle",
+      contenu: [
+        "Un tableau à double entrée croise deux informations : par exemple, les jours de la semaine en ligne, et les enfants en colonne. Pour lire une case, il faut regarder à la fois sa ligne et sa colonne.",
+        "Regarde le tableau ci-dessous : il montre le nombre de verres de citronnade vendus par Adèle et Matys, lundi et mardi. Pour savoir combien Matys a vendu le mardi, on cherche la ligne « Mardi » et la colonne « Matys » : on trouve 9 verres.",
+        "Sur un graphique, il faut aussi faire attention à l'échelle indiquée, par exemple « 1 carreau = 25 ». Si une barre mesure 4 carreaux, elle représente alors 4 × 25 = 100, et non 4 !",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="70" height="36" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="45" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Jour</text><rect x="80" y="10" width="70" height="36" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="115" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Adèle</text><rect x="150" y="10" width="70" height="36" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="185" y="32" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Matys</text><rect x="10" y="46" width="70" height="36" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="45" y="68" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Lundi</text><rect x="80" y="46" width="70" height="36" fill="#fff8e7" stroke="#ffd166" stroke-width="2"/><text x="115" y="68" text-anchor="middle" font-size="13" fill="#2d2a4a">8</text><rect x="150" y="46" width="70" height="36" fill="#fff8e7" stroke="#ffd166" stroke-width="2"/><text x="185" y="68" text-anchor="middle" font-size="13" fill="#2d2a4a">6</text><rect x="10" y="82" width="70" height="36" fill="#ffe8a3" stroke="#e0a93a" stroke-width="2"/><text x="45" y="104" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Mardi</text><rect x="80" y="82" width="70" height="36" fill="#fff8e7" stroke="#ffd166" stroke-width="2"/><text x="115" y="104" text-anchor="middle" font-size="13" fill="#2d2a4a">5</text><rect x="150" y="82" width="70" height="36" fill="#fff8e7" stroke="#ffd166" stroke-width="2"/><text x="185" y="104" text-anchor="middle" font-size="13" fill="#2d2a4a">9</text></svg>',
+    },
+    {
+      titre: "Passer du texte au tableau, puis au graphique",
+      contenu: [
+        "Quand on te donne un texte rempli de chiffres, tu peux le transformer en tableau pour y voir plus clair : repère chaque information importante, choisis des catégories (des lignes et des colonnes), puis place chaque donnée dans la bonne case.",
+        "Une fois le tableau construit, tu peux facilement le transformer en graphique : chaque ligne du tableau devient par exemple une barre d'histogramme, ou une part du diagramme circulaire si tu veux montrer des proportions.",
+        "L'important est de toujours choisir l'outil adapté à ce que tu veux montrer : un tableau pour organiser précisément des données, un histogramme pour comparer, un diagramme circulaire pour des proportions, une courbe pour une évolution dans le temps.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "4 outils : tableau, histogramme, diagramme circulaire, courbe",
+    "Lire un tableau à double entrée (ligne et colonne)",
+    "Respecter l'échelle indiquée sur un graphique",
+  ],
+  prerequisCE2: "Tu sais déjà lire un tableau simple à une seule ligne d'entrée.",
+  prolongement: "Essaie de construire ton propre tableau en notant, pendant une semaine, le nombre de pages lues chaque jour, puis transforme-le en histogramme.",
+  echauffement: [
+    { question: "Quel outil utilise-t-on pour montrer l'évolution de la température au fil des jours ?", reponse: "La courbe", explication: "La courbe est l'outil adapté pour montrer une évolution dans le temps." },
+    { question: "Dans un tableau à double entrée, que faut-il regarder pour lire une case ?", reponse: "Sa ligne et sa colonne", explication: "Chaque case se trouve au croisement d'une ligne et d'une colonne." },
+    { question: "Si l'échelle d'un graphique est '1 carreau = 25' et qu'une barre mesure 2 carreaux, que représente-t-elle ?", reponse: "50", explication: "2 carreaux × 25 = 50." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Quel outil utilise-t-on pour comparer, avec des barres, le nombre de votes reçus par plusieurs fruits ?",
+      reponsesAcceptees: ["histogramme", "l'histogramme"],
+      indices: ["Cet outil utilise des barres verticales.", "Plus la barre est haute, plus le nombre est grand."],
+      explication: "L'histogramme utilise des barres pour comparer facilement des quantités.",
+    },
+    {
+      niveau: "decouverte",
+      type: "zone",
+      enonce: "Pour montrer que 50 % des élèves préfèrent les pommes, quel outil est le plus adapté ?",
+      zones: ["Le tableau", "L'histogramme", "Le diagramme circulaire", "La courbe"],
+      zoneCorrecte: "Le diagramme circulaire",
+      indices: ["Cherche l'outil qui montre des proportions et des pourcentages.", "Cet outil ressemble à un camembert coupé en parts."],
+      explication: "Le diagramme circulaire (le camembert) est l'outil adapté pour montrer des proportions ou des pourcentages.",
+    },
+    {
+      niveau: "application",
+      type: "association",
+      enonce: "Associe chaque outil à son utilisation.",
+      paires: [
+        { gauche: "tableau", droite: "organiser des données en lignes et colonnes" },
+        { gauche: "histogramme", droite: "comparer des quantités avec des barres" },
+        { gauche: "diagramme circulaire", droite: "montrer des proportions ou des pourcentages" },
+        { gauche: "courbe", droite: "montrer une évolution dans le temps" },
+      ],
+      indices: ["Le tableau sert avant tout à organiser, pas à comparer visuellement.", "La courbe est le seul outil qui montre un changement au fil du temps."],
+      explication: "Tableau = organiser en lignes/colonnes ; histogramme = comparer des barres ; diagramme circulaire = proportions ; courbe = évolution dans le temps.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Sur un histogramme, une barre mesure 4 carreaux. L'échelle est '1 carreau = 25'. Que représente cette barre ?",
+      reponsesAcceptees: ["100"],
+      indices: ["Multiplie le nombre de carreaux par la valeur d'un carreau.", "Calcule 4 × 25."],
+      explication: "4 × 25 = 100. La barre représente 100.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets dans l'ordre les 3 étapes pour transformer un texte en tableau.",
+      elements: [
+        "Repérer les informations importantes dans le texte",
+        "Choisir les catégories (lignes et colonnes) du tableau",
+        "Placer chaque donnée dans la bonne case",
+      ],
+      indices: ["On commence toujours par bien lire et repérer les chiffres.", "Les catégories doivent être choisies avant de remplir les cases."],
+      explication: "On repère d'abord les informations, on choisit ensuite les catégories, puis on place chaque donnée dans la bonne case.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : d'après le tableau des ventes de citronnade, combien Adèle et Matys ont-ils vendu de verres ensemble le mardi ?",
+      reponsesAcceptees: ["14"],
+      indices: ["Le mardi, Adèle a vendu 5 verres et Matys 9 verres.", "Additionne les deux nombres."],
+      explication: "5 + 9 = 14. Ensemble, ils ont vendu 14 verres le mardi.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : quel outil choisir pour comparer le nombre d'élèves nés chaque mois de l'année ?",
+      zones: ["Le tableau", "L'histogramme", "Le diagramme circulaire", "La courbe"],
+      zoneCorrecte: "L'histogramme",
+      indices: ["Il s'agit de comparer des quantités entre elles.", "Une barre par mois permet de voir tout de suite le mois le plus représenté."],
+      explication: "L'histogramme permet de comparer visuellement le nombre d'élèves nés chaque mois grâce à des barres.",
+    },
+  ],
+},
+  {
+  id: "maths-09",
+  matiere: "maths",
+  theme: "Grands nombres et calcul réfléchi",
+  titre: "Lire, écrire et comparer les grands nombres, et calculer plus vite dans sa tête",
+  pages: [
+    {
+      titre: "Lire et écrire les grands nombres",
+      contenu: [
+        "Cette année, on va apprendre à lire des nombres beaucoup plus grands qu'avant, jusqu'au milliard ! Pour ne pas se perdre, on regroupe les chiffres par classes : la classe des unités, la classe des mille, la classe des millions, et la classe des milliards. Chaque classe se divise elle-même en centaines, dizaines et unités.",
+        "Pour écrire un grand nombre sans se tromper, on sépare chaque classe par un petit espace. Par exemple, 12450000 s'écrit 12 450 000 : 12 millions, 450 mille, et 0 unité.",
+        "Regarde le schéma ci-dessous : le nombre 12 450 000 est rangé dans ses classes. La classe des millions contient 12 (dizaine 1, unité 2), la classe des mille contient 450 (centaine 4, dizaine 5, unité 0), et la classe des unités contient 000.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 340 120" xmlns="http://www.w3.org/2000/svg"><text x="170" y="14" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">12 450 000</text><rect x="10" y="24" width="100" height="70" rx="6" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="60" y="38" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">millions</text><text x="35" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">C</text><text x="60" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">D</text><text x="85" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">U</text><text x="60" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">1</text><text x="85" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">2</text><rect x="122" y="24" width="100" height="70" rx="6" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="172" y="38" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">mille</text><text x="147" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">C</text><text x="172" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">D</text><text x="197" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">U</text><text x="147" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">4</text><text x="172" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">5</text><text x="197" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">0</text><rect x="234" y="24" width="100" height="70" rx="6" fill="#fff8e7" stroke="#ff8fab" stroke-width="3"/><text x="284" y="38" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">unités</text><text x="259" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">C</text><text x="284" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">D</text><text x="309" y="58" text-anchor="middle" font-size="10" fill="#2d2a4a">U</text><text x="259" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">0</text><text x="284" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">0</text><text x="309" y="86" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">0</text></svg>',
+    },
+    {
+      titre: "Comparer les grands nombres et multiplier à 2 chiffres",
+      contenu: [
+        "Pour comparer deux grands nombres, compare-les classe par classe, en partant de la gauche : le nombre qui a le plus de chiffres est toujours le plus grand. S'ils ont le même nombre de chiffres, compare les chiffres un par un, de gauche à droite, jusqu'à trouver une différence. Par exemple, entre 45 320 et 45 900, les milliers sont pareils (45), mais 3 centaines < 9 centaines, donc 45 320 < 45 900.",
+        "Tu sais déjà poser une division à 2 chiffres. On peut aussi poser une multiplication à 2 chiffres : pour calculer 234 × 26, on multiplie d'abord 234 × 6, puis 234 × 20, et on additionne les deux résultats : 1404 + 4680 = 6084.",
+        "Poser une opération, c'est très utile pour les calculs compliqués, mais pour certains calculs, il existe des astuces bien plus rapides à faire de tête : c'est ce qu'on appelle le calcul réfléchi, qu'on va découvrir à la page suivante.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="25" width="100" height="50" rx="8" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="60" y="55" text-anchor="middle" font-size="17" font-weight="bold" fill="#2d2a4a">45 320</text><text x="130" y="58" text-anchor="middle" font-size="24" font-weight="bold" fill="#e0574c">&lt;</text><rect x="150" y="25" width="100" height="50" rx="8" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="200" y="55" text-anchor="middle" font-size="17" font-weight="bold" fill="#2d2a4a">45 900</text></svg>',
+    },
+    {
+      titre: "Le calcul réfléchi : décomposer pour aller plus vite",
+      contenu: [
+        "Le calcul réfléchi, c'est calculer de tête en transformant un nombre en une décomposition plus simple. Par exemple, pour calculer 98 × 4, on remplace 98 par (100 − 2) : 98 × 4 = (100 − 2) × 4 = (100 × 4) − (2 × 4) = 400 − 8 = 392. C'est souvent bien plus rapide que de poser l'opération !",
+        "Une autre astuce très puissante s'appelle l'associativité : dans une multiplication à 3 nombres, tu peux les regrouper dans l'ordre qui t'arrange le plus. Par exemple, 25 × 4 × 7 = (25 × 4) × 7 = 100 × 7 = 700. Regrouper 25 et 4 permet d'obtenir 100, un nombre avec lequel on calcule très facilement.",
+        "Avant de te lancer dans une opération posée, prends toujours 2 secondes pour te demander : « Est-ce que je peux décomposer ce calcul pour le faire plus vite dans ma tête ? » Cela t'évite parfois de longs calculs inutiles.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Classes des grands nombres (unités, mille, millions, milliards), chacune en centaines/dizaines/unités",
+    "Comparer des grands nombres classe par classe, de gauche à droite",
+    "Calcul réfléchi : décomposition (98×4 = (100−2)×4) et associativité (25×4×7 = (25×4)×7)",
+  ],
+  prerequisCE2: "Tu sais déjà lire et écrire des nombres jusqu'à 100 000, et poser une multiplication à 1 chiffre.",
+  prolongement: "Essaie de trouver, dans un article ou un livre, un très grand nombre écrit en chiffres, puis découpe-le toi-même en classes.",
+  echauffement: [
+    { question: "Comment écrit-on 3400000 en séparant bien les classes par des espaces ?", reponse: "3 400 000", explication: "On sépare la classe des millions, celle des mille et celle des unités par un espace." },
+    { question: "Entre 45 320 et 45 900, quel est le plus grand nombre ?", reponse: "45 900", explication: "Les milliers sont identiques (45), mais 9 centaines est plus grand que 3 centaines." },
+    { question: "Que vaut 25 × 4 en calcul réfléchi ?", reponse: "100", explication: "25 × 4 = 100, un nombre très pratique pour continuer un calcul." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Écris le nombre 3400000 avec des espaces pour bien séparer ses classes.",
+      reponsesAcceptees: ["3 400 000"],
+      indices: ["Sépare la classe des millions, celle des mille et celle des unités.", "3 millions, 400 mille, 000 unités."],
+      explication: "3400000 s'écrit 3 400 000 : un espace entre chaque classe.",
+    },
+    {
+      niveau: "decouverte",
+      type: "zone",
+      enonce: "Quel est le plus grand de ces nombres ?",
+      zones: ["45 320", "45 900", "45 199", "44 999"],
+      zoneCorrecte: "45 900",
+      indices: ["Compare d'abord la classe des mille : 45 est identique pour 3 nombres.", "Compare ensuite les centaines : 9 centaines est la plus grande valeur."],
+      explication: "45 320, 45 900 et 45 199 ont tous 45 mille, mais 45 900 a 9 centaines, la plus grande valeur des quatre nombres.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Pose et calcule : 23 × 14",
+      reponsesAcceptees: ["322"],
+      indices: ["Calcule d'abord 23 × 4, puis 23 × 10.", "23 × 4 = 92 et 23 × 10 = 230, additionne les deux."],
+      explication: "23 × 4 = 92, 23 × 10 = 230, et 92 + 230 = 322.",
+    },
+    {
+      niveau: "application",
+      type: "association",
+      enonce: "Associe chaque calcul réfléchi à sa décomposition.",
+      paires: [
+        { gauche: "98 × 4", droite: "(100 − 2) × 4 = 392" },
+        { gauche: "25 × 4 × 7", droite: "(25 × 4) × 7 = 700" },
+        { gauche: "102 × 5", droite: "(100 + 2) × 5 = 510" },
+      ],
+      indices: ["Cherche le nombre rond le plus proche (100) pour chaque calcul.", "L'associativité permet de regrouper 25 et 4 pour obtenir 100."],
+      explication: "98×4 = (100−2)×4 = 392 ; 25×4×7 = (25×4)×7 = 700 ; 102×5 = (100+2)×5 = 510.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets dans l'ordre les 3 étapes du calcul réfléchi de 98 × 4.",
+      elements: [
+        "Remplacer 98 par (100 − 2)",
+        "Calculer 100 × 4 = 400 et 2 × 4 = 8",
+        "Soustraire 400 − 8 = 392",
+      ],
+      indices: ["On commence toujours par transformer le nombre compliqué.", "La soustraction finale vient après les deux multiplications."],
+      explication: "On remplace 98 par (100 − 2), on calcule 100×4 et 2×4, puis on soustrait 400 − 8 = 392.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : calcule mentalement 25 × 4 × 9 en utilisant l'associativité.",
+      reponsesAcceptees: ["900"],
+      indices: ["Regroupe d'abord 25 et 4 ensemble.", "25 × 4 = 100, puis multiplie par 9."],
+      explication: "25 × 4 = 100, puis 100 × 9 = 900.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : quel nombre correspond à « douze millions quatre cent mille » ?",
+      zones: ["12 400 000", "12 040 000", "1 240 000", "124 000 000"],
+      zoneCorrecte: "12 400 000",
+      indices: ["12 millions s'écrit d'abord, suivi d'un espace.", "400 mille se place juste après la classe des millions."],
+      explication: "« Douze millions quatre cent mille » s'écrit 12 400 000 : 12 dans la classe des millions, 400 dans la classe des mille.",
+    },
+  ],
+},
+  {
+  id: "francais-06",
+  matiere: "francais",
+  theme: "La conjugaison du futur simple",
+  titre: "Conjuguer au futur simple : terminaisons et verbes irréguliers",
+  pages: [
+    {
+      titre: "Le futur simple : parler de ce qui n'est pas encore arrivé",
+      contenu: [
+        "Le futur simple sert à parler d'une action qui n'a pas encore eu lieu : ce qui va se passer demain, plus tard dans la journée, ou même dans plusieurs années. Comme pour les autres temps, certains mots t'aident à repérer le futur dans une phrase : demain, bientôt, plus tard, l'année prochaine, dans dix minutes...",
+        "Tu as déjà appris, dans une autre leçon, à distinguer le passé, le présent et le futur grâce à ces indices temporels. Aujourd'hui, tu vas apprendre précisément comment se construit un verbe conjugué au futur simple.",
+        "Bonne nouvelle : contrairement à d'autres temps, les terminaisons du futur sont presque toujours les mêmes, quel que soit le verbe : -ai, -as, -a, -ons, -ez, -ont, pour je, tu, il/elle, nous, vous, ils/elles.",
+      ],
+    },
+    {
+      titre: "Les verbes réguliers : ajouter les terminaisons à l'infinitif",
+      contenu: [
+        "Pour la plupart des verbes, on forme le futur en ajoutant les terminaisons directement à l'infinitif du verbe entier (et non au radical seul, comme c'est le cas pour l'imparfait ou le présent).",
+        "Prends le verbe du premier groupe jouer : je jouerai, tu joueras, il jouera, nous jouerons, vous jouerez, ils joueront. Tu retrouves bien « jouer » en entier au début de chaque forme, suivi de la terminaison.",
+        "C'est la même règle pour les verbes du deuxième groupe, comme finir : je finirai, tu finiras, il finira, nous finirons, vous finirez, ils finiront. On garde l'infinitif finir en entier, puis on ajoute la terminaison du futur.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="30" width="140" height="50" rx="8" fill="#fff8e7" stroke="#e0a93a" stroke-width="3"/><text x="80" y="60" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">jouer</text><rect x="170" y="30" width="80" height="50" rx="8" fill="#ff8fab" stroke="#e0574c" stroke-width="3"/><text x="210" y="60" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">-ai</text><text x="80" y="105" text-anchor="middle" font-size="11" fill="#2d2a4a">infinitif entier</text><text x="210" y="105" text-anchor="middle" font-size="11" fill="#2d2a4a">terminaison futur</text></svg>',
+    },
+    {
+      titre: "Des verbes irréguliers très fréquents à connaître par cœur",
+      contenu: [
+        "Certains verbes, parmi les plus utilisés de la langue française, ne suivent pas cette règle simple : leur début change complètement au futur. On appelle cette partie modifiée le radical du futur, mais les terminaisons (-ai, -as, -a, -ons, -ez, -ont) restent toujours les mêmes !",
+        "Voici huit verbes irréguliers à mémoriser, avec leur forme à « je » : être → je serai ; avoir → j'aurai ; aller → j'irai ; faire → je ferai ; venir → je viendrai ; voir → je verrai ; pouvoir → je pourrai ; vouloir → je voudrai.",
+        "Astuce : répète ces huit verbes à voix haute plusieurs fois, un peu comme une petite comptine. Plus tu les répètes, plus ils deviendront automatiques, sans même avoir besoin d'y réfléchir.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Le futur simple exprime une action qui n'a pas encore eu lieu (demain, bientôt, plus tard...)",
+    "Terminaisons du futur, presque identiques pour tous les verbes : -ai, -as, -a, -ons, -ez, -ont",
+    "Pour les verbes réguliers, on ajoute ces terminaisons à l'infinitif entier (je jouerai, je finirai)",
+    "Des verbes très fréquents sont irréguliers au futur : être, avoir, aller, faire, venir, voir, pouvoir, vouloir",
+  ],
+  prerequisCE2: "Tu sais déjà repérer si une phrase est au passé, au présent ou au futur grâce aux indices temporels (voir la leçon sur le temps du verbe).",
+  prolongement: "Choisis un verbe du premier groupe (comme 'danser' ou 'chanter') et conjugue-le à toutes les personnes du futur, puis fais de même avec un verbe irrégulier comme 'faire' ou 'venir'.",
+  echauffement: [
+    { question: "Quelles sont les terminaisons du futur simple, de 'je' à 'ils' ?", reponse: "-ai, -as, -a, -ons, -ez, -ont", explication: "Ces six terminaisons sont presque toujours les mêmes, quel que soit le verbe conjugué." },
+    { question: "Comment conjugue-t-on le verbe être au futur, avec 'je' ?", reponse: "je serai", explication: "Être est un verbe irrégulier au futur : son radical devient 'ser-'." },
+    { question: "Cite un mot qui indique souvent qu'une phrase est au futur.", reponse: "Demain (ou bientôt, plus tard, l'année prochaine)", explication: "Ces mots sont des indices temporels qui annoncent une action à venir." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Conjugue le verbe 'jouer' au futur avec 'tu'.",
+      reponsesAcceptees: ["tu joueras", "joueras"],
+      indices: ["Garde l'infinitif 'jouer' en entier.", "La terminaison de 'tu' au futur est '-as'."],
+      explication: "On ajoute la terminaison -as à l'infinitif entier 'jouer' : tu joueras.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Associe chaque pronom à la terminaison du futur qui lui correspond.",
+      paires: [
+        { gauche: "je", droite: "-ai" },
+        { gauche: "tu", droite: "-as" },
+        { gauche: "nous", droite: "-ons" },
+        { gauche: "ils", droite: "-ont" },
+      ],
+      indices: ["'Je' et 'ils' se distinguent facilement : l'une est très courte, l'autre finit par '-ont'.", "'Nous' se reconnaît à la terminaison '-ons', comme au présent."],
+      explication: "je → -ai, tu → -as, nous → -ons, ils → -ont : ce sont quatre des six terminaisons du futur.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Conjugue le verbe 'finir' au futur avec 'nous'.",
+      reponsesAcceptees: ["nous finirons", "finirons"],
+      indices: ["Garde l'infinitif 'finir' en entier.", "La terminaison de 'nous' au futur est '-ons'."],
+      explication: "On ajoute -ons à l'infinitif finir : nous finirons.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Conjugue le verbe irrégulier 'avoir' au futur avec 'je'.",
+      reponsesAcceptees: ["j'aurai", "j aurai", "jaurai"],
+      indices: ["Le radical du futur de 'avoir' n'est pas 'avoir-'.", "Cela commence par 'aur-'."],
+      explication: "Avoir est irrégulier au futur : j'aurai, tu auras, il aura...",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets ces terminaisons du futur dans l'ordre, de 'je' à 'ils/elles'.",
+      elements: ["-ai (je)", "-as (tu)", "-a (il/elle)", "-ons (nous)", "-ez (vous)", "-ont (ils/elles)"],
+      indices: ["Suis l'ordre habituel des pronoms de conjugaison.", "'Je' est toujours en premier, 'ils/elles' en dernier."],
+      explication: "L'ordre des personnes est toujours je, tu, il/elle, nous, vous, ils/elles, avec les terminaisons -ai, -as, -a, -ons, -ez, -ont.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : conjugue le verbe irrégulier 'venir' au futur avec 'ils'.",
+      reponsesAcceptees: ["ils viendront", "viendront"],
+      indices: ["Le radical du futur de 'venir' devient 'viendr-'.", "La terminaison de 'ils' est '-ont'."],
+      explication: "Venir est irrégulier au futur : je viendrai, tu viendras... ils viendront.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : quelle phrase est correctement conjuguée au futur simple ?",
+      zones: ["Demain, nous alons au marché.", "Demain, nous irons au marché.", "Demain, nous allons au marché.", "Demain, nous iront au marché."],
+      zoneCorrecte: "Demain, nous irons au marché.",
+      indices: ["Le verbe 'aller' est irrégulier au futur : son radical devient 'ir-'.", "La terminaison de 'nous' est toujours '-ons', jamais '-ont'."],
+      explication: "Le futur du verbe aller avec 'nous' est 'nous irons' (radical ir- + terminaison -ons).",
+    },
+  ],
+},
+  {
+  id: "francais-07",
+  matiere: "francais",
+  theme: "Le groupe nominal",
+  titre: "Le groupe nominal : nom noyau, déterminant et expansions",
+  pages: [
+    {
+      titre: "Le nom noyau et son déterminant",
+      contenu: [
+        "Un groupe nominal (souvent abrégé GN) est un groupe de mots construit autour d'un nom : ce nom, le plus important du groupe, s'appelle le nom noyau, car c'est lui qui donne son sens principal à tout le groupe.",
+        "Devant le nom noyau, on trouve presque toujours un déterminant : un, une, des, le, la, les, mon, ta, ces, plusieurs... Le déterminant annonce le nom qui va suivre et donne des informations sur lui (genre, nombre...).",
+        "Un groupe nominal peut être très court : « un vélo », « la tour », « mes amis » sont déjà des groupes nominaux complets, formés d'un déterminant et d'un nom noyau, sans rien d'autre.",
+      ],
+    },
+    {
+      titre: "Enrichir le groupe nominal : adjectif et complément du nom",
+      contenu: [
+        "On peut enrichir un groupe nominal en ajoutant des précisions sur le nom noyau. Ces précisions s'appellent des expansions du nom, et il en existe deux principales.",
+        "La première expansion est l'adjectif qualificatif, qui peut se placer avant ou après le nom : « un grand jardin », « un jardin fleuri ». Il décrit une qualité du nom (sa taille, sa couleur, son aspect...).",
+        "La seconde expansion est le complément du nom, toujours introduit par une préposition (de, à, en, sans...) : « un jardin de fleurs », « une tasse à café », « un vélo sans roues ». Il précise le nom en apportant une idée de matière, d'usage ou de contenu.",
+        "Ces expansions ne sont jamais obligatoires : « un jardin » reste un groupe nominal complet et correct, même sans adjectif ni complément du nom. Elles servent seulement à donner plus de détails au lecteur.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="320" height="110" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><rect x="30" y="40" width="70" height="50" rx="8" fill="#6fa8dc" opacity="0.5"/><text x="65" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d2a4a">une</text><text x="65" y="105" text-anchor="middle" font-size="11" fill="#2d2a4a">déterminant</text><rect x="115" y="40" width="90" height="50" rx="8" fill="#ff8fab" opacity="0.5"/><text x="160" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d2a4a">grande</text><text x="160" y="105" text-anchor="middle" font-size="11" fill="#2d2a4a">adjectif</text><rect x="220" y="40" width="100" height="50" rx="8" fill="#6fcf97" opacity="0.5"/><text x="270" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d2a4a">maison</text><text x="270" y="105" text-anchor="middle" font-size="11" fill="#2d2a4a">nom noyau</text></svg>',
+    },
+    {
+      titre: "Repérer le nom noyau dans un groupe nominal plus long",
+      contenu: [
+        "Plus un groupe nominal contient d'expansions, plus il peut sembler compliqué à analyser. Mais une astuce simple permet toujours de retrouver le nom noyau : c'est le seul mot qu'on ne peut jamais supprimer sans que le groupe perde tout son sens.",
+        "Prends le groupe nominal « le vieux vélo rouge de mon voisin ». Si tu enlèves « vieux », « rouge » ou « de mon voisin », la phrase reste compréhensible : il s'agit toujours d'un vélo. Mais si tu enlèves « vélo », il ne reste plus rien de compréhensible : « vélo » est donc le nom noyau.",
+        "Le déterminant, lui, se reconnaît car il est presque toujours collé juste devant le nom noyau, ou devant le premier adjectif s'il y en a un avant le nom : « le vieux vélo... » → « le » est le déterminant de « vélo ».",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Le groupe nominal (GN) est construit autour d'un nom noyau, précédé d'un déterminant",
+    "Deux expansions possibles : l'adjectif qualificatif (avant ou après le nom) et le complément du nom (introduit par une préposition)",
+    "Les expansions ne sont pas obligatoires : un déterminant + un nom noyau forment déjà un GN complet",
+    "Le nom noyau est le seul mot du GN qu'on ne peut jamais supprimer sans perdre le sens",
+  ],
+  prerequisCE2: "Tu sais déjà reconnaître un nom commun et un déterminant simple (le, la, les, un, une).",
+  prolongement: "Choisis un groupe nominal très court comme 'un chat' et enrichis-le petit à petit : ajoute d'abord un adjectif ('un chat noir'), puis un complément du nom ('un chat noir de la maison voisine').",
+  echauffement: [
+    { question: "Dans le groupe nominal 'la grande tour', quel est le nom noyau ?", reponse: "tour", explication: "'Tour' est le mot le plus important, celui qu'on ne peut pas supprimer." },
+    { question: "Quel mot se trouve presque toujours juste avant le nom noyau (ou avant son adjectif) ?", reponse: "Le déterminant", explication: "Le déterminant annonce le nom qui va suivre (un, une, le, la, mon, ces...)." },
+    { question: "Quel type de mot introduit un complément du nom, comme dans 'une maison de pierre' ?", reponse: "Une préposition (ici, 'de')", explication: "Le complément du nom est toujours introduit par une préposition : de, à, en, sans..." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Dans le groupe nominal 'un gâteau au chocolat', quel est le nom noyau ?",
+      reponsesAcceptees: ["gâteau", "un gâteau"],
+      indices: ["Cherche le mot qu'on ne peut absolument pas enlever.", "'Au chocolat' précise seulement de quel gâteau il s'agit."],
+      explication: "'Gâteau' est le nom noyau : sans lui, il ne reste plus rien de compréhensible.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Associe chaque terme grammatical à sa définition.",
+      paires: [
+        { gauche: "Le déterminant", droite: "Le mot placé devant le nom (un, le, ces...)" },
+        { gauche: "Le nom noyau", droite: "Le mot le plus important du groupe nominal" },
+        { gauche: "L'adjectif qualificatif", droite: "Le mot qui décrit une qualité du nom" },
+        { gauche: "Le complément du nom", droite: "Le groupe introduit par une préposition" },
+      ],
+      indices: ["Le nom noyau ne peut jamais être supprimé.", "Le complément du nom commence toujours par un petit mot comme 'de', 'à' ou 'en'."],
+      explication: "Chaque terme correspond à un rôle précis dans le groupe nominal : déterminant, nom noyau, adjectif, complément du nom.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quel est le déterminant dans le groupe nominal 'ces trois amis' ?",
+      reponsesAcceptees: ["ces"],
+      indices: ["Le déterminant se trouve tout au début du groupe.", "Ce n'est pas 'trois', qui n'est pas un déterminant."],
+      explication: "'Ces' est le déterminant qui précède le nom noyau 'amis'.",
+    },
+    {
+      niveau: "application",
+      type: "zone",
+      enonce: "Quel groupe nominal utilise un complément du nom pour préciser le nom noyau ?",
+      zones: ["un joli vélo", "un vélo rapide", "un vélo de course", "le vélo"],
+      zoneCorrecte: "un vélo de course",
+      indices: ["Cherche le groupe introduit par une préposition comme 'de'.", "Les autres groupes utilisent soit un simple déterminant, soit un adjectif."],
+      explication: "'De course' est un complément du nom : il précise le nom 'vélo' grâce à la préposition 'de'.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets ces mots dans l'ordre pour former un groupe nominal correct : déterminant, puis adjectif, puis nom noyau.",
+      elements: ["une", "grande", "maison"],
+      indices: ["Le déterminant se place toujours en premier.", "L'adjectif 'grande' se place ici avant le nom, comme souvent pour les adjectifs courts et fréquents."],
+      explication: "L'ordre correct est : une (déterminant) + grande (adjectif) + maison (nom noyau) = 'une grande maison'.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : dans le groupe nominal 'le vieux vélo rouge de mon voisin', quel est le nom noyau ?",
+      reponsesAcceptees: ["vélo", "le vélo"],
+      indices: ["Essaie d'enlever chaque mot un par un : lequel rend la phrase incompréhensible s'il disparaît ?", "'Vieux', 'rouge' et 'de mon voisin' ne font qu'apporter des précisions."],
+      explication: "'Vélo' est le nom noyau : tous les autres mots (vieux, rouge, de mon voisin, le) ne font que l'entourer et le préciser.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : quel groupe nominal est déjà complet, même sans aucune expansion (ni adjectif, ni complément du nom) ?",
+      zones: ["un chat", "chat noir", "de la maison", "très joli"],
+      zoneCorrecte: "un chat",
+      indices: ["Un groupe nominal complet a besoin d'au moins un déterminant et un nom noyau.", "Les autres propositions ne sont pas de vrais groupes nominaux complets à elles seules."],
+      explication: "'Un chat' associe un déterminant ('un') et un nom noyau ('chat') : c'est déjà un groupe nominal complet, sans avoir besoin d'adjectif ni de complément du nom.",
+    },
+  ],
+},
+  {
+  id: "francais-08", matiere: "francais", theme: "La grammaire de la phrase",
+  titre: "Le complément d'objet direct (COD) et indirect (COI)",
+  pages: [
+    {
+      titre: "Le complément d'objet direct (COD)",
+      contenu: [
+        "Le verbe d'une phrase peut être suivi d'un groupe de mots qui précise sur qui ou sur quoi porte l'action : c'est le complément d'objet.",
+        "Le complément d'objet direct (COD) répond à la question \"qui ?\" ou \"quoi ?\" posée juste après le verbe, SANS aucun petit mot entre les deux.",
+        "Exemple : « Hugo dessine un dragon. » → Hugo dessine quoi ? un dragon. \"un dragon\" est le COD, il est collé directement au verbe.",
+      ],
+      diagramme: '<svg viewBox="0 0 330 150" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="40" width="90" height="50" rx="10" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="55" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d2a4a">Hugo</text><text x="55" y="105" text-anchor="middle" font-size="12" fill="#2d2a4a">Sujet</text><rect x="120" y="40" width="90" height="50" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><text x="165" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d2a4a">dessine</text><text x="165" y="105" text-anchor="middle" font-size="12" fill="#2d2a4a">Verbe</text><rect x="230" y="40" width="90" height="50" rx="10" fill="#fff8e7" stroke="#ff8fab" stroke-width="3"/><text x="275" y="70" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">un dragon</text><text x="275" y="105" text-anchor="middle" font-size="12" fill="#2d2a4a">COD</text></svg>',
+    },
+    {
+      titre: "Le complément d'objet indirect (COI)",
+      contenu: [
+        "Le complément d'objet indirect (COI) répond à la même question \"qui ?\" ou \"quoi ?\", mais il est introduit par une préposition (à ou de) placée après le verbe.",
+        "Exemple : « Nina pense à ses vacances. » → Nina pense à quoi ? à ses vacances. \"à ses vacances\" est le COI : un petit mot (\"à\") le sépare du verbe.",
+        "Attention à ne pas confondre avec le sujet : le sujet fait l'action (c'est lui qui pense, qui dessine), tandis que le COD ou le COI subit ou reçoit l'action.",
+      ],
+      diagramme: '<svg viewBox="0 0 330 150" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="40" width="80" height="50" rx="10" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="50" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d2a4a">Nina</text><text x="50" y="105" text-anchor="middle" font-size="12" fill="#2d2a4a">Sujet</text><rect x="105" y="40" width="80" height="50" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><text x="145" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d2a4a">pense</text><text x="145" y="105" text-anchor="middle" font-size="12" fill="#2d2a4a">Verbe</text><rect x="200" y="40" width="120" height="50" rx="10" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="260" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">à ses vacances</text><text x="260" y="105" text-anchor="middle" font-size="12" fill="#2d2a4a">COI</text></svg>',
+    },
+    {
+      titre: "Remplacer le COD ou le COI par un pronom",
+      contenu: [
+        "On peut remplacer un COD par le, la ou les : « Camille range ses affaires. » → « Camille les range. »",
+        "On peut remplacer un COI (introduit par \"à\") par lui, leur, ou parfois y : « Malo obéit à ses parents. » → « Malo leur obéit. »",
+        "Ce petit test du pronom t'aide à vérifier si tu as bien trouvé un complément d'objet et pas autre chose.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Le COD répond à \"qui ?\" ou \"quoi ?\" juste après le verbe, sans préposition.",
+    "Le COI répond à la même question mais est introduit par une préposition (à, de) après le verbe.",
+    "Le COD se remplace par le/la/les ; le COI se remplace par lui/leur (ou y).",
+  ],
+  prerequisCE2: "Savoir repérer le verbe conjugué et le sujet dans une phrase simple.",
+  prolongement: "En 6e, tu découvriras le complément d'objet second (COS) et les compléments circonstanciels.",
+  echauffement: [
+    { question: "Dans la phrase « Hugo lit un livre », quel est le COD ?", reponse: "un livre", explication: "\"un livre\" répond à la question \"Hugo lit quoi ?\" et il est placé juste après le verbe, sans préposition." },
+    { question: "Dans la phrase « Camille téléphone à sa cousine », quel est le COI ?", reponse: "à sa cousine", explication: "\"à sa cousine\" répond à \"téléphone à qui ?\" et il est introduit par la préposition \"à\"." },
+    { question: "Par quel pronom peut-on remplacer le COD dans « Je range mes affaires » ?", reponse: "les", explication: "\"mes affaires\" est un groupe pluriel, on le remplace par le pronom \"les\" : « Je les range. »" },
+  ],
+  exercices: [
+    { niveau: "decouverte", type: "saisie", enonce: "Dans la phrase « Malo dessine un dragon », quel est le COD ? Écris-le.", reponsesAcceptees: ["un dragon"], indices: ["Pose la question : Malo dessine quoi ?", "Le COD suit directement le verbe, sans petit mot entre les deux."], explication: "\"un dragon\" répond à \"dessine quoi ?\" et suit directement le verbe : c'est le COD." },
+    { niveau: "decouverte", type: "zone", enonce: "Dans la phrase « Nina pense à ses vacances », quel est le rôle de « à ses vacances » ?", zones: ["COD", "COI", "Sujet", "Verbe"], zoneCorrecte: "COI", indices: ["Le groupe est-il collé au verbe ou séparé par un petit mot ?", "\"à\" est une préposition qui introduit un complément indirect."], explication: "« à ses vacances » est introduit par la préposition \"à\" : c'est donc un COI, pas un COD." },
+    { niveau: "application", type: "saisie", enonce: "Complète : dans « Le chat griffe le canapé », le COD est ______.", reponsesAcceptees: ["le canapé"], indices: ["Demande-toi : le chat griffe quoi ?", "Il n'y a pas de préposition devant le COD."], explication: "« le canapé » répond directement à \"griffe quoi ?\", sans préposition : c'est le COD." },
+    { niveau: "application", type: "association", enonce: "Associe chaque phrase à sa version avec un pronom (COD ou COI).", paires: [
+        { gauche: "Il regarde la télévision.", droite: "Il la regarde." },
+        { gauche: "Il obéit à ses parents.", droite: "Il leur obéit." },
+        { gauche: "Elle attend son frère.", droite: "Elle l'attend." },
+        { gauche: "Elle parle à sa maîtresse.", droite: "Elle lui parle." },
+      ], indices: ["Repère d'abord si le complément est un COD ou un COI.", "le/la/les remplacent un COD ; lui/leur remplacent un COI."], explication: "Chaque complément a été remplacé par le bon pronom selon qu'il s'agit d'un COD (le, la, les) ou d'un COI (lui, leur)." },
+    { niveau: "application", type: "ordre", enonce: "Remets dans l'ordre les étapes pour trouver le COD d'une phrase.", elements: [
+        "Repère le verbe conjugué de la phrase.",
+        "Pose la question \"verbe + qui ?\" ou \"verbe + quoi ?\" juste après le verbe.",
+        "Trouve le groupe de mots qui répond à cette question, sans préposition devant.",
+        "Vérifie en remplaçant ce groupe par le, la ou les.",
+      ], indices: ["Commence toujours par repérer le verbe.", "Le test du pronom vient à la fin, pour vérifier."], explication: "On repère d'abord le verbe, puis on pose la question, on identifie le groupe sans préposition, et on vérifie avec le pronom." },
+    { niveau: "defi", type: "saisie", enonce: "Défi : dans la phrase « Les enfants offrent un cadeau à leur maîtresse », il y a un COD et un COI. Écris le COD.", reponsesAcceptees: ["un cadeau"], indices: ["Cherche d'abord le groupe sans préposition.", "Les enfants offrent quoi ?"], explication: "« un cadeau » répond à \"offrent quoi ?\" sans préposition : c'est le COD. « à leur maîtresse » est le COI." },
+    { niveau: "defi", type: "zone", enonce: "Défi : dans « Les enfants offrent un cadeau à leur maîtresse », quel est le rôle de « à leur maîtresse » ?", zones: ["COD", "COI", "Sujet", "Complément de lieu"], zoneCorrecte: "COI", indices: ["Regarde le petit mot qui précède le groupe.", "\"à\" introduit un complément indirect."], explication: "« à leur maîtresse » est introduit par \"à\" : c'est le COI de la phrase." },
+  ],
+},
+  {
+  id: "francais-09", matiere: "francais", theme: "Le vocabulaire",
+  titre: "La dérivation : familles de mots, préfixes et suffixes",
+  pages: [
+    {
+      titre: "Les familles de mots",
+      contenu: [
+        "Des mots qui partagent une partie commune, le radical, et qui sont liés par le sens forment une famille de mots.",
+        "Exemple : terre, terrain, atterrir, souterrain partagent le radical \"terr-\" et parlent tous, d'une façon ou d'une autre, du sol.",
+        "Attention : certains mots se ressemblent mais n'appartiennent pas à la même famille de sens, comme \"terrible\" qui n'a rien à voir avec \"terre\".",
+      ],
+      diagramme: '<svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg"><rect x="125" y="10" width="90" height="40" rx="8" fill="#ffd166" stroke="#e0a93a" stroke-width="3"/><text x="170" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d2a4a">terre</text><line x1="170" y1="50" x2="60" y2="105" stroke="#6fa8dc" stroke-width="2"/><line x1="170" y1="50" x2="170" y2="105" stroke="#6fa8dc" stroke-width="2"/><line x1="170" y1="50" x2="280" y2="105" stroke="#6fa8dc" stroke-width="2"/><rect x="15" y="105" width="90" height="40" rx="8" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="60" y="130" text-anchor="middle" font-size="13" fill="#2d2a4a">terrain</text><rect x="125" y="105" width="90" height="40" rx="8" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="170" y="130" text-anchor="middle" font-size="13" fill="#2d2a4a">atterrir</text><rect x="235" y="105" width="90" height="40" rx="8" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="280" y="130" text-anchor="middle" font-size="12" fill="#2d2a4a">souterrain</text></svg>',
+    },
+    {
+      titre: "Les préfixes : ajouter une partie avant le radical",
+      contenu: [
+        "Un préfixe se place AVANT le radical pour former un nouveau mot ; il change souvent le sens du mot.",
+        "re- veut dire \"encore une fois\" : faire → refaire. dé-/dés- veut dire \"le contraire\" : faire → défaire, ordre → désordre.",
+        "in-/im- veut aussi dire \"le contraire\" : possible → impossible, connu → inconnu.",
+      ],
+      diagramme: '<svg viewBox="0 0 340 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="35" width="70" height="50" rx="10" fill="#ff8fab" stroke="#e0574c" stroke-width="3"/><text x="45" y="65" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d2a4a">re-</text><rect x="95" y="35" width="90" height="50" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><text x="140" y="65" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d2a4a">faire</text><text x="230" y="65" text-anchor="middle" font-size="18" fill="#2d2a4a">=</text><rect x="255" y="35" width="75" height="50" rx="10" fill="#6fcf97" stroke="#2d2a4a" stroke-width="2"/><text x="292" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">refaire</text></svg>',
+    },
+    {
+      titre: "Les suffixes : ajouter une partie après le radical",
+      contenu: [
+        "Un suffixe se place APRÈS le radical ; il change souvent la nature du mot (verbe, nom, adjectif, adverbe...).",
+        "-age transforme un verbe en nom : laver → lavage. -eur/-euse désigne la personne qui fait l'action : chanter → chanteur/chanteuse.",
+        "-ment transforme un adjectif en adverbe : doux/douce → doucement. Un même radical peut recevoir plusieurs préfixes et suffixes différents.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Les mots d'une même famille partagent un radical et un sens proche.",
+    "Un préfixe se place avant le radical et change souvent le sens (re-, dé-/dés-, in-/im-).",
+    "Un suffixe se place après le radical et change souvent la nature du mot (-age, -eur/-euse, -ment).",
+  ],
+  prerequisCE2: "Reconnaître un mot simple et repérer une syllabe ou un groupe de lettres qui revient dans plusieurs mots.",
+  prolongement: "Au collège, tu apprendras à repérer des préfixes et suffixes d'origine latine ou grecque, comme bio- ou -logie.",
+  echauffement: [
+    { question: "Quel est le radical commun aux mots \"jardin\", \"jardinier\" et \"jardinage\" ?", reponse: "jardin", explication: "\"jardin\" se retrouve dans chacun des trois mots : c'est le radical de cette famille." },
+    { question: "Dans le mot \"impossible\", quel est le préfixe et que signifie-t-il ?", reponse: "im-, qui veut dire \"pas\" ou \"le contraire\"", explication: "\"im-\" transforme \"possible\" en son contraire, \"impossible\"." },
+    { question: "Quel suffixe transforme le verbe \"chanter\" en nom désignant la personne qui chante ?", reponse: "-eur (chanteur) ou -euse (chanteuse)", explication: "Le suffixe -eur/-euse indique la personne qui fait l'action exprimée par le verbe." },
+  ],
+  exercices: [
+    { niveau: "decouverte", type: "saisie", enonce: "Quel est le radical commun à \"fleur\", \"fleuriste\" et \"fleurir\" ?", reponsesAcceptees: ["fleur"], indices: ["Cherche la partie qui se répète dans les trois mots.", "C'est la plus courte partie commune, sans préfixe ni suffixe."], explication: "\"fleur\" est le radical présent dans les trois mots de cette famille." },
+    { niveau: "decouverte", type: "zone", enonce: "Dans le mot \"malheureux\", le préfixe \"mal-\" signifie...", zones: ["bien", "pas ou le contraire", "encore une fois", "petit"], zoneCorrecte: "pas ou le contraire", indices: ["\"malheureux\" est l'inverse de \"heureux\".", "\"mal-\" indique souvent une idée négative."], explication: "\"mal-\" donne un sens négatif : \"malheureux\" veut dire \"qui n'est pas heureux\"." },
+    { niveau: "application", type: "association", enonce: "Associe chaque mot dérivé à son sens.", paires: [
+        { gauche: "refaire", droite: "faire une nouvelle fois" },
+        { gauche: "défaire", droite: "faire à l'envers, détruire" },
+        { gauche: "impossible", droite: "qui n'est pas possible" },
+        { gauche: "lavage", droite: "action de laver" },
+      ], indices: ["Repère le préfixe ou le suffixe de chaque mot.", "re- = encore, dé- = contraire, in-/im- = contraire, -age = action de."], explication: "Chaque préfixe ou suffixe donne un sens précis : re- (encore), dé- (contraire), im- (contraire), -age (action)." },
+    { niveau: "application", type: "saisie", enonce: "Quel mot obtient-on en ajoutant le suffixe \"-ment\" à l'adjectif \"doux\" (qui devient \"douce\") ?", reponsesAcceptees: ["doucement"], indices: ["L'adjectif au féminin est \"douce\".", "Ajoute simplement \"-ment\" après \"douce\"."], explication: "\"douce\" + \"-ment\" donne l'adverbe \"doucement\"." },
+    { niveau: "application", type: "ordre", enonce: "Remets ces mots de la famille de \"terre\" du plus simple (le radical seul) au plus complexe.", elements: ["terre", "terrain", "atterrir", "souterrain"], indices: ["Le radical seul est le mot le plus court et le plus simple.", "Compte les parties ajoutées (préfixes/suffixes) pour classer les autres."], explication: "\"terre\" est le radical seul, puis les mots suivants ajoutent de plus en plus de préfixes ou suffixes." },
+    { niveau: "defi", type: "saisie", enonce: "Défi : parmi \"terre, terrain, terrible, atterrir\", quel mot est un intrus qui n'appartient PAS à la famille de \"terre\" malgré les apparences ?", reponsesAcceptees: ["terrible"], indices: ["Compare le sens de chaque mot avec \"terre\" (le sol).", "Un mot peut ressembler à un autre sans partager son sens."], explication: "\"terrible\" veut dire \"effrayant\" : il n'a aucun lien de sens avec \"terre\", malgré la ressemblance des lettres." },
+    { niveau: "defi", type: "zone", enonce: "Défi : dans le mot \"désordre\", le préfixe \"dés-\" indique...", zones: ["le contraire de l'ordre", "encore de l'ordre", "un petit ordre", "un ordre agréable"], zoneCorrecte: "le contraire de l'ordre", indices: ["\"désordre\" est l'inverse d'\"ordre\".", "dé-/dés- exprime souvent le contraire."], explication: "\"dés-\" exprime le contraire : \"désordre\" est l'absence d'ordre." },
+  ],
+},
+  {
+  id: "francais-10", matiere: "francais", theme: "L'orthographe",
+  titre: "Ne pas confondre : les homophones grammaticaux",
+  pages: [
+    {
+      titre: "a / à",
+      contenu: [
+        "\"a\" (sans accent) est le verbe avoir conjugué : on peut le remplacer par \"avait\". Exemple : « Malo a un vélo. » → « Malo avait un vélo. »",
+        "\"à\" (avec accent) est une préposition, un petit mot invariable qui ne se remplace jamais par \"avait\". Exemple : « Nina joue à la marelle. »",
+        "Astuce : si tu peux dire \"avait\" à la place, c'est le verbe \"a\" ; sinon, c'est la préposition \"à\".",
+      ],
+      diagramme: '<svg viewBox="0 0 330 130" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="15" width="140" height="100" rx="10" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="85" y="45" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">a</text><text x="85" y="68" text-anchor="middle" font-size="12" fill="#2d2a4a">verbe avoir</text><text x="85" y="88" text-anchor="middle" font-size="11" fill="#2d2a4a">se remplace par</text><text x="85" y="104" text-anchor="middle" font-size="11" fill="#2d2a4a">"avait"</text><rect x="175" y="15" width="140" height="100" rx="10" fill="#fff8e7" stroke="#ff8fab" stroke-width="3"/><text x="245" y="45" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">à</text><text x="245" y="68" text-anchor="middle" font-size="12" fill="#2d2a4a">préposition</text><text x="245" y="88" text-anchor="middle" font-size="11" fill="#2d2a4a">ne se remplace</text><text x="245" y="104" text-anchor="middle" font-size="11" fill="#2d2a4a">pas par "avait"</text></svg>',
+    },
+    {
+      titre: "est / et et son / sont",
+      contenu: [
+        "\"est\" est le verbe être : on peut le remplacer par \"était\". Exemple : « Camille est contente. » → « Camille était contente. »",
+        "\"et\" relie deux mots ou deux groupes, comme \"and\" en anglais : « Zoé et Malo jouent. » On ne peut pas le remplacer par \"était\".",
+        "\"son\" est un déterminant possessif placé devant un nom (son vélo). \"sont\" est le verbe être : on peut le remplacer par \"étaient\" (ils sont → ils étaient).",
+      ],
+    },
+    {
+      titre: "ce / se et on / ont",
+      contenu: [
+        "\"ce\" est un déterminant démonstratif, placé devant un nom : « ce chien », « ce livre ».",
+        "\"se\" se place devant un verbe pronominal : « il se lave », « elle se cache ».",
+        "\"on\" est un pronom qui remplace \"quelqu'un\" ou \"nous\". \"ont\" est le verbe avoir : on peut le remplacer par \"avaient\" (ils ont → ils avaient).",
+      ],
+    },
+  ],
+  notionsCles: [
+    "a (verbe avoir, remplaçable par \"avait\") / à (préposition invariable).",
+    "est (verbe être, remplaçable par \"était\") / et (mot qui relie deux éléments).",
+    "son (déterminant possessif) / sont (verbe être) ; ce (déterminant démonstratif) / se (devant un verbe pronominal) ; on (pronom) / ont (verbe avoir, remplaçable par \"avaient\").",
+  ],
+  prerequisCE2: "Savoir conjuguer les verbes avoir et être au présent de l'indicatif.",
+  prolongement: "Tu rencontreras d'autres homophones grammaticaux, comme \"leur/leurs\" ou \"quel/qu'elle\", dans les années suivantes.",
+  echauffement: [
+    { question: "Complète : Hugo ___ un chat noir. (a / à)", reponse: "a", explication: "On peut dire « Hugo avait un chat noir » : c'est donc le verbe avoir, \"a\"." },
+    { question: "Complète : Camille ___ contente de sa journée. (est / et)", reponse: "est", explication: "On peut dire « Camille était contente » : c'est donc le verbe être, \"est\"." },
+    { question: "Complète : Ils ___ terminé leurs devoirs. (on / ont)", reponse: "ont", explication: "On peut dire « Ils avaient terminé leurs devoirs » : c'est donc le verbe avoir, \"ont\"." },
+  ],
+  exercices: [
+    { niveau: "decouverte", type: "saisie", enonce: "Complète : Malo ___ un beau vélo rouge. (a / à)", reponsesAcceptees: ["a"], indices: ["Essaie de remplacer par \"avait\" : la phrase garde-t-elle un sens ?", "Si tu peux dire \"avait\", c'est le verbe avoir : a."], explication: "« Malo avait un beau vélo rouge » a un sens : c'est donc le verbe avoir, \"a\"." },
+    { niveau: "decouverte", type: "saisie", enonce: "Complète : Nina joue ___ la marelle avec ses amis. (a / à)", reponsesAcceptees: ["à"], indices: ["Essaie de remplacer par \"avait\" : est-ce que ça marche ?", "« Nina joue avait la marelle » n'a pas de sens, donc ce n'est pas le verbe avoir."], explication: "On ne peut pas dire « Nina joue avait la marelle » : c'est donc la préposition \"à\"." },
+    { niveau: "application", type: "zone", enonce: "Dans la phrase « Hugo prend ___ vélo pour aller à l'école. », faut-il écrire \"son\" ou \"sont\" ?", zones: ["son", "sont"], zoneCorrecte: "son", indices: ["\"son\" est placé devant un nom (vélo).", "Essaie de remplacer par \"étaient\" : ça ne marche pas ici."], explication: "\"son\" est ici un déterminant possessif devant le nom \"vélo\"." },
+    { niveau: "application", type: "saisie", enonce: "Complète : Zoé et Malo ___ dans le jardin. (son / sont)", reponsesAcceptees: ["sont"], indices: ["Essaie de remplacer par \"étaient\" : la phrase garde-t-elle un sens ?", "« Ils étaient dans le jardin » fonctionne : c'est donc le verbe être."], explication: "On peut dire « Ils étaient dans le jardin » : c'est donc le verbe être, \"sont\"." },
+    { niveau: "application", type: "association", enonce: "Associe chaque mot homophone à l'astuce qui permet de le reconnaître.", paires: [
+        { gauche: "a (verbe avoir)", droite: "se remplace par \"avait\"" },
+        { gauche: "est (verbe être)", droite: "se remplace par \"était\"" },
+        { gauche: "sont (verbe être)", droite: "se remplace par \"étaient\"" },
+        { gauche: "ont (verbe avoir)", droite: "se remplace par \"avaient\"" },
+      ], indices: ["Les verbes avoir et être au présent se remplacent par leur imparfait.", "Si le remplacement garde un sens, c'est bien ce verbe."], explication: "Chaque forme du verbe avoir ou être peut être vérifiée en la remplaçant par sa forme à l'imparfait." },
+    { niveau: "defi", type: "saisie", enonce: "Défi : Complète : « ___ chat se lave chaque jour. » (Ce / Se)", reponsesAcceptees: ["Ce", "ce"], indices: ["\"Ce\" est un déterminant démonstratif : il se place devant un nom (chat).", "\"Se\" se place juste devant un verbe pronominal (se laver)."], explication: "« Ce » est ici un déterminant démonstratif placé devant le nom \"chat\"." },
+    { niveau: "defi", type: "ordre", enonce: "Remets dans le bon ordre les étapes pour choisir entre \"on\" et \"ont\" dans une phrase.", elements: [
+        "Repère le mot à vérifier dans la phrase.",
+        "Essaie de remplacer ce mot par \"avaient\".",
+        "Si la phrase garde un sens, écris \"ont\" (verbe avoir).",
+        "Si la phrase n'a plus de sens, écris \"on\" (pronom).",
+      ], indices: ["Commence toujours par repérer le mot à tester.", "Le test du remplacement par \"avaient\" vient juste après."], explication: "On repère le mot, on teste le remplacement par \"avaient\", puis on choisit \"ont\" ou \"on\" selon que la phrase garde un sens ou non." },
+  ],
+},
+  {
+  id: "anglais-04",
+  matiere: "anglais",
+  theme: "Les dates, les jours et les mois",
+  titre: "Parler des jours, des mois et des dates en anglais",
+  pages: [
+    {
+      titre: "Les jours de la semaine",
+      contenu: [
+        "En anglais, les jours de la semaine prennent toujours une majuscule, même au milieu d'une phrase : Monday (lundi), Tuesday (mardi), Wednesday (mercredi), Thursday (jeudi), Friday (vendredi), Saturday (samedi), Sunday (dimanche).",
+        "Sur les calendriers anglais, la semaine commence souvent un dimanche (Sunday) plutôt qu'un lundi ! C'est une petite différence à connaître, même si ce n'est pas toujours le cas.",
+        "Pour demander quel jour on est, on dit : 'What day is it today?' (Quel jour sommes-nous aujourd'hui ?). On répond avec 'It's' suivi du jour : 'It's Wednesday.' (On est mercredi.)",
+        "Regarde le petit calendrier ci-dessous : les cinq jours de semaine (bleus) et les deux jours du week-end, Saturday et Sunday (roses), qui ferment la semaine.",
+      ],
+      diagramme: '<svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="350" height="140" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><rect x="20" y="30" width="42" height="60" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="41" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">M</text><rect x="70" y="30" width="42" height="60" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="91" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">T</text><rect x="120" y="30" width="42" height="60" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="141" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">W</text><rect x="170" y="30" width="42" height="60" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="191" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">T</text><rect x="220" y="30" width="42" height="60" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="241" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">F</text><rect x="270" y="30" width="42" height="60" rx="6" fill="#ff8fab" opacity="0.5"/><text x="291" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">S</text><rect x="315" y="30" width="35" height="60" rx="6" fill="#ff8fab" opacity="0.5"/><text x="332" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">S</text><text x="180" y="115" text-anchor="middle" font-size="11" fill="#2d2a4a">Monday to Friday : semaine</text><text x="180" y="132" text-anchor="middle" font-size="11" fill="#2d2a4a">Saturday, Sunday : week-end</text></svg>',
+    },
+    {
+      titre: "Les mois de l'année",
+      contenu: [
+        "Comme les jours, les mois prennent toujours une majuscule en anglais : January (janvier), February (février), March (mars), April (avril), May (mai), June (juin), July (juillet), August (août), September (septembre), October (octobre), November (novembre), December (décembre).",
+        "Pour demander en quel mois on est, on dit : 'What month is it?' (En quel mois sommes-nous ?). On répond : 'It's July.' (On est en juillet.)",
+        "Astuce pour les retenir plus facilement : regroupe-les par saison. Décembre, janvier, février forment l'hiver (winter). Mars, avril, mai forment le printemps (spring). Juin, juillet, août forment l'été (summer). Septembre, octobre, novembre forment l'automne (autumn).",
+        "Le petit calendrier ci-dessous classe les douze mois par couleur de saison, dans l'ordre où ils se suivent, de January à December.",
+      ],
+      diagramme: '<svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="370" height="200" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><rect x="20" y="25" width="75" height="45" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="57" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Jan</text><rect x="105" y="25" width="75" height="45" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="142" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Feb</text><rect x="190" y="25" width="75" height="45" rx="6" fill="#6fcf97" opacity="0.5"/><text x="227" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Mar</text><rect x="275" y="25" width="80" height="45" rx="6" fill="#6fcf97" opacity="0.5"/><text x="315" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Apr</text><rect x="20" y="80" width="75" height="45" rx="6" fill="#6fcf97" opacity="0.5"/><text x="57" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">May</text><rect x="105" y="80" width="75" height="45" rx="6" fill="#ffd166" opacity="0.6"/><text x="142" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Jun</text><rect x="190" y="80" width="75" height="45" rx="6" fill="#ffd166" opacity="0.6"/><text x="227" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Jul</text><rect x="275" y="80" width="80" height="45" rx="6" fill="#ffd166" opacity="0.6"/><text x="315" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Aug</text><rect x="20" y="135" width="75" height="45" rx="6" fill="#e0574c" opacity="0.5"/><text x="57" y="162" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Sep</text><rect x="105" y="135" width="75" height="45" rx="6" fill="#e0574c" opacity="0.5"/><text x="142" y="162" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Oct</text><rect x="190" y="135" width="75" height="45" rx="6" fill="#e0574c" opacity="0.5"/><text x="227" y="162" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Nov</text><rect x="275" y="135" width="80" height="45" rx="6" fill="#6fa8dc" opacity="0.5"/><text x="315" y="162" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Dec</text><text x="190" y="198" text-anchor="middle" font-size="10" fill="#2d2a4a">bleu = winter, vert = spring, jaune = summer, rouge = autumn</text></svg>',
+    },
+    {
+      titre: "Dire une date complète",
+      contenu: [
+        "En anglais, on n'utilise pas 1, 2, 3 pour donner une date, mais des nombres ordinaux : 1st (first), 2nd (second), 3rd (third). Remarque bien ces trois-là, ils sont irréguliers et ne suivent pas la règle générale !",
+        "Pour presque tous les autres nombres, on ajoute simplement '-th' après le nombre : 4th (fourth), 5th (fifth), 6th (sixth), 7th (seventh), 8th (eighth), 9th (ninth), 10th (tenth). Le petit sigle (st, nd, rd, th) s'écrit toujours après le chiffre : on peut aussi écrire une date juste avec les chiffres, comme '5th'.",
+        "Pour dire une date complète, on utilise 'It's the' + le nombre ordinal + 'of' + le mois : 'It's the 5th of July.' (On est le 5 juillet.) ou 'It's the 1st of January.' (On est le 1er janvier.)",
+        "On peut aussi parler de ses jours préférés : 'What's your favourite day?' (Quel est ton jour préféré ?) 'My favourite day is Saturday.' (Mon jour préféré est samedi.) On peut poser la même question avec 'month' pour le mois préféré.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Les sept jours de la semaine, de Monday à Sunday, toujours avec une majuscule",
+    "Les douze mois de l'année, de January à December, toujours avec une majuscule",
+    "Les nombres ordinaux : 1st (first), 2nd (second), 3rd (third), puis la règle générale en '-th'",
+    "Dire une date complète : 'It's the 5th of July.' et exprimer une préférence : 'My favourite day is Saturday.'",
+  ],
+  prerequisCE2: "Tu sais déjà compter en anglais de 1 à 12 (numbers) et te présenter avec des phrases simples.",
+  prolongement: "Demande à quelqu'un de ta famille : 'What's your favourite day?' et 'What's your favourite month?', puis essaie de dire la date de ton anniversaire en anglais avec 'It's the... of...'",
+  echauffement: [
+    { question: "Comment dit-on 'mercredi' en anglais ?", reponse: "Wednesday", explication: "Wednesday est le troisième jour de la semaine, avec une majuscule." },
+    { question: "Comment dit-on 'décembre' en anglais ?", reponse: "December", explication: "December est le douzième et dernier mois de l'année." },
+    { question: "Comment dit-on le nombre ordinal '2' en anglais (2nd) ?", reponse: "second", explication: "'2nd' se lit 'second', un des trois nombres ordinaux irréguliers avec 1st et 3rd." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Comment dit-on 'lundi' en anglais ?",
+      reponsesAcceptees: ["monday"],
+      indices: ["C'est le premier jour de la semaine sur beaucoup de calendriers français.", "Ce mot commence par 'Mon'."],
+      explication: "'Monday' est le premier jour de la semaine, du travail ou de l'école.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Relie chaque jour anglais à sa traduction en français.",
+      paires: [
+        { gauche: "Monday", droite: "lundi" },
+        { gauche: "Wednesday", droite: "mercredi" },
+        { gauche: "Friday", droite: "vendredi" },
+        { gauche: "Sunday", droite: "dimanche" },
+      ],
+      indices: ["'Wednesday' est le jour au milieu de la semaine.", "'Sunday' ressemble à 'sun' (le soleil)."],
+      explication: "Monday → lundi, Wednesday → mercredi, Friday → vendredi, Sunday → dimanche.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment dit-on 'juillet' en anglais ?",
+      reponsesAcceptees: ["july"],
+      indices: ["Ce mois commence par la lettre 'J', comme June.", "C'est le septième mois de l'année."],
+      explication: "'July' est le septième mois de l'année, en plein été.",
+    },
+    {
+      niveau: "application",
+      type: "zone",
+      enonce: "Quel est le bon nombre ordinal pour '3' en anglais ?",
+      zones: ["third", "threeth", "threerd", "thirst"],
+      zoneCorrecte: "third",
+      indices: ["Ce nombre ordinal est irrégulier, comme 'first' et 'second'.", "Il ne se termine pas par '-th' comme la plupart des autres nombres."],
+      explication: "'Third' (3rd) est irrégulier, tout comme 'first' (1st) et 'second' (2nd).",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets les jours de la semaine dans le bon ordre, de Monday à Sunday.",
+      elements: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      indices: ["La semaine de travail ou d'école compte cinq jours avant le week-end.", "Le week-end regroupe les deux derniers jours."],
+      explication: "L'ordre des jours est : Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : comment dit-on 'On est le 5 juillet.' en anglais ?",
+      reponsesAcceptees: ["it's the 5th of july", "it is the 5th of july", "it's the fifth of july", "it is the fifth of july"],
+      indices: ["Commence par 'It's the'.", "N'oublie pas 'of' entre le nombre et le mois."],
+      explication: "On dit : 'It's the 5th of July.' avec le nombre ordinal suivi de 'of' puis le mois.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : quel mois vient juste après 'April' ?",
+      zones: ["May", "June", "March", "August"],
+      zoneCorrecte: "May",
+      indices: ["'April' est le quatrième mois de l'année.", "Le mois suivant est très court à écrire, seulement trois lettres."],
+      explication: "'May' (mai) suit directement 'April' (avril) dans l'ordre des mois.",
+    },
+  ],
+},
+  {
+  id: "anglais-05",
+  matiere: "anglais",
+  theme: "Les animaux et 'have got'",
+  titre: "Les animaux et la structure 'I've got.../I haven't got...'",
+  pages: [
+    {
+      titre: "Les animaux de la ferme",
+      contenu: [
+        "À la ferme (the farm), on trouve beaucoup d'animaux différents. Voici du vocabulaire à connaître : a cow (une vache), a horse (un cheval), a rabbit (un lapin) et a sheep (un mouton).",
+        "Remarque bien l'article devant chaque animal : en anglais, on ne peut presque jamais dire juste 'cow' ou 'horse' tout seul, il faut ajouter 'a' devant, sauf au pluriel.",
+        "Pour demander ce qu'on voit à la ferme, on peut dire : 'What can you see on the farm?' (Que vois-tu à la ferme ?) et répondre avec plusieurs animaux : 'I can see a cow and a horse.' (Je vois une vache et un cheval.)",
+        "Regarde la petite scène de ferme ci-dessous : une grange rouge (barn), un soleil, et trois animaux à deviner grâce à leur étiquette.",
+      ],
+      diagramme: '<svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="310" height="180" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><rect x="10" y="130" width="300" height="45" fill="#6fcf97" opacity="0.5"/><circle cx="270" cy="35" r="20" fill="#ffd166"/><rect x="25" y="75" width="60" height="55" fill="#e0574c" opacity="0.7"/><line x1="20" y1="75" x2="55" y2="45" stroke="#2d2a4a" stroke-width="3"/><line x1="55" y1="45" x2="90" y2="75" stroke="#2d2a4a" stroke-width="3"/><circle cx="140" cy="150" r="18" fill="#e0a93a" opacity="0.7"/><text x="140" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">cow</text><circle cx="200" cy="150" r="18" fill="#6fa8dc" opacity="0.6"/><text x="200" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">horse</text><circle cx="255" cy="155" r="13" fill="#ff8fab" opacity="0.7"/><text x="255" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">rabbit</text></svg>',
+    },
+    {
+      titre: "Les animaux du zoo et du cirque",
+      contenu: [
+        "Au zoo (the zoo), on rencontre des animaux plus impressionnants : a lion (un lion), an elephant (un éléphant) et a monkey (un singe).",
+        "Ces mêmes animaux, comme a lion, peuvent aussi vivre au cirque (the circus), où ils font parfois des numéros avec un dompteur. On peut donc voir 'a lion' aussi bien au zoo qu'au cirque !",
+        "As-tu remarqué la différence entre 'a lion' et 'an elephant' ? Ce n'est pas un hasard : la règle se trouve dans la prochaine page, elle est très importante en anglais.",
+        "Essaie de décrire à voix haute un animal du zoo que tu aimes bien, en utilisant 'a' ou 'an' devant son nom.",
+      ],
+    },
+    {
+      titre: "'I've got...' et la règle a / an",
+      contenu: [
+        "Pour dire qu'on possède quelque chose en anglais, on utilise 'I've got' (forme courte de 'I have got') suivi du nom : 'I've got a dog.' (J'ai un chien.) Pour dire le contraire, on utilise 'I haven't got' : 'I haven't got a cat.' (Je n'ai pas de chat.)",
+        "Voici la règle importante : on utilise 'a' devant un mot qui commence par un son de consonne, comme 'a dog', 'a cow' ou 'a horse'. On utilise 'an' devant un mot qui commence par un son de voyelle (a, e, i, o, u), comme 'an elephant', 'an egg' ou 'an apple'.",
+        "Cette règle sert à rendre la prononciation plus facile à l'oral : essaie de dire 'a elephant' à voix haute, puis 'an elephant'... Le deuxième est bien plus fluide ! C'est exactement pour cette raison que 'an' existe.",
+        "Petit jeu : devine l'animal mystère grâce à sa description. 'It's got a long trunk and two big ears. What is it?' (Il a une longue trompe et deux grandes oreilles. Qu'est-ce que c'est ?) La structure 'It's got...' fonctionne comme 'I've got...', mais pour parler d'un animal ou d'une chose.",
+      ],
+      diagramme: '<svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="290" height="140" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><rect x="20" y="25" width="115" height="100" rx="8" fill="#6fa8dc" opacity="0.5"/><text x="77" y="50" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">a</text><text x="77" y="75" text-anchor="middle" font-size="11" fill="#2d2a4a">a dog</text><text x="77" y="95" text-anchor="middle" font-size="11" fill="#2d2a4a">a cow</text><text x="77" y="115" text-anchor="middle" font-size="11" fill="#2d2a4a">a horse</text><rect x="160" y="25" width="115" height="100" rx="8" fill="#ff8fab" opacity="0.5"/><text x="217" y="50" text-anchor="middle" font-size="16" font-weight="bold" fill="#2d2a4a">an</text><text x="217" y="75" text-anchor="middle" font-size="11" fill="#2d2a4a">an elephant</text><text x="217" y="95" text-anchor="middle" font-size="11" fill="#2d2a4a">an egg</text><text x="217" y="115" text-anchor="middle" font-size="11" fill="#2d2a4a">an apple</text></svg>',
+    },
+  ],
+  notionsCles: [
+    "Le vocabulaire des animaux : a cow, a horse, a rabbit, a sheep, a lion, an elephant, a monkey",
+    "La structure 'I've got.../I haven't got...' pour exprimer la possession",
+    "La règle 'a' devant une consonne / 'an' devant une voyelle (a, e, i, o, u)",
+    "La structure 'It's got...' pour décrire un animal ou un objet, comme dans un jeu de devinettes",
+  ],
+  prerequisCE2: "Tu connais déjà quelques phrases simples de présentation en anglais et le vocabulaire de la maison.",
+  prolongement: "Invente ta propre devinette d'animal mystère avec 'It's got...' et fais-la deviner à quelqu'un de ta famille. Pense bien à choisir 'a' ou 'an' selon le premier son du nom de l'animal !",
+  echauffement: [
+    { question: "Comment dit-on 'un cheval' en anglais ?", reponse: "a horse", explication: "'Horse' commence par un son de consonne, donc on utilise 'a'." },
+    { question: "Comment dit-on 'J'ai un chien.' en anglais ?", reponse: "I've got a dog", explication: "'I've got' est la forme courte de 'I have got', pour exprimer la possession." },
+    { question: "Doit-on dire 'a elephant' ou 'an elephant' ?", reponse: "an elephant", explication: "'Elephant' commence par un son de voyelle, donc on utilise 'an'." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Comment dit-on 'un cheval' en anglais ?",
+      reponsesAcceptees: ["a horse"],
+      indices: ["'Horse' commence par un son de consonne.", "N'oublie pas l'article devant le nom de l'animal."],
+      explication: "'A horse' (un cheval) : 'horse' commence par un son de consonne, donc on utilise 'a'.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Relie chaque animal anglais à sa traduction en français.",
+      paires: [
+        { gauche: "cow", droite: "vache" },
+        { gauche: "horse", droite: "cheval" },
+        { gauche: "rabbit", droite: "lapin" },
+        { gauche: "elephant", droite: "éléphant" },
+      ],
+      indices: ["'Elephant' ressemble beaucoup au mot français.", "'Rabbit' est un petit animal aux longues oreilles."],
+      explication: "cow → vache, horse → cheval, rabbit → lapin, elephant → éléphant.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment dit-on 'J'ai un chien.' en anglais ?",
+      reponsesAcceptees: ["i've got a dog", "i have got a dog"],
+      indices: ["Utilise 'I've got' ou 'I have got'.", "N'oublie pas 'a' devant 'dog'."],
+      explication: "'I've got a dog.' est la forme courte de 'I have got a dog.', pour exprimer la possession.",
+    },
+    {
+      niveau: "application",
+      type: "zone",
+      enonce: "Quel article utiliser devant le mot 'elephant' ?",
+      zones: ["a", "an", "the", "some"],
+      zoneCorrecte: "an",
+      indices: ["'Elephant' commence par un son de voyelle.", "On utilise 'an' devant a, e, i, o, u."],
+      explication: "On dit 'an elephant', car 'elephant' commence par un son de voyelle.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets les mots dans l'ordre pour former une phrase correcte.",
+      elements: ["I", "have", "got", "a", "rabbit"],
+      indices: ["'I' est toujours en premier dans cette phrase.", "'Got' vient juste après 'have'."],
+      explication: "La phrase correcte est : 'I have got a rabbit.' (J'ai un lapin.)",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : comment dit-on 'Je n'ai pas de chat.' en anglais ?",
+      reponsesAcceptees: ["i haven't got a cat", "i have not got a cat"],
+      indices: ["Utilise la forme négative de 'have got'.", "'Haven't' est la forme courte de 'have not'."],
+      explication: "'I haven't got a cat.' est la forme négative de 'I've got a cat.'",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : devine l'animal mystère. 'It's got a long trunk and two big ears. What is it?'",
+      zones: ["A cow", "An elephant", "A horse", "A rabbit"],
+      zoneCorrecte: "An elephant",
+      indices: ["Cet animal vit au zoo et a une très grande taille.", "Son nom commence par un son de voyelle, donc on dit 'an'."],
+      explication: "'An elephant' (un éléphant) a une longue trompe et deux grandes oreilles.",
+    },
+  ],
+},
+  {
+  id: "anglais-06",
+  matiere: "anglais",
+  theme: "Unit 8 à 10",
+  titre: "La nourriture, les nombres jusqu'à cent et le -s de la 3e personne",
+  pages: [
+    {
+      titre: "Le vocabulaire de la nourriture",
+      contenu: [
+        "Voici des mots très utiles pour parler de ce qu'on mange : banana (banane), apple (pomme), tomato (tomate), bread (pain), cheese (fromage), hamburger (hamburger) et pizza (pizza, ça se prononce presque pareil qu'en français !).",
+        "Pour demander à quelqu'un s'il aime un aliment, on dit : 'Do you like pizza?' (Aimes-tu la pizza ?). On répond simplement par 'Yes, I do.' (Oui.) ou 'No, I don't.' (Non.), sans répéter tout l'aliment.",
+        "Pour donner son avis directement, on utilise 'I like...' (j'aime...) ou 'I don't like...' (je n'aime pas...), suivi du nom de l'aliment : 'I like cheese.' (J'aime le fromage.) 'I don't like tomatoes.' (Je n'aime pas les tomates.)",
+        "Regarde le petit panier ci-dessous : il contient quatre aliments que tu connais maintenant en anglais !",
+      ],
+      diagramme: '<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="300" height="160" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><rect x="60" y="110" width="200" height="45" rx="14" fill="#e0a93a" opacity="0.55"/><text x="160" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">the basket</text><circle cx="100" cy="95" r="20" fill="#6fcf97"/><text x="100" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">apple</text><circle cx="150" cy="90" r="16" fill="#ffd166"/><text x="150" y="63" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">banana</text><circle cx="200" cy="95" r="18" fill="#e0574c"/><text x="200" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">tomato</text><rect x="238" y="80" width="35" height="24" rx="6" fill="#ffd166" stroke="#e0a93a" stroke-width="2"/><text x="255" y="63" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">bread</text></svg>',
+    },
+    {
+      titre: "Compter par dizaines jusqu'à cent",
+      contenu: [
+        "Tu sais déjà compter de 1 à 12 en anglais. Aujourd'hui, tu vas apprendre à compter par dizaines jusqu'à cent : twenty (20), thirty (30), forty (40), fifty (50), sixty (60), seventy (70), eighty (80), ninety (90) et hundred (100).",
+        "Remarque bien : presque tous ces nombres se terminent par '-ty', sauf le tout dernier, 'hundred', qui veut dire 'cent'.",
+        "Attention aux pièges de prononciation : 'thirty' (30) et 'forty' (40) ne se construisent pas exactement comme 'three' et 'four' ; il faut les apprendre par cœur, comme des mots un peu spéciaux.",
+        "On peut utiliser ces nombres pour compter des aliments : 'There are forty apples in the basket.' (Il y a quarante pommes dans le panier.)",
+      ],
+    },
+    {
+      titre: "Il aime, elle n'aime pas : le -s de la 3e personne",
+      contenu: [
+        "Quand on parle de soi ('I') ou de la personne à qui on parle ('you'), le verbe ne change pas : 'I like pizza.' 'You like chocolate.' Mais quand on parle d'une troisième personne (he, she, ou même it), il faut ajouter un -s à la fin du verbe : 'He likes pizza.' 'She likes cheese.'",
+        "C'est une règle très importante à retenir : au présent simple, à la 3e personne du singulier seulement, le verbe prend toujours un -s !",
+        "Pour dire le contraire à la 3e personne, le -s disparaît du verbe car il est déjà porté par 'doesn't' (= does not) ! On dit : 'She doesn't like tomatoes.' 'He doesn't like bread.' (jamais 'He doesn't likes bread.')",
+        "Essaie maintenant de parler de toi : complète ces trois phrases à voix haute — 'I like...', 'I don't like...', 'My favourite food is...' (Mon aliment préféré est...)",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Le vocabulaire de la nourriture : banana, apple, tomato, bread, cheese, hamburger, pizza",
+    "Demander et donner son avis : 'Do you like...? Yes, I do. / No, I don't.' et 'I like... / I don't like...'",
+    "Les nombres par dizaines jusqu'à cent : twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety, hundred",
+    "Le -s de la 3e personne du singulier au présent simple : 'He likes... / She doesn't like...'",
+  ],
+  prerequisCE2: "Tu sais déjà compter de 1 à 12 en anglais et utiliser quelques mots de vocabulaire simples avec 'I like'.",
+  prolongement: "Essaie d'interviewer un membre de ta famille en anglais avec 'Do you like...?' pour cinq aliments différents, puis raconte ses réponses en utilisant 'He/She likes...' ou 'He/She doesn't like...'",
+  echauffement: [
+    { question: "Comment dit-on 'j'aime le fromage' en anglais ?", reponse: "I like cheese", explication: "'I like' + le nom de l'aliment." },
+    { question: "Comment dit-on 'cinquante' en anglais ?", reponse: "fifty", explication: "'Fifty' est le nombre 50, l'un des nombres en '-ty'." },
+    { question: "Comment dit-on 'Elle aime la pizza' en anglais ?", reponse: "She likes pizza", explication: "À la 3e personne du singulier, le verbe prend un -s : 'likes'." },
+  ],
+  exercices: [
+    { niveau: "decouverte", type: "saisie", enonce: "Comment dit-on 'pomme' en anglais ?", reponsesAcceptees: ["apple"], indices: ["Ça commence par la lettre 'a'.", "Ce mot ressemble un peu au mot français 'appel', mais ce n'est pas ça !"], explication: "'Apple' veut dire 'pomme' en anglais." },
+    { niveau: "decouverte", type: "association", enonce: "Relie chaque aliment anglais à sa traduction en français.", paires: [ { gauche: "banana", droite: "banane" }, { gauche: "cheese", droite: "fromage" }, { gauche: "tomato", droite: "tomate" }, { gauche: "bread", droite: "pain" } ], indices: ["'Banana' ressemble beaucoup à 'banane'.", "'Cheese' ne ressemble pas à 'fromage', il faut le connaître par cœur."], explication: "banana → banane, cheese → fromage, tomato → tomate, bread → pain." },
+    { niveau: "application", type: "saisie", enonce: "Comment dit-on 'quarante' en anglais ?", reponsesAcceptees: ["forty"], indices: ["Ce nombre se termine par '-ty', comme beaucoup de dizaines.", "Attention, ce mot ne s'écrit pas exactement comme 'four'."], explication: "'Forty' veut dire 40 en anglais (attention, sans le deuxième 'u' de 'four')." },
+    { niveau: "application", type: "zone", enonce: "Comment dit-on correctement 'Il aime le fromage' en anglais ?", zones: ["He likes cheese", "He like cheese", "He is like cheese", "He liking cheese"], zoneCorrecte: "He likes cheese", indices: ["Le verbe doit avoir un -s à la fin, car c'est la 3e personne du singulier.", "On n'a pas besoin du verbe 'to be' (is) avec 'like'."], explication: "'He likes cheese.' est correct : à la 3e personne du singulier, on ajoute -s au verbe." },
+    { niveau: "application", type: "ordre", enonce: "Remets ces mots dans l'ordre pour dire 'Elle n'aime pas les tomates.'", elements: ["She", "doesn't", "like", "tomatoes"], indices: ["'Doesn't' se place juste après le sujet 'She'.", "Le verbe 'like' ne prend pas de -s après 'doesn't'."], explication: "La phrase correcte est : 'She doesn't like tomatoes.'" },
+    { niveau: "defi", type: "saisie", enonce: "Défi : comment dit-on 'Il n'aime pas les tomates mais il aime les hamburgers' en anglais ?", reponsesAcceptees: ["he doesn't like tomatoes but he likes hamburgers", "he doesn't like tomatoes, but he likes hamburgers"], indices: ["Utilise 'doesn't like' pour la partie négative et 'likes' pour la partie positive.", "Relie les deux parties avec 'but' (mais)."], explication: "'He doesn't like tomatoes but he likes hamburgers.' combine une forme négative et une forme positive à la 3e personne." },
+    { niveau: "defi", type: "zone", enonce: "Défi : comment dit-on 'quatre-vingts' en anglais ?", zones: ["eighty", "eight", "eighteen", "forty"], zoneCorrecte: "eighty", indices: ["Ce nombre commence comme 'eight' (huit).", "Il se termine par '-ty', comme les autres dizaines."], explication: "'Eighty' veut dire 80 en anglais, il vient de 'eight' (8) + '-ty'." },
+  ],
+},
+  {
+  id: "anglais-07",
+  matiere: "anglais",
+  theme: "Unit 11 à 13",
+  titre: "Le corps humain, 'has got' et les comparatifs big/small",
+  pages: [
+    {
+      titre: "Le visage et le corps : le vocabulaire",
+      contenu: [
+        "Pour parler du visage, on utilise : eye / eyes (œil / yeux), nose (nez), mouth (bouche), ear / ears (oreille / oreilles) et hair (cheveux).",
+        "Pour parler du reste du corps, on utilise : head (tête), arm (bras), leg (jambe), hand (main) et foot (pied).",
+        "Attention à deux pièges : 'hair' (les cheveux) ne prend jamais de -s, même si on a beaucoup de cheveux ! Et le pluriel de 'foot' (un pied) n'est pas 'foots' mais 'feet' (des pieds) — un mot totalement différent qu'il faut apprendre par cœur.",
+        "Beaucoup de ces mots vont par deux sur notre corps (les yeux, les oreilles, les bras, les jambes, les mains, les pieds) : n'oublie pas le -s au pluriel, sauf pour 'feet' qui change complètement !",
+      ],
+    },
+    {
+      titre: "Décrire un monstre avec 'has got'",
+      contenu: [
+        "Pour décrire ce que possède quelqu'un (ou quelque chose !), on utilise l'expression 'has got' à la 3e personne du singulier : 'This monster has got three eyes.' (Ce monstre a trois yeux.)",
+        "La construction est toujours la même : 'has got' + un nombre + (parfois une couleur) + une partie du corps. Par exemple : 'This monster has got green hair.' (Ce monstre a des cheveux verts.) ou 'This monster has got two heads.' (Ce monstre a deux têtes.)",
+        "Regarde bien le monstre dessiné ci-dessous et lis sa description : il a trois yeux et des cheveux verts, exactement comme dans la phrase à côté de lui !",
+        "Essaie maintenant d'imaginer ton propre monstre et de le décrire avec 'has got' : combien de bras, de jambes, d'yeux a-t-il ? De quelle couleur sont ses cheveux ?",
+      ],
+      diagramme: '<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="300" height="200" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><text x="160" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">This monster has got three eyes and green hair</text><circle cx="160" cy="130" r="55" fill="#6fcf97"/><circle cx="160" cy="66" r="12" fill="#6fcf97"/><circle cx="140" cy="55" r="10" fill="#6fcf97"/><circle cx="180" cy="55" r="10" fill="#6fcf97"/><circle cx="135" cy="118" r="9" fill="#2d2a4a"/><circle cx="160" cy="112" r="9" fill="#2d2a4a"/><circle cx="185" cy="118" r="9" fill="#2d2a4a"/><line x1="112" y1="150" x2="80" y2="182" stroke="#2d2a4a" stroke-width="5"/><line x1="208" y1="150" x2="240" y2="182" stroke="#2d2a4a" stroke-width="5"/><line x1="142" y1="182" x2="132" y2="208" stroke="#2d2a4a" stroke-width="5"/><line x1="178" y1="182" x2="188" y2="208" stroke="#2d2a4a" stroke-width="5"/></svg>',
+    },
+    {
+      titre: "Big et small, et les ordres de la classe",
+      contenu: [
+        "Pour comparer des tailles, on utilise 'big' (grand) et 'small' (petit). Pour dire 'plus grand que' ou 'plus petit que', on ajoute '-er' à la fin de l'adjectif et on utilise 'than' (que) : 'bigger than' (plus grand que), 'smaller than' (plus petit que). Exemple : 'An elephant is bigger than a mouse.' (Un éléphant est plus grand qu'une souris.)",
+        "En classe, la maîtresse ou le maître utilise souvent des ordres simples en anglais. En voici quatre à connaître : 'Stand up.' (Lève-toi.), 'Sit down.' (Assieds-toi.), 'Touch your nose.' (Touche ton nez.), 'Close your eyes.' (Ferme les yeux.)",
+        "Ces phrases sont des impératifs : elles commencent directement par le verbe, sans sujet, comme en français quand on donne un ordre ('Assieds-toi !').",
+        "Essaie de suivre ces quatre ordres à voix haute, comme si tu étais en cours d'anglais : Stand up, sit down, touch your nose, close your eyes !",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Le vocabulaire du visage et du corps : eye, nose, mouth, ear, hair, head, arm, leg, hand, foot / feet",
+    "La construction 'has got' + nombre + (couleur) + partie du corps pour décrire quelqu'un",
+    "Les comparatifs 'bigger than' et 'smaller than'",
+    "Des impératifs de classe utiles : Stand up. Sit down. Touch your nose. Close your eyes.",
+  ],
+  prerequisCE2: "Tu sais déjà utiliser 'have got' pour parler des animaux que tu possèdes (leçon sur les animaux).",
+  prolongement: "Dessine ton propre monstre imaginaire, puis décris-le en anglais à un camarade ou à un adulte en utilisant au moins trois phrases avec 'has got'.",
+  echauffement: [
+    { question: "Comment dit-on 'le nez' en anglais ?", reponse: "nose", explication: "'Nose' est le mot anglais pour 'nez'." },
+    { question: "Comment dit-on 'Ce monstre a trois yeux' en anglais ?", reponse: "This monster has got three eyes", explication: "'Has got' + nombre + partie du corps au pluriel." },
+    { question: "Comment dit-on 'Lève-toi' en anglais ?", reponse: "Stand up", explication: "C'est un ordre (impératif) très utilisé en classe." },
+  ],
+  exercices: [
+    { niveau: "decouverte", type: "saisie", enonce: "Comment dit-on 'l'oreille' en anglais ?", reponsesAcceptees: ["ear"], indices: ["Ce mot est très court, seulement trois lettres.", "Il ne ressemble pas du tout au mot français 'oreille'."], explication: "'Ear' veut dire 'oreille' en anglais." },
+    { niveau: "decouverte", type: "association", enonce: "Relie chaque partie du corps anglaise à sa traduction en français.", paires: [ { gauche: "eye", droite: "œil" }, { gauche: "hand", droite: "main" }, { gauche: "foot", droite: "pied" }, { gauche: "head", droite: "tête" } ], indices: ["'Hand' ressemble un peu au mot 'handle' (poignée), qu'on tient avec la main.", "'Foot' donne le mot 'football', le sport où on joue avec le pied."], explication: "eye → œil, hand → main, foot → pied, head → tête." },
+    { niveau: "application", type: "saisie", enonce: "Comment dit-on 'Assieds-toi' en anglais ?", reponsesAcceptees: ["sit down"], indices: ["Deux mots : le verbe 'sit' et une petite particule après.", "Le contraire de 'stand up' (se lever)."], explication: "'Sit down.' est l'ordre pour dire à quelqu'un de s'asseoir." },
+    { niveau: "application", type: "zone", enonce: "Comment dit-on correctement 'Ce monstre a des cheveux verts' en anglais ?", zones: ["This monster has got green hair", "This monster have got green hair", "This monster has got green hairs", "This monster is got green hair"], zoneCorrecte: "This monster has got green hair", indices: ["'Has got' (et pas 'have got') à la 3e personne du singulier.", "'Hair' ne prend jamais de -s, même au pluriel de sens."], explication: "'This monster has got green hair.' : 'has got' à la 3e personne, et 'hair' sans -s." },
+    { niveau: "application", type: "ordre", enonce: "Remets ces mots dans l'ordre pour donner un ordre en classe.", elements: ["Touch", "your", "nose"], indices: ["Le verbe 'touch' (toucher) est toujours en premier dans un impératif.", "'Your' (ton/ta) se place juste avant la partie du corps."], explication: "L'ordre correct est : 'Touch your nose.' (Touche ton nez.)" },
+    { niveau: "defi", type: "saisie", enonce: "Défi : comment dit-on 'Ce monstre a deux têtes et des cheveux bleus' en anglais ?", reponsesAcceptees: ["this monster has got two heads and blue hair"], indices: ["'Head' devient 'heads' au pluriel, contrairement à 'hair'.", "N'oublie pas de relier les deux informations avec 'and'."], explication: "'This monster has got two heads and blue hair.' combine deux descriptions avec 'and'." },
+    { niveau: "defi", type: "zone", enonce: "Défi : quel mot complète correctement 'An elephant is _____ than a mouse.' ?", zones: ["bigger", "big", "more big", "biggest"], zoneCorrecte: "bigger", indices: ["On compare deux choses, donc il faut la forme comparative.", "On ajoute simplement '-er' à 'big'."], explication: "'An elephant is bigger than a mouse.' : le comparatif de 'big' est 'bigger'." },
+  ],
+},
+  {
+  id: "anglais-08",
+  matiere: "anglais",
+  theme: "Culture et civilisation",
+  titre: "Les nations du Royaume-Uni et deux fêtes britanniques : Saint Patrick's Day et Bonfire Night",
+  pages: [
+    {
+      titre: "Quatre nations, quatre symboles",
+      contenu: [
+        "Tu sais déjà que le Royaume-Uni (the United Kingdom) est formé de quatre nations : England, Scotland, Wales et Northern Ireland. Chacune a son propre symbole végétal !",
+        "England a pour symbole la rose rouge (the red rose). Scotland a pour symbole le chardon (the thistle), une fleur épineuse. Wales a pour symbole la jonquille (the daffodil), et aussi un dragon rouge sur son drapeau. Northern Ireland a pour symbole le trèfle (the shamrock).",
+        "Ces symboles se retrouvent parfois sur des drapeaux, des pièces de monnaie ou des uniformes de sport britanniques : c'est une façon de reconnaître d'où vient une personne ou une équipe.",
+        "Le trèfle (the shamrock) de Northern Ireland est aussi très lié à une fête que tu vas découvrir juste après : Saint Patrick's Day !",
+      ],
+    },
+    {
+      titre: "Saint Patrick's Day : la fête irlandaise du trèfle",
+      contenu: [
+        "Saint Patrick's Day a lieu chaque année le 17 mars (the 17th of March). C'est une fête d'origine irlandaise, très célébrée aussi en Grande-Bretagne, aux États-Unis et dans le monde entier.",
+        "Ce jour-là, tout le monde s'habille en vert (green) ! La couleur verte et le trèfle à trois feuilles (the shamrock) sont les symboles de cette fête, un peu comme le sapin est un symbole de Noël.",
+        "Un personnage légendaire est associé à cette fête : le leprechaun, un petit lutin irlandais malicieux qui cacherait un pot d'or (a pot of gold) au bout d'un arc-en-ciel (a rainbow) !",
+        "Regarde le trèfle à trois feuilles dessiné ci-dessous : c'est exactement 'the shamrock' que portent les gens le jour de Saint Patrick's Day.",
+      ],
+      diagramme: '<svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="200" height="200" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><line x1="110" y1="140" x2="110" y2="188" stroke="#2d2a4a" stroke-width="4"/><circle cx="110" cy="100" r="28" fill="#6fcf97"/><circle cx="80" cy="130" r="28" fill="#6fcf97"/><circle cx="140" cy="130" r="28" fill="#6fcf97"/><text x="110" y="205" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">the shamrock</text></svg>',
+    },
+    {
+      titre: "Bonfire Night : le 5 novembre au Royaume-Uni",
+      contenu: [
+        "Bonfire Night, aussi appelée Guy Fawkes Night, a lieu chaque année le 5 novembre (the 5th of November) en Grande-Bretagne. Cette fête commémore un événement historique très ancien : en 1605, un groupe de conspirateurs (dont Guy Fawkes) avait prévu de faire exploser le Parlement pour s'en prendre au roi, mais leur complot a été découvert et a échoué.",
+        "Pour se souvenir de cet événement, les Britanniques allument un grand feu (a bonfire) dans leur jardin ou sur la place du village, et y brûlent un mannequin de paille appelé 'the guy', qui représente Guy Fawkes.",
+        "La soirée se termine souvent par un magnifique feu d'artifice (fireworks) dans le ciel, un peu comme en France le soir du 14 juillet, mais à une date et pour une raison très différentes !",
+        "Regarde le petit feu de joie dessiné ci-dessous : c'est 'the bonfire' autour duquel les gens se rassemblent le 5 novembre.",
+      ],
+      diagramme: '<svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="200" height="180" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><line x1="70" y1="170" x2="150" y2="130" stroke="#e0a93a" stroke-width="6"/><line x1="70" y1="130" x2="150" y2="170" stroke="#e0a93a" stroke-width="6"/><line x1="60" y1="150" x2="160" y2="150" stroke="#e0a93a" stroke-width="6"/><circle cx="110" cy="105" r="22" fill="#e0574c"/><circle cx="110" cy="85" r="14" fill="#ffd166"/><text x="110" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">the bonfire</text></svg>',
+    },
+  ],
+  notionsCles: [
+    "Les quatre nations du Royaume-Uni et leurs symboles : England (the rose), Scotland (the thistle), Wales (the daffodil), Northern Ireland (the shamrock)",
+    "Saint Patrick's Day (17 mars) : la couleur verte, le trèfle 'the shamrock' et le personnage du 'leprechaun'",
+    "Bonfire Night / Guy Fawkes Night (5 novembre) : le complot manqué de 1605, le mannequin 'the guy', 'the bonfire' et 'fireworks'",
+    "Vocabulaire de civilisation : shamrock, leprechaun, pot of gold, bonfire, fireworks",
+  ],
+  prerequisCE2: "Tu sais déjà que le Royaume-Uni est composé de plusieurs nations : England, Scotland, Wales et Northern Ireland.",
+  prolongement: "Cherche des photos de Saint Patrick's Day (des vêtements verts, des trèfles) et de Bonfire Night (des feux d'artifice) sur Internet avec un adulte, et compare-les aux fêtes que tu connais en France.",
+  echauffement: [
+    { question: "Quelle est la date de Saint Patrick's Day ?", reponse: "the 17th of March", explication: "Saint Patrick's Day a lieu chaque année le 17 mars." },
+    { question: "Comment appelle-t-on le trèfle à trois feuilles, symbole de Saint Patrick's Day ?", reponse: "the shamrock", explication: "'Shamrock' est le nom anglais du trèfle irlandais." },
+    { question: "Comment appelle-t-on le grand feu allumé le 5 novembre au Royaume-Uni ?", reponse: "a bonfire", explication: "'Bonfire' veut dire 'feu de joie' en anglais, d'où le nom 'Bonfire Night'." },
+  ],
+  exercices: [
+    { niveau: "decouverte", type: "saisie", enonce: "Comment appelle-t-on en anglais le trèfle porte-bonheur de Saint Patrick's Day ?", reponsesAcceptees: ["shamrock", "the shamrock"], indices: ["Ce mot ne ressemble pas du tout au mot français 'trèfle'.", "C'est aussi le symbole de Northern Ireland."], explication: "'The shamrock' est le trèfle à trois feuilles, symbole de Saint Patrick's Day." },
+    { niveau: "decouverte", type: "association", enonce: "Relie chaque nation du Royaume-Uni à son symbole.", paires: [ { gauche: "England", droite: "the rose" }, { gauche: "Scotland", droite: "the thistle" }, { gauche: "Wales", droite: "the daffodil" }, { gauche: "Northern Ireland", droite: "the shamrock" } ], indices: ["Le symbole de Northern Ireland est aussi lié à Saint Patrick's Day.", "'The thistle' est une fleur épineuse, symbole de l'Écosse."], explication: "England → the rose, Scotland → the thistle, Wales → the daffodil, Northern Ireland → the shamrock." },
+    { niveau: "application", type: "saisie", enonce: "Quelle est la date de Bonfire Night (Guy Fawkes Night) ?", reponsesAcceptees: ["the 5th of november", "5th of november", "november 5th", "the fifth of november"], indices: ["C'est en automne, au mois de novembre.", "Le chiffre correspondant est 5."], explication: "Bonfire Night a lieu chaque année le 5 novembre (the 5th of November)." },
+    { niveau: "application", type: "zone", enonce: "Que brûle-t-on traditionnellement lors de Bonfire Night ?", zones: ["an effigy called 'the guy'", "a Christmas tree", "a scarecrow made of flowers", "an old rainbow flag"], zoneCorrecte: "an effigy called 'the guy'", indices: ["Ce mannequin de paille représente Guy Fawkes.", "Ce n'est pas un sapin, ni un épouvantail à moineaux !"], explication: "On brûle un mannequin de paille appelé 'the guy', qui représente Guy Fawkes." },
+    { niveau: "application", type: "ordre", enonce: "Remets ces mots dans l'ordre pour dire 'Les gens allument des feux d'artifice pendant Bonfire Night.'", elements: ["People", "light", "fireworks", "during", "Bonfire", "Night"], indices: ["'People' (les gens) est toujours le sujet, donc le premier mot.", "'Fireworks' vient juste après le verbe 'light' (allumer)."], explication: "La phrase correcte est : 'People light fireworks during Bonfire Night.'" },
+    { niveau: "defi", type: "saisie", enonce: "Défi : quel événement historique Bonfire Night commémore-t-elle ?", reponsesAcceptees: ["a failed plot to blow up the king in 1605", "the gunpowder plot of 1605", "a plot against the king in 1605"], indices: ["C'était un complot contre le roi, en 1605.", "Le complot voulait faire exploser le Parlement, mais il a échoué."], explication: "Bonfire Night commémore un complot manqué contre le roi en 1605, mené entre autres par Guy Fawkes." },
+    { niveau: "defi", type: "zone", enonce: "Défi : qui est le petit personnage légendaire irlandais associé à un pot d'or ?", zones: ["the leprechaun", "the shamrock", "the dragon", "the unicorn"], zoneCorrecte: "the leprechaun", indices: ["Ce personnage est un lutin malicieux, pas une plante.", "Le dragon est plutôt associé au drapeau de Wales."], explication: "'The leprechaun' est le lutin légendaire irlandais que l'on associe à un pot d'or caché." },
+  ],
+},
+  {
+    id: "geographie-05",
+    matiere: "geographie",
+    theme: "Habiter un espace touristique et la montagne",
+    titre: "Les espaces touristiques et la vie en montagne",
+    pages: [
+      {
+        titre: "Les différents visages du tourisme",
+        contenu: [
+          "Chaque année, des millions de touristes partent en vacances dans des lieux spécialement aménagés pour les accueillir : on appelle cela des espaces touristiques. On en trouve le long des côtes, en montagne, à la campagne ou encore dans les grandes villes chargées d'histoire.",
+          "Ces espaces touristiques ne se ressemblent pas tous. Une station balnéaire est construite en bord de mer, avec des plages et des activités nautiques (baignade, voile, planche à voile). Le tourisme vert propose plutôt de la nature et du calme, avec des randonnées ou des visites de fermes, souvent à la campagne. Une station de ski est aménagée en montagne pour la saison d'hiver. Enfin, un lieu culturel attire les visiteurs grâce à des monuments, des musées ou des châteaux à découvrir.",
+          "Pour dormir sur place, les touristes choisissent parmi plusieurs types d'hébergements : l'hôtel, où l'on loue une chambre à la nuitée avec des services (ménage, petit-déjeuner) ; le camping, où l'on dort en plein air dans une tente, une caravane ou un mobil-home ; les logements temporaires, comme les résidences de tourisme, qui restent fermées une partie de l'année et n'ouvrent que pendant la saison touristique ; et d'autres formes d'hébergement, comme la chambre d'hôtes chez l'habitant ou la location saisonnière meublée.",
+        ],
+        diagramme:
+          '<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="15" width="65" height="80" rx="8" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="42" y="50" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Hôtel</text><text x="42" y="65" text-anchor="middle" font-size="9">Chambre à</text><text x="42" y="76" text-anchor="middle" font-size="9">la nuitée</text><rect x="90" y="15" width="65" height="80" rx="8" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="122" y="50" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Camping</text><text x="122" y="65" text-anchor="middle" font-size="9">Tente,</text><text x="122" y="76" text-anchor="middle" font-size="9">caravane...</text><rect x="170" y="15" width="70" height="80" rx="8" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><text x="205" y="45" text-anchor="middle" font-size="10" font-weight="bold" fill="#2d2a4a">Résidence de</text><text x="205" y="58" text-anchor="middle" font-size="10" font-weight="bold" fill="#2d2a4a">tourisme</text><text x="205" y="75" text-anchor="middle" font-size="9">Fermée hors</text><text x="205" y="86" text-anchor="middle" font-size="9">saison</text><rect x="250" y="15" width="65" height="80" rx="8" fill="#fff8e7" stroke="#ff8fab" stroke-width="3"/><text x="282" y="45" text-anchor="middle" font-size="10" font-weight="bold" fill="#2d2a4a">Chambre</text><text x="282" y="58" text-anchor="middle" font-size="10" font-weight="bold" fill="#2d2a4a">d\'hôtes</text><text x="282" y="75" text-anchor="middle" font-size="9">Chez</text><text x="282" y="86" text-anchor="middle" font-size="9">l\'habitant</text><text x="160" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Les hébergements touristiques</text></svg>',
+      },
+      {
+        titre: "Vivre en montagne : les massifs de France",
+        contenu: [
+          "La France compte plusieurs grands massifs montagneux, c'est-à-dire de vastes zones de terrain élevé et accidenté. Les Alpes, à l'est et au sud-est, sont les plus hautes et abritent le Mont Blanc, le sommet le plus élevé d'Europe de l'Ouest. Les Pyrénées se dressent à la frontière avec l'Espagne, au sud. Le Massif Central occupe le cœur du pays et s'est formé à partir d'anciens volcans. Le Jura longe la frontière suisse, à l'est, et les Vosges se trouvent plus au nord-est, près de l'Alsace.",
+          "En montagne, les activités changent complètement selon la saison. L'hiver, la neige recouvre les sommets : on peut skier, faire de la luge ou des raquettes dans les stations de ski aménagées pour l'occasion. L'été, la neige a fondu, les prairies sont vertes : les touristes viennent plutôt pour la randonnée, le VTT, l'escalade ou l'observation des animaux comme les marmottes et les chamois. Certaines stations vivent ainsi « deux saisons touristiques » par an, une l'hiver et une l'été.",
+        ],
+        diagramme:
+          '<svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="15" width="220" height="215" rx="20" fill="#fff8e7" stroke="#2d2a4a" stroke-width="2"/><text x="130" y="245" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">La France (schéma)</text><rect x="170" y="30" width="55" height="30" rx="6" fill="#6fa8dc"/><text x="197" y="49" text-anchor="middle" font-size="9" fill="#2d2a4a">Vosges</text><rect x="175" y="70" width="50" height="30" rx="6" fill="#6fcf97"/><text x="200" y="89" text-anchor="middle" font-size="9" fill="#2d2a4a">Jura</text><rect x="150" y="110" width="75" height="85" rx="6" fill="#e0574c"/><text x="187" y="135" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff8e7">Alpes</text><circle cx="187" cy="160" r="8" fill="#fff8e7"/><text x="187" y="182" text-anchor="middle" font-size="8" fill="#fff8e7">Mont Blanc</text><rect x="65" y="110" width="70" height="65" rx="6" fill="#e0a93a"/><text x="100" y="147" text-anchor="middle" font-size="9" fill="#2d2a4a">Massif</text><text x="100" y="159" text-anchor="middle" font-size="9" fill="#2d2a4a">Central</text><rect x="40" y="185" width="95" height="32" rx="6" fill="#ff8fab"/><text x="87" y="205" text-anchor="middle" font-size="9" fill="#2d2a4a">Pyrénées</text></svg>',
+      },
+      {
+        titre: "Les métiers de la montagne",
+        contenu: [
+          "La montagne fait vivre des métiers très différents, parfois hérités d'anciennes traditions, parfois nés avec le développement du tourisme moderne. Le berger est un métier traditionnel : il garde un troupeau de moutons ou de vaches et le conduit en alpage (les pâturages de haute altitude) pendant l'été, une pratique ancienne appelée la transhumance. Le guide de montagne, lui aussi issu d'une longue tradition, accompagne les randonneurs et les alpinistes en montagne en toute sécurité, car il connaît parfaitement les sentiers et les risques (avalanches, chutes de pierres, mauvais temps).",
+          "D'autres métiers sont plus récents et liés directement au tourisme : le moniteur de ski enseigne le ski aux touristes pendant la saison d'hiver, tandis que de nombreux employés de station travaillent dans les remontées mécaniques, l'hébergement, la restauration ou la location de matériel de ski. La montagne vit ainsi véritablement au rythme des saisons, entre traditions anciennes et tourisme d'aujourd'hui.",
+        ],
+      },
+    ],
+    notionsCles: [
+      "Les espaces touristiques : station balnéaire, tourisme vert, station de ski, lieu culturel",
+      "Les hébergements touristiques : hôtel, camping, résidence de tourisme (logement temporaire), chambre d'hôtes",
+      "Les grands massifs montagneux français : Alpes, Pyrénées, Massif Central, Jura, Vosges",
+      "En montagne, les activités et les touristes changent selon la saison (ski l'hiver, randonnée l'été)",
+      "Métiers de montagne traditionnels (berger, guide de montagne) et modernes (moniteur de ski, employé de station)",
+    ],
+    prerequisCE2:
+      "Tu sais déjà que la France a des côtes en bord de mer et des montagnes, et que les gens partent parfois en vacances loin de chez eux.",
+    prolongement:
+      "Si tu es déjà parti en vacances au bord de la mer ou à la montagne, essaie de te rappeler dans quel type d'hébergement tu as dormi et quel genre d'espace touristique tu as visité. Sinon, demande à ta famille dans quel massif montagneux ou quelle station elle aimerait t'emmener, et pourquoi.",
+    echauffement: [
+      {
+        question: "Cite un exemple de lieu touristique situé en bord de mer.",
+        reponse: "Une station balnéaire",
+        explication: "Une station balnéaire est un espace touristique construit en bord de mer, avec des plages et des activités nautiques.",
+      },
+      {
+        question: "Dans quel type d'hébergement dort-on sous une tente ou dans une caravane ?",
+        reponse: "Dans un camping",
+        explication: "Le camping permet de dormir en plein air dans une tente, une caravane ou un mobil-home.",
+      },
+      {
+        question: "Cite un grand massif montagneux français.",
+        reponse: "Les Alpes, les Pyrénées, le Massif Central, le Jura ou les Vosges",
+        explication: "Ce sont les 5 grands massifs montagneux de France.",
+      },
+    ],
+    exercices: [
+      {
+        niveau: "decouverte",
+        type: "saisie",
+        enonce: "Comment appelle-t-on un lieu aménagé pour accueillir les touristes, comme le bord de mer ou la montagne ?",
+        reponsesAcceptees: ["un espace touristique", "espace touristique", "les espaces touristiques"],
+        indices: ["Ce lieu est spécialement organisé pour accueillir les vacanciers.", "On en trouve sur les côtes, en montagne, à la campagne ou en ville."],
+        explication: "Un espace touristique est un lieu aménagé pour accueillir les touristes : littoral, montagne, campagne ou ville historique.",
+      },
+      {
+        niveau: "decouverte",
+        type: "association",
+        enonce: "Associe chaque type d'espace touristique à sa description.",
+        paires: [
+          { gauche: "Station balnéaire", droite: "Bord de mer avec plages et activités nautiques" },
+          { gauche: "Tourisme vert", droite: "Nature et calme, souvent à la campagne" },
+          { gauche: "Station de ski", droite: "Montagne aménagée pour skier l'hiver" },
+          { gauche: "Lieu culturel", droite: "Monuments, musées ou châteaux à visiter" },
+        ],
+        indices: ["Le tourisme vert privilégie la nature plutôt que la mer ou la neige.", "Une station de ski n'est utile que pendant la saison où il y a de la neige."],
+        explication: "Station balnéaire = bord de mer, tourisme vert = nature et calme, station de ski = montagne l'hiver, lieu culturel = monuments et musées.",
+      },
+      {
+        niveau: "application",
+        type: "saisie",
+        enonce: "Quel type d'hébergement reste fermé une partie de l'année et n'ouvre que pendant la saison touristique ?",
+        reponsesAcceptees: ["une residence de tourisme", "residence de tourisme", "une résidence de tourisme", "résidence de tourisme", "un logement temporaire"],
+        indices: ["Ce n'est ni un hôtel, ni un camping.", "On l'appelle aussi un logement temporaire."],
+        explication: "Une résidence de tourisme est un logement temporaire, fermé une partie de l'année et ouvert seulement pendant la saison touristique.",
+      },
+      {
+        niveau: "application",
+        type: "zone",
+        enonce: "Clique sur l'hébergement où l'on dort en plein air dans une tente, une caravane ou un mobil-home.",
+        zones: ["Le camping", "L'hôtel", "La résidence de tourisme", "La chambre d'hôtes"],
+        zoneCorrecte: "Le camping",
+        indices: ["On y dort à l'extérieur, pas dans un bâtiment.", "Les autres hébergements se trouvent tous dans un bâtiment en dur."],
+        explication: "Le camping permet de dormir en plein air dans une tente, une caravane ou un mobil-home.",
+      },
+      {
+        niveau: "application",
+        type: "ordre",
+        enonce: "Range ces phrases dans l'ordre d'une année dans une station de montagne, de l'hiver à l'été.",
+        elements: [
+          "L'hiver, la neige recouvre les sommets et les touristes viennent skier.",
+          "Au printemps, la neige fond peu à peu sur les pentes.",
+          "L'été, les prairies verdissent et les touristes viennent randonner.",
+        ],
+        indices: ["La saison du ski est la première de l'année.", "Les randonnées se font quand il n'y a plus de neige, en été."],
+        explication: "Une année de montagne suit ce cycle : la neige de l'hiver pour le ski, puis la fonte au printemps, puis les prairies vertes de l'été pour la randonnée.",
+      },
+      {
+        niveau: "defi",
+        type: "saisie",
+        enonce: "Défi : quel est le plus haut massif montagneux de France, où se trouve le Mont Blanc ?",
+        reponsesAcceptees: ["les alpes", "alpes", "les Alpes"],
+        indices: ["Ce massif se situe à l'est et au sud-est de la France.", "Le Mont Blanc est le sommet le plus élevé d'Europe de l'Ouest."],
+        explication: "Les Alpes sont le plus haut massif montagneux de France ; le Mont Blanc s'y trouve.",
+      },
+      {
+        niveau: "defi",
+        type: "zone",
+        enonce: "Défi : quel métier de montagne garde un troupeau et le conduit en alpage l'été (transhumance) ?",
+        zones: ["Le berger", "Le moniteur de ski", "Le guide de montagne", "L'employé de station"],
+        zoneCorrecte: "Le berger",
+        indices: ["C'est un métier traditionnel, ancien.", "Il s'occupe de moutons ou de vaches, pas de touristes qui skient."],
+        explication: "Le berger garde un troupeau et le conduit en alpage l'été : c'est la transhumance, un métier traditionnel de montagne.",
+      },
+    ],
+  },
+  {
+    id: "geographie-06",
+    matiere: "geographie",
+    theme: "Habiter en ville et à la campagne",
+    titre: "Ville et campagne : deux façons d'habiter en France",
+    pages: [
+      {
+        titre: "Habiter en ville",
+        contenu: [
+          "En ville, la densité de population est très élevée : cela signifie que beaucoup d'habitants vivent sur une petite surface de terrain. Pour loger tout le monde, on construit en hauteur : des immeubles, parfois regroupés en grands ensembles (plusieurs immeubles construits ensemble), permettent d'accueillir un grand nombre de familles sur peu de place.",
+          "Pour se déplacer sans utiliser sa voiture, les habitants des villes profitent de transports en commun : métro, bus, tramway. Ces transports sont très utiles car il y a souvent des embouteillages et peu de places pour se garer en ville.",
+          "Vivre en ville présente des avantages : les commerces, les écoles, les médecins et les loisirs (cinémas, piscines) sont souvent tout proches. Mais cela a aussi des inconvénients : le bruit, la pollution de l'air, des logements plus chers (des loyers élevés) et parfois un espace de vie plus réduit qu'une maison.",
+        ],
+        diagramme:
+          '<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="300" height="150" rx="8" fill="#fff8e7" stroke="#ffd166" stroke-width="2"/><text x="160" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Ville : forte densité</text><rect x="25" y="45" width="30" height="75" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="1"/><rect x="60" y="40" width="30" height="80" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="1"/><rect x="95" y="50" width="30" height="70" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="1"/><rect x="130" y="35" width="30" height="85" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="1"/><rect x="165" y="45" width="30" height="75" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="1"/><text x="110" y="135" text-anchor="middle" font-size="9">Immeubles serrés</text><line x1="20" y1="150" x2="300" y2="150" stroke="#2d2a4a" stroke-width="2"/><rect x="220" y="130" width="55" height="18" rx="4" fill="#e0574c"/><text x="247" y="143" text-anchor="middle" font-size="8" fill="#fff8e7">Tramway</text></svg>',
+      },
+      {
+        titre: "Habiter à la campagne",
+        contenu: [
+          "À la campagne, la densité de population est au contraire très faible : peu d'habitants vivent sur de grandes étendues de terrain. Les habitations sont le plus souvent des maisons individuelles, avec un jardin, parfois assez éloignées les unes des autres.",
+          "Comme les commerces, les écoles et les médecins sont souvent plus éloignés qu'en ville, et que les transports en commun y sont plus rares, la plupart des habitants de la campagne ont besoin d'une voiture pour la majorité de leurs déplacements du quotidien : aller travailler, faire les courses ou emmener les enfants à l'école.",
+          "Vivre à la campagne a aussi ses avantages et ses inconvénients : d'un côté le calme, l'air pur, la nature toute proche et l'espace pour un jardin ; de l'autre, moins de services à proximité immédiate, des transports en commun rares, et des trajets souvent plus longs, par exemple pour aller à l'école ou chez le médecin.",
+        ],
+        diagramme:
+          '<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="300" height="150" rx="8" fill="#fff8e7" stroke="#6fcf97" stroke-width="2"/><text x="160" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Campagne : faible densité</text><rect x="30" y="60" width="55" height="45" fill="#e0a93a" stroke="#2d2a4a" stroke-width="1"/><text x="57" y="120" text-anchor="middle" font-size="9">Maison + jardin</text><circle cx="100" cy="72" r="14" fill="#6fcf97"/><rect x="215" y="55" width="55" height="45" fill="#e0a93a" stroke="#2d2a4a" stroke-width="1"/><text x="242" y="115" text-anchor="middle" font-size="9">Maison + jardin</text><circle cx="200" cy="68" r="14" fill="#6fcf97"/><line x1="20" y1="140" x2="300" y2="140" stroke="#2d2a4a" stroke-width="3"/><text x="160" y="153" text-anchor="middle" font-size="9">Route (voiture souvent indispensable)</text></svg>',
+      },
+      {
+        titre: "Ville et campagne : comparer deux façons d'habiter",
+        contenu: [
+          "Ce qui différencie fondamentalement la ville et la campagne, c'est la densité de population, c'est-à-dire le nombre d'habitants qui vivent sur une même surface (par exemple au kilomètre carré). En ville, cette densité est très élevée ; à la campagne, elle est beaucoup plus faible.",
+          "Cette différence de densité explique presque toutes les autres différences que l'on observe : le type d'habitat (immeuble en ville, maison individuelle à la campagne), l'accès aux services (proches en ville, plus éloignés à la campagne) et les moyens de transport utilisés (transports en commun en ville, voiture souvent indispensable à la campagne).",
+          "Il n'existe pas de « meilleure » façon d'habiter : chacune a ses avantages et ses inconvénients, et beaucoup de familles choisissent leur lieu de vie selon ce qu'elles préfèrent entre proximité des services et calme, entre immeuble et jardin.",
+        ],
+        diagramme:
+          '<svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="140" height="140" rx="10" fill="#fff8e7" stroke="#e0574c" stroke-width="3"/><text x="80" y="28" text-anchor="middle" font-size="11" font-weight="bold" fill="#e0574c">Ville</text><circle cx="25" cy="45" r="4" fill="#e0574c"/><circle cx="45" cy="45" r="4" fill="#e0574c"/><circle cx="65" cy="45" r="4" fill="#e0574c"/><circle cx="85" cy="45" r="4" fill="#e0574c"/><circle cx="105" cy="45" r="4" fill="#e0574c"/><circle cx="25" cy="65" r="4" fill="#e0574c"/><circle cx="45" cy="65" r="4" fill="#e0574c"/><circle cx="65" cy="65" r="4" fill="#e0574c"/><circle cx="85" cy="65" r="4" fill="#e0574c"/><circle cx="105" cy="65" r="4" fill="#e0574c"/><circle cx="25" cy="85" r="4" fill="#e0574c"/><circle cx="45" cy="85" r="4" fill="#e0574c"/><circle cx="65" cy="85" r="4" fill="#e0574c"/><circle cx="85" cy="85" r="4" fill="#e0574c"/><circle cx="105" cy="85" r="4" fill="#e0574c"/><circle cx="25" cy="105" r="4" fill="#e0574c"/><circle cx="45" cy="105" r="4" fill="#e0574c"/><circle cx="65" cy="105" r="4" fill="#e0574c"/><circle cx="85" cy="105" r="4" fill="#e0574c"/><circle cx="105" cy="105" r="4" fill="#e0574c"/><text x="80" y="140" text-anchor="middle" font-size="8" fill="#e0574c">Beaucoup d\'habitants au km²</text><rect x="170" y="10" width="140" height="140" rx="10" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="240" y="28" text-anchor="middle" font-size="11" font-weight="bold" fill="#6fcf97">Campagne</text><circle cx="200" cy="50" r="4" fill="#6fcf97"/><circle cx="260" cy="60" r="4" fill="#6fcf97"/><circle cx="220" cy="100" r="4" fill="#6fcf97"/><circle cx="280" cy="120" r="4" fill="#6fcf97"/><circle cx="195" cy="130" r="4" fill="#6fcf97"/><text x="240" y="140" text-anchor="middle" font-size="8" fill="#6fcf97">Peu d\'habitants au km²</text></svg>',
+      },
+    ],
+    notionsCles: [
+      "La densité de population : nombre d'habitants vivant sur une même surface",
+      "La ville : forte densité, immeubles, transports en commun, avantages et inconvénients",
+      "La campagne : faible densité, maisons individuelles, dépendance à la voiture, avantages et inconvénients",
+      "La densité de population explique les différences d'habitat, d'accès aux services et de transports entre ville et campagne",
+    ],
+    prerequisCE2:
+      "Tu sais déjà qu'il existe de grandes villes et des villages à la campagne en France, et que la vie ne s'y organise pas de la même façon.",
+    prolongement:
+      "Observe l'endroit où tu habites : est-ce plutôt une ville ou la campagne ? Note 3 avantages et 3 inconvénients de vivre à cet endroit, puis compare avec un autre endroit que tu connais.",
+    echauffement: [
+      {
+        question: "En ville, la densité de population est-elle forte ou faible ?",
+        reponse: "Forte",
+        explication: "En ville, beaucoup d'habitants vivent sur une petite surface : la densité de population y est forte.",
+      },
+      {
+        question: "Quel type d'habitat trouve-t-on le plus souvent à la campagne ?",
+        reponse: "Une maison individuelle, souvent avec un jardin",
+        explication: "À la campagne, les habitants vivent le plus souvent dans des maisons individuelles avec un jardin.",
+      },
+      {
+        question: "Pourquoi a-t-on souvent besoin d'une voiture à la campagne ?",
+        reponse: "Parce que les services et les transports en commun sont plus éloignés",
+        explication: "Les commerces, écoles et médecins étant plus éloignés, et les transports en commun plus rares, la voiture devient souvent indispensable.",
+      },
+    ],
+    exercices: [
+      {
+        niveau: "decouverte",
+        type: "saisie",
+        enonce: "Comment appelle-t-on le nombre d'habitants qui vivent sur une même surface, par exemple au kilomètre carré ?",
+        reponsesAcceptees: ["la densite de population", "densite de population", "la densité de population", "densité de population"],
+        indices: ["Ce mot commence comme l'adjectif 'dense'.", "En ville, ce nombre est très élevé ; à la campagne, il est faible."],
+        explication: "La densité de population est le nombre d'habitants qui vivent sur une même surface, par exemple au kilomètre carré.",
+      },
+      {
+        niveau: "decouverte",
+        type: "association",
+        enonce: "Associe chaque lieu ou type d'habitat à ce qui le caractérise.",
+        paires: [
+          { gauche: "Ville", droite: "Forte densité de population" },
+          { gauche: "Campagne", droite: "Faible densité de population" },
+          { gauche: "Immeuble", droite: "Habitat typique de la ville" },
+          { gauche: "Maison individuelle", droite: "Habitat typique de la campagne" },
+        ],
+        indices: ["La ville concentre beaucoup d'habitants sur peu de place.", "L'immeuble permet de loger plusieurs familles sur un même terrain."],
+        explication: "La ville a une forte densité et des immeubles ; la campagne a une faible densité et des maisons individuelles.",
+      },
+      {
+        niveau: "application",
+        type: "saisie",
+        enonce: "Pourquoi la plupart des habitants de la campagne ont-ils besoin d'une voiture au quotidien ?",
+        reponsesAcceptees: [
+          "car les commerces, ecoles et transports en commun sont plus eloignes",
+          "parce que les services sont plus eloignes et il y a moins de transports en commun",
+          "car les services et transports en commun sont plus loin",
+          "parce que les commerces, écoles et transports en commun sont plus éloignés",
+        ],
+        indices: ["Pense à la distance des commerces, écoles et médecins.", "Pense aussi à la fréquence des transports en commun à la campagne."],
+        explication: "À la campagne, les services (commerces, écoles, médecins) sont souvent plus éloignés et les transports en commun plus rares, ce qui rend la voiture souvent indispensable.",
+      },
+      {
+        niveau: "application",
+        type: "zone",
+        enonce: "Clique sur l'avantage propre à la ville (et non à la campagne).",
+        zones: ["La proximité des commerces et services", "Le calme et l'espace", "Le grand jardin", "L'air très pur"],
+        zoneCorrecte: "La proximité des commerces et services",
+        indices: ["Les autres propositions sont plutôt des avantages de la campagne.", "En ville, tout est souvent tout proche."],
+        explication: "La proximité des commerces, écoles et loisirs est un avantage propre à la ville ; le calme, l'espace, le jardin et l'air pur sont plutôt des avantages de la campagne.",
+      },
+      {
+        niveau: "application",
+        type: "ordre",
+        enonce: "Range ces étapes de raisonnement dans l'ordre, pour comprendre pourquoi la densité de population explique d'autres différences.",
+        elements: [
+          "On observe d'abord la densité de population du lieu (forte ou faible).",
+          "On en déduit le type d'habitat (immeuble ou maison individuelle).",
+          "On en déduit aussi l'accès aux services et aux transports.",
+        ],
+        indices: ["Tout part de l'observation de la densité de population.", "Le type d'habitat et l'accès aux services sont des conséquences de cette densité."],
+        explication: "La densité de population est la cause principale : elle explique ensuite le type d'habitat, puis l'accès aux services et aux transports.",
+      },
+      {
+        niveau: "defi",
+        type: "saisie",
+        enonce: "Défi : quel est un inconvénient du logement en ville, lié à son prix ?",
+        reponsesAcceptees: ["le prix eleve des logements", "prix eleve du logement", "le prix élevé des logements", "prix élevé du logement", "les loyers chers", "des loyers eleves"],
+        indices: ["Pense à ce que coûte un logement chaque mois.", "C'est l'inverse d'un logement bon marché."],
+        explication: "En ville, les logements coûtent souvent plus cher qu'à la campagne : c'est un des inconvénients de la vie urbaine.",
+      },
+      {
+        niveau: "defi",
+        type: "zone",
+        enonce: "Défi : quel moyen de transport permet de se déplacer en ville sans voiture ?",
+        zones: ["Les transports en commun (métro, bus, tramway)", "La voiture individuelle uniquement", "Le cheval", "Aucun moyen de transport"],
+        zoneCorrecte: "Les transports en commun (métro, bus, tramway)",
+        indices: ["Ce sont des transports partagés par de nombreux habitants.", "On les trouve surtout en ville, moins à la campagne."],
+        explication: "Les transports en commun (métro, bus, tramway) permettent aux habitants des villes de se déplacer sans utiliser leur voiture.",
+      },
+    ],
+  },
+  {
+  id: "sciences-03",
+  matiere: "sciences",
+  theme: "Le corps humain",
+  titre: "La digestion : le trajet des aliments dans le corps",
+  pages: [
+    {
+      titre: "La bouche : la première étape du trajet",
+      contenu: [
+        "Quand tu manges, tout commence dans la bouche. Tes dents mastiquent les aliments : elles les coupent et les broient en tout petits morceaux, ce qui facilite toute la suite du trajet.",
+        "En même temps, ta salive imprègne les aliments et commence déjà à les transformer un peu, avant même qu'ils n'arrivent dans le reste du corps.",
+        "Une fois bien mâché, le morceau d'aliment forme une boule qu'on appelle le bol alimentaire, et qu'on avale : c'est la déglutition. Il s'engage alors dans l'œsophage, un tube qui relie la bouche à l'estomac.",
+      ],
+    },
+    {
+      titre: "De l'estomac à l'intestin grêle",
+      contenu: [
+        "L'œsophage pousse le bol alimentaire vers le bas jusqu'à l'estomac, une poche musclée. Là, les aliments sont brassés comme dans un malaxeur, et mélangés à des sucs digestifs : des liquides spéciaux qui les transforment chimiquement en une bouillie.",
+        "Cette bouillie passe ensuite dans l'intestin grêle, un tube très long (environ 6 à 7 mètres, replié sur lui-même dans ton ventre !). C'est là que les nutriments, les éléments utiles contenus dans les aliments, traversent la paroi de l'intestin et passent dans le sang, qui les distribue à tout le corps.",
+        "Ce qui n'a pas été absorbé continue son chemin vers le gros intestin, la dernière étape avant les déchets. Regarde le schéma ci-dessous pour revoir le trajet complet, dans l'ordre.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 260 560" xmlns="http://www.w3.org/2000/svg"><text x="130" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d2a4a">Le trajet des aliments</text><circle cx="130" cy="65" r="30" fill="#ffd166" stroke="#e0a93a" stroke-width="3"/><text x="130" y="70" text-anchor="middle" font-size="12" fill="#2d2a4a">Bouche</text><line x1="130" y1="95" x2="130" y2="125" stroke="#2d2a4a" stroke-width="3"/><rect x="105" y="125" width="50" height="70" rx="10" fill="#fff8e7" stroke="#e0a93a" stroke-width="3"/><text x="130" y="165" text-anchor="middle" font-size="11" fill="#2d2a4a">Œsophage</text><line x1="130" y1="195" x2="130" y2="225" stroke="#2d2a4a" stroke-width="3"/><circle cx="130" cy="265" r="42" fill="#ff8fab" stroke="#e0574c" stroke-width="3"/><text x="130" y="270" text-anchor="middle" font-size="12" fill="#2d2a4a">Estomac</text><line x1="130" y1="307" x2="130" y2="337" stroke="#2d2a4a" stroke-width="3"/><rect x="55" y="337" width="150" height="70" rx="10" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="3"/><text x="130" y="365" text-anchor="middle" font-size="11" fill="#2d2a4a">Intestin</text><text x="130" y="381" text-anchor="middle" font-size="11" fill="#2d2a4a">grêle</text><line x1="130" y1="407" x2="130" y2="437" stroke="#2d2a4a" stroke-width="3"/><rect x="55" y="437" width="150" height="60" rx="10" fill="#6fcf97" stroke="#2d2a4a" stroke-width="3"/><text x="130" y="472" text-anchor="middle" font-size="11" fill="#2d2a4a">Gros intestin</text><line x1="130" y1="497" x2="130" y2="527" stroke="#2d2a4a" stroke-width="3"/><text x="130" y="547" text-anchor="middle" font-size="11" fill="#2d2a4a">Déchets évacués</text></svg>',
+    },
+    {
+      titre: "Trois grandes transformations",
+      contenu: [
+        "Dans le gros intestin, l'eau restante est récupérée et renvoyée vers le sang. Ce qui reste forme les déchets, qui sont évacués hors du corps.",
+        "Au total, la digestion, c'est trois grandes transformations qui se succèdent : une transformation mécanique dans la bouche (la mastication, qui coupe et broie), puis avaler (la déglutition), puis une transformation chimique dans l'estomac et l'intestin grêle (les sucs digestifs qui rendent les aliments assimilables).",
+        "Le trajet complet dure plusieurs heures, parfois plus d'une journée entière ! Pourtant, tu ne sens presque rien de tout ce travail : ton corps s'en occupe tout seul, sans que tu aies besoin d'y penser.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Le trajet des aliments : bouche → œsophage → estomac → intestin grêle → gros intestin",
+    "La bouche : mastication (mécanique) et début de transformation par la salive",
+    "L'estomac : brassage et transformation chimique par les sucs digestifs",
+    "L'intestin grêle : absorption des nutriments vers le sang",
+    "Le gros intestin : récupération de l'eau et formation des déchets",
+  ],
+  prerequisCE2: "Tu sais déjà que les aliments donnent de l'énergie au corps.",
+  prolongement: "Cherche combien de temps met un repas pour traverser tout le tube digestif, de la bouche à la sortie !",
+  echauffement: [
+    { question: "Quel organe mastique les aliments grâce aux dents ?", reponse: "La bouche", explication: "C'est dans la bouche que la mastication commence, avec les dents et la salive." },
+    { question: "Comment s'appelle le tube qui relie la bouche à l'estomac ?", reponse: "L'œsophage", explication: "L'œsophage transporte le bol alimentaire avalé jusqu'à l'estomac." },
+    { question: "Dans quel organe les nutriments passent-ils dans le sang ?", reponse: "L'intestin grêle", explication: "L'intestin grêle est très long et absorbe les nutriments vers le sang." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Quel organe mastique les aliments grâce aux dents ?",
+      reponsesAcceptees: ["la bouche", "bouche"],
+      indices: ["C'est le tout premier organe du trajet des aliments.", "C'est là aussi que la salive commence son travail."],
+      explication: "La bouche mastique les aliments grâce aux dents, et la salive commence déjà à les transformer.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Relie chaque organe à son rôle dans la digestion.",
+      paires: [
+        { gauche: "La bouche", droite: "Mastication des aliments par les dents" },
+        { gauche: "L'œsophage", droite: "Tube qui transporte les aliments vers l'estomac" },
+        { gauche: "L'estomac", droite: "Brassage et transformation chimique des aliments" },
+        { gauche: "L'intestin grêle", droite: "Absorption des nutriments vers le sang" },
+      ],
+      indices: ["Suis l'ordre du trajet : bouche, œsophage, estomac, intestin grêle.", "Le mot « transporte » va avec le tube qui relie la bouche à l'estomac."],
+      explication: "Chaque organe a un rôle précis : la bouche mastique, l'œsophage transporte, l'estomac brasse et transforme, l'intestin grêle absorbe les nutriments.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment s'appelle la poche qui brasse les aliments et les mélange à des sucs digestifs ?",
+      reponsesAcceptees: ["l'estomac", "estomac"],
+      indices: ["C'est une poche musclée, juste après l'œsophage.", "C'est là que les aliments deviennent une bouillie."],
+      explication: "L'estomac est une poche musclée qui brasse les aliments et les transforme chimiquement grâce aux sucs digestifs.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quel organe récupère l'eau restante et forme les déchets, à la fin du trajet digestif ?",
+      reponsesAcceptees: ["le gros intestin", "gros intestin"],
+      indices: ["Ce n'est pas l'intestin grêle : c'est le dernier organe du trajet.", "Son nom ressemble à celui de l'intestin grêle, mais avec un autre adjectif."],
+      explication: "Le gros intestin récupère l'eau restante et forme les déchets qui seront évacués hors du corps.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets les organes du trajet digestif dans l'ordre du trajet des aliments, en partant de la bouche.",
+      elements: ["La bouche", "L'œsophage", "L'estomac", "L'intestin grêle", "Le gros intestin"],
+      indices: ["La bouche est toujours la première étape.", "L'intestin grêle vient avant le gros intestin."],
+      explication: "Le trajet des aliments suit toujours le même ordre : bouche, œsophage, estomac, intestin grêle, gros intestin.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : comment appelle-t-on la boule d'aliments mâchés qu'on avale ?",
+      reponsesAcceptees: ["le bol alimentaire", "bol alimentaire"],
+      indices: ["Ce n'est pas un bol pour manger la soupe : c'est le nom donné à la nourriture bien mâchée.", "On l'avale grâce à la déglutition."],
+      explication: "Le bol alimentaire est le nom donné à la boule d'aliments bien mâchés, juste avant d'être avalée.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : parmi ces organes, lequel est le plus long (environ 6 à 7 mètres, replié sur lui-même) ?",
+      zones: ["L'estomac", "L'œsophage", "L'intestin grêle", "Le gros intestin"],
+      zoneCorrecte: "L'intestin grêle",
+      indices: ["C'est là que les nutriments passent dans le sang.", "Il est replié sur lui-même pour tenir dans le ventre."],
+      explication: "L'intestin grêle mesure environ 6 à 7 mètres, replié sur lui-même dans le ventre : c'est le plus long organe du trajet digestif.",
+    },
+  ],
+},
+  {
+  id: "sciences-04",
+  matiere: "sciences",
+  theme: "Une alimentation équilibrée",
+  titre: "Bien manger : les groupes d'aliments et l'équilibre alimentaire",
+  pages: [
+    {
+      titre: "Les grands groupes d'aliments",
+      contenu: [
+        "Tous les aliments ne servent pas à la même chose dans le corps. On peut les classer en grandes familles, appelées groupes, selon leur rôle principal.",
+        "Les féculents (pain, pâtes, riz, pommes de terre) apportent de l'énergie, comme le carburant d'une voiture, pour bouger et réfléchir toute la journée. Les fruits et légumes apportent des vitamines et des fibres, utiles pour rester en bonne santé et bien se défendre contre les microbes.",
+        "Les produits laitiers (lait, yaourt, fromage) apportent du calcium, indispensable pour construire des os et des dents solides. Les aliments protéinés (viande, poisson, œufs, légumineuses) servent à construire et réparer les muscles et les organes du corps.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg"><text x="170" y="16" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">Les groupes d\'aliments et leur rôle</text><rect x="10" y="30" width="150" height="45" rx="8" fill="#ffd166" stroke="#e0a93a" stroke-width="3"/><text x="85" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Féculents</text><text x="85" y="64" text-anchor="middle" font-size="10" fill="#2d2a4a">Énergie</text><rect x="180" y="30" width="150" height="45" rx="8" fill="#6fcf97" stroke="#2d2a4a" stroke-width="3"/><text x="255" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Fruits et légumes</text><text x="255" y="64" text-anchor="middle" font-size="10" fill="#2d2a4a">Vitamines</text><rect x="10" y="85" width="150" height="45" rx="8" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="3"/><text x="85" y="103" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Produits laitiers</text><text x="85" y="119" text-anchor="middle" font-size="10" fill="#2d2a4a">Calcium (os)</text><rect x="180" y="85" width="150" height="45" rx="8" fill="#ff8fab" stroke="#e0574c" stroke-width="3"/><text x="255" y="103" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Viande, poisson, œufs</text><text x="255" y="119" text-anchor="middle" font-size="10" fill="#2d2a4a">Construction du corps</text><rect x="10" y="140" width="150" height="45" rx="8" fill="#fff8e7" stroke="#e0a93a" stroke-width="3"/><text x="85" y="158" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">Matières grasses</text><text x="85" y="174" text-anchor="middle" font-size="10" fill="#2d2a4a">Avec modération</text><rect x="180" y="140" width="150" height="45" rx="8" fill="#e0574c" stroke="#2d2a4a" stroke-width="3"/><text x="255" y="158" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff8e7">Aliments plaisir</text><text x="255" y="174" text-anchor="middle" font-size="10" fill="#fff8e7">Occasionnel</text></svg>',
+    },
+    {
+      titre: "Matières grasses, aliments plaisir et équilibre",
+      contenu: [
+        "Les matières grasses (beurre, huile...) apportent aussi de l'énergie, mais en grande quantité elles sont moins bonnes pour la santé : il faut les consommer avec modération, sans les supprimer complètement.",
+        "Les aliments sucrés et gras comme les bonbons, gâteaux ou sodas sont parfois appelés « aliments plaisir » : ils ne sont pas indispensables au corps, on peut s'en régaler de temps en temps, sans que ce soit tous les jours.",
+        "Bien manger, ce n'est pas se priver : c'est mélanger les groupes d'aliments à chaque repas, dans de justes quantités, pour que le corps reçoive tout ce dont il a besoin, sans excès.",
+      ],
+    },
+    {
+      titre: "Éviter le gaspillage alimentaire",
+      contenu: [
+        "Manger équilibré, c'est aussi respecter la nourriture : le gaspillage alimentaire, c'est jeter des aliments qu'on aurait pu manger. Cela arrive quand on se sert de trop grandes quantités, ou qu'on oublie des aliments au fond du frigo.",
+        "Pour éviter de gaspiller, on peut adapter la quantité qu'on se sert à sa faim, garder les restes pour un autre repas, et vérifier les dates de péremption avant qu'elles ne soient dépassées.",
+        "En résumé, bien manger, c'est choisir des aliments variés de chaque groupe, en quantités raisonnables, tout en évitant de gaspiller ce que la nature et le travail des agriculteurs nous offrent.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Les groupes d'aliments : féculents, fruits et légumes, produits laitiers, protéines, matières grasses, aliments plaisir",
+    "Le rôle de chaque groupe : énergie, vitamines, calcium, construction du corps",
+    "Manger équilibré, c'est varier les groupes en quantités raisonnables, à chaque repas",
+    "Le gaspillage alimentaire : jeter de la nourriture qu'on aurait pu manger, et comment l'éviter",
+  ],
+  prerequisCE2: "Tu sais déjà que les aliments apportent de l'énergie au corps.",
+  prolongement: "Observe une semaine de tes repas et repère si tu manges bien un aliment de chaque groupe chaque jour !",
+  echauffement: [
+    { question: "Quel groupe d'aliments apporte du calcium pour les os ?", reponse: "Les produits laitiers", explication: "Le lait, le yaourt et le fromage sont riches en calcium, utile pour les os et les dents." },
+    { question: "Cite un féculent.", reponse: "Le pain (ou les pâtes, le riz, les pommes de terre)", explication: "Les féculents apportent de l'énergie pour bouger et réfléchir." },
+    { question: "Vrai ou faux : il faut manger des bonbons et des gâteaux tous les jours.", reponse: "Faux", explication: "Ce sont des aliments plaisir, à consommer seulement de temps en temps." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Quel groupe d'aliments apporte de l'énergie, comme le pain, les pâtes ou le riz ?",
+      reponsesAcceptees: ["les féculents", "féculents", "les feculents", "feculents"],
+      indices: ["Ce groupe apporte de l'énergie, comme le carburant d'une voiture.", "Les pommes de terre en font aussi partie."],
+      explication: "Les féculents (pain, pâtes, riz, pommes de terre) apportent de l'énergie pour bouger et réfléchir toute la journée.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Relie chaque groupe d'aliments à son rôle principal.",
+      paires: [
+        { gauche: "Les féculents", droite: "Apportent de l'énergie" },
+        { gauche: "Les fruits et légumes", droite: "Apportent des vitamines" },
+        { gauche: "Les produits laitiers", droite: "Apportent du calcium pour les os" },
+        { gauche: "Les aliments protéinés (viande, poisson, œufs)", droite: "Construisent et réparent le corps" },
+      ],
+      indices: ["Le calcium sert à construire les os et les dents.", "Les vitamines aident à bien se défendre contre les microbes."],
+      explication: "Chaque groupe a un rôle : les féculents donnent de l'énergie, les fruits et légumes des vitamines, les produits laitiers du calcium, et les protéines construisent le corps.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment appelle-t-on les aliments sucrés ou gras qu'on peut manger de temps en temps, sans que ce soit indispensable ?",
+      reponsesAcceptees: ["les aliments plaisir", "aliments plaisir"],
+      indices: ["Ce sont des bonbons, des gâteaux, des sodas...", "Ce n'est pas un groupe qu'on doit manger tous les jours."],
+      explication: "Les aliments plaisir (bonbons, gâteaux, sodas) ne sont pas indispensables : on peut s'en régaler de temps en temps, sans excès.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment appelle-t-on le fait de jeter de la nourriture qu'on aurait pu manger ?",
+      reponsesAcceptees: ["le gaspillage alimentaire", "gaspillage alimentaire", "le gaspillage", "gaspillage"],
+      indices: ["Cela arrive quand on se sert trop, ou qu'on oublie des aliments au frigo.", "Ce mot commence par 'gasp-'."],
+      explication: "Le gaspillage alimentaire, c'est jeter des aliments qu'on aurait pu manger ; on peut l'éviter en adaptant les quantités et en gardant les restes.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Range ces groupes d'aliments du plus fréquent (à volonté, à chaque repas) au moins fréquent (occasionnellement).",
+      elements: [
+        "Fruits et légumes (à volonté, à chaque repas)",
+        "Féculents (à chaque repas)",
+        "Produits laitiers (2 à 3 fois par jour)",
+        "Aliments protéinés : viande, poisson, œufs (1 à 2 fois par jour)",
+        "Matières grasses et aliments sucrés (avec modération)",
+      ],
+      indices: ["Les fruits et légumes se mangent le plus souvent, sans limite.", "Les aliments plaisir et les matières grasses arrivent toujours en dernier."],
+      explication: "Pour bien manger, on privilégie les fruits et légumes et les féculents à chaque repas, puis les produits laitiers et les protéines plusieurs fois par jour, et on réserve les matières grasses et le sucré à une consommation modérée.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : quel groupe d'aliments faut-il consommer avec modération, sans le supprimer complètement ?",
+      reponsesAcceptees: ["les matières grasses", "matières grasses"],
+      indices: ["Le beurre et l'huile en font partie.", "Elles apportent de l'énergie, mais en excès elles sont moins bonnes pour la santé."],
+      explication: "Les matières grasses (beurre, huile...) apportent de l'énergie mais doivent être consommées avec modération.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : lequel de ces gestes aide le plus à éviter le gaspillage alimentaire ?",
+      zones: ["Se resservir toujours une très grande quantité", "Garder les restes pour un autre repas", "Ne jamais regarder les dates de péremption", "Acheter beaucoup plus que nécessaire"],
+      zoneCorrecte: "Garder les restes pour un autre repas",
+      indices: ["Pense à ce qui évite de jeter de la nourriture encore bonne.", "Les autres gestes proposés font au contraire gaspiller plus."],
+      explication: "Garder les restes pour un autre repas permet d'éviter de jeter de la nourriture encore bonne à manger : c'est un bon geste contre le gaspillage.",
+    },
+  ],
+},
+  {
+  id: "sciences-05",
+  matiere: "sciences",
+  theme: "La matière et ses états",
+  titre: "Les états de la matière et leurs changements d'état",
+  pages: [
+    {
+      titre: "Les trois états de la matière",
+      contenu: [
+        "Tout ce qui nous entoure est fait de matière, et cette matière peut se présenter sous 3 états différents : l'état solide, l'état liquide et l'état gazeux. Un glaçon, l'eau du robinet et la vapeur qui s'échappe d'une casserole sont en réalité... la même matière (l'eau), mais sous 3 états différents !",
+        "Un solide a une forme fixe : il garde sa forme tout seul, sans avoir besoin d'un récipient. Un liquide, lui, n'a pas de forme propre : il prend toujours la forme du récipient qui le contient (un verre, une bouteille, une flaque...). Un gaz n'a ni forme ni volume propre : il se répand partout autour de lui, et il est souvent invisible, comme l'air que tu respires.",
+        "Regarde le schéma ci-dessous : dans le solide, les petits éléments qui composent la matière sont serrés les uns contre les autres et rangés. Dans le liquide, ils sont encore proches mais peuvent glisser les uns sur les autres. Dans le gaz, ils sont très éloignés et se déplacent librement dans tout l'espace disponible.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 480 190" xmlns="http://www.w3.org/2000/svg"><text x="80" y="14" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">SOLIDE</text><rect x="10" y="20" width="140" height="110" rx="8" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><circle cx="40" cy="45" r="8" fill="#6fa8dc"/><circle cx="80" cy="45" r="8" fill="#6fa8dc"/><circle cx="120" cy="45" r="8" fill="#6fa8dc"/><circle cx="40" cy="75" r="8" fill="#6fa8dc"/><circle cx="80" cy="75" r="8" fill="#6fa8dc"/><circle cx="120" cy="75" r="8" fill="#6fa8dc"/><circle cx="40" cy="105" r="8" fill="#6fa8dc"/><circle cx="80" cy="105" r="8" fill="#6fa8dc"/><circle cx="120" cy="105" r="8" fill="#6fa8dc"/><text x="80" y="152" text-anchor="middle" font-size="11" fill="#2d2a4a">(ex : un glaçon)</text><text x="240" y="14" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">LIQUIDE</text><rect x="170" y="20" width="140" height="110" rx="8" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><circle cx="195" cy="48" r="8" fill="#6fa8dc"/><circle cx="228" cy="40" r="8" fill="#6fa8dc"/><circle cx="262" cy="52" r="8" fill="#6fa8dc"/><circle cx="200" cy="78" r="8" fill="#6fa8dc"/><circle cx="238" cy="82" r="8" fill="#6fa8dc"/><circle cx="278" cy="72" r="8" fill="#6fa8dc"/><circle cx="210" cy="108" r="8" fill="#6fa8dc"/><circle cx="250" cy="112" r="8" fill="#6fa8dc"/><circle cx="285" cy="100" r="8" fill="#6fa8dc"/><text x="240" y="152" text-anchor="middle" font-size="11" fill="#2d2a4a">(ex : l\'eau)</text><text x="400" y="14" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">GAZEUX</text><rect x="330" y="20" width="140" height="110" rx="8" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><circle cx="350" cy="38" r="8" fill="#6fa8dc"/><circle cx="440" cy="45" r="8" fill="#6fa8dc"/><circle cx="360" cy="100" r="8" fill="#6fa8dc"/><circle cx="450" cy="112" r="8" fill="#6fa8dc"/><circle cx="400" cy="72" r="8" fill="#6fa8dc"/><text x="400" y="152" text-anchor="middle" font-size="11" fill="#2d2a4a">(ex : la vapeur d\'eau)</text></svg>',
+    },
+    {
+      titre: "La fusion et la solidification",
+      contenu: [
+        "Quand on chauffe un solide, il peut se transformer en liquide : c'est la fusion. L'exemple le plus simple est celui du glaçon qui fond dans un verre ou en plein soleil : la glace (solide) devient de l'eau (liquide) au fur et à mesure qu'elle se réchauffe.",
+        "Le changement inverse existe aussi : quand on refroidit un liquide, il peut se transformer en solide. C'est la solidification. C'est exactement ce qui se passe quand tu mets de l'eau dans le congélateur : au bout de quelques heures, l'eau liquide s'est transformée en glaçons solides.",
+        "Fusion et solidification sont donc deux changements d'état parfaitement opposés, entre les mêmes deux états (solide et liquide) : l'un se produit quand on chauffe, l'autre quand on refroidit. Regarde le schéma ci-dessous pour bien visualiser ces deux transformations.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 380 170" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="55" width="120" height="60" rx="10" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="80" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">Glace (solide)</text><rect x="240" y="55" width="120" height="60" rx="10" fill="#fff8e7" stroke="#e0574c" stroke-width="3"/><text x="300" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">Eau (liquide)</text><line x1="142" y1="65" x2="238" y2="65" stroke="#ffd166" stroke-width="4"/><text x="190" y="52" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">FUSION (on chauffe) →</text><line x1="238" y1="105" x2="142" y2="105" stroke="#6fa8dc" stroke-width="4"/><text x="190" y="132" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">← SOLIDIFICATION (on refroidit)</text></svg>',
+    },
+    {
+      titre: "La vaporisation et la condensation : le voyage de l'eau",
+      contenu: [
+        "Quand on chauffe un liquide, il peut se transformer en gaz : c'est la vaporisation (on parle aussi d'évaporation quand ça se produit lentement, sans faire bouillir). L'eau qui bout à 100°C dans une casserole se transforme rapidement en vapeur d'eau. Mais l'eau peut aussi s'évaporer beaucoup plus doucement à température ambiante : c'est pour ça qu'une flaque d'eau ou du linge mouillé finissent par sécher, même sans être chauffés très fort.",
+        "Le changement inverse existe encore : quand on refroidit un gaz, il peut se transformer en liquide. C'est la condensation. C'est ce qui forme la buée sur une vitre froide en hiver, ou les petites gouttes d'eau sur le couvercle d'une casserole : la vapeur d'eau (gaz), au contact d'une surface froide, redevient de l'eau liquide.",
+        "En résumé, l'eau peut voyager à travers ses 3 états selon la température : glace (solide) → eau (liquide) par fusion, eau (liquide) → vapeur (gaz) par vaporisation, puis vapeur → eau par condensation, et eau → glace par solidification. C'est exactement ce cycle qui se produit dans la nature, avec les nuages et la pluie !",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 380 170" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="55" width="120" height="60" rx="10" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="80" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">Eau (liquide)</text><rect x="240" y="55" width="120" height="60" rx="10" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="300" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">Vapeur d\'eau</text><text x="300" y="100" text-anchor="middle" font-size="11" fill="#2d2a4a">(gaz)</text><line x1="142" y1="65" x2="238" y2="65" stroke="#e0574c" stroke-width="4"/><text x="190" y="52" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">VAPORISATION (on chauffe) →</text><line x1="238" y1="105" x2="142" y2="105" stroke="#6fa8dc" stroke-width="4"/><text x="190" y="132" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d2a4a">← CONDENSATION (on refroidit)</text></svg>',
+    },
+  ],
+  notionsCles: [
+    "Les 3 états de la matière : solide, liquide, gazeux",
+    "La fusion (solide → liquide) et la solidification (liquide → solide)",
+    "La vaporisation/évaporation (liquide → gaz) et la condensation (gaz → liquide)",
+    "L'eau peut prendre les 3 états selon la température",
+  ],
+  prerequisCE2: "Tu sais déjà que l'eau peut être solide (glace) ou liquide, et qu'elle peut se transformer en vapeur quand elle bout.",
+  prolongement: "Observe à la maison : que se passe-t-il si tu sors un glaçon du congélateur et que tu le laisses à température ambiante ? Et si tu places un couvercle froid au-dessus d'une casserole d'eau qui bout ?",
+  echauffement: [
+    { question: "Cite les 3 états de la matière.", reponse: "Solide, liquide, gazeux", explication: "Ce sont les 3 états possibles de toute matière, comme l'eau." },
+    { question: "Quel est le nom du changement d'état quand un glaçon fond ?", reponse: "La fusion", explication: "La fusion transforme un solide en liquide grâce à la chaleur." },
+    { question: "Vrai ou faux : la buée sur une vitre froide est un exemple de condensation.", reponse: "Vrai", explication: "La vapeur d'eau (gaz) redevient liquide au contact du froid : c'est la condensation." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Quel est l'état de la matière qui a une forme fixe, comme un glaçon ?",
+      reponsesAcceptees: ["solide", "l'état solide", "etat solide"],
+      indices: ["Ce n'est pas celui qui prend la forme du récipient.", "Un glaçon garde toujours la même forme tout seul."],
+      explication: "L'état solide a une forme fixe : un glaçon garde sa forme sans avoir besoin d'un récipient.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Associe chaque état de la matière à sa description.",
+      paires: [
+        { gauche: "Solide", droite: "a une forme fixe, comme un glaçon" },
+        { gauche: "Liquide", droite: "prend la forme du récipient, comme l'eau" },
+        { gauche: "Gazeux", droite: "se répand partout, souvent invisible, comme la vapeur d'eau" },
+      ],
+      indices: ["Le solide n'a pas besoin de récipient pour garder sa forme.", "Le gaz se déplace librement dans tout l'espace disponible."],
+      explication: "Solide = forme fixe ; liquide = prend la forme du récipient ; gazeux = se répand partout et souvent invisible.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment s'appelle le changement d'état quand un glaçon devient de l'eau liquide ?",
+      reponsesAcceptees: ["la fusion", "fusion"],
+      indices: ["C'est ce qui se passe quand on chauffe un solide.", "Ce mot commence par 'fu-'."],
+      explication: "La fusion transforme un solide (glace) en liquide (eau) sous l'effet de la chaleur.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment s'appelle le changement d'état quand de la vapeur d'eau se transforme en gouttelettes sur une vitre froide ?",
+      reponsesAcceptees: ["la condensation", "condensation"],
+      indices: ["C'est ce qui se passe quand un gaz touche une surface froide.", "Ce mot commence par 'cond-'."],
+      explication: "La condensation transforme un gaz (vapeur d'eau) en liquide (eau), au contact du froid.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets dans l'ordre ce qui se passe quand on réchauffe un glaçon jusqu'à ce que l'eau se transforme en vapeur.",
+      elements: [
+        "Le glaçon (solide) est tout froid, sorti du congélateur.",
+        "Fusion : le glaçon se réchauffe et devient de l'eau liquide.",
+        "L'eau liquide continue à se réchauffer, de plus en plus.",
+        "Vaporisation : l'eau liquide devient de la vapeur d'eau (gaz).",
+      ],
+      indices: ["Le glaçon est toujours l'étape de départ.", "La fusion (solide → liquide) arrive avant la vaporisation (liquide → gaz)."],
+      explication: "En chauffant, la glace fond d'abord (fusion) en eau liquide, puis l'eau chauffée se transforme en vapeur (vaporisation).",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : comment s'appelle le changement d'état quand l'eau liquide se transforme en glace dans le congélateur ?",
+      reponsesAcceptees: ["la solidification", "solidification"],
+      indices: ["C'est l'inverse de la fusion.", "Ce mot commence par 'solid-', comme 'solide'."],
+      explication: "La solidification transforme un liquide (eau) en solide (glace) sous l'effet du froid : c'est l'inverse de la fusion.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : parmi ces changements d'état, lequel correspond au passage direct du liquide au gaz ?",
+      zones: ["Fusion", "Solidification", "Vaporisation", "Condensation"],
+      zoneCorrecte: "Vaporisation",
+      indices: ["Élimine d'abord les deux changements qui concernent le solide.", "C'est ce qui se passe quand l'eau bout ou s'évapore."],
+      explication: "La vaporisation (ou évaporation) est le passage du liquide au gaz, par exemple l'eau qui bout ou qui s'évapore.",
+    },
+  ],
+},
+  {
+  id: "sciences-06",
+  matiere: "sciences",
+  theme: "L'électricité",
+  titre: "Les circuits électriques simples",
+  pages: [
+    {
+      titre: "Un circuit électrique fermé",
+      contenu: [
+        "Pour qu'une ampoule s'allume, il faut trois éléments essentiels : une pile (qui fournit l'énergie électrique), des fils électriques, et une ampoule (ou un autre récepteur électrique). Mais ça ne suffit pas : il faut aussi que ces éléments forment une boucle complète, sans aucune coupure. C'est ce qu'on appelle un circuit fermé.",
+        "Le courant électrique part d'une borne de la pile, traverse les fils, traverse l'ampoule (qui s'allume au passage), puis revient à l'autre borne de la pile. Tant que cette boucle reste complète, le courant circule et l'ampoule reste allumée.",
+        "Si un seul fil est débranché, ou si un morceau du circuit est coupé, la boucle n'est plus complète : on dit que le circuit est ouvert. Le courant ne peut alors plus circuler du tout, et l'ampoule reste éteinte, même si la pile fonctionne parfaitement bien. Regarde le schéma ci-dessous : c'est un circuit fermé, donc l'ampoule s'allume.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 250 190" xmlns="http://www.w3.org/2000/svg"><text x="125" y="14" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Circuit électrique fermé</text><line x1="30" y1="30" x2="30" y2="70" stroke="#2d2a4a" stroke-width="3"/><line x1="30" y1="110" x2="30" y2="150" stroke="#2d2a4a" stroke-width="3"/><line x1="30" y1="30" x2="220" y2="30" stroke="#2d2a4a" stroke-width="3"/><line x1="220" y1="30" x2="220" y2="70" stroke="#2d2a4a" stroke-width="3"/><line x1="220" y1="110" x2="220" y2="150" stroke="#2d2a4a" stroke-width="3"/><line x1="220" y1="150" x2="30" y2="150" stroke="#2d2a4a" stroke-width="3"/><rect x="10" y="70" width="40" height="40" rx="4" fill="#ffd166" stroke="#2d2a4a" stroke-width="2"/><text x="30" y="94" text-anchor="middle" font-size="10" font-weight="bold" fill="#2d2a4a">Pile</text><circle cx="220" cy="90" r="20" fill="#ffd166" stroke="#e0a93a" stroke-width="3"/><line x1="210" y1="80" x2="230" y2="100" stroke="#e0574c" stroke-width="2"/><line x1="230" y1="80" x2="210" y2="100" stroke="#e0574c" stroke-width="2"/><text x="220" y="172" text-anchor="middle" font-size="11" fill="#2d2a4a">Ampoule allumée</text></svg>',
+    },
+    {
+      titre: "L'interrupteur : allumer et éteindre à volonté",
+      contenu: [
+        "Dans nos maisons, on n'a pas envie de débrancher un fil chaque fois qu'on veut éteindre une lumière ! C'est pourquoi on utilise un interrupteur : un petit appareil placé sur le circuit qui permet d'ouvrir ou de fermer le circuit facilement, juste en appuyant dessus.",
+        "Quand l'interrupteur est en position fermée (allumé), il relie les deux fils qui l'entourent : le circuit est complet, le courant circule, l'ampoule s'allume. Quand l'interrupteur est en position ouverte (éteint), il sépare les deux fils : le circuit est coupé, le courant ne circule plus, l'ampoule s'éteint.",
+        "Un interrupteur ne change rien à la pile ni à l'ampoule : il joue simplement le rôle d'un petit pont qu'on peut lever ou abaisser à volonté. Regarde les deux circuits ci-dessous : à gauche l'interrupteur est ouvert (ampoule éteinte), à droite il est fermé (ampoule allumée).",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 480 190" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="75" width="30" height="30" rx="3" fill="#ffd166" stroke="#2d2a4a" stroke-width="2"/><text x="25" y="94" text-anchor="middle" font-size="9" font-weight="bold" fill="#2d2a4a">Pile</text><line x1="25" y1="30" x2="25" y2="75" stroke="#2d2a4a" stroke-width="3"/><line x1="25" y1="105" x2="25" y2="150" stroke="#2d2a4a" stroke-width="3"/><line x1="25" y1="30" x2="95" y2="30" stroke="#2d2a4a" stroke-width="3"/><line x1="95" y1="30" x2="130" y2="10" stroke="#e0574c" stroke-width="3"/><circle cx="95" cy="30" r="4" fill="#e0574c"/><circle cx="140" cy="30" r="4" fill="#e0574c"/><line x1="140" y1="30" x2="190" y2="30" stroke="#2d2a4a" stroke-width="3"/><line x1="190" y1="30" x2="190" y2="72" stroke="#2d2a4a" stroke-width="3"/><circle cx="190" cy="90" r="18" fill="#fff8e7" stroke="#999999" stroke-width="2"/><line x1="190" y1="108" x2="190" y2="150" stroke="#2d2a4a" stroke-width="3"/><line x1="190" y1="150" x2="25" y1="150" x2="25" y2="150" stroke="#2d2a4a" stroke-width="3"/><text x="107" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#e0574c">Interrupteur ouvert : éteinte</text><rect x="270" y="75" width="30" height="30" rx="3" fill="#ffd166" stroke="#2d2a4a" stroke-width="2"/><text x="285" y="94" text-anchor="middle" font-size="9" font-weight="bold" fill="#2d2a4a">Pile</text><line x1="285" y1="30" x2="285" y2="75" stroke="#2d2a4a" stroke-width="3"/><line x1="285" y1="105" x2="285" y2="150" stroke="#2d2a4a" stroke-width="3"/><line x1="285" y1="30" x2="450" y2="30" stroke="#2d2a4a" stroke-width="3"/><rect x="356" y="25" width="10" height="10" fill="#6fcf97" stroke="#2d2a4a" stroke-width="1"/><line x1="450" y1="30" x2="450" y2="72" stroke="#2d2a4a" stroke-width="3"/><circle cx="450" cy="90" r="18" fill="#ffd166" stroke="#e0a93a" stroke-width="3"/><line x1="442" y1="82" x2="458" y2="98" stroke="#e0574c" stroke-width="2"/><line x1="458" y1="82" x2="442" y2="98" stroke="#e0574c" stroke-width="2"/><line x1="450" y1="108" x2="450" y2="150" stroke="#2d2a4a" stroke-width="3"/><line x1="450" y1="150" x2="285" y2="150" stroke="#2d2a4a" stroke-width="3"/><text x="367" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#6fcf97">Interrupteur fermé : allumée</text></svg>',
+    },
+    {
+      titre: "Conducteurs, isolants et sécurité électrique",
+      contenu: [
+        "Tous les matériaux ne se comportent pas de la même façon face au courant électrique. Les matériaux conducteurs, comme les métaux (le cuivre des fils, le fer, l'aluminium...), laissent bien passer le courant électrique. C'est pourquoi les fils électriques contiennent un fil de métal à l'intérieur.",
+        "À l'inverse, les matériaux isolants, comme le plastique, le bois ou le verre, ne laissent pas passer le courant électrique. C'est justement pour cette raison que les fils électriques sont recouverts d'une gaine en plastique : elle isole le fil de métal et protège nos mains si on le touche.",
+        "Attention, l'électricité peut être dangereuse ! Il ne faut jamais toucher une prise électrique ou un appareil électrique avec les mains mouillées, car l'eau peut devenir conductrice et laisser passer le courant à travers ton corps. C'est une règle de sécurité essentielle à respecter toujours.",
+      ],
+    },
+  ],
+  notionsCles: [
+    "Circuit électrique fermé : pile + fils + ampoule en boucle complète",
+    "Circuit ouvert : le courant ne circule plus",
+    "L'interrupteur ouvre ou ferme le circuit à volonté",
+    "Matériaux conducteurs (métaux) et isolants (plastique, bois)",
+    "Sécurité : ne jamais toucher une prise avec les mains mouillées",
+  ],
+  prerequisCE2: "Tu as déjà manipulé une pile et une ampoule, ou observé des objets électriques à la maison.",
+  prolongement: "Essaie de dessiner le circuit électrique d'une lampe de poche : où est la pile ? où est l'interrupteur ? où est l'ampoule ?",
+  echauffement: [
+    { question: "Cite les 3 éléments indispensables pour qu'une ampoule s'allume.", reponse: "Une pile, des fils électriques, une ampoule", explication: "Ces 3 éléments doivent aussi former une boucle complète (circuit fermé)." },
+    { question: "Que se passe-t-il si un fil du circuit est débranché ?", reponse: "Le circuit est ouvert, le courant ne circule plus, l'ampoule s'éteint", explication: "Une boucle incomplète empêche le courant de circuler." },
+    { question: "Le métal est-il un conducteur ou un isolant du courant électrique ?", reponse: "Un conducteur", explication: "Le métal laisse bien passer le courant, contrairement au plastique ou au bois." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Comment appelle-t-on l'objet qui fournit l'énergie électrique dans un circuit ?",
+      reponsesAcceptees: ["la pile", "pile", "une pile"],
+      indices: ["C'est l'objet qu'on glisse dans une lampe de poche.", "Sans lui, aucun courant ne peut circuler."],
+      explication: "La pile fournit l'énergie électrique nécessaire pour que le courant circule dans le circuit.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Associe chaque élément du circuit à son rôle.",
+      paires: [
+        { gauche: "Pile", droite: "fournit l'énergie électrique" },
+        { gauche: "Fil électrique", droite: "conduit le courant d'un point à un autre" },
+        { gauche: "Ampoule", droite: "s'allume quand le courant la traverse" },
+        { gauche: "Interrupteur", droite: "ouvre ou ferme le circuit à volonté" },
+      ],
+      indices: ["La pile est la source d'énergie du circuit.", "L'interrupteur ne fournit pas d'énergie, il contrôle juste le passage du courant."],
+      explication: "La pile fournit l'énergie, les fils conduisent le courant, l'ampoule s'allume au passage du courant, et l'interrupteur ouvre ou ferme le circuit.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment appelle-t-on un circuit dans lequel le courant ne peut plus circuler, car un fil est débranché ?",
+      reponsesAcceptees: ["un circuit ouvert", "circuit ouvert", "ouvert"],
+      indices: ["C'est le contraire d'un circuit fermé.", "La boucle n'est plus complète."],
+      explication: "Un circuit ouvert est un circuit dont la boucle est incomplète : le courant ne peut plus circuler.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quel objet permet d'ouvrir ou de fermer un circuit facilement, comme celui qu'on utilise pour allumer la lumière chez toi ?",
+      reponsesAcceptees: ["un interrupteur", "interrupteur", "l'interrupteur"],
+      indices: ["On appuie dessus pour allumer ou éteindre.", "Il ne change rien à la pile ni à l'ampoule, il contrôle juste le passage du courant."],
+      explication: "L'interrupteur permet d'ouvrir ou de fermer le circuit à volonté, sans avoir à débrancher un fil.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets dans l'ordre le trajet du courant électrique dans un circuit fermé, en partant de la pile.",
+      elements: [
+        "Le courant part d'une borne de la pile.",
+        "Il traverse les fils électriques.",
+        "Il traverse l'ampoule, qui s'allume.",
+        "Il revient à l'autre borne de la pile.",
+      ],
+      indices: ["Le trajet commence toujours à la pile.", "Le trajet se termine toujours à la pile aussi, car c'est une boucle complète."],
+      explication: "Dans un circuit fermé, le courant part d'une borne de la pile, traverse les fils et l'ampoule, puis revient à l'autre borne de la pile.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : le plastique qui recouvre les fils électriques est-il un conducteur ou un isolant du courant électrique ?",
+      reponsesAcceptees: ["un isolant", "isolant"],
+      indices: ["Le plastique ne laisse pas passer le courant.", "C'est pour ça qu'il protège nos mains quand on touche un fil."],
+      explication: "Le plastique est un isolant : il ne laisse pas passer le courant, ce qui protège nos mains quand on touche un fil électrique.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : parmi ces règles, laquelle est une règle de sécurité électrique correcte ?",
+      zones: [
+        "Toucher une prise avec les mains mouillées ne pose aucun problème.",
+        "Il faut toujours toucher une prise électrique avec les mains mouillées.",
+        "Il ne faut jamais toucher une prise électrique avec les mains mouillées.",
+        "Les mains mouillées isolent parfaitement du courant électrique.",
+      ],
+      zoneCorrecte: "Il ne faut jamais toucher une prise électrique avec les mains mouillées.",
+      indices: ["L'eau peut devenir conductrice et laisser passer le courant.", "Élimine d'abord les phrases qui disent que l'eau protège du courant : c'est faux."],
+      explication: "Il ne faut jamais toucher une prise électrique avec les mains mouillées, car l'eau peut devenir conductrice et laisser passer le courant à travers le corps.",
+    },
+  ],
+},
+  {
+  id: "sciences-07",
+  matiere: "sciences",
+  theme: "Le peuplement des milieux et la reproduction des êtres vivants",
+  titre: "Qui vit où, et comment naissent les êtres vivants ?",
+  pages: [
+    {
+      titre: "Un milieu de vie peuplé d'êtres vivants",
+      contenu: [
+        "Une mare, une forêt ou même un jardin sont des exemples de milieux de vie : des lieux où vivent ensemble de nombreux animaux et plantes. Chaque être vivant y trouve ce dont il a besoin pour survivre : de l'eau, de la nourriture, un abri, et une température qui lui convient.",
+        "On dit que les êtres vivants sont adaptés à leur milieu : un poisson a des nageoires et des branchies pour vivre dans l'eau, un renard a une fourrure épaisse qui le protège du froid en hiver. Si les conditions du milieu changent trop (plus assez d'eau, trop de froid...), certains êtres vivants ne peuvent plus y survivre et doivent partir ou disparaître.",
+        "Regarde le schéma ci-dessous : il montre quelques habitants typiques d'une mare, bien adaptés à ce milieu aquatique.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 340 190" xmlns="http://www.w3.org/2000/svg"><text x="170" y="15" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d2a4a">Un milieu de vie : la mare</text><circle cx="300" cy="35" r="20" fill="#ffd166" stroke="#e0a93a" stroke-width="2"/><text x="300" y="65" text-anchor="middle" font-size="10" fill="#2d2a4a">Soleil</text><rect x="10" y="100" width="320" height="75" rx="10" fill="#6fa8dc" stroke="#2d2a4a" stroke-width="2"/><text x="170" y="128" text-anchor="middle" font-size="11" fill="#2d2a4a">Eau</text><circle cx="80" cy="150" r="13" fill="#6fcf97" stroke="#2d2a4a" stroke-width="1"/><text x="80" y="185" text-anchor="middle" font-size="10" fill="#2d2a4a">Grenouille</text><circle cx="170" cy="155" r="10" fill="#e0574c" stroke="#2d2a4a" stroke-width="1"/><text x="170" y="185" text-anchor="middle" font-size="10" fill="#2d2a4a">Poisson</text><line x1="255" y1="100" x2="255" y2="55" stroke="#6fcf97" stroke-width="5"/><circle cx="255" cy="48" r="10" fill="#6fcf97" stroke="#2d2a4a" stroke-width="1"/><text x="255" y="185" text-anchor="middle" font-size="10" fill="#2d2a4a">Plante</text></svg>',
+    },
+    {
+      titre: "Le peuplement change selon les saisons",
+      contenu: [
+        "Le nombre et le type d'êtres vivants présents dans un milieu ne sont pas toujours les mêmes toute l'année : cela change avec les saisons. En automne, beaucoup d'arbres perdent leurs feuilles pour économiser de l'eau et de l'énergie pendant l'hiver.",
+        "Certains animaux, comme les hirondelles, migrent : elles quittent la France à l'automne pour rejoindre des pays plus chauds d'Afrique, où elles trouveront assez de nourriture, puis reviennent au printemps suivant. D'autres animaux, comme le hérisson ou la marmotte, hibernent : ils ralentissent fortement leur activité et dorment tout l'hiver, à l'abri, pour économiser leur énergie.",
+        "Ainsi, un même jardin n'est pas peuplé des mêmes êtres vivants en été et en hiver : au printemps et en été, il grouille d'insectes, d'oiseaux et de fleurs, alors qu'en hiver, il paraît beaucoup plus calme et vide.",
+      ],
+    },
+    {
+      titre: "La reproduction : avec ou sans deux parents",
+      contenu: [
+        "La plupart des animaux et des plantes à fleurs se reproduisent grâce à la reproduction sexuée : il faut un parent mâle et un parent femelle pour donner naissance à un nouvel être vivant, qui leur ressemble sans être identique à l'un ou à l'autre.",
+        "Certaines plantes peuvent aussi se reproduire sans les deux parents, grâce à la reproduction asexuée. Le bouturage en est un exemple : on coupe un morceau de tige d'une plante (comme un géranium ou un lierre), on le met dans l'eau ou la terre, et il développe ses propres racines pour devenir une nouvelle plante, identique à la plante d'origine.",
+        "Qu'elle soit sexuée ou asexuée, la reproduction s'inscrit dans un cycle de vie : un être vivant naît (ou une graine germe), grandit, puis devient adulte et peut à son tour se reproduire. Le schéma ci-dessous résume ce cycle pour une plante à fleurs.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg"><text x="200" y="14" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Le cycle de vie d\'une plante à fleurs</text><rect x="10" y="45" width="115" height="55" rx="10" fill="#fff8e7" stroke="#ffd166" stroke-width="3"/><text x="67" y="68" text-anchor="middle" font-size="11" fill="#2d2a4a">Graine</text><text x="67" y="84" text-anchor="middle" font-size="10" fill="#2d2a4a">(germination)</text><rect x="145" y="45" width="115" height="55" rx="10" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="202" y="68" text-anchor="middle" font-size="11" fill="#2d2a4a">Jeune plante</text><text x="202" y="84" text-anchor="middle" font-size="10" fill="#2d2a4a">(croissance)</text><rect x="280" y="45" width="115" height="55" rx="10" fill="#fff8e7" stroke="#ff8fab" stroke-width="3"/><text x="337" y="68" text-anchor="middle" font-size="11" fill="#2d2a4a">Adulte</text><text x="337" y="84" text-anchor="middle" font-size="10" fill="#2d2a4a">(fleurs, graines)</text><line x1="125" y1="72" x2="145" y2="72" stroke="#2d2a4a" stroke-width="2"/><line x1="260" y1="72" x2="280" y2="72" stroke="#2d2a4a" stroke-width="2"/><line x1="337" y1="100" x2="337" y2="140" stroke="#2d2a4a" stroke-width="2"/><line x1="337" y1="140" x2="67" y2="140" stroke="#2d2a4a" stroke-width="2"/><line x1="67" y1="140" x2="67" y2="100" stroke="#2d2a4a" stroke-width="2"/><text x="200" y="160" text-anchor="middle" font-size="10" fill="#2d2a4a">Le cycle recommence avec de nouvelles graines !</text></svg>',
+    },
+  ],
+  notionsCles: [
+    "Milieu de vie : lieu peuplé d'êtres vivants adaptés à ses conditions (eau, nourriture, température)",
+    "Le peuplement d'un milieu varie selon les saisons (migration, hibernation, chute des feuilles)",
+    "Reproduction sexuée (deux parents) et reproduction asexuée (ex. bouturage, un seul parent)",
+    "Cycle de vie : naissance ou germination puis croissance puis reproduction",
+  ],
+  prerequisCE2:
+    "Tu as déjà observé que les animaux et les plantes ont des besoins pour vivre (eau, nourriture, abri) ; nous allons maintenant voir comment ces besoins expliquent où ils vivent et comment ils se reproduisent.",
+  prolongement:
+    "Observe un jardin ou un parc près de chez toi à différentes saisons : note les êtres vivants que tu y vois en été puis en hiver, et essaie d'expliquer les différences.",
+  echauffement: [
+    { question: "Qu'est-ce qu'un milieu de vie ?", reponse: "Un lieu où vivent des êtres vivants adaptés à ses conditions (eau, nourriture, température)", explication: "Une mare, une forêt ou un jardin sont des exemples de milieux de vie." },
+    { question: "Que fait l'hirondelle quand l'hiver arrive en France ?", reponse: "Elle migre vers un pays plus chaud", explication: "Elle part en Afrique où elle trouve assez de nourriture, puis revient au printemps." },
+    { question: "Vrai ou faux : dans le bouturage, une seule plante suffit pour en créer une nouvelle.", reponse: "Vrai", explication: "C'est une reproduction asexuée : elle ne demande pas deux parents." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "Comment appelle-t-on un lieu où vivent des êtres vivants adaptés à ses conditions (eau, nourriture, température) ?",
+      reponsesAcceptees: ["un milieu", "un milieu de vie", "milieu", "milieu de vie"],
+      indices: ["Une mare, une forêt ou un jardin en sont des exemples.", "Le mot commence par 'mi-'."],
+      explication: "Un milieu de vie est un lieu peuplé d'êtres vivants adaptés à ses conditions.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Relie chaque être vivant à ce qu'il fait lorsque l'hiver arrive.",
+      paires: [
+        { gauche: "Hirondelle", droite: "Elle migre vers un pays plus chaud" },
+        { gauche: "Hérisson", droite: "Il hiberne, caché à l'abri du froid" },
+        { gauche: "Chêne", droite: "Il perd ses feuilles à l'automne" },
+        { gauche: "Ours brun", droite: "Il dort presque tout l'hiver dans une tanière" },
+      ],
+      indices: ["Certains animaux voyagent, d'autres dorment sur place.", "Les arbres, eux, ne peuvent pas partir : ils s'adaptent autrement."],
+      explication: "Migration (hirondelle), hibernation (hérisson, ours) et chute des feuilles (chêne) sont trois façons de faire face à l'hiver.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Comment appelle-t-on la reproduction qui nécessite deux parents, un mâle et une femelle ?",
+      reponsesAcceptees: ["la reproduction sexuee", "reproduction sexuee", "la reproduction sexuée", "reproduction sexuée"],
+      indices: ["C'est le mode de reproduction de la plupart des animaux.", "Le mot ressemble à 'sexe'."],
+      explication: "La reproduction sexuée demande un parent mâle et un parent femelle.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quel est le nom de la technique qui permet de faire pousser une nouvelle plante à partir d'un simple morceau de tige, sans les deux parents ?",
+      reponsesAcceptees: ["le bouturage", "bouturage"],
+      indices: ["On coupe un morceau de tige et on le met dans l'eau ou la terre.", "C'est un exemple de reproduction asexuée."],
+      explication: "Le bouturage est une reproduction asexuée : un seul morceau de plante suffit pour en créer une nouvelle, identique.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets dans l'ordre les étapes du cycle de vie d'une plante à fleurs.",
+      elements: [
+        "La graine germe",
+        "La jeune plante grandit",
+        "La plante adulte fleurit et produit des graines",
+        "Les graines se dispersent et donnent de nouvelles plantes",
+      ],
+      indices: ["Tout commence toujours par la germination de la graine.", "La reproduction (fleurs, graines) arrive une fois la plante adulte."],
+      explication: "Cycle de vie : germination, croissance, puis reproduction (fleurs et nouvelles graines).",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : donne un exemple de milieu de vie où vivent ensemble des poissons, des grenouilles et des libellules.",
+      reponsesAcceptees: ["une mare", "la mare", "un etang", "l etang", "un étang", "l'étang"],
+      indices: ["C'est un petit point d'eau, souvent dans un pré ou un jardin.", "C'est aussi le titre de la première page de cette leçon."],
+      explication: "Une mare (ou un étang) est un milieu aquatique qui héberge poissons, grenouilles et libellules.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : parmi ces quatre animaux, clique sur celui qui hiberne pendant l'hiver.",
+      zones: ["Hirondelle", "Hérisson", "Libellule", "Poisson rouge"],
+      zoneCorrecte: "Hérisson",
+      indices: ["Ce n'est pas celui qui vole vers l'Afrique.", "Il dort, caché sous un tas de feuilles ou de bois."],
+      explication: "Le hérisson hiberne tout l'hiver pour économiser son énergie, contrairement à l'hirondelle qui migre.",
+    },
+  ],
+},
+  {
+  id: "sciences-08",
+  matiere: "sciences",
+  theme: "La respiration chez les êtres vivants",
+  titre: "Respirer : à quoi ça sert, et comment font les animaux ?",
+  pages: [
+    {
+      titre: "Pourquoi respire-t-on ?",
+      contenu: [
+        "Tous les êtres vivants respirent : les humains, les animaux, et même les plantes ! Respirer, c'est faire entrer dans son corps un gaz indispensable, l'oxygène, et en rejeter un autre, le dioxyde de carbone.",
+        "Le corps a besoin d'oxygène pour fonctionner : les organes, les muscles, le cerveau... tout utilise de l'oxygène pour produire de l'énergie. Sans oxygène, un être vivant ne peut pas survivre longtemps.",
+        "Mais tous les êtres vivants ne respirent pas de la même façon : cela dépend surtout du milieu dans lequel ils vivent (dans l'air ou dans l'eau) et de la taille de leur corps. Dans les pages suivantes, tu vas découvrir plusieurs façons de respirer.",
+      ],
+    },
+    {
+      titre: "Le trajet de l'air chez l'humain",
+      contenu: [
+        "Chez l'humain (et la plupart des mammifères), l'air entre dans le corps par le nez ou par la bouche. Il descend ensuite dans un tuyau appelé la trachée, qui conduit l'air jusqu'aux poumons.",
+        "Dans les poumons, l'air se répartit dans des milliers de minuscules sacs entourés de tout petits vaisseaux sanguins. C'est là que l'oxygène de l'air passe dans le sang, qui le transporte ensuite vers tout le corps. En même temps, le sang dépose dans les poumons le dioxyde de carbone dont le corps n'a plus besoin, qui est rejeté au moment où l'on expire.",
+        "Regarde le schéma ci-dessous : il montre ce trajet, du nez jusqu'aux poumons.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg"><text x="110" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Le trajet de l\'air chez l\'humain</text><rect x="55" y="28" width="110" height="42" rx="10" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="110" y="53" text-anchor="middle" font-size="11" fill="#2d2a4a">Nez / bouche</text><line x1="110" y1="70" x2="110" y2="170" stroke="#6fa8dc" stroke-width="16"/><text x="145" y="125" text-anchor="middle" font-size="11" fill="#2d2a4a">Trachée</text><line x1="110" y1="170" x2="75" y2="205" stroke="#6fa8dc" stroke-width="6"/><line x1="110" y1="170" x2="145" y2="205" stroke="#6fa8dc" stroke-width="6"/><circle cx="70" cy="235" r="42" fill="#ff8fab" stroke="#e0574c" stroke-width="3"/><circle cx="150" cy="235" r="42" fill="#ff8fab" stroke="#e0574c" stroke-width="3"/><text x="110" y="290" text-anchor="middle" font-size="11" fill="#2d2a4a">Poumons (l\'oxygène passe dans le sang)</text></svg>',
+    },
+    {
+      titre: "D'autres façons de respirer selon le milieu de vie",
+      contenu: [
+        "Les poissons ne respirent pas avec des poumons : ils utilisent des branchies, des organes en forme de fins filaments situés de chaque côté de leur tête. Quand l'eau passe à travers les branchies, celles-ci récupèrent l'oxygène qui y est dissous.",
+        "Certains petits animaux comme le ver de terre, ou certaines parties des plantes, n'ont ni poumons ni branchies : ils échangent directement les gaz à travers leur peau ou leur surface, qui doit rester humide pour fonctionner. C'est pourquoi le ver de terre a besoin d'un sol humide pour respirer.",
+        "Cette leçon est un peu d'avance sur le programme de CM1 : elle correspond au niveau CM2. Retiens surtout l'essentiel : poumons, branchies ou peau, ce sont trois façons différentes d'obtenir de l'oxygène et de rejeter du dioxyde de carbone.",
+      ],
+      diagramme:
+        '<svg viewBox="0 0 340 150" xmlns="http://www.w3.org/2000/svg"><text x="170" y="14" text-anchor="middle" font-size="12" font-weight="bold" fill="#2d2a4a">Trois façons de respirer</text><rect x="10" y="55" width="100" height="65" rx="10" fill="#fff8e7" stroke="#e0574c" stroke-width="3"/><text x="60" y="80" text-anchor="middle" font-size="11" fill="#2d2a4a">Poumons</text><text x="60" y="95" text-anchor="middle" font-size="9" fill="#2d2a4a">(air, ex : humains)</text><rect x="120" y="55" width="100" height="65" rx="10" fill="#fff8e7" stroke="#6fa8dc" stroke-width="3"/><text x="170" y="80" text-anchor="middle" font-size="11" fill="#2d2a4a">Branchies</text><text x="170" y="95" text-anchor="middle" font-size="9" fill="#2d2a4a">(eau, ex : poissons)</text><rect x="230" y="55" width="100" height="65" rx="10" fill="#fff8e7" stroke="#6fcf97" stroke-width="3"/><text x="280" y="80" text-anchor="middle" font-size="11" fill="#2d2a4a">Peau</text><text x="280" y="95" text-anchor="middle" font-size="9" fill="#2d2a4a">(ex : ver de terre)</text></svg>',
+    },
+  ],
+  notionsCles: [
+    "Contenu d'avance (niveau CM2) : tous les êtres vivants respirent, mais pas tous de la même façon",
+    "Chez l'humain : nez/bouche puis trachée puis poumons, où l'oxygène passe dans le sang",
+    "Les poissons respirent grâce à leurs branchies (oxygène dissous dans l'eau)",
+    "Certains petits animaux ou plantes échangent les gaz directement à travers leur peau ou leur surface",
+    "Le corps a besoin d'oxygène et rejette du dioxyde de carbone",
+  ],
+  prerequisCE2:
+    "Cette leçon est un peu d'avance : elle correspond au programme de CM2. Tu dois déjà savoir que respirer sert à faire entrer et sortir l'air de ton corps.",
+  prolongement:
+    "Pose ta main sur ton ventre et respire profondément : sens-tu ton diaphragme qui s'abaisse puis remonte ? Cherche aussi comment les grenouilles peuvent respirer à la fois avec leurs poumons et leur peau !",
+  echauffement: [
+    { question: "Pourquoi respire-t-on ?", reponse: "Pour apporter de l'oxygène à notre corps (et rejeter le dioxyde de carbone)", explication: "Le corps a besoin d'oxygène pour fonctionner." },
+    { question: "Quel organe utilisent les poissons pour respirer dans l'eau ?", reponse: "Les branchies", explication: "Elles récupèrent l'oxygène dissous dans l'eau." },
+    { question: "Chez l'humain, par où passe l'air avant d'arriver dans les poumons ?", reponse: "Par le nez (ou la bouche) puis la trachée", explication: "C'est le trajet de l'air : nez/bouche, trachée, poumons." },
+  ],
+  exercices: [
+    {
+      niveau: "decouverte",
+      type: "saisie",
+      enonce: "De quel gaz notre corps a-t-il besoin pour fonctionner, que l'on trouve dans l'air ?",
+      reponsesAcceptees: ["l'oxygene", "l'oxygène", "oxygene", "oxygène"],
+      indices: ["Ce gaz entre dans nos poumons quand on inspire.", "Le mot commence par 'oxy-'."],
+      explication: "Le corps a besoin d'oxygène pour produire de l'énergie et fonctionner correctement.",
+    },
+    {
+      niveau: "decouverte",
+      type: "association",
+      enonce: "Relie chaque partie du corps à son rôle dans la respiration humaine.",
+      paires: [
+        { gauche: "Nez ou bouche", droite: "L'air entre dans le corps" },
+        { gauche: "Trachée", droite: "Le tuyau qui conduit l'air vers les poumons" },
+        { gauche: "Poumons", droite: "L'oxygène de l'air passe dans le sang" },
+        { gauche: "Branchies", droite: "Récupèrent l'oxygène dissous dans l'eau" },
+      ],
+      indices: ["Suis le trajet de l'air, de l'entrée jusqu'aux poumons.", "Les branchies servent aux poissons, pas aux humains."],
+      explication: "Chez l'humain, l'air suit le trajet nez/bouche puis trachée puis poumons ; les poissons utilisent des branchies.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quel gaz notre corps rejette-t-il quand on expire ?",
+      reponsesAcceptees: ["le dioxyde de carbone", "dioxyde de carbone", "co2"],
+      indices: ["Ce n'est pas l'oxygène, c'est l'autre gaz.", "Ses initiales sont CO2."],
+      explication: "En expirant, on rejette le dioxyde de carbone dont le corps n'a plus besoin.",
+    },
+    {
+      niveau: "application",
+      type: "saisie",
+      enonce: "Quel organe utilisent les poissons pour respirer dans l'eau ?",
+      reponsesAcceptees: ["les branchies", "des branchies", "branchies"],
+      indices: ["Ce ne sont pas des poumons.", "Elles sont situées de chaque côté de la tête du poisson."],
+      explication: "Les branchies récupèrent l'oxygène dissous dans l'eau qui passe à travers elles.",
+    },
+    {
+      niveau: "application",
+      type: "ordre",
+      enonce: "Remets dans l'ordre le trajet de l'air chez l'humain, du nez aux poumons.",
+      elements: ["Le nez ou la bouche", "La trachée", "Les poumons"],
+      indices: ["L'air entre d'abord par le visage.", "Le dernier arrêt est l'endroit où l'oxygène passe dans le sang."],
+      explication: "Le trajet de l'air est : nez/bouche, puis trachée, puis poumons.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : à travers quelle partie de son corps le ver de terre échange-t-il directement les gaz de la respiration ?",
+      reponsesAcceptees: ["la peau", "sa peau", "peau"],
+      indices: ["Il n'a ni poumons ni branchies.", "Cette partie doit rester humide pour fonctionner."],
+      explication: "Le ver de terre échange l'oxygène et le dioxyde de carbone directement à travers sa peau humide.",
+    },
+    {
+      niveau: "defi",
+      type: "zone",
+      enonce: "Défi : parmi ces quatre organes, clique sur celui qui n'intervient PAS dans la respiration humaine.",
+      zones: ["Poumons", "Trachée", "Estomac", "Nez"],
+      zoneCorrecte: "Estomac",
+      indices: ["Cet organe sert plutôt à la digestion.", "L'air ne passe jamais par cet organe."],
+      explication: "L'estomac sert à la digestion, pas à la respiration : l'air suit le trajet nez, trachée, poumons.",
+    },
+    {
+      niveau: "defi",
+      type: "saisie",
+      enonce: "Défi : comment s'appelle le muscle situé sous les poumons qui se contracte automatiquement pour faire entrer et sortir l'air ?",
+      reponsesAcceptees: ["le diaphragme", "diaphragme"],
+      indices: ["Pose ta main sur ton ventre en respirant : tu sens ce muscle bouger.", "Ce mot commence par 'dia-'."],
+      explication: "Le diaphragme est le muscle situé sous les poumons qui se contracte et se relâche automatiquement pour faire respirer.",
+    },
+  ],
+},
 ];
 
 function getLecon(id) {
