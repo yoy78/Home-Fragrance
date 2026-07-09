@@ -157,6 +157,7 @@ function melanger(tableau) {
 
 function afficherIndiceOuReponse(exercice, correct) {
   const feedback = document.getElementById("exercice-feedback");
+  feedback.classList.remove("feedback-bonne-reponse", "feedback-mauvaise-reponse");
   if (correct) {
     const points = POINTS_PAR_NIVEAU[exercice.niveau] || 10;
     const enfantState = etat[profilActifId];
@@ -166,6 +167,8 @@ function afficherIndiceOuReponse(exercice, correct) {
     resultatsExercices.push(true);
     premierCoupExercice.push(tentativesExercice === 1);
     feedback.innerHTML = `<p style="color:#2f9e44; font-weight:bold;">Bravo, c'est la bonne réponse ! (+${points} points)</p><p>${exercice.explication}</p>`;
+    feedback.classList.add("feedback-bonne-reponse");
+    lancerConfetti(feedback);
     afficherBoutonSuivantExercice();
     return;
   }
@@ -173,10 +176,12 @@ function afficherIndiceOuReponse(exercice, correct) {
   if (tentativesExercice < MAX_TENTATIVES) {
     const indice = exercice.indices[Math.min(tentativesExercice - 1, exercice.indices.length - 1)];
     feedback.innerHTML = `<p style="color:#e0574c;">Pas tout à fait ! Indice : ${indice}</p>`;
+    feedback.classList.add("feedback-mauvaise-reponse");
   } else {
     resultatsExercices.push(false);
     premierCoupExercice.push(false);
     feedback.innerHTML = `<p style="color:#e0574c; font-weight:bold;">La bonne réponse était : ${resumeReponse(exercice)}</p><p>${exercice.explication}</p>`;
+    feedback.classList.add("feedback-mauvaise-reponse");
     afficherBoutonSuivantExercice();
   }
 }

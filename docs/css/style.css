@@ -274,3 +274,160 @@ h1 {
   margin: 4px;
   font-weight: bold;
 }
+
+/* ---------- Animations et micro-interactions ---------- */
+
+@keyframes entreePage {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contenu-lecon {
+  animation: entreePage 0.35s ease;
+}
+
+.diagramme {
+  animation: diagrammeApparait 0.5s ease 0.1s both;
+}
+
+@keyframes diagrammeApparait {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rebond {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.06); }
+  60% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.feedback-bonne-reponse {
+  animation: rebond 0.5s ease;
+}
+
+@keyframes secousse {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+
+.feedback-mauvaise-reponse {
+  animation: secousse 0.5s ease;
+}
+
+/* Petite pluie de confettis CSS pure, déclenchée en ajoutant des <span class="confetti"> */
+.confetti-zone {
+  position: relative;
+  overflow: visible;
+  height: 0;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  opacity: 0.95;
+  animation: chuteConfetti 0.9s ease-out forwards;
+}
+
+@keyframes chuteConfetti {
+  from { transform: translateY(0) rotate(0deg); opacity: 1; }
+  to { transform: translateY(90px) rotate(220deg); opacity: 0; }
+}
+
+@keyframes popBadge {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.badge-anime {
+  animation: popBadge 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes popMascotte {
+  0% { transform: scale(0.4) rotate(-8deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(6deg); opacity: 1; }
+  75% { transform: scale(0.95) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.mascotte-anime {
+  animation: popMascotte 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.barre-progression-remplie {
+  position: relative;
+  overflow: hidden;
+}
+
+.barre-progression-remplie::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: chatoiement 1.8s ease-in-out infinite;
+}
+
+@keyframes chatoiement {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ---------- Widgets interactifs de certains diagrammes ---------- */
+
+.widget-cliquable {
+  cursor: pointer;
+}
+
+.widget-cliquable:hover {
+  filter: brightness(1.08);
+}
+
+.widget-orbite {
+  transform-origin: center;
+}
+
+.widget-fil-actif {
+  animation: filParcouru 1.2s linear infinite;
+}
+
+@keyframes filParcouru {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+.widget-ampoule-allumee {
+  animation: ampouleBrille 1s ease-in-out infinite alternate;
+}
+
+@keyframes ampouleBrille {
+  from { filter: drop-shadow(0 0 2px #ffd166); }
+  to { filter: drop-shadow(0 0 9px #ffd166); }
+}
+
+.widget-etat-groupe {
+  transition: opacity 0.4s ease;
+}
+
+.widget-timeline-point {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.widget-timeline-point:hover {
+  transform: scale(1.25);
+}
+
+@keyframes apparitionInfobulle {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.widget-infobulle-visible {
+  animation: apparitionInfobulle 0.2s ease;
+}

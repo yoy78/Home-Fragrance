@@ -10,6 +10,30 @@ let profilDashboard = null;
 let leconAffichee = null;
 let pageLeconCourante = 0;
 
+const COULEURS_CONFETTI = ["#ffd166", "#ff8fab", "#6fcf97", "#6fa8dc", "#e0574c"];
+
+function lancerConfetti(pointDeDepart) {
+  const zone = document.createElement("div");
+  zone.className = "confetti-zone";
+  const rect = pointDeDepart.getBoundingClientRect();
+  zone.style.position = "fixed";
+  zone.style.left = `${rect.left + rect.width / 2}px`;
+  zone.style.top = `${rect.top}px`;
+  zone.style.pointerEvents = "none";
+  document.body.appendChild(zone);
+
+  for (let i = 0; i < 14; i++) {
+    const morceau = document.createElement("span");
+    morceau.className = "confetti";
+    morceau.style.left = `${(Math.random() - 0.5) * 140}px`;
+    morceau.style.background = COULEURS_CONFETTI[i % COULEURS_CONFETTI.length];
+    morceau.style.animationDelay = `${Math.random() * 0.15}s`;
+    zone.appendChild(morceau);
+  }
+
+  setTimeout(() => zone.remove(), 1200);
+}
+
 function afficherEcran(id) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
@@ -236,6 +260,9 @@ function rendrePageLecon() {
     html += page.contenu.map((p) => `<p>${p}</p>`).join("");
     if (page.diagramme) html += `<div class="diagramme">${page.diagramme}</div>`;
     zone.innerHTML = html;
+    zone.classList.remove("contenu-lecon");
+    void zone.offsetWidth;
+    zone.classList.add("contenu-lecon");
   } else {
     zone.innerHTML = `
       <h3>Ce qu'il faut retenir</h3>
@@ -243,6 +270,9 @@ function rendrePageLecon() {
       <p class="note-discrete">Déjà vu avant : ${leconAffichee.prerequisCE2}</p>
       <p class="note-discrete">Pour aller plus loin : ${leconAffichee.prolongement}</p>
     `;
+    zone.classList.remove("contenu-lecon");
+    void zone.offsetWidth;
+    zone.classList.add("contenu-lecon");
   }
 
   document.getElementById("bouton-page-precedente").style.visibility = pageLeconCourante === 0 ? "hidden" : "visible";
@@ -303,7 +333,7 @@ function afficherCelebration(nouveauxBadges, evolutionMascotte) {
 
   if (evolutionMascotte) {
     html += `
-      <div style="font-size: 4rem;">${enfant.emojiPaliers[palierActuel]}</div>
+      <div class="mascotte-anime" style="font-size: 4rem;">${enfant.emojiPaliers[palierActuel]}</div>
       <p style="font-weight: bold; font-size: 1.2rem;">Ta mascotte a évolué en ${enfant.nomPaliers[palierActuel]} !</p>
     `;
   }
@@ -311,12 +341,18 @@ function afficherCelebration(nouveauxBadges, evolutionMascotte) {
   if (nouveauxBadges.length > 0) {
     html += `<p style="font-weight: bold;">Nouveau${nouveauxBadges.length > 1 ? "x" : ""} badge${nouveauxBadges.length > 1 ? "s" : ""} débloqué${nouveauxBadges.length > 1 ? "s" : ""} :</p>`;
     html += nouveauxBadges
-      .map((b) => `<div style="margin: 8px 0;"><span style="font-size: 1.6rem;">${b.emoji}</span> <strong>${b.nom}</strong> — ${b.description}</div>`)
+      .map(
+        (b, i) =>
+          `<div class="badge-anime" style="margin: 8px 0; animation-delay: ${i * 0.12}s;"><span style="font-size: 1.6rem;">${b.emoji}</span> <strong>${b.nom}</strong> — ${b.description}</div>`
+      )
       .join("");
   }
 
   document.getElementById("celebration-contenu").innerHTML = html;
   afficherEcran("screen-celebration");
+  if (evolutionMascotte || nouveauxBadges.length > 0) {
+    lancerConfetti(document.getElementById("celebration-contenu"));
+  }
 }
 
 function changerOnglet(nom) {
