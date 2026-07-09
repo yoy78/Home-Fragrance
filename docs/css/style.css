@@ -1,0 +1,551 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Baloo 2", "Segoe UI", sans-serif;
+  background: linear-gradient(160deg, #fff8e7 0%, #eaf6ff 100%);
+  min-height: 100vh;
+  color: #2d2a4a;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 48px;
+}
+
+.screen.active {
+  display: flex;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: #ff6b6b;
+  text-shadow: 2px 2px 0 #fff;
+  margin: 8px 0 4px;
+}
+
+.titre-accueil {
+  animation: titreEntree 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes titreEntree {
+  from { opacity: 0; transform: translateY(-16px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sous-titre {
+  font-size: 1.1rem;
+  color: #5b5680;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+#screen-login {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#screen-login::before,
+#screen-login::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: -1;
+  animation: deriveUnivers 9s ease-in-out infinite;
+}
+
+#screen-login::before {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 143, 171, 0.35), transparent 70%);
+  top: -60px;
+  left: -60px;
+}
+
+#screen-login::after {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(111, 207, 151, 0.35), transparent 70%);
+  bottom: -80px;
+  right: -60px;
+  animation-delay: 2s;
+}
+
+@keyframes deriveUnivers {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -16px) scale(1.08); }
+}
+
+.cartes-profils {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.carte-profil {
+  background: #fff;
+  border-radius: 28px;
+  padding: 28px 32px;
+  width: 220px;
+  text-align: center;
+  cursor: pointer;
+  border: 5px solid transparent;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.carte-profil:hover,
+.carte-profil:focus-visible {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+.carte-profil .mascotte-emoji {
+  font-size: 4.5rem;
+  display: block;
+  margin-bottom: 12px;
+  animation: idleFlotte 2.6s ease-in-out infinite;
+}
+
+@keyframes idleFlotte {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-4deg); }
+}
+
+.carte-profil .prenom {
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.carte-profil.adele {
+  border-color: #ff8fab;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 143, 171, 0.18), transparent 20%),
+    radial-gradient(circle at 85% 20%, rgba(255, 143, 171, 0.18), transparent 20%),
+    radial-gradient(circle at 30% 85%, rgba(255, 143, 171, 0.18), transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(255, 143, 171, 0.18), transparent 20%),
+    #fff;
+}
+
+.carte-profil.adele::before {
+  content: "🐾";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.3rem;
+  opacity: 0.55;
+  animation: idleFlotte 3.2s ease-in-out infinite;
+}
+
+.carte-profil.adele::after {
+  content: "🐾";
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  font-size: 1rem;
+  opacity: 0.4;
+  animation: idleFlotte 2.4s ease-in-out infinite reverse;
+}
+
+.carte-profil.matys {
+  border-color: #6fcf97;
+  background: repeating-linear-gradient(
+      135deg,
+      rgba(111, 207, 151, 0.12) 0px,
+      rgba(111, 207, 151, 0.12) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    #fff;
+}
+
+.carte-profil.matys::before {
+  content: "🍃";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 1.3rem;
+  opacity: 0.55;
+  animation: idleFlotte 3s ease-in-out infinite;
+}
+
+.carte-profil.matys::after {
+  content: "🍃";
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  font-size: 1rem;
+  opacity: 0.4;
+  animation: idleFlotte 2.7s ease-in-out infinite reverse;
+}
+
+.version-app {
+  margin-top: 28px;
+  font-size: 0.8rem;
+  color: #b0accf;
+  text-align: center;
+}
+
+.bouton {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  cursor: pointer;
+  background: #ffd166;
+  color: #2d2a4a;
+  box-shadow: 0 4px 0 #e0a93a;
+  transition: transform 0.1s ease;
+}
+
+.bouton:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #e0a93a;
+}
+
+.bouton.discret {
+  background: transparent;
+  box-shadow: none;
+  color: #7a7599;
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+.lien-parent {
+  margin-top: 40px;
+}
+
+.barre-haut {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.profil-actif {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profil-actif .mascotte-emoji-petit {
+  font-size: 2.6rem;
+}
+
+.carte-mascotte {
+  background: #fff;
+  border-radius: 28px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.carte-mascotte .mascotte-grande {
+  font-size: 6rem;
+  display: block;
+}
+
+.mascotte-nom-palier {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--couleur-profil, #ff6b6b);
+  margin: 2px 0 10px;
+}
+
+.barre-progression {
+  width: 100%;
+  height: 16px;
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 12px 0 6px;
+}
+
+.barre-progression-remplie {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd166, #ff8fab);
+  transition: width 0.4s ease;
+}
+
+.onglets {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.onglet {
+  background: #fff;
+  border: 3px solid #eee;
+  border-radius: 16px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+}
+
+.onglet.actif {
+  border-color: #ffd166;
+  background: #fff8e7;
+}
+
+.contenu-onglet {
+  width: 100%;
+  max-width: 640px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.pin-champ {
+  font-size: 1.6rem;
+  text-align: center;
+  width: 160px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 3px solid #ddd;
+  margin: 16px 0;
+}
+
+.erreur {
+  color: #e0574c;
+  font-weight: bold;
+  min-height: 1.2em;
+}
+
+.contenu-lecon h3 {
+  color: #ff6b6b;
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+}
+
+.contenu-lecon p {
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.contenu-lecon ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+
+.contenu-lecon .note-discrete {
+  font-size: 0.9rem;
+  color: #7a7599;
+}
+
+.diagramme {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+.diagramme svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.ordre-etiquette {
+  background: #fff;
+  border: 3px solid #eee;
+  border-radius: 16px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+}
+
+.ordre-etiquette:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.ordre-sequence-item {
+  display: inline-block;
+  background: #fff8e7;
+  border: 3px solid #ffd166;
+  border-radius: 16px;
+  padding: 8px 14px;
+  margin: 4px;
+  font-weight: bold;
+}
+
+/* ---------- Animations et micro-interactions ---------- */
+
+@keyframes entreePage {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contenu-lecon {
+  animation: entreePage 0.35s ease;
+}
+
+.diagramme {
+  animation: diagrammeApparait 0.5s ease 0.1s both;
+}
+
+@keyframes diagrammeApparait {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rebond {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.06); }
+  60% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.feedback-bonne-reponse {
+  animation: rebond 0.5s ease;
+}
+
+@keyframes secousse {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+
+.feedback-mauvaise-reponse {
+  animation: secousse 0.5s ease;
+}
+
+/* Petite pluie de confettis CSS pure, déclenchée en ajoutant des <span class="confetti"> */
+.confetti-zone {
+  position: relative;
+  overflow: visible;
+  height: 0;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  opacity: 0.95;
+  animation: chuteConfetti 0.9s ease-out forwards;
+}
+
+@keyframes chuteConfetti {
+  from { transform: translateY(0) rotate(0deg); opacity: 1; }
+  to { transform: translateY(90px) rotate(220deg); opacity: 0; }
+}
+
+@keyframes popBadge {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.badge-anime {
+  animation: popBadge 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes popMascotte {
+  0% { transform: scale(0.4) rotate(-8deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(6deg); opacity: 1; }
+  75% { transform: scale(0.95) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.mascotte-anime {
+  animation: popMascotte 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.barre-progression-remplie {
+  position: relative;
+  overflow: hidden;
+}
+
+.barre-progression-remplie::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: chatoiement 1.8s ease-in-out infinite;
+}
+
+@keyframes chatoiement {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ---------- Widgets interactifs de certains diagrammes ---------- */
+
+.widget-cliquable {
+  cursor: pointer;
+}
+
+.widget-cliquable:hover {
+  filter: brightness(1.08);
+}
+
+.widget-orbite {
+  transform-origin: center;
+}
+
+.widget-fil-actif {
+  animation: filParcouru 1.2s linear infinite;
+}
+
+@keyframes filParcouru {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+.widget-ampoule-allumee {
+  animation: ampouleBrille 1s ease-in-out infinite alternate;
+}
+
+@keyframes ampouleBrille {
+  from { filter: drop-shadow(0 0 2px #ffd166); }
+  to { filter: drop-shadow(0 0 9px #ffd166); }
+}
+
+.widget-etat-groupe {
+  transition: opacity 0.4s ease;
+}
+
+.widget-timeline-point {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.widget-timeline-point:hover {
+  transform: scale(1.25);
+}
+
+@keyframes apparitionInfobulle {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.widget-infobulle-visible {
+  animation: apparitionInfobulle 0.2s ease;
+}
