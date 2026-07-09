@@ -29,6 +29,15 @@ h1 {
   margin: 8px 0 4px;
 }
 
+.titre-accueil {
+  animation: titreEntree 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes titreEntree {
+  from { opacity: 0; transform: translateY(-16px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .sous-titre {
   font-size: 1.1rem;
   color: #5b5680;
@@ -36,11 +45,50 @@ h1 {
   text-align: center;
 }
 
+#screen-login {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#screen-login::before,
+#screen-login::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: -1;
+  animation: deriveUnivers 9s ease-in-out infinite;
+}
+
+#screen-login::before {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 143, 171, 0.35), transparent 70%);
+  top: -60px;
+  left: -60px;
+}
+
+#screen-login::after {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(111, 207, 151, 0.35), transparent 70%);
+  bottom: -80px;
+  right: -60px;
+  animation-delay: 2s;
+}
+
+@keyframes deriveUnivers {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -16px) scale(1.08); }
+}
+
 .cartes-profils {
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
 }
 
 .carte-profil {
@@ -53,6 +101,8 @@ h1 {
   border: 5px solid transparent;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .carte-profil:hover,
@@ -65,19 +115,87 @@ h1 {
   font-size: 4.5rem;
   display: block;
   margin-bottom: 12px;
+  animation: idleFlotte 2.6s ease-in-out infinite;
+}
+
+@keyframes idleFlotte {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-4deg); }
 }
 
 .carte-profil .prenom {
   font-size: 1.4rem;
   font-weight: bold;
+  position: relative;
 }
 
 .carte-profil.adele {
   border-color: #ff8fab;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 143, 171, 0.18), transparent 20%),
+    radial-gradient(circle at 85% 20%, rgba(255, 143, 171, 0.18), transparent 20%),
+    radial-gradient(circle at 30% 85%, rgba(255, 143, 171, 0.18), transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(255, 143, 171, 0.18), transparent 20%),
+    #fff;
+}
+
+.carte-profil.adele::before {
+  content: "🐾";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.3rem;
+  opacity: 0.55;
+  animation: idleFlotte 3.2s ease-in-out infinite;
+}
+
+.carte-profil.adele::after {
+  content: "🐾";
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  font-size: 1rem;
+  opacity: 0.4;
+  animation: idleFlotte 2.4s ease-in-out infinite reverse;
 }
 
 .carte-profil.matys {
   border-color: #6fcf97;
+  background: repeating-linear-gradient(
+      135deg,
+      rgba(111, 207, 151, 0.12) 0px,
+      rgba(111, 207, 151, 0.12) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    #fff;
+}
+
+.carte-profil.matys::before {
+  content: "🍃";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 1.3rem;
+  opacity: 0.55;
+  animation: idleFlotte 3s ease-in-out infinite;
+}
+
+.carte-profil.matys::after {
+  content: "🍃";
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  font-size: 1rem;
+  opacity: 0.4;
+  animation: idleFlotte 2.7s ease-in-out infinite reverse;
+}
+
+.version-app {
+  margin-top: 28px;
+  font-size: 0.8rem;
+  color: #b0accf;
+  text-align: center;
 }
 
 .bouton {

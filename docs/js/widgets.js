@@ -98,6 +98,64 @@ function afficherInfobulleTimeline(point, texte) {
   bulleTexte.classList.add("widget-infobulle-visible");
 }
 
+function inclinerDroite(bouton) {
+  const svg = bouton.closest("svg");
+  const groupe = svg.querySelector('[data-role="droite-mobile"]');
+  const statut = svg.querySelector('[data-role="statut-angle"]');
+  const marques = svg.querySelectorAll('[data-role="angle-droit-marque"]');
+  if (!groupe) return;
+
+  let angle = parseInt(groupe.dataset.angle || "0", 10);
+  angle = (angle + 30) % 180;
+  groupe.dataset.angle = String(angle);
+  const cx = groupe.dataset.cx;
+  const cy = groupe.dataset.cy;
+  groupe.setAttribute("transform", `rotate(${angle} ${cx} ${cy})`);
+
+  const perpendiculaire = angle === 0;
+  marques.forEach((m) => (m.style.display = perpendiculaire ? "inline" : "none"));
+  if (statut) {
+    statut.textContent = perpendiculaire
+      ? "(d3) est perpendiculaire à (d1) et (d2) : angle droit !"
+      : `(d3) est inclinée de ${angle}° : ce n'est plus un angle droit.`;
+    statut.setAttribute("fill", perpendiculaire ? "#2f9e44" : "#e0574c");
+  }
+}
+
+function basculerVueMesure(bouton, mode) {
+  const svg = bouton.closest("svg");
+  const contour = svg.querySelector('[data-role="mesure-perimetre"]');
+  const remplissage = svg.querySelector('[data-role="mesure-aire"]');
+  const legende = svg.querySelector('[data-role="mesure-legende"]');
+  svg.querySelectorAll('[data-role="mesure-bouton"]').forEach((b) => {
+    b.setAttribute("fill", b.dataset.mode === mode ? "#ffd166" : "#fff8e7");
+  });
+  if (contour) contour.style.opacity = mode === "perimetre" ? "1" : "0";
+  if (remplissage) remplissage.style.opacity = mode === "aire" ? "1" : "0";
+  if (legende) {
+    legende.textContent =
+      mode === "perimetre"
+        ? "Le périmètre : la longueur du contour (les 4 côtés)"
+        : "L'aire : la surface couverte (l'intérieur)";
+  }
+}
+
+function allumerCourantWidget(bouton) {
+  const svg = bouton.closest("svg");
+  const allume = bouton.dataset.allume === "true";
+  const nouvelEtat = !allume;
+  bouton.dataset.allume = String(nouvelEtat);
+  const label = svg.querySelector('[data-role="bouton-courant-label"]');
+  if (label) label.textContent = nouvelEtat ? "Éteindre le courant" : "Allumer le courant";
+
+  svg.querySelectorAll('[data-role="cable-electrique"]').forEach((c) => c.classList.toggle("widget-fil-actif", nouvelEtat));
+  const maison = svg.querySelector('[data-role="maison-lumiere"]');
+  if (maison) {
+    maison.setAttribute("fill", nouvelEtat ? "#ffd166" : "#f0f0f0");
+    maison.classList.toggle("widget-ampoule-allumee", nouvelEtat);
+  }
+}
+
 function distribuerDivisionWidget(part) {
   const svg = part.closest("svg");
   const compteur = svg.querySelector('[data-role="compteur-parts"]');

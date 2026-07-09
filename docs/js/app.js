@@ -1,4 +1,5 @@
 const PARENT_PIN = "1234";
+const VERSION_APP = { numero: "2.2", date: "9 juillet 2026" };
 
 let etat = loadState();
 let profilActifId = null;
@@ -40,6 +41,9 @@ function afficherEcran(id) {
 }
 
 function initEcranLogin() {
+  const versionEl = document.getElementById("version-app");
+  if (versionEl) versionEl.textContent = `Version ${VERSION_APP.numero} · mise à jour du ${VERSION_APP.date}`;
+
   const conteneur = document.getElementById("cartes-profils");
   conteneur.innerHTML = "";
   ENFANTS.forEach((enfant) => {
