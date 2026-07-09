@@ -270,6 +270,43 @@ Ce module suivra le même principe pédagogique que les autres (reformulation ad
 
 ---
 
+## Mise à jour — dossier Drive « update pic CM1 » (89 photos, 2026-07-08)
+
+Un second lot de 89 photos a été déposé par le parent, apportant des **cahiers de leçons complets** (et non plus seulement des évaluations corrigées) sur plusieurs matières. C'est une avancée importante : pour l'histoire notamment, on ne disposait jusqu'ici que des évaluations finales (voir remarque en tête de document) — ce lot fournit enfin les vraies leçons derrière ces évaluations.
+
+### Histoire — quasiment tout le reste du programme CM1
+Une frise chronologique continue et très détaillée, sous forme de fiches à compléter (cartes, dates, vocabulaire) :
+- **Préhistoire approfondie** : distinction Paléolithique (Homo erectus il y a ~450 000 ans, nomade, chasseur-cueilleur, pierre taillée) / Néolithique (sédentarisation, agriculture, élevage, pierre polie, premiers villages), en plus de l'Homo sapiens et l'art rupestre déjà couverts.
+- **L'Antiquité** : les Gaulois, la Gaule romaine (déjà pressenti dans le lot precedent via une photo illisible, confirmé ici).
+- **Le Moyen Âge** : Clovis, Charlemagne, la France féodale, Saint Louis (déjà connu via évaluation, la leçon complète est maintenant disponible).
+- **La Renaissance et les Temps modernes** : François Ier, les guerres de Religion et Henri IV, Louis XIV et la monarchie absolue.
+- **La Révolution française et l'Empire** : jusqu'à 1815 (Napoléon).
+- **Prolongement pédagogique** : chronologie précise avec dates, très adaptée à un exercice de frise interactive ou de mise en ordre chronologique.
+
+### Géographie — deux nouveaux thèmes
+1. **Les paysages et les régions de France** : types de paysages (plaine, colline/plateau, montagne), types de côtes (sablonneuse/à dunes, à falaises, rocheuse), grands fleuves et massifs montagneux français, carte des 13 régions métropolitaines et leurs départements, notion de « carte d'identité » de son propre lieu de vie (commune, département, région).
+2. **Consommer en France** (thème entièrement nouveau) : cycle de production/distribution/consommation de l'énergie (fossile, nucléaire, renouvelable — éolien, solaire, hydraulique, géothermie), cycle de l'eau (captage, traitement, distribution, économies d'eau), l'alimentation (circuits courts vs grande distribution, gaspillage alimentaire, agriculture biologique).
+- Complète aussi le thème déjà connu « se loger/travailler/se cultiver » avec un 4e type de territoire : **habiter à la campagne** (en plus du littoral touristique, de la montagne et de la ville déjà couverts).
+
+### Français — un vrai module de rédaction, jusqu'ici absent
+Un cahier « Savoir faire une rédaction CM1/CM2 » structuré et progressif :
+- Présenter un texte (paragraphes, ponctuation du dialogue), écrire une lettre (en-tête, formule de politesse, structure), faire une description (choisir un sens : premier plan→arrière-plan, gauche→droite...), faire un portrait (aspect physique / caractère / comportement), construire un récit chronologique (connecteurs temporels : d'abord, ensuite, enfin...), écrire un texte documentaire.
+- **Soigner le style** : éviter les répétitions (pronoms, synonymes), enrichir les phrases, et une distinction utile **registres de langue** (familier / courant / soigné) — notion qui n'existait pas du tout dans la carte précédente.
+- En parallèle, des fiches de « dictée » avec analyse grammaticale approfondie : présent de l'indicatif des verbes du 2e et 3e groupe (au-delà du 1er groupe déjà couvert), formation du participe présent. **Point de vigilance** : une phrase d'exemple dans une dictée utilise le prénom « Léa » — comme convenu, ce prénom ne doit jamais être réutilisé comme personnage dans l'app ; toute reformulation doit changer ce prénom.
+
+### Anglais — nouveau vocabulaire et culture britannique
+- **Nationalités** : French/British/German/Spanish/Portuguese/Irish, associées aux pays d'Europe.
+- **Le verbe « can »** pour exprimer une capacité (Can you swim? / play the piano? / ride a bike? / speak French?).
+- **Les loisirs avec la forme en -ing** : I like/don't like + swimming/riding a bike/watching TV/drawing/playing tennis/running/reading/singing (prolonge le « likes/doesn't like » déjà connu avec la forme gérondive).
+- **La météo** : cloudy/snowy/windy/hot/cold/rainy/sunny, « What's the weather like? It's sunny. »
+- **Géographie du Royaume-Uni** : England/Wales/Northern Ireland/Belfast, l'English Channel.
+- **Fêtes britanniques** : Saint Patrick's Day (Ireland, shamrock, leprechaun, pot of gold) et Guy Fawkes Night / Bonfire Night (5 novembre, histoire du complot des poudres, tradition du bonhomme brûlé et du feu d'artifice) — vient enrichir le thème « civilisation anglophone » déjà entamé (USA, Royaume-Uni, Noël britannique).
+
+### Provenance et fiabilité
+Ce sont des cahiers de leçons/exercices vierges (pas des évaluations corrigées), donc pas de nom d'enfant visible sur la grande majorité des pages — à l'exception d'une phrase d'exemple dans une dictée utilisant « Léa » (voir point de vigilance ci-dessus). Contenu globalement très lisible (fiches structurées, texte imprimé). Édité par endroits par Magnard (cahier d'anglais) et un autre éditeur non identifié pour maths/français/histoire/géo (numérotation de page continue, mise en page cohérente avec le premier lot).
+
+---
+
 ## Prochaine étape
 
-Cette carte pédagogique couvre maintenant les 6 matières (français, maths, anglais, histoire, géographie, sciences), à partir de 201 photos analysées (163 + 38 anglais) et du programme officiel pour compléter les sciences niveau CM2. Elle est prête pour ta relecture finale avant de passer à la **Phase 2** (interview de spécification). Si tu repères une erreur ou un thème mal placé, dis-le-moi ; sinon on peut enchaîner directement.
+Cette carte pédagogique couvre maintenant les 6 matières (français, maths, anglais, histoire, géographie, sciences), à partir de 201 photos analysées (163 + 38 anglais) et du programme officiel pour compléter les sciences niveau CM2, complétée par un second lot de 89 photos apportant des leçons complètes d'histoire, un nouveau thème de géographie (consommer en France), un module de rédaction en français, et de nouvelles notions d'anglais (nationalités, can, météo, culture britannique). Elle est prête pour ta relecture finale avant de passer à la **Phase 2** (interview de spécification). Si tu repères une erreur ou un thème mal placé, dis-le-moi ; sinon on peut enchaîner directement.
